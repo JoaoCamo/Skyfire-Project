@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Game.Player;
 
 namespace Game.Projectiles
 {
@@ -9,10 +10,17 @@ namespace Game.Projectiles
     {
         [SerializeField] private ProjectilesReference projectilesReference;
         private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
+        private Transform playerTransform;
         
         public static Action<ProjectileType, Vector2, float, int, Quaternion> RequestBullet;
+        public static Action<ProjectileType, Vector2, float, int> RequestAimedBullet;
         public static Action RequestClearProjectiles;
-        
+
+        private void Awake()
+        {
+            playerTransform = FindObjectOfType<PlayerMovement>().transform;
+        }
+
         private void Update()
         {
             foreach (var projectile in _projectiles.Where(projectile => projectile.gameObject.activeSelf))
@@ -28,12 +36,14 @@ namespace Game.Projectiles
         private void OnEnable()
         {
             RequestBullet += FireProjectile;
+            RequestAimedBullet += FireAimedProjectile;
             RequestClearProjectiles += ClearBullets;
         }
 
         private void OnDisable()
         {
             RequestBullet -= FireProjectile;
+            RequestAimedBullet -= FireAimedProjectile;
             RequestClearProjectiles -= ClearBullets;
         }
         
@@ -41,6 +51,13 @@ namespace Game.Projectiles
         { 
             ProjectileBase projectileBase = GetProjectile(projectileType);
             projectileBase.SetProjectileData(speed,damage,originPosition,rotation);
+            projectileBase.Show();
+        }
+
+        public void FireAimedProjectile(ProjectileType projectileType, Vector2 originPosition, float speed, int damage)
+        {
+            ProjectileBase projectileBase = GetProjectile(projectileType);
+            projectileBase.SetProjectileData(speed, damage, originPosition, Quaternion.Euler(0,0, AimAtPlayer(originPosition)));
             projectileBase.Show();
         }
         
@@ -64,6 +81,12 @@ namespace Game.Projectiles
                 Destroy(projectile.gameObject);
 
             _projectiles.Clear();
+        }
+
+        private float AimAtPlayer(Vector3 originPosition)
+        {
+            Vector2 vectorToPlayer = playerTransform.position - originPosition;
+            return Mathf.Atan2(vectorToPlayer.y, vectorToPlayer.x) * Mathf.Rad2Deg - 90;
         }
     }
 }

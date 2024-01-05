@@ -13,8 +13,6 @@ namespace Game.Player
         private InputAction _moveControl;
         private Vector2 _moveInput;
 
-        public Vector2 MoveInput => this._moveInput;
-
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();

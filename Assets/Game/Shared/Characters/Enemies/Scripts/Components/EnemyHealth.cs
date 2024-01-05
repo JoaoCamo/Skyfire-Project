@@ -7,6 +7,7 @@ namespace Game.Enemy
         [SerializeField] private int health;
         [SerializeField] private GameObject[] possibleDrops;
 
+        private EnemyAttackBase _attack;
         private const int PLAYER_PROJECTILE_LAYER = 7;
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -20,8 +21,9 @@ namespace Game.Enemy
         private void ReceiveDamage()
         {
             if (--health > 0) return;
-            
-            //DropItems();
+
+            Destroy(_attack.gameObject);
+            DropItems();
             Destroy(gameObject);
         }
 
