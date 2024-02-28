@@ -1,10 +1,9 @@
-namespace Game.Enemy
+namespace Game.Danmaku
 {
     public enum EnemyAttackPatterns
     {
         SingleShot,
         RoundShot,
-        TriangleShot,
-        ProgressiveRoundShot
+        TripleShot,
     }
 }

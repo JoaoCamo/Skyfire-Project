@@ -7,8 +7,15 @@ namespace Game.Enemy
         [SerializeField] private int health;
         [SerializeField] private GameObject[] possibleDrops;
 
-        private EnemyAttackBase _attack;
+        private EnemyAttackController _attack;
+        private EnemyMovement _movement;
         private const int PLAYER_PROJECTILE_LAYER = 7;
+
+        private void Awake()
+        {
+            _attack = GetComponent<EnemyAttackController>();
+            _movement = GetComponent<EnemyMovement>();
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -22,9 +29,11 @@ namespace Game.Enemy
         {
             if (--health > 0) return;
 
-            Destroy(_attack.gameObject);
+            _attack.StopAttack();
+            _movement.StopMovement();
             DropItems();
-            Destroy(gameObject);
+
+            gameObject.SetActive(false);
         }
 
         private void DropItems()

@@ -15,6 +15,8 @@ namespace Game.Projectiles
         private int _damage;
         private Transform _selfTransform;
 
+        public float Speed {  get { return _speed; } set { _speed = value; } }
+
         protected void Awake()
         {
             _selfTransform = this.transform;
@@ -59,11 +61,6 @@ namespace Game.Projectiles
             _selfTransform.rotation = rotation;
             _speed = speed;
             _damage = damage;
-        }
-
-        public void SetSpeed(float speed)
-        {
-            this._speed = speed;
         }
     }
 }

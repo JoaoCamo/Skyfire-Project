@@ -2,14 +2,13 @@ using System.Collections;
 using UnityEngine;
 using Game.Projectiles;
 
-namespace Game.Enemy.Attack
+namespace Game.Danmaku
 {
     public class RoundShot : EnemyAttackBase
     {
-        private WaitForSeconds _delay = new WaitForSeconds(1.25f);
-
-        protected override IEnumerator Shoot()
+        public override IEnumerator Shoot()
         {
+            WaitForSeconds delay = new WaitForSeconds(shotDelay);
             float angle;
             float speed;
 
@@ -17,7 +16,7 @@ namespace Game.Enemy.Attack
             {
                 while (true)
                 {
-                    angle = 0;
+                    angle = EnemyProjectileManager.AimAtPlayer(transform.position);
 
                     for (int i = 0; i < 16; i++)
                     {
@@ -25,20 +24,20 @@ namespace Game.Enemy.Attack
 
                         for (int j = 0; j < timesToShoot; j++)
                         {
-                            EnemyProjectileManager.RequestBullet?.Invoke(projectileType, transform.position, speed, 1, Quaternion.Euler(0, 0, angle));
+                            EnemyProjectileManager.RequestBullet?.Invoke(projectileType, transform.position, speed, 1, angle);
                             speed -= 0.1f;
                         }
                         angle += 360f / 16f;
                     }
 
-                    yield return _delay;
+                    yield return delay;
                 }
             }
             else
             {
                 for (int i = 0; i < timesToLoop; i++)
                 {
-                    angle = 0;
+                    angle = EnemyProjectileManager.AimAtPlayer(transform.position);
 
                     for (int j = 0; j < 16; j++)
                     {
@@ -46,14 +45,14 @@ namespace Game.Enemy.Attack
 
                         for (int z = 0; z < timesToShoot; z++)
                         {
-                            EnemyProjectileManager.RequestBullet?.Invoke(projectileType, transform.position, speed, 1, Quaternion.Euler(0, 0, angle));
+                            EnemyProjectileManager.RequestBullet?.Invoke(projectileType, transform.position, speed, 1, angle);
                             speed -= 0.1f;
                         }
 
                         angle += 360f / 16f;
                     }
 
-                    yield return _delay;
+                    yield return delay;
                 }
             }
         }
