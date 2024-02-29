@@ -5,7 +5,9 @@ namespace Game.Enemy
     public class EnemyHealth : MonoBehaviour
     {
         [SerializeField] private int health;
-        [SerializeField] private GameObject[] possibleDrops;
+        [SerializeField] private PossibleDrops[] possibleDrops;
+
+        private int _currentHealth;
 
         private EnemyAttackController _attack;
         private EnemyMovement _movement;
@@ -15,6 +17,14 @@ namespace Game.Enemy
         {
             _attack = GetComponent<EnemyAttackController>();
             _movement = GetComponent<EnemyMovement>();
+
+            ResetHealth();
+        }
+
+        private void OnDisable()
+        {
+            _attack.StopAttack();
+            _movement.StopMovement();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -27,12 +37,9 @@ namespace Game.Enemy
 
         private void ReceiveDamage()
         {
-            if (--health > 0) return;
+            if (--_currentHealth > 0) return;
 
-            _attack.StopAttack();
-            _movement.StopMovement();
             DropItems();
-
             gameObject.SetActive(false);
         }
 
@@ -43,5 +50,17 @@ namespace Game.Enemy
             //    
             //}
         }
+
+        public void ResetHealth()
+        {
+            _currentHealth = health;
+        }
+    }
+
+    [System.Serializable]
+    public struct PossibleDrops
+    {
+        //public DropType dropType;
+        public float dropChance;
     }
 }

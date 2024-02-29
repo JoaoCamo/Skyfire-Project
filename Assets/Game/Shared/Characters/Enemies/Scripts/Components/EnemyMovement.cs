@@ -5,8 +5,8 @@ namespace Game.Enemy
 {
     public class EnemyMovement : MonoBehaviour
     {
-        private float[] xSpawnPosition = {-1.425f, 0.7f};
-        private float[] ySpawnPosition = {0.7f, 0.45f, 0.2f};
+        private readonly float[] xSpawnPosition = {-1.425f, -0.825f, -0.35f, 0.125f, 0.7f};
+        private readonly float[] ySpawnPosition = {1.1f, 0.8f, 0.45f, 0.2f};
 
         private Vector2 movementDirection = Vector2.zero;
         private float speed = 0;

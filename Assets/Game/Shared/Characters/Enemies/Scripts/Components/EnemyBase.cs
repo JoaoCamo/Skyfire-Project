@@ -21,9 +21,14 @@ namespace Game.Enemy
 
         public void SetEnemy(EnemyAttackInfo enemyAttackInfo, EnemyMovementInfo enemyMovementInfo, EnemyInitialPosition enemyInitialPosition)
         {
-            attackController.SetAttack(enemyAttackInfo);
+            if(!gameObject.activeSelf)
+                gameObject.SetActive(true);
+
+            health.ResetHealth();
             movement.SetPosition(enemyInitialPosition);
             movement.SetMovement(enemyMovementInfo);
+            attackController.SetAttack(enemyAttackInfo);
+
         }
 
         public void UpdatePosition()

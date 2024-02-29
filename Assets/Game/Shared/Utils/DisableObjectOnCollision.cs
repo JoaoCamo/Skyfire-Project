@@ -8,5 +8,10 @@ namespace Game.Utils
         {
             other.gameObject.SetActive(false);
         }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }

@@ -12,4 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69afce7fd2524b948a9064425bfe410c, type: 3}
   m_Name: EnemyWavesNormal
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - enemyType: 0
+    initialPosition:
+      enemyInitialPositionX: 0
+      enemyInitialPositionY: 2
+    movementInfo:
+      movementDirection: {x: 1, y: 0}
+      speed: 0.6
+      movementChangeInfo:
+      - changeDelay: 2
+        movementDirection: {x: 0.5, y: 0}
+    enemyAmount: 8
+    enemySpawnDelay: 2
+    waveInitialDelay: 2
+    isAsyncWave: 1
+    attackInfo:
+      attackPattern: 0
+      projectileType: 0
+      isInfiniteLoop: 0
+      timesToLoop: 3
+      timesToShoot: 3
+      shotDelay: 2.5
+  - enemyType: 0
+    initialPosition:
+      enemyInitialPositionX: 3
+      enemyInitialPositionY: 0
+    movementInfo:
+      movementDirection: {x: 0, y: -1}
+      speed: 0.3
+      movementChangeInfo:
+      - changeDelay: 2
+        movementDirection: {x: -0.1, y: -0.1}
+      - changeDelay: 0.75
+        movementDirection: {x: -1, y: 0}
+    enemyAmount: 8
+    enemySpawnDelay: 2
+    waveInitialDelay: 5
+    isAsyncWave: 0
+    attackInfo:
+      attackPattern: 2
+      projectileType: 0
+      isInfiniteLoop: 0
+      timesToLoop: 5
+      timesToShoot: 3
+      shotDelay: 4
