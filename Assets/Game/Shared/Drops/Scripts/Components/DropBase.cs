@@ -6,6 +6,8 @@ namespace Game.Drop
     {
         [SerializeField] private DropType dropType;
         private bool _canGoToPlayer = false;
+        protected const int PLAYER_LAYER = 6;
+        protected const int PLAYER_COLLECT_LAYER = 11;
 
         public bool CanGoToPlayer => _canGoToPlayer;
         public DropType DropType => dropType;
@@ -14,6 +16,9 @@ namespace Game.Drop
 
         protected void GoToPlayer()
         {
+            if (_canGoToPlayer)
+                return;
+
             _canGoToPlayer = true;
         }
 

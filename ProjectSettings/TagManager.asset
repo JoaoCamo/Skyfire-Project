@@ -16,7 +16,7 @@ TagManager:
   - Enemy
   - EnemyBullet
   - CollideDisable
-  - 
+  - PlayerCollectDrop
   - 
   - 
   - 
