@@ -7,11 +7,17 @@ namespace Game.Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float baseMoveSpeed;
-        
+        [SerializeField] private GameObject focusCollectArea;
+        [SerializeField] private GameObject hitBoxSprite;
+
+        private float _moveSpeed;
         private Rigidbody2D _rigidbody2D;
         private PlayerControls _playerControls;
         private InputAction _moveControl;
+        private InputAction _focusControl;
         private Vector2 _moveInput;
+
+        public static Transform PlayerTransform;
 
         private void Awake()
         {
@@ -19,16 +25,25 @@ namespace Game.Player
             
             _playerControls = new PlayerControls();
             _moveControl = _playerControls.Player.Move;
+            _focusControl = _playerControls.Player.Focus;
+
+            _focusControl.performed += ToggleFocusOn;
+            _focusControl.canceled += ToggleFocusOff;
+
+            _moveSpeed = baseMoveSpeed;
+            PlayerTransform = transform;
         }
 
         private void OnEnable()
         {
             _moveControl.Enable();
+            _focusControl.Enable();
         }
 
         private void OnDisable()
         {
             _moveControl.Disable();
+            _focusControl.Disable();
         }
 
         private void Update()
@@ -38,7 +53,21 @@ namespace Game.Player
 
         private void FixedUpdate()
         {
-            _rigidbody2D.velocity = _moveInput * (baseMoveSpeed);
+            _rigidbody2D.velocity = _moveInput * _moveSpeed;
+        }
+
+        private void ToggleFocusOn(InputAction.CallbackContext context)
+        {
+            hitBoxSprite.SetActive(true);
+            focusCollectArea.SetActive(true);
+            _moveSpeed = baseMoveSpeed / 2f;
+        }
+        
+        private void ToggleFocusOff(InputAction.CallbackContext context)
+        {
+            focusCollectArea.SetActive(false);
+            hitBoxSprite.SetActive(false);
+            _moveSpeed = baseMoveSpeed;
         }
     }
 }

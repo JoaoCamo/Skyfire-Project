@@ -1,32 +1,41 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Game.Enemy
 {
     public class EnemyMovement : MonoBehaviour
     {
-        private readonly float[] xSpawnPosition = {-1.425f, -0.825f, -0.35f, 0.125f, 0.7f};
-        private readonly float[] ySpawnPosition = {1.1f, 0.8f, 0.45f, 0.2f};
+        private readonly float[] _xSpawnPosition = {-1.425f, -0.825f, -0.35f, 0.125f, 0.7f};
+        private readonly float[] _ySpawnPosition = {1.1f, 0.8f, 0.45f, 0.2f};
 
-        private Vector2 movementDirection = Vector2.zero;
-        private float speed = 0;
+        private Rigidbody2D _rigidbody2D;
+        private float _xDirection = 0;
+        private float _yDirection = 0;
+        private float _speed = 0;
 
         private Coroutine _movementChangeCoroutine;
 
+        private void Awake()
+        {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
         public void UpdatePosition()
         {
-            transform.Translate(movementDirection * speed * Time.deltaTime);
+            _rigidbody2D.velocity = new Vector2(_xDirection, _yDirection) * _speed;
         }
 
         public void SetPosition(EnemyInitialPosition enemyInitialPosition)
         {
-            transform.position = new Vector2(xSpawnPosition[(int)enemyInitialPosition.enemyInitialPositionX], ySpawnPosition[(int)enemyInitialPosition.enemyInitialPositionY]);
+            transform.position = new Vector2(_xSpawnPosition[(int)enemyInitialPosition.enemyInitialPositionX], _ySpawnPosition[(int)enemyInitialPosition.enemyInitialPositionY]);
         }
 
         public void SetMovement(EnemyMovementInfo enemyMovementInfo)
         {
-            this.movementDirection = enemyMovementInfo.movementDirection;
-            this.speed = enemyMovementInfo.speed;
+            this._xDirection = enemyMovementInfo.movementDirection.x;
+            this._yDirection = enemyMovementInfo.movementDirection.y;
+            this._speed = enemyMovementInfo.speed;
 
             if (enemyMovementInfo.movementChangeInfo.Length > 0)
             {
@@ -48,8 +57,9 @@ namespace Game.Enemy
                 _movementChangeCoroutine = null;
             }
 
-            movementDirection = Vector2.zero;
-            speed = 0;
+            _xDirection = 0;
+            _yDirection = 0;
+            _speed = 0;
         }
 
         private IEnumerator MovementChangeCoroutine(EnemyMovementInfo enemyMovementInfo)
@@ -57,7 +67,8 @@ namespace Game.Enemy
             foreach (MovementChangeInfo movementChangeInfo in enemyMovementInfo.movementChangeInfo)
             {
                 yield return new WaitForSeconds(movementChangeInfo.changeDelay);
-                movementDirection = movementChangeInfo.movementDirection;
+                DOTween.To(() => _xDirection, x => _xDirection = x, movementChangeInfo.movementDirection.x, 0.75f).SetEase(Ease.Linear);
+                DOTween.To(() => _yDirection, x => _yDirection = x, movementChangeInfo.movementDirection.y, 0.75f).SetEase(Ease.Linear);
             }
         }
     }

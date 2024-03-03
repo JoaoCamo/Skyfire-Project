@@ -12,13 +12,13 @@ TagManager:
   - Water
   - UI
   - Player
-  - Bullet
+  - PlayerBullet
   - Enemy
   - EnemyBullet
   - CollideDisable
   - PlayerCollectDrop
-  - 
-  - 
+  - Drop
+  - PlayerBomb
   - 
   - 
   - 
@@ -41,11 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Bullet
-    uniqueID: 3312011681
+  - name: Drop
+    uniqueID: 2455920163
     locked: 0
   - name: Enemy
     uniqueID: 4272975351
+    locked: 0
+  - name: Bullet
+    uniqueID: 3312011681
     locked: 0
   - name: Player
     uniqueID: 2321427503

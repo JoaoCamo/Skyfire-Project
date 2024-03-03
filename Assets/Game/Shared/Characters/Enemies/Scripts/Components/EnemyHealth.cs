@@ -1,4 +1,6 @@
 using UnityEngine;
+using Game.Drop;
+using Game.Static.Events;
 
 namespace Game.Enemy
 {
@@ -8,10 +10,12 @@ namespace Game.Enemy
         [SerializeField] private PossibleDrops[] possibleDrops;
 
         private int _currentHealth;
+        private bool _hasDroppedItems = false;
 
         private EnemyAttackController _attack;
         private EnemyMovement _movement;
         private const int PLAYER_PROJECTILE_LAYER = 7;
+        private const int PLAYER_BOMB_LAYER = 13;
 
         private void Awake()
         {
@@ -29,38 +33,53 @@ namespace Game.Enemy
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.layer != PLAYER_PROJECTILE_LAYER) return;
+            if (other.gameObject.layer != PLAYER_PROJECTILE_LAYER && other.gameObject.layer != PLAYER_BOMB_LAYER) return;
             
-            ReceiveDamage();
-            other.gameObject.SetActive(false);
+            ReceiveDamage(other.gameObject.layer == PLAYER_PROJECTILE_LAYER ? 1 : 20);
+            
+            if(other.gameObject.layer == PLAYER_PROJECTILE_LAYER)
+                other.gameObject.SetActive(false);
         }
 
-        private void ReceiveDamage()
+        private void ReceiveDamage(int damage)
         {
-            if (--_currentHealth > 0) return;
-
+            _currentHealth -= damage;
+            if (_currentHealth > 0) return;
+            
+            GameEvents.OnPointsValueChange?.Invoke(10);
             DropItems();
             gameObject.SetActive(false);
         }
 
         private void DropItems()
         {
-            //foreach (DropBase drop in possibleDrops)
-            //{
-            //    
-            //}
+            if (_hasDroppedItems)
+                    return;
+
+            _hasDroppedItems = true;
+            
+            foreach (PossibleDrops possibleDrop in possibleDrops)
+            {
+                if (!(Random.value <= possibleDrop.dropChance)) continue;
+                
+                var originPosition = transform.position;
+                float xPosition = originPosition.x + Random.Range(-0.1f, 0.1f);
+                float yPosition = originPosition.y + Random.Range(-0.1f, 0.1f);
+                DropManager.RequestDrop?.Invoke(possibleDrop.dropType, new Vector3(xPosition,yPosition));
+            }
         }
 
         public void ResetHealth()
         {
             _currentHealth = health;
+            _hasDroppedItems = false;
         }
     }
 
     [System.Serializable]
     public struct PossibleDrops
     {
-        //public DropType dropType;
+        public DropType dropType;
         public float dropChance;
     }
 }

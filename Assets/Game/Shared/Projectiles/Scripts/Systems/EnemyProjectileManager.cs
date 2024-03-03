@@ -12,7 +12,7 @@ namespace Game.Projectiles
         private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
         private static Transform playerTransform;
         
-        public static Action<ProjectileType, Vector2, float, int, float> RequestBullet;
+        public static Action<ProjectileType, Vector2, float, float> RequestBullet;
         public static Action RequestClearProjectiles;
 
         private void Awake()
@@ -44,10 +44,10 @@ namespace Game.Projectiles
             RequestClearProjectiles -= ClearBullets;
         }
         
-        public void FireProjectile(ProjectileType projectileType, Vector2 originPosition, float speed, int damage, float rotation)
+        public void FireProjectile(ProjectileType projectileType, Vector2 originPosition, float speed, float rotation)
         { 
             ProjectileBase projectileBase = GetProjectile(projectileType);
-            projectileBase.SetProjectileData(speed,damage,originPosition,Quaternion.Euler(0,0,rotation));
+            projectileBase.SetProjectileData(speed,originPosition,Quaternion.Euler(0,0,rotation));
             projectileBase.Show();
         }
         

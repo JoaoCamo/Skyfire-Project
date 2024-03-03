@@ -1,4 +1,5 @@
 using Game.Enemy;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyMovementController : MonoBehaviour
@@ -12,10 +13,9 @@ public class EnemyMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        foreach (EnemyBase enemyBase in _enemySpawner.EnemyBases)
+        foreach (EnemyBase enemyBase in _enemySpawner.EnemyBases.Where(enemyBase => enemyBase.gameObject.activeSelf))
         {
-            if(enemyBase.gameObject.activeSelf)
-                enemyBase.UpdatePosition();
+            enemyBase.UpdatePosition();
         }
     }
 }

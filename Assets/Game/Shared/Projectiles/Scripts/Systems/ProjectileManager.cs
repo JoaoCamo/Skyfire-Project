@@ -21,10 +21,10 @@ namespace Game.Projectiles
                 projectile.CompleteJob();
         }
 
-        public void FireProjectile(ProjectileType projectileType, Vector2 originPosition, float speed, int damage, Quaternion rotation)
+        public void FireProjectile(ProjectileType projectileType, Vector2 originPosition, float speed, Quaternion rotation)
         { 
             ProjectileBase projectileBase = GetProjectile(projectileType);
-            projectileBase.SetProjectileData(speed,damage,originPosition,rotation);
+            projectileBase.SetProjectileData(speed,originPosition,rotation);
             projectileBase.Show();
         }
         

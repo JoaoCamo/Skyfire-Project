@@ -12,10 +12,9 @@ namespace Game.Projectiles
         private JobHandle _jobHandle;
         private NativeArray<Vector2> _positionResult;
         private float _speed;
-        private int _damage;
         private Transform _selfTransform;
 
-        public float Speed {  get { return _speed; } set { _speed = value; } }
+        public float Speed {  get => _speed; set => _speed = value; }
 
         protected void Awake()
         {
@@ -54,13 +53,12 @@ namespace Game.Projectiles
             _positionResult = new NativeArray<Vector2>(1, Allocator.Persistent);
         }
         
-        public void SetProjectileData(float speed, int damage, Vector2 originPosition, Quaternion rotation)
+        public void SetProjectileData(float speed, Vector2 originPosition, Quaternion rotation)
         {
             _positionResult[0] = originPosition;
             _selfTransform.position = _positionResult[0];
             _selfTransform.rotation = rotation;
             _speed = speed;
-            _damage = damage;
         }
     }
 }

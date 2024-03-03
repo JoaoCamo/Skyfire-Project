@@ -1,5 +1,6 @@
-using Game.Player;
 using UnityEngine;
+using Game.Player;
+using Game.Static.Events;
 
 namespace Game.Drop
 {
@@ -9,16 +10,22 @@ namespace Game.Drop
 
         protected override void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.layer == PLAYER_COLLECT_LAYER)
-                GoToPlayer();
-            else if (collision.gameObject.layer == PLAYER_LAYER)
-                OnCollect();
+            switch (collision.gameObject.layer)
+            {
+                case PLAYER_COLLECT_LAYER:
+                    _canGoToPlayer = true;
+                    break;
+                case PLAYER_LAYER:
+                    OnCollect();
+                    break;
+            }
         }
 
         protected override void OnCollect()
         {
             base.OnCollect();
             PlayerAttack.RequestPowerValueChange?.Invoke(powerValue);
+            GameEvents.OnPointsValueChange?.Invoke(dropPointsValue);
 
             gameObject.SetActive(false);
         }
