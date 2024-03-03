@@ -11,6 +11,8 @@ namespace Game.Danmaku
         public bool isInfiniteLoop;
         public int timesToLoop;
         public int timesToShoot;
+        public float shotSpeed;
         public float shotDelay;
+        public float shotStartDelay;
     }
 }

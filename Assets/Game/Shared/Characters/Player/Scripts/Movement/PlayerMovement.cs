@@ -9,14 +9,16 @@ namespace Game.Player
         [SerializeField] private float baseMoveSpeed;
         [SerializeField] private GameObject focusCollectArea;
         [SerializeField] private GameObject hitBoxSprite;
-
+        
         private float _moveSpeed;
+        private float _speedMultiplayer = 1;
         private Rigidbody2D _rigidbody2D;
         private PlayerControls _playerControls;
         private InputAction _moveControl;
         private InputAction _focusControl;
         private Vector2 _moveInput;
-
+        
+        public float SpeedMultiplayer { get => _speedMultiplayer; set => _speedMultiplayer = value; }
         public static Transform PlayerTransform;
 
         private void Awake()
@@ -53,7 +55,7 @@ namespace Game.Player
 
         private void FixedUpdate()
         {
-            _rigidbody2D.velocity = _moveInput * _moveSpeed;
+            _rigidbody2D.velocity = _moveInput * (_moveSpeed * _speedMultiplayer);
         }
 
         private void ToggleFocusOn(InputAction.CallbackContext context)

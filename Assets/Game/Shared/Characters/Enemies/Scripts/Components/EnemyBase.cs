@@ -19,12 +19,12 @@ namespace Game.Enemy
             attackController = GetComponent<EnemyAttackController>();
         }
 
-        public void SetEnemy(EnemyAttackInfo enemyAttackInfo, EnemyMovementInfo enemyMovementInfo, EnemyInitialPosition enemyInitialPosition)
+        public void SetEnemy(EnemyAttackInfo enemyAttackInfo, EnemyMovementInfo enemyMovementInfo, EnemyInitialPosition enemyInitialPosition, int enemyHealth)
         {
             if(!gameObject.activeSelf)
                 gameObject.SetActive(true);
 
-            health.ResetHealth();
+            health.ResetHealth(enemyHealth);
             movement.SetPosition(enemyInitialPosition);
             movement.SetMovement(enemyMovementInfo);
             attackController.SetAttack(enemyAttackInfo);

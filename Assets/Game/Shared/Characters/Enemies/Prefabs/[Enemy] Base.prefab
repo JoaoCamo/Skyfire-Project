@@ -209,16 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079d4715f4ad86d4db324897c0c66a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 2
   possibleDrops:
   - dropType: 0
     dropChance: 1
   - dropType: 3
-    dropChance: 1
-  - dropType: 3
-    dropChance: 1
-  - dropType: 1
-    dropChance: 1
+    dropChance: 0.25
 --- !u!114 &1517316070270187177
 MonoBehaviour:
   m_ObjectHideFlags: 0

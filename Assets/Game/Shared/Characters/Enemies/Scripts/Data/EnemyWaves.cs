@@ -15,6 +15,7 @@ namespace Game.Enemy
         public EnemyType enemyType;
         public EnemyInitialPosition initialPosition;
         public EnemyMovementInfo movementInfo;
+        public int enemyHealth;
         public int enemyAmount;
         public float enemySpawnDelay;
         public float waveInitialDelay;

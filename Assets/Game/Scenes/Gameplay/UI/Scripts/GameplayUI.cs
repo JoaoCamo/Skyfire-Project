@@ -13,6 +13,8 @@ namespace Game.UI
         [SerializeField] private TextMeshProUGUI powerValueText;
         [SerializeField] private Image[] heartImages;
         [SerializeField] private Sprite[] heartSprites;
+        [SerializeField] private Image[] bombImages;
+        [SerializeField] private Sprite[] bombSprites;
 
         private float _highScore = 0;
         private float _currentScore = 0;
@@ -21,7 +23,6 @@ namespace Game.UI
         private void Awake()
         {
             GetHighScore();
-            UpdateLives(2);
         }
 
         private void OnEnable()
@@ -29,6 +30,7 @@ namespace Game.UI
             GameEvents.OnPointsValueChange += UpdateScore;
             GameEvents.OnPowerValueChange += UpdatePowerText;
             GameEvents.OnHealthValueChange += UpdateLives;
+            GameEvents.OnBombValueChange += UpdateBombs;
         }
 
         private void OnDisable()
@@ -36,6 +38,7 @@ namespace Game.UI
             GameEvents.OnPointsValueChange -= UpdateScore;
             GameEvents.OnPowerValueChange -= UpdatePowerText;
             GameEvents.OnHealthValueChange -= UpdateLives;
+            GameEvents.OnBombValueChange -= UpdateBombs;
         }
 
         private void UpdateScore(int valueToAdd)
@@ -66,6 +69,12 @@ namespace Game.UI
         {
             for (int i = 0; i < heartImages.Length; i++)
                 heartImages[i].sprite = i < currentValue ? heartSprites[0] : heartSprites[1];
+        }
+
+        private void UpdateBombs(int currentValue)
+        {
+            for (int i = 0; i < bombImages.Length; i++)
+                bombImages[i].sprite = i < currentValue ? bombSprites[0] : bombSprites[1];
         }
 
         private void GetHighScore()

@@ -20,7 +20,7 @@ namespace Game.Danmaku
                     
                     for(int i = 0; i < 3; i++)
                     {
-                        speed = 1;
+                        speed = shotSpeed;
 
                         for (int j = 0; j < timesToShoot; j++)
                         {
@@ -42,7 +42,7 @@ namespace Game.Danmaku
 
                     for (int j = 0; j < 3; j++)
                     {
-                        speed = 1;
+                        speed = shotSpeed;
 
                         for (int k = 0; k < timesToShoot; k++)
                         {

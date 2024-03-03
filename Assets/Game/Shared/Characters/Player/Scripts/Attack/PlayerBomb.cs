@@ -9,20 +9,36 @@ namespace Game.Player
         [SerializeField] private Transform[] bombBlastTransforms;
         [SerializeField] private SpriteRenderer[] bombSpriteRenderers;
 
+        private readonly WaitForSeconds _bombPhaseOneDelay = new WaitForSeconds(1);
+        private readonly WaitForSeconds _bombPhaseTwoDelay = new WaitForSeconds(4.75f);
+        private readonly WaitForSeconds _bombFadeDelay = new WaitForSeconds(0.5f);
+
         private void Start()
         {
-            StartCoroutine(BombCoroutine());
+            StartCoroutine(BombPhaseOne());
         }
 
-        private IEnumerator BombCoroutine()
+        private IEnumerator BombPhaseOne()
+        {
+            foreach (Transform bombBlastTransform in bombBlastTransforms)
+            {
+                bombBlastTransform.DOScale(0.2f, 1).SetEase(Ease.Linear);
+            }
+
+            yield return _bombPhaseOneDelay;
+
+            StartCoroutine(BombPhaseTwo());
+        }
+
+        private IEnumerator BombPhaseTwo()
         {
             foreach (Transform bombBlastTransform in bombBlastTransforms)
             {
                 bombBlastTransform.DOScale(1.5f, 5).SetEase(Ease.InOutElastic);
             }
 
-            yield return new WaitForSeconds(4.75f);
-            
+            yield return _bombPhaseTwoDelay;
+
             foreach (SpriteRenderer spriteRenderer in bombSpriteRenderers)
             {
                 Color initialColor = spriteRenderer.color;
@@ -30,7 +46,7 @@ namespace Game.Player
                 spriteRenderer.DOColor(newColor, 0.5f);
             }
             
-            yield return new WaitForSeconds(0.5f);
+            yield return _bombFadeDelay;
             
             Destroy(this.gameObject);
         }

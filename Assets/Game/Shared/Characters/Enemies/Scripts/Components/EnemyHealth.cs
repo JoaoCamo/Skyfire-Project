@@ -6,10 +6,9 @@ namespace Game.Enemy
 {
     public class EnemyHealth : MonoBehaviour
     {
-        [SerializeField] private int health;
         [SerializeField] private PossibleDrops[] possibleDrops;
-
-        private int _currentHealth;
+        
+        private int _health;
         private bool _hasDroppedItems = false;
 
         private EnemyAttackController _attack;
@@ -21,8 +20,6 @@ namespace Game.Enemy
         {
             _attack = GetComponent<EnemyAttackController>();
             _movement = GetComponent<EnemyMovement>();
-
-            ResetHealth();
         }
 
         private void OnDisable()
@@ -43,8 +40,8 @@ namespace Game.Enemy
 
         private void ReceiveDamage(int damage)
         {
-            _currentHealth -= damage;
-            if (_currentHealth > 0) return;
+            _health -= damage;
+            if (_health > 0) return;
             
             GameEvents.OnPointsValueChange?.Invoke(10);
             DropItems();
@@ -69,9 +66,9 @@ namespace Game.Enemy
             }
         }
 
-        public void ResetHealth()
+        public void ResetHealth(int newHealthValue)
         {
-            _currentHealth = health;
+            _health = newHealthValue;
             _hasDroppedItems = false;
         }
     }

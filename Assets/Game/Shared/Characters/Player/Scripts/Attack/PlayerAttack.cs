@@ -27,12 +27,16 @@ namespace Game.Player
 
         private const float MAX_POWER_VALUE = 4;
         private const float MIN_POWER_VALUE = 0;
+        private const int MAX_BOMBS = 8;
 
         private float _currentPower = 0;
         private int _powerLevel = 0;
+        private int _currentBombs = 3;
         private bool _canShoot = false;
         private bool _canBomb = true;
 
+        public int CurrentBombs { get => _currentBombs; set => _currentBombs = value; }
+        
         public static Action<float> RequestPowerValueChange { private set; get; }
 
         private void Awake()
@@ -47,6 +51,8 @@ namespace Game.Player
             _shootInput.canceled += StopShot;
 
             _bombInput.performed += UseBomb;
+            
+            GameEvents.OnBombValueChange?.Invoke(_currentBombs);
         }
 
         private void OnEnable()
@@ -65,11 +71,12 @@ namespace Game.Player
 
         private void UseBomb(InputAction.CallbackContext callbackContext)
         {
-            if (_powerLevel < 1 || !_canBomb) return;
+            if (_currentBombs == 0 || !_canBomb) return;
 
             Instantiate(playerBombPrefab, transform.position, quaternion.identity);
-            ChangePowerValue(-1);
-
+            _currentBombs--;
+            
+            GameEvents.OnBombValueChange?.Invoke(_currentBombs);
             StartCoroutine(BombCooldown());
         }
 

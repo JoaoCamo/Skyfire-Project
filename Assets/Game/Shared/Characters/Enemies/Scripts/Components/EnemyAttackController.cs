@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Game.Danmaku;
 
@@ -15,16 +16,18 @@ namespace Game.Enemy
             _attackBase = Instantiate(attackReference.GetAttack(attackInfo.attackPattern), transform).GetComponent<EnemyAttackBase>();
             _attackBase.SetShot(attackInfo);
 
-            StartAttack();
+            StartCoroutine(StartAttack(attackInfo.shotStartDelay));
         }
 
-        public void StartAttack()
+        private IEnumerator StartAttack(float delay)
         {
             if(_attackCoroutine != null)
             {
                 StopCoroutine(_attackCoroutine);
                 _attackCoroutine = null;
             }
+
+            yield return new WaitForSeconds(delay);
 
             _attackCoroutine = StartCoroutine(_attackBase.Shoot());
         }
