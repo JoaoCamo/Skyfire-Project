@@ -6,27 +6,13 @@ namespace Game.Enemy
 {
     public class EnemyHealth : MonoBehaviour
     {
-        [SerializeField] private PossibleDrops[] possibleDrops;
-        
         private int _health;
         private bool _hasDroppedItems = false;
 
-        private EnemyAttackController _attack;
-        private EnemyMovement _movement;
+        private PossibleDrops[] _possibleDrops;
+
         private const int PLAYER_PROJECTILE_LAYER = 7;
         private const int PLAYER_BOMB_LAYER = 13;
-
-        private void Awake()
-        {
-            _attack = GetComponent<EnemyAttackController>();
-            _movement = GetComponent<EnemyMovement>();
-        }
-
-        private void OnDisable()
-        {
-            _attack.StopAttack();
-            _movement.StopMovement();
-        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -55,7 +41,7 @@ namespace Game.Enemy
 
             _hasDroppedItems = true;
             
-            foreach (PossibleDrops possibleDrop in possibleDrops)
+            foreach (PossibleDrops possibleDrop in _possibleDrops)
             {
                 if (!(Random.value <= possibleDrop.dropChance)) continue;
                 
@@ -66,17 +52,11 @@ namespace Game.Enemy
             }
         }
 
-        public void ResetHealth(int newHealthValue)
+        public void SetHealth(int newHealthValue, PossibleDrops[] possibleDrops)
         {
             _health = newHealthValue;
+            _possibleDrops = possibleDrops;
             _hasDroppedItems = false;
         }
-    }
-
-    [System.Serializable]
-    public struct PossibleDrops
-    {
-        public DropType dropType;
-        public float dropChance;
     }
 }

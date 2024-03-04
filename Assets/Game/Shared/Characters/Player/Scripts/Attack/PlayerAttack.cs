@@ -35,8 +35,7 @@ namespace Game.Player
         private bool _canShoot = false;
         private bool _canBomb = true;
 
-        public int CurrentBombs { get => _currentBombs; set => _currentBombs = value; }
-        
+        public static Action<int, bool> RequestNewBomb { private set; get; }
         public static Action<float> RequestPowerValueChange { private set; get; }
 
         private void Awake()
@@ -60,6 +59,7 @@ namespace Game.Player
             _shootInput.Enable();
             _bombInput.Enable();
             RequestPowerValueChange += ChangePowerValue;
+            RequestNewBomb += AddBomb;
         }
 
         private void OnDisable()
@@ -67,6 +67,7 @@ namespace Game.Player
             _shootInput.Disable();
             _bombInput.Disable();
             RequestPowerValueChange -= ChangePowerValue;
+            RequestNewBomb -= AddBomb;
         }
 
         private void UseBomb(InputAction.CallbackContext callbackContext)
@@ -85,6 +86,25 @@ namespace Game.Player
             _canBomb = false;
             yield return _bombCooldown;
             _canBomb = true;
+        }
+
+        private void AddBomb(int valueToAdd, bool isReplace)
+        {
+            if (isReplace)
+            {
+                _currentBombs = valueToAdd;
+                GameEvents.OnBombValueChange(_currentBombs);
+                return;
+            }
+
+            if (_currentBombs + valueToAdd > MAX_BOMBS)
+            {
+                _currentBombs = MAX_BOMBS;
+                return;
+            }
+
+            _currentBombs += valueToAdd;
+            GameEvents.OnBombValueChange(_currentBombs);
         }
 
         private void StartShot(InputAction.CallbackContext callbackContext)

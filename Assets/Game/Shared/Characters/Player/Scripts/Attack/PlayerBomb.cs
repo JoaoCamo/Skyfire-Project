@@ -10,7 +10,7 @@ namespace Game.Player
         [SerializeField] private SpriteRenderer[] bombSpriteRenderers;
 
         private readonly WaitForSeconds _bombPhaseOneDelay = new WaitForSeconds(1);
-        private readonly WaitForSeconds _bombPhaseTwoDelay = new WaitForSeconds(4.75f);
+        private readonly WaitForSeconds _bombPhaseTwoDelay = new WaitForSeconds(3.5f);
         private readonly WaitForSeconds _bombFadeDelay = new WaitForSeconds(0.5f);
 
         private void Start()
@@ -34,7 +34,7 @@ namespace Game.Player
         {
             foreach (Transform bombBlastTransform in bombBlastTransforms)
             {
-                bombBlastTransform.DOScale(1.5f, 5).SetEase(Ease.InOutElastic);
+                bombBlastTransform.DOScale(1.5f, 4).SetEase(Ease.InOutExpo);
             }
 
             yield return _bombPhaseTwoDelay;

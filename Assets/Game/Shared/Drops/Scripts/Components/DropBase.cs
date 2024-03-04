@@ -29,7 +29,7 @@ namespace Game.Drop
         public void GoToPlayer(Vector3 playerPosition)
         {
             Vector2 direction = (playerPosition - transform.position).normalized;
-            _rigidbody2D.velocity = direction;
+            _rigidbody2D.velocity = direction * 1.5f;
         }
     }
 }

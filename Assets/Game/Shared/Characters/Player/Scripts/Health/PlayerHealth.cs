@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
@@ -22,11 +23,23 @@ namespace Game.Player
         private const int ENEMY_BULLET_LAYER = 9;
         private const int ENEMY_LAYER = 8;
 
+        public static Action RequestNewLife;
+
         private void Awake()
         {
             _playerAttack = GetComponent<PlayerAttack>();
             _playerMovement = GetComponent<PlayerMovement>();
             GameEvents.OnHealthValueChange?.Invoke(_health);
+        }
+
+        private void OnEnable()
+        {
+            RequestNewLife += AddLife;
+        }
+
+        private void OnDisable()
+        {
+            RequestNewLife -= AddLife;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -38,7 +51,7 @@ namespace Game.Player
             if (--_health < 0) GameEvents.OnGameEnd?.Invoke(false);
             else
             {
-                _playerAttack.CurrentBombs = 3;
+                PlayerAttack.RequestNewBomb?.Invoke(3, true);
                 GameEvents.OnHealthValueChange?.Invoke(_health);
                 StartCoroutine(StartInvincibility());
                 StartCoroutine(StartShockwave());
@@ -87,10 +100,17 @@ namespace Game.Player
 
         private void AddLife()
         {
-            if (_health + 1 > MAX_HEALTH_VALUE) return;
-
-            _health++;
-            GameEvents.OnHealthValueChange?.Invoke(_health);
+            if (_health + 1 > MAX_HEALTH_VALUE)
+            {
+                PlayerAttack.RequestNewBomb(1, false);
+            }
+            else
+            {
+                _health++;
+                GameEvents.OnHealthValueChange?.Invoke(_health);
+            }
+            
+            GameEvents.OnPointsValueChange?.Invoke(1000);
         }
     }
 }

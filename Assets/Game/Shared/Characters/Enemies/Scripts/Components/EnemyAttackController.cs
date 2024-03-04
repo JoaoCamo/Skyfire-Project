@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Game.Danmaku;
@@ -10,7 +11,12 @@ namespace Game.Enemy
         private EnemyAttackBase _attackBase;
 
         private Coroutine _attackCoroutine;
-        
+
+        private void OnDisable()
+        {
+            StopAttack();
+        }
+
         public void SetAttack(EnemyAttackInfo attackInfo)
         {
             _attackBase = Instantiate(attackReference.GetAttack(attackInfo.attackPattern), transform).GetComponent<EnemyAttackBase>();
@@ -32,7 +38,7 @@ namespace Game.Enemy
             _attackCoroutine = StartCoroutine(_attackBase.Shoot());
         }
 
-        public void StopAttack()
+        private void StopAttack()
         {
             if (_attackCoroutine != null)
             {
@@ -40,6 +46,8 @@ namespace Game.Enemy
                 _attackCoroutine = null;
             }
 
+            if (_attackBase == null) return;
+            
             Destroy(_attackBase.gameObject);
             _attackBase = null;
         }

@@ -5,10 +5,8 @@ using Game.Static.Events;
 
 namespace Game.Drop
 {
-    public class PowerDrop : DropBase
+    public class BombDrop : DropBase
     {
-        [SerializeField] private float powerValue;
-
         protected override void OnTriggerEnter2D(Collider2D collision)
         {
             switch (collision.gameObject.layer)
@@ -25,7 +23,7 @@ namespace Game.Drop
         protected override void OnCollect()
         {
             base.OnCollect();
-            PlayerAttack.RequestPowerValueChange?.Invoke(powerValue);
+            PlayerAttack.RequestNewBomb(1, false);
             GameEvents.OnPointsValueChange?.Invoke(dropPointsValue);
             PopUpTextManager.RequestPopUpText.Invoke(transform.position, dropPointsValue.ToString(), Color.grey);
 

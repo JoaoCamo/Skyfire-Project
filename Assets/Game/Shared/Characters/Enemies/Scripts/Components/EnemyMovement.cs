@@ -21,6 +21,11 @@ namespace Game.Enemy
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
+        private void OnDisable()
+        {
+            StopMovement();
+        }
+
         public void UpdatePosition()
         {
             _rigidbody2D.velocity = new Vector2(_xDirection, _yDirection) * _speed;
@@ -37,19 +42,16 @@ namespace Game.Enemy
             this._yDirection = enemyMovementInfo.movementDirection.y;
             this._speed = enemyMovementInfo.speed;
 
-            if (enemyMovementInfo.movementChangeInfo.Length > 0)
+            if (_movementChangeCoroutine != null)
             {
-                if (_movementChangeCoroutine != null)
-                {
-                    StopCoroutine(_movementChangeCoroutine);
-                    _movementChangeCoroutine = null;
-                }
-
-                _movementChangeCoroutine = StartCoroutine(MovementChangeCoroutine(enemyMovementInfo));
+                StopCoroutine(_movementChangeCoroutine);
+                _movementChangeCoroutine = null;
             }
+
+            _movementChangeCoroutine = StartCoroutine(MovementChangeCoroutine(enemyMovementInfo));
         }
 
-        public void StopMovement()
+        private void StopMovement()
         {
             if (_movementChangeCoroutine != null)
             {

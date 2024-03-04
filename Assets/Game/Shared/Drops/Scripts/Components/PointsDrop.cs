@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Game.UI;
 using Game.Static.Events;
 
 namespace Game.Drop
@@ -24,7 +26,10 @@ namespace Game.Drop
         protected override void OnCollect()
         {
             base.OnCollect();
-            GameEvents.OnPointsValueChange?.Invoke((int)(dropPointsValue * GetDropValueMultiplayer()));
+            float valueMultiplayer = GetDropValueMultiplayer();
+            int dropValue = (int)(dropPointsValue * valueMultiplayer);
+            GameEvents.OnPointsValueChange?.Invoke(dropValue);
+            PopUpTextManager.RequestPopUpText.Invoke(transform.position, dropValue.ToString(), valueMultiplayer >= 1f ? Color.yellow : Color.grey);
             gameObject.SetActive(false);
         }
 

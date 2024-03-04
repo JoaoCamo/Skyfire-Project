@@ -30,7 +30,7 @@ namespace Game.Enemy
                     for (int i = 0; i < enemyWave.enemyAmount; i++)
                     {
                         EnemyBase enemy = GetEnemy(enemyWave.enemyType);
-                        enemy.SetEnemy(enemyWave.attackInfo, enemyWave.movementInfo, enemyWave.initialPosition, enemyWave.enemyHealth);
+                        enemy.SetEnemy(enemyWave.attackInfo, enemyWave.movementInfo, enemyWave.initialPosition, enemyWave.possibleDrops, enemyWave.enemyHealth);
                         yield return new WaitForSeconds(enemyWave.enemySpawnDelay);
                     }
                 }
@@ -44,7 +44,7 @@ namespace Game.Enemy
             for (int i = 0; i < enemyWave.enemyAmount; i++)
             {
                 EnemyBase enemy = GetEnemy(enemyWave.enemyType);
-                enemy.SetEnemy(enemyWave.attackInfo, enemyWave.movementInfo, enemyWave.initialPosition, enemyWave.enemyHealth);
+                enemy.SetEnemy(enemyWave.attackInfo, enemyWave.movementInfo, enemyWave.initialPosition, enemyWave.possibleDrops, enemyWave.enemyHealth);
                 yield return new WaitForSeconds(enemyWave.enemySpawnDelay);
             }
         }
