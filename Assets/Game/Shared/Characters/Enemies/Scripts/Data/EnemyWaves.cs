@@ -30,5 +30,6 @@ namespace Game.Enemy
     {
         public DropType dropType;
         public float dropChance;
+        public int timesToDrop;
     }
 }

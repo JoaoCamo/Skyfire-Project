@@ -10,15 +10,9 @@ namespace Game.Projectiles
     {
         [SerializeField] private ProjectilesReference projectilesReference;
         private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
-        private static Transform playerTransform;
         
         public static Action<ProjectileType, Vector2, float, float> RequestBullet;
         public static Action RequestClearProjectiles;
-
-        private void Awake()
-        {
-            playerTransform = FindObjectOfType<PlayerMovement>().transform;
-        }
 
         private void Update()
         {
@@ -75,7 +69,7 @@ namespace Game.Projectiles
 
         public static float AimAtPlayer(Vector3 originPosition, float angleCorrection = 90)
         {
-            Vector2 vectorToPlayer = playerTransform.position - originPosition;
+            Vector2 vectorToPlayer = PlayerMovement.PlayerTransform.position - originPosition;
             return Mathf.Atan2(vectorToPlayer.y, vectorToPlayer.x) * Mathf.Rad2Deg - angleCorrection;
         }
     }

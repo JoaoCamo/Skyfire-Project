@@ -43,12 +43,15 @@ namespace Game.Enemy
             
             foreach (PossibleDrops possibleDrop in _possibleDrops)
             {
-                if (!(Random.value <= possibleDrop.dropChance)) continue;
-                
-                var originPosition = transform.position;
-                float xPosition = originPosition.x + Random.Range(-0.1f, 0.1f);
-                float yPosition = originPosition.y + Random.Range(-0.1f, 0.1f);
-                DropManager.RequestDrop?.Invoke(possibleDrop.dropType, new Vector3(xPosition,yPosition));
+                for (int i = 0; i < possibleDrop.timesToDrop; i++)
+                {
+                    if (!(Random.value <= possibleDrop.dropChance)) continue;
+
+                    var originPosition = transform.position;
+                    float xPosition = originPosition.x + Random.Range(-0.1f, 0.1f);
+                    float yPosition = originPosition.y + Random.Range(-0.1f, 0.1f);
+                    DropManager.RequestDrop?.Invoke(possibleDrop.dropType, new Vector3(xPosition, yPosition));
+                }
             }
         }
 
