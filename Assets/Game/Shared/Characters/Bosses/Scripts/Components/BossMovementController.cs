@@ -8,24 +8,18 @@ namespace Game.Enemy.Boss
     {
         private readonly Vector2 _initialPosition = new Vector2 (-0.375f, 0.45f);
         private readonly WaitForSeconds _randomMovementDelay = new WaitForSeconds(3);
-
-        private Rigidbody2D _rigidBody;
-
-        private float _xDirection;
-        private float _yDirection;
+        private const float X_MIN_POSITION = -1.15f;
+        private const float X_MAX_POSITION = 0.4f;
+        private const float Y_MIN_POSITION = 0;
+        private const float Y_MAX_POSITION = 0.8f;
+        
         private bool _canMove = false;
 
         private Coroutine _randomMovementCoroutine;
 
         private void Awake()
         {
-            _rigidBody = GetComponent<Rigidbody2D>();
             ReturnToStartPosition();
-        }
-
-        private void FixedUpdate()
-        {
-            _rigidBody.velocity = new Vector2(_xDirection, _yDirection) * 0.25f;
         }
 
         public void ReturnToStartPosition()
@@ -43,33 +37,28 @@ namespace Game.Enemy.Boss
 
         private IEnumerator RandomMovement()
         {
-            float movementDuration;
-
             while (_canMove)
             {
                 yield return _randomMovementDelay;
 
-                _xDirection = Random.Range(-1f, 1f);
-                _yDirection = Random.Range(-1f, 1f);
+                float xPosition = Random.Range(X_MIN_POSITION, X_MAX_POSITION);
+                float yPosition = Random.Range(Y_MIN_POSITION, Y_MAX_POSITION);
 
-                movementDuration = Random.Range(0f, 2f);
+                float movementDuration = Random.Range(1f, 2f);
+
+                transform.DOMove(new Vector3(xPosition, yPosition), movementDuration);
                 
                 yield return new WaitForSeconds(movementDuration);
-
-                _xDirection = 0;
-                _yDirection = 0;
             }
         }
 
         private void StopRandomMovement()
         {
+            if (_randomMovementCoroutine == null) return;
+            
             _canMove = false;
-
-            if(_randomMovementCoroutine != null)
-            {
-                StopCoroutine( _randomMovementCoroutine);
-                _randomMovementCoroutine = null;
-            }
+            StopCoroutine( _randomMovementCoroutine);
+            _randomMovementCoroutine = null;
         }
     }
 }

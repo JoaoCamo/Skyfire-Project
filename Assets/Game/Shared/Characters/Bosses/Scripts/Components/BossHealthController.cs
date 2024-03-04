@@ -14,6 +14,7 @@ namespace Game.Enemy.Boss
         private int _currentHealthBar = 0;
         private int _currentHealth = 0;
         private bool _hasDroppedItems = false;
+        private bool _canChangeHealthBar = true;
 
         private const int PLAYER_PROJECTILE_LAYER = 7;
         private const int PLAYER_BOMB_LAYER = 13;
@@ -29,7 +30,7 @@ namespace Game.Enemy.Boss
 
         private void Start()
         {
-            _attackController.InitiliazeNextAttack(_currentHealthBar);
+            StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -46,15 +47,18 @@ namespace Game.Enemy.Boss
         {
             _currentHealth -= (_currentHealth - damage >= 0) ? damage : 0;
 
-            if (_currentHealth <= 0)
+            if (_currentHealth <= 0 && _canChangeHealthBar)
             {
+                _canChangeHealthBar = false;
+                
+                DropItems();
+                
                 if(++_currentHealthBar >= _bossHealthBars)
                     Destroy(gameObject);
                 else
                 {
                     ResetHealth();
-                    DropItems();
-                    _attackController.InitiliazeNextAttack(_currentHealthBar);
+                    StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
                 }
             }
         }
@@ -63,6 +67,8 @@ namespace Game.Enemy.Boss
         {
             _currentHealthInfo = bossHealthInfo[_currentHealthBar];
             _currentHealth = _currentHealthInfo.barHealth;
+            _hasDroppedItems = false;
+            _canChangeHealthBar = true;
         }
 
         private void DropItems()

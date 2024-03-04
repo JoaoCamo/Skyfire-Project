@@ -5414,9 +5414,9 @@ MonoBehaviour:
       projectileType: 3
       isInfiniteLoop: 1
       timesToLoop: 0
-      timesToShoot: 5
-      shotSpeed: 1
-      shotDelay: 0.5
+      timesToShoot: 4
+      shotSpeed: 0.6
+      shotDelay: 1
       shotStartDelay: 2
   attackReference: {fileID: 11400000, guid: e0a2f39ae24b73642beb602d54262679, type: 2}
 --- !u!114 &2135260359
@@ -5432,8 +5432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossHealthInfo:
-  - barHealth: 25
-    willDropItems: 0
+  - barHealth: 100
+    willDropItems: 1
     possibleDrops:
     - dropType: 0
       dropChance: 1
@@ -5442,7 +5442,7 @@ MonoBehaviour:
       dropChance: 1
       timesToDrop: 10
   - barHealth: 100
-    willDropItems: 0
+    willDropItems: 1
     possibleDrops:
     - dropType: 0
       dropChance: 1
@@ -5451,7 +5451,7 @@ MonoBehaviour:
       dropChance: 1
       timesToDrop: 10
   - barHealth: 100
-    willDropItems: 0
+    willDropItems: 1
     possibleDrops:
     - dropType: 5
       dropChance: 1
@@ -5461,7 +5461,7 @@ MonoBehaviour:
       timesToDrop: 1
     - dropType: 3
       dropChance: 1
-      timesToDrop: 10
+      timesToDrop: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

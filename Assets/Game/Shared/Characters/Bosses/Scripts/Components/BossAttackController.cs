@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Game.Danmaku;
 
@@ -18,7 +19,7 @@ namespace Game.Enemy.Boss
             _movementController = GetComponent<BossMovementController>();
         }
 
-        public void InitiliazeNextAttack(int attackIndex)
+        public IEnumerator InitializeNextAttack(int attackIndex) 
         {
             StopAttack();
 
@@ -26,6 +27,8 @@ namespace Game.Enemy.Boss
 
             _attackBase = Instantiate(attackReference.enemyAttackPrefabs[(int)attackPattern], transform).GetComponent<EnemyAttackBase>();
             _attackBase.SetShot(bossAttackInfo[attackIndex].attackInfo);
+
+            yield return new WaitForSeconds(bossAttackInfo[attackIndex].attackInfo.shotStartDelay);
 
             _attackCoroutine = StartCoroutine(_attackBase.Shoot());
 
