@@ -32,8 +32,11 @@ namespace Game.Player
         private float _currentPower = 0;
         private int _powerLevel = 0;
         private int _currentBombs = 3;
-        private bool _canShoot = false;
+        private bool _canAttack = false;
+        private bool _canShoot = true;
         private bool _canBomb = true;
+
+        public bool CanShoot { get => _canShoot; set => _canShoot = value; }
 
         public static Action<int, bool> RequestNewBomb { private set; get; }
         public static Action<float> RequestPowerValueChange { private set; get; }
@@ -121,7 +124,7 @@ namespace Game.Player
                 _secondaryShotCoroutine = null;
             }
 
-            _canShoot = true;
+            _canAttack = true;
             _primaryShotCoroutine = StartCoroutine(PrimaryShot());
             _secondaryShotCoroutine = StartCoroutine(SecondaryShot());
         }
@@ -140,46 +143,52 @@ namespace Game.Player
                 _secondaryShotCoroutine = null;
             }
 
-            _canShoot = false;
+            _canAttack = false;
         }
 
         private IEnumerator PrimaryShot()
         {
-            while (_canShoot)
+            while (_canAttack)
             {
-                Vector3 position = transform.position;
-                _projectileManager.FireProjectile(ProjectileType.PlayerBlue, new Vector3(0.025f, 0) + position, 2.5f, Quaternion.Euler(0, 0, 0));
-                _projectileManager.FireProjectile(ProjectileType.PlayerBlue, new Vector3(-0.025f, 0) + position, 2.5f, Quaternion.Euler(0, 0, 0));
+                if (_canShoot)
+                {
+                    Vector3 position = transform.position;
+                    _projectileManager.FireProjectile(ProjectileType.PlayerBlue, new Vector3(0.025f, 0) + position, 2.5f, Quaternion.Euler(0, 0, 0));
+                    _projectileManager.FireProjectile(ProjectileType.PlayerBlue, new Vector3(-0.025f, 0) + position, 2.5f, Quaternion.Euler(0, 0, 0));
+                }
                 yield return _primaryShotDelay;
             }
         }
 
         private IEnumerator SecondaryShot()
         {
-            while (_canShoot)
+            while (_canAttack)
             {
                 Vector3 position = transform.position;
-                
-                switch(_powerLevel)
+
+                if (_canShoot)
                 {
-                    case 1:
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        break;
-                    case 2:
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        break;
-                    case 3:
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        break;
-                    case 4:
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                        break;
+                    switch (_powerLevel)
+                    {
+                        case 1:
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            break;
+                        case 2:
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            break;
+                        case 3:
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            break;
+                        case 4:
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                            break;
+                    }
                 }
 
                 yield return _secondaryShotDelay;
@@ -191,6 +200,7 @@ namespace Game.Player
             float newPowerValue = _currentPower + valueToChange;
             _currentPower += newPowerValue is <= MAX_POWER_VALUE and >= MIN_POWER_VALUE ? valueToChange : 0;
             _currentPower = newPowerValue > MAX_POWER_VALUE ? MAX_POWER_VALUE : _currentPower;
+            _currentPower = newPowerValue < MIN_POWER_VALUE ? MIN_POWER_VALUE : _currentPower;
             _powerLevel = (int)_currentPower >= (_powerLevel + 1) || (int)_currentPower < _powerLevel ? (int)_currentPower : _powerLevel;
             
             GameEvents.OnPowerValueChange?.Invoke(_currentPower);

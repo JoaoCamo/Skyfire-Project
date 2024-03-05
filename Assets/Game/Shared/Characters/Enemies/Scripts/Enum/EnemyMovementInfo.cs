@@ -12,6 +12,7 @@ namespace Game.Enemy
     public struct MovementChangeInfo
     {
         public float changeDelay;
+        public float changeDuration;
         public UnityEngine.Vector2 movementDirection;
     }
 }

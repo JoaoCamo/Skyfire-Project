@@ -7,7 +7,7 @@ namespace Game.Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float baseMoveSpeed;
-        [SerializeField] private GameObject focusCollectArea;
+        [SerializeField] private Transform focusCollectArea;
         [SerializeField] private GameObject hitBoxSprite;
         
         private float _moveSpeed;
@@ -17,7 +17,11 @@ namespace Game.Player
         private InputAction _moveControl;
         private InputAction _focusControl;
         private Vector2 _moveInput;
-        
+        private bool _isUsingFocus = false;
+
+        private readonly Vector2 _collectAreaNormalScale = new Vector2(1, 1);
+        private readonly Vector2 _collectAreaFocusScale = new Vector2(1.5f, 1.5f);
+
         public float SpeedMultiplayer { get => _speedMultiplayer; set => _speedMultiplayer = value; }
         public static Transform PlayerTransform;
 
@@ -29,8 +33,8 @@ namespace Game.Player
             _moveControl = _playerControls.Player.Move;
             _focusControl = _playerControls.Player.Focus;
 
-            _focusControl.performed += ToggleFocusOn;
-            _focusControl.canceled += ToggleFocusOff;
+            _focusControl.performed += ToggleFocus;
+            _focusControl.canceled += ToggleFocus;
 
             _moveSpeed = baseMoveSpeed;
             PlayerTransform = transform;
@@ -58,18 +62,13 @@ namespace Game.Player
             _rigidbody2D.velocity = _moveInput * (_moveSpeed * _speedMultiplayer);
         }
 
-        private void ToggleFocusOn(InputAction.CallbackContext context)
+        private void ToggleFocus(InputAction.CallbackContext context)
         {
-            hitBoxSprite.SetActive(true);
-            focusCollectArea.SetActive(true);
-            _moveSpeed = baseMoveSpeed / 2f;
-        }
-        
-        private void ToggleFocusOff(InputAction.CallbackContext context)
-        {
-            focusCollectArea.SetActive(false);
-            hitBoxSprite.SetActive(false);
-            _moveSpeed = baseMoveSpeed;
+            _isUsingFocus = !_isUsingFocus;
+
+            hitBoxSprite.SetActive(_isUsingFocus);
+            focusCollectArea.localScale = _isUsingFocus ? _collectAreaFocusScale : _collectAreaNormalScale;
+            _moveSpeed = _isUsingFocus ? baseMoveSpeed / 2f : baseMoveSpeed;
         }
     }
 }

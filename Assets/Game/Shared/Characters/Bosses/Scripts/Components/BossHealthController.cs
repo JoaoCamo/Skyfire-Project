@@ -1,11 +1,17 @@
+using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 using Game.Drop;
+using Game.Stage;
+using Game.Gameplay.UI;
 
 namespace Game.Enemy.Boss
 {
     public class BossHealthController : MonoBehaviour
     {
-        [SerializeField] private BossHealthInfo[] bossHealthInfo;
+        [SerializeField] private GameObject shockwavePrefab;
+
+        private BossHealthInfo[] _bossHealthInfo;
 
         private BossAttackController _attackController;
 
@@ -14,23 +20,15 @@ namespace Game.Enemy.Boss
         private int _currentHealthBar = 0;
         private int _currentHealth = 0;
         private bool _hasDroppedItems = false;
-        private bool _canChangeHealthBar = true;
+        private bool _canTakeDamage = false;
 
+        private readonly WaitForSeconds _shockwaveFadeDelay = new WaitForSeconds(0.5f);
         private const int PLAYER_PROJECTILE_LAYER = 7;
         private const int PLAYER_BOMB_LAYER = 13;
 
         private void Awake()
         {
             _attackController = GetComponent<BossAttackController>();
-
-            _bossHealthBars = (bossHealthInfo.Length);
-            _currentHealthInfo = bossHealthInfo[_currentHealthBar];
-            _currentHealth = _currentHealthInfo.barHealth;
-        }
-
-        private void Start()
-        {
-            StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -45,35 +43,40 @@ namespace Game.Enemy.Boss
 
         private void ReceiveDamage(int damage)
         {
-            _currentHealth -= (_currentHealth - damage >= 0) ? damage : 0;
+            if (!_canTakeDamage) return;
 
-            if (_currentHealth <= 0 && _canChangeHealthBar)
+            _currentHealth -= (_currentHealth - damage >= 0) ? damage : 0;
+            BossHealthUI.RequestHealthBarChange?.Invoke(_currentHealthInfo.barHealth, _currentHealth, 0.1f);
+
+            if (_currentHealth <= 0)
             {
-                _canChangeHealthBar = false;
+                _canTakeDamage = false;
                 
                 DropItems();
-                
-                if(++_currentHealthBar >= _bossHealthBars)
-                    Destroy(gameObject);
-                else
+
+                if (++_currentHealthBar >= _bossHealthBars)
                 {
-                    ResetHealth();
-                    StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
+                    StageController.CallNextStage?.Invoke();
+                    BossHealthUI.ToggleHealthBar?.Invoke(false);
+                    Destroy(gameObject);
                 }
+                else
+                    StartCoroutine(InitiliazeNextPhase());
             }
         }
 
         private void ResetHealth()
         {
-            _currentHealthInfo = bossHealthInfo[_currentHealthBar];
+            _currentHealthInfo = _bossHealthInfo[_currentHealthBar];
             _currentHealth = _currentHealthInfo.barHealth;
             _hasDroppedItems = false;
-            _canChangeHealthBar = true;
+
+            BossHealthUI.RequestHealthBarChange?.Invoke(_currentHealthInfo.barHealth, _currentHealth, 1);
         }
 
         private void DropItems()
         {
-            if (_hasDroppedItems || !_currentHealthInfo.willDropItems)
+            if (_hasDroppedItems)
                 return;
 
             _hasDroppedItems = true;
@@ -90,6 +93,50 @@ namespace Game.Enemy.Boss
                     DropManager.RequestDrop?.Invoke(possibleDrop.dropType, new Vector3(xPosition, yPosition));
                 }
             }
+        }
+
+        private IEnumerator StartShockwave()
+        {
+            SpriteRenderer shockwaveSpriteRenderer = Instantiate(shockwavePrefab, transform).GetComponent<SpriteRenderer>();
+            shockwaveSpriteRenderer.transform.DOScale(1, 1);
+
+            yield return _shockwaveFadeDelay;
+
+            Color originalColor = shockwaveSpriteRenderer.color;
+            Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
+
+            shockwaveSpriteRenderer.DOColor(newColor, 0.25f);
+
+            yield return _shockwaveFadeDelay;
+
+            Destroy(shockwaveSpriteRenderer.gameObject);
+        }
+
+        private IEnumerator InitiliazeNextPhase()
+        {
+            ResetHealth();
+            StartCoroutine(StartShockwave());
+
+            _canTakeDamage = false;
+
+            yield return StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
+
+            _canTakeDamage = true;
+        }
+
+        public void SetHealth(BossHealthInfo[] bossHealthInfo)
+        {
+            _bossHealthInfo = bossHealthInfo;
+
+            _bossHealthBars = (_bossHealthInfo.Length);
+            _currentHealthInfo = _bossHealthInfo[_currentHealthBar];
+            _currentHealth = _currentHealthInfo.barHealth;
+        }
+
+        public void InitializeBoss()
+        {
+            _canTakeDamage = true;
+            StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
         }
     }
 }

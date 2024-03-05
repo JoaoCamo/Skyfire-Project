@@ -17,7 +17,7 @@ namespace Game.Enemy.Boss
 
         private Coroutine _randomMovementCoroutine;
 
-        private void Awake()
+        private void Start()
         {
             ReturnToStartPosition();
         }
@@ -30,7 +30,7 @@ namespace Game.Enemy.Boss
 
         public void StartRandomMovement()
         {
-            StopRandomMovement();
+            ReturnToStartPosition();
             _canMove = true;
             _randomMovementCoroutine = StartCoroutine(RandomMovement());
         }
@@ -54,6 +54,8 @@ namespace Game.Enemy.Boss
 
         private void StopRandomMovement()
         {
+            transform.DOKill();
+
             if (_randomMovementCoroutine == null) return;
             
             _canMove = false;

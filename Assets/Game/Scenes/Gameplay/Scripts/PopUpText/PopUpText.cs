@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 
-namespace Game.UI
+namespace Game.Gameplay.UI
 {
     public class PopUpText : MonoBehaviour
     {

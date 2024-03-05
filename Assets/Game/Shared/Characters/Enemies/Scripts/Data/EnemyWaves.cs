@@ -1,15 +1,8 @@
-using UnityEngine;
 using Game.Danmaku;
 using Game.Drop;
 
 namespace Game.Enemy
 {
-    [CreateAssetMenu]
-    public class EnemyWaves : ScriptableObject
-    {
-        public EnemyWave[] waves;
-    }
-
     [System.Serializable]
     public struct EnemyWave
     {

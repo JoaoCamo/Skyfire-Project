@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.UI
+namespace Game.Gameplay.UI
 {
     public class PopUpTextManager : MonoBehaviour
     {

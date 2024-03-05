@@ -1,6 +1,6 @@
 using UnityEngine;
 using Game.Player;
-using Game.UI;
+using Game.Gameplay.UI;
 using Game.Static.Events;
 
 namespace Game.Drop

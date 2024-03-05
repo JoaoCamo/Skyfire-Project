@@ -15,15 +15,12 @@ namespace Game.Enemy
         private float _speed = 0;
 
         private Coroutine _movementChangeCoroutine;
+        private Tween _xDirectionTween;
+        private Tween _yDirectionTween;
 
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-        }
-
-        private void OnDisable()
-        {
-            StopMovement();
         }
 
         public void UpdatePosition()
@@ -38,15 +35,11 @@ namespace Game.Enemy
 
         public void SetMovement(EnemyMovementInfo enemyMovementInfo)
         {
+            StopMovement();
+
             this._xDirection = enemyMovementInfo.movementDirection.x;
             this._yDirection = enemyMovementInfo.movementDirection.y;
             this._speed = enemyMovementInfo.speed;
-
-            if (_movementChangeCoroutine != null)
-            {
-                StopCoroutine(_movementChangeCoroutine);
-                _movementChangeCoroutine = null;
-            }
 
             _movementChangeCoroutine = StartCoroutine(MovementChangeCoroutine(enemyMovementInfo));
         }
@@ -59,6 +52,8 @@ namespace Game.Enemy
                 _movementChangeCoroutine = null;
             }
 
+            _xDirectionTween.Kill();
+            _yDirectionTween.Kill();
             _xDirection = 0;
             _yDirection = 0;
             _speed = 0;
@@ -69,8 +64,8 @@ namespace Game.Enemy
             foreach (MovementChangeInfo movementChangeInfo in enemyMovementInfo.movementChangeInfo)
             {
                 yield return new WaitForSeconds(movementChangeInfo.changeDelay);
-                DOTween.To(() => _xDirection, x => _xDirection = x, movementChangeInfo.movementDirection.x, 0.75f).SetEase(Ease.Linear);
-                DOTween.To(() => _yDirection, x => _yDirection = x, movementChangeInfo.movementDirection.y, 0.75f).SetEase(Ease.Linear);
+                _xDirectionTween = DOTween.To(() => _xDirection, x => _xDirection = x, movementChangeInfo.movementDirection.x, movementChangeInfo.changeDuration).SetEase(Ease.Linear);
+                _yDirectionTween = DOTween.To(() => _yDirection, x => _yDirection = x, movementChangeInfo.movementDirection.y, movementChangeInfo.changeDuration).SetEase(Ease.Linear);
             }
         }
     }

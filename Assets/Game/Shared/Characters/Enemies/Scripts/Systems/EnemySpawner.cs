@@ -1,25 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Enemy.Boss;
 
 namespace Game.Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private EnemyWaves enemyWaves;
-        [SerializeField] private GameObject[] enemyPrefabs;
+        [SerializeField] private EnemyPrefabReference _enemyReference;
+        [SerializeField] private BossPrefabReference _bossReference;
+
         private readonly List<EnemyBase> _enemyBases = new List<EnemyBase>();
 
         public List<EnemyBase> EnemyBases => _enemyBases;
 
-        private void Start()
+        public BossBase SpawnBoss(BossTypes bossType)
         {
-            StartCoroutine(SpawnWaves());
+            BossBase bossBase = Instantiate(_bossReference.bossPrefabs[(int)bossType]).GetComponent<BossBase>();
+            return bossBase;
         }
 
-        private IEnumerator SpawnWaves()
+        public IEnumerator SpawnWaves(EnemyWave[] enemyWaves)
         {
-            foreach (EnemyWave enemyWave in enemyWaves.waves)
+            foreach (EnemyWave enemyWave in enemyWaves)
             {
                 if (enemyWave.isAsyncWave)
                     StartCoroutine(SpawnAsyncWave(enemyWave));
@@ -57,7 +60,7 @@ namespace Game.Enemy
 
         private EnemyBase CreateEnemy(EnemyType enemyType)
         {
-            EnemyBase newEnemy = Instantiate(enemyPrefabs[(int)enemyType]).GetComponent<EnemyBase>();
+            EnemyBase newEnemy = Instantiate(_enemyReference.enemyPrefabs[(int)enemyType]).GetComponent<EnemyBase>();
             _enemyBases.Add(newEnemy);
             return newEnemy;
         }

@@ -4,7 +4,7 @@ using TMPro;
 using DG.Tweening;
 using Game.Static.Events;
 
-namespace Game.UI
+namespace Game.Gameplay.UI
 {
     public class GameplayUI : MonoBehaviour
     {

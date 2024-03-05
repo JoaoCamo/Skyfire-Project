@@ -1,6 +1,6 @@
-using Game.Enemy;
 using System.Linq;
 using UnityEngine;
+using Game.Enemy;
 
 public class EnemyMovementController : MonoBehaviour
 {

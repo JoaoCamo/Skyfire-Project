@@ -17,7 +17,7 @@ namespace Game.Player
         private PlayerMovement _playerMovement;
         private readonly WaitForSeconds _invincibilityDelay = new WaitForSeconds(0.25f);
         private readonly WaitForSeconds _shockwaveFadeDelay = new WaitForSeconds(0.5f);
-        private readonly WaitForSeconds _stopMovementDelay = new WaitForSeconds(0.5f);
+        private readonly WaitForSeconds _stopActionDelay = new WaitForSeconds(0.5f);
 
         private const int MAX_HEALTH_VALUE = 8;
         private const int ENEMY_BULLET_LAYER = 9;
@@ -52,6 +52,7 @@ namespace Game.Player
             else
             {
                 PlayerAttack.RequestNewBomb?.Invoke(3, true);
+                PlayerAttack.RequestPowerValueChange(-1.5f);
                 GameEvents.OnHealthValueChange?.Invoke(_health);
                 StartCoroutine(StartInvincibility());
                 StartCoroutine(StartShockwave());
@@ -93,9 +94,11 @@ namespace Game.Player
 
         private IEnumerator StopMovement()
         {
+            _playerAttack.CanShoot = false;
             _playerMovement.SpeedMultiplayer = 0;
-            yield return _stopMovementDelay;
+            yield return _stopActionDelay;
             _playerMovement.SpeedMultiplayer = 1;
+            _playerAttack.CanShoot = true;
         }
 
         private void AddLife()

@@ -6,10 +6,9 @@ namespace Game.Player
 {
     public class PlayerBomb : MonoBehaviour
     {
-        [SerializeField] private Transform[] bombBlastTransforms;
         [SerializeField] private SpriteRenderer[] bombSpriteRenderers;
 
-        private readonly WaitForSeconds _bombPhaseOneDelay = new WaitForSeconds(1);
+        private readonly WaitForSeconds _bombPhaseOneDelay = new WaitForSeconds(0.5f);
         private readonly WaitForSeconds _bombPhaseTwoDelay = new WaitForSeconds(3.5f);
         private readonly WaitForSeconds _bombFadeDelay = new WaitForSeconds(0.5f);
 
@@ -20,10 +19,7 @@ namespace Game.Player
 
         private IEnumerator BombPhaseOne()
         {
-            foreach (Transform bombBlastTransform in bombBlastTransforms)
-            {
-                bombBlastTransform.DOScale(0.2f, 1).SetEase(Ease.Linear);
-            }
+            transform.DOScale(0.2f, 0.5f).SetEase(Ease.Linear);
 
             yield return _bombPhaseOneDelay;
 
@@ -32,10 +28,7 @@ namespace Game.Player
 
         private IEnumerator BombPhaseTwo()
         {
-            foreach (Transform bombBlastTransform in bombBlastTransforms)
-            {
-                bombBlastTransform.DOScale(1.5f, 4).SetEase(Ease.InOutExpo);
-            }
+            transform.DOScale(1.5f, 4).SetEase(Ease.InOutExpo);
 
             yield return _bombPhaseTwoDelay;
 

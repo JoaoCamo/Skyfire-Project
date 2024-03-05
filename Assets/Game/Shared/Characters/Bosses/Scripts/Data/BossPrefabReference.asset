@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69afce7fd2524b948a9064425bfe410c, type: 3}
-  m_Name: EnemyWavesNormal
+  m_Script: {fileID: 11500000, guid: 6878a75a96f29594eaacecc365ece04e, type: 3}
+  m_Name: BossPrefabReference
   m_EditorClassIdentifier: 
-  waves: []
+  bossPrefabs:
+  - {fileID: 3488167037898448478, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
