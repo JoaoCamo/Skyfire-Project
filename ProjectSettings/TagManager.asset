@@ -50,6 +50,9 @@ TagManager:
   - name: Bullet
     uniqueID: 3312011681
     locked: 0
+  - name: FadeToBlackGameplay
+    uniqueID: 467629049
+    locked: 0
   - name: Player
     uniqueID: 2321427503
     locked: 0

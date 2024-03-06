@@ -56,7 +56,7 @@ namespace Game.Enemy.Boss
 
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
-                    StageController.CallNextStage?.Invoke();
+                    StageController.CallNextStage?.Invoke(5);
                     BossHealthUI.ToggleHealthBar?.Invoke(false);
                     Destroy(gameObject);
                 }
@@ -72,6 +72,7 @@ namespace Game.Enemy.Boss
             _hasDroppedItems = false;
 
             BossHealthUI.RequestHealthBarChange?.Invoke(_currentHealthInfo.barHealth, _currentHealth, 1);
+            BossHealthUI.RequestHealthBarIndicatorsChange?.Invoke(_bossHealthBars - (_currentHealthBar + 1));
         }
 
         private void DropItems()
@@ -136,6 +137,7 @@ namespace Game.Enemy.Boss
         public void InitializeBoss()
         {
             _canTakeDamage = true;
+            BossHealthUI.RequestHealthBarIndicatorsChange?.Invoke(_bossHealthBars - (_currentHealthBar+1));
             StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
         }
     }

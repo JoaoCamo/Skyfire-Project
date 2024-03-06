@@ -6,11 +6,11 @@ using Game.Static.Events;
 
 namespace Game.Gameplay.UI
 {
-    public class GameplayUI : MonoBehaviour
+    public class GameStatsUI : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI highScoreText;
         [SerializeField] private TextMeshProUGUI currentScoreText;
-        [SerializeField] private TextMeshProUGUI powerValueText;
+        [SerializeField] private RectTransform powerFillArea;
         [SerializeField] private Image[] heartImages;
         [SerializeField] private Sprite[] heartSprites;
         [SerializeField] private Image[] bombImages;
@@ -62,7 +62,8 @@ namespace Game.Gameplay.UI
 
         private void UpdatePowerText(float value)
         {
-            powerValueText.text = value.ToString("0.00") + " / 4.00";
+            float ratio = value / 4f;
+            powerFillArea.DOScaleX(ratio, 0.25f);
         }
 
         private void UpdateLives(int currentValue)
