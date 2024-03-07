@@ -10,7 +10,7 @@ namespace Game.Player
 
         private readonly WaitForSeconds _bombPhaseOneDelay = new WaitForSeconds(0.5f);
         private readonly WaitForSeconds _bombPhaseTwoDelay = new WaitForSeconds(3.5f);
-        private readonly WaitForSeconds _bombFadeDelay = new WaitForSeconds(0.5f);
+        private readonly WaitForSeconds _bombFadeDelay = new WaitForSeconds(0.75f);
 
         private void Start()
         {
@@ -28,7 +28,7 @@ namespace Game.Player
 
         private IEnumerator BombPhaseTwo()
         {
-            transform.DOScale(1.5f, 4).SetEase(Ease.InOutExpo);
+            transform.DOScale(1.5f, 3.5f).SetEase(Ease.InOutExpo);
 
             yield return _bombPhaseTwoDelay;
 

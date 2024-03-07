@@ -1929,11 +1929,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1539317045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.5, y: 0}
   m_SizeDelta: {x: 865, y: 10}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &673233984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2564,6 +2564,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840973539}
   m_CullTransparentMesh: 1
+--- !u!1 &860223013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 860223014}
+  - component: {fileID: 860223015}
+  m_Layer: 0
+  m_Name: '[Scene Background Animator]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &860223014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860223013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &860223015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860223013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49458b26e277ac44f96170a0ef4d79bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &901499080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,7 +2710,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.325, y: 0.325, z: 0.325}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1055458129}
@@ -3189,7 +3233,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.015
 --- !u!114 &1055458133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4901,7 +4945,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.325, y: 0.325, z: 0.325}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1055458129}
@@ -5417,8 +5461,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stagesInfo:
   - {fileID: 11400000, guid: 88e9ce4d44dd7a0408876efc0dde441d, type: 2}
-  - {fileID: 11400000, guid: 88e9ce4d44dd7a0408876efc0dde441d, type: 2}
+  - {fileID: 11400000, guid: a0308b267e4b3ae4c969c4f71965c091, type: 2}
   enemySpawner: {fileID: 1380291707}
+  sceneBackgroundAnimator: {fileID: 860223015}
   fadeToBlack: {fileID: 1802896548}
 --- !u!1 &1773647318
 GameObject:
@@ -6818,6 +6863,7 @@ SceneRoots:
   - {fileID: 2120880127}
   - {fileID: 1055458129}
   - {fileID: 1751820672}
+  - {fileID: 860223014}
   - {fileID: 1380291706}
   - {fileID: 400662909}
   - {fileID: 1456520436}

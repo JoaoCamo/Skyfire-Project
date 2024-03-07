@@ -35,10 +35,10 @@ namespace Game.Gameplay.UI
 
         private void Awake()
         {
-            InitiliazeIndicators();
+            InitializeIndicators();
         }
 
-        private void InitiliazeIndicators()
+        private void InitializeIndicators()
         {
             for (int i = 0; i < 10; i++)
             {
@@ -51,14 +51,14 @@ namespace Game.Gameplay.UI
         private void Toggle(bool state)
         {
             int value = state ? 1 : 0;
-            fillTransform.DOScale(value, value);
-            canvasGroup.DOFade(value, 0.5f);
+            fillTransform.DOScale(value, value).SetEase(Ease.Linear);
+            canvasGroup.DOFade(value, 0.5f).SetEase(Ease.Linear);
         }
 
         private void ChangeBarFill(int maxHealth, int currentHealth, float duration)
         {
             float ratio = (float)currentHealth / (float)maxHealth;
-            fillTransform.DOScaleX(ratio, duration);
+            fillTransform.DOScaleX(ratio, duration).SetEase(Ease.Linear);
         }
 
         private void SetHealthBarIndicators(int remainingHealthBars)

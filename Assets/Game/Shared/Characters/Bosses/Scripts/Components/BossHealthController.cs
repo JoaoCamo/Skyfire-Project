@@ -56,7 +56,7 @@ namespace Game.Enemy.Boss
 
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
-                    StageController.CallNextStage?.Invoke(5);
+                    StageController.CallNextStage?.Invoke();
                     BossHealthUI.ToggleHealthBar?.Invoke(false);
                     Destroy(gameObject);
                 }

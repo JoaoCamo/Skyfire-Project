@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d22f2a4b29eaf84e82e6fedb5ac42ee, type: 3}
+  m_Name: Stage_1-2
+  m_EditorClassIdentifier: 
+  isContinuation: 1
+  enemyWaves:
+  - enemyType: 0
+    initialPosition:
+      enemyInitialPositionX: 0
+      enemyInitialPositionY: 2
+    movementInfo:
+      movementDirection: {x: 1, y: 0}
+      speed: 0.5
+      movementChangeInfo:
+      - changeDelay: 2
+        changeDuration: 2
+        movementDirection: {x: -0.5, y: -0.5}
+    possibleDrops:
+    - dropType: 3
+      dropChance: 1
+      timesToDrop: 1
+    enemyHealth: 1
+    enemyAmount: 10
+    enemySpawnDelay: 1
+    waveInitialDelay: 5
+    isAsyncWave: 1
+    attackInfo:
+      attackPattern: 0
+      projectileType: 3
+      isInfiniteLoop: 1
+      timesToLoop: 0
+      timesToShoot: 1
+      shotSpeed: 0.5
+      shotDelay: 1
+      shotStartDelay: 1
+  - enemyType: 0
+    initialPosition:
+      enemyInitialPositionX: 4
+      enemyInitialPositionY: 2
+    movementInfo:
+      movementDirection: {x: -1, y: 0}
+      speed: 0.5
+      movementChangeInfo:
+      - changeDelay: 2
+        changeDuration: 2
+        movementDirection: {x: 0.5, y: -0.5}
+    possibleDrops:
+    - dropType: 0
+      dropChance: 1
+      timesToDrop: 1
+    - dropType: 1
+      dropChance: 0.1
+      timesToDrop: 1
+    enemyHealth: 1
+    enemyAmount: 10
+    enemySpawnDelay: 1
+    waveInitialDelay: 5
+    isAsyncWave: 0
+    attackInfo:
+      attackPattern: 0
+      projectileType: 3
+      isInfiniteLoop: 1
+      timesToLoop: 0
+      timesToShoot: 1
+      shotSpeed: 0.5
+      shotDelay: 1
+      shotStartDelay: 1
+  waveBossInfo:
+    type: 0
+    bossHealthInfo:
+    - barHealth: 100
+      possibleDrops: []
+    - barHealth: 150
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 15
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 15
+    - barHealth: 100
+      possibleDrops: []
+    - barHealth: 150
+      possibleDrops:
+      - dropType: 5
+        dropChance: 1
+        timesToDrop: 1
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 15
+    bossAttackInfo:
+    - hasMovement: 1
+      attackInfo:
+        attackPattern: 2
+        projectileType: 3
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 4
+        shotSpeed: 1
+        shotDelay: 1
+        shotStartDelay: 2
+    - hasMovement: 1
+      attackInfo:
+        attackPattern: 2
+        projectileType: 3
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 4
+        shotSpeed: 1.25
+        shotDelay: 0.75
+        shotStartDelay: 2
+    - hasMovement: 1
+      attackInfo:
+        attackPattern: 0
+        projectileType: 3
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 2
+        shotSpeed: 1.25
+        shotDelay: 0.35
+        shotStartDelay: 2
+    - hasMovement: 0
+      attackInfo:
+        attackPattern: 1
+        projectileType: 3
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 5
+        shotSpeed: 1.25
+        shotDelay: 1
+        shotStartDelay: 2
