@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -435, y: 0}
+  m_AnchoredPosition: {x: -432.5, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &36372809
@@ -178,7 +178,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 5
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -2209,7 +2209,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.025}
   serializedVersion: 2
   m_Radius: 0.075
 --- !u!1 &799814872
@@ -2276,7 +2276,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.025}
   serializedVersion: 2
   m_Radius: 0.05
 --- !u!1 &800784138
@@ -2710,7 +2710,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1055458129}
@@ -2756,7 +2756,7 @@ SpriteRenderer:
   m_SortingLayerID: -1973539793
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3a027979f811a3b4cabcb952e499a42c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d20e646c18093ba4f813296baf82ed57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2814,7 +2814,7 @@ GameObject:
   - component: {fileID: 997436077}
   - component: {fileID: 997436076}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: '[Text]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2861,8 +2861,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restart
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
+  m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3231,7 +3231,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.025}
   serializedVersion: 2
   m_Radius: 0.015
 --- !u!114 &1055458133
@@ -3630,7 +3630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 435, y: 0}
+  m_AnchoredPosition: {x: 432.5, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1111688288
@@ -3651,7 +3651,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 5
-  m_Spacing: 5
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -4659,7 +4659,7 @@ GameObject:
   - component: {fileID: 1439450936}
   - component: {fileID: 1439450935}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: '[Text]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4708,8 +4708,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
+  m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4944,8 +4944,8 @@ Transform:
   m_GameObject: {fileID: 1533935707}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 0, y: -0.025, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1055458129}
@@ -5085,8 +5085,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pause
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
+  m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5460,8 +5460,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stagesInfo:
-  - {fileID: 11400000, guid: 88e9ce4d44dd7a0408876efc0dde441d, type: 2}
-  - {fileID: 11400000, guid: a0308b267e4b3ae4c969c4f71965c091, type: 2}
+  - {fileID: 11400000, guid: db5bed7ce71e6934cae4272c3b5b4344, type: 2}
+  - {fileID: 11400000, guid: 4ce63fdacd2164c43ad44a0f2c029561, type: 2}
+  - {fileID: 11400000, guid: 54ab1150e4711ad4e99473bf5fe7c4d9, type: 2}
+  - {fileID: 11400000, guid: 55a273662fcfdca419dda803fe060f47, type: 2}
   enemySpawner: {fileID: 1380291707}
   sceneBackgroundAnimator: {fileID: 860223015}
   fadeToBlack: {fileID: 1802896548}
@@ -6619,7 +6621,7 @@ GameObject:
   - component: {fileID: 2121979418}
   - component: {fileID: 2121979417}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: '[Text]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6666,8 +6668,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Return To Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
+  m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

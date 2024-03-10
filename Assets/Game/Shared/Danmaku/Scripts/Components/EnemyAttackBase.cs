@@ -12,6 +12,7 @@ namespace Game.Danmaku
         protected int timesToShoot;
         protected float shotDelay;
         protected float shotSpeed;
+        protected float shotSpeedReduction;
 
         public void SetShot(EnemyAttackInfo enemyAttack)
         {
@@ -21,6 +22,7 @@ namespace Game.Danmaku
             this.timesToShoot = enemyAttack.timesToShoot;
             this.shotDelay = enemyAttack.shotDelay;
             this.shotSpeed = enemyAttack.shotSpeed;
+            this.shotSpeedReduction = enemyAttack.shotSpeedReduction;
         }
 
         public virtual IEnumerator Shoot()

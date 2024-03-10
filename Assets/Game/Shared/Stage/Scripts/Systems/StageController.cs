@@ -6,16 +6,18 @@ using Game.Enemy;
 using Game.Enemy.Boss;
 using Game.Static.Events;
 using Game.Gameplay.Animation;
+using Game.Static;
 
 namespace Game.Stage
 {
     public class StageController : MonoBehaviour
     {
-        [SerializeField] private GameStageInfo[] stagesInfo;
+        [SerializeField] private GameStages[] stagesInfo;
         [SerializeField] private EnemySpawner enemySpawner;
         [SerializeField] private SceneBackgroundAnimator sceneBackgroundAnimator;
         [SerializeField] private SpriteRenderer fadeToBlack;
 
+        private GameStages _gameStages;
         private int _currentStageInfoIndex = 0;
         private int _currentStage = 0;
         private BossBase _currentBoss;
@@ -46,32 +48,32 @@ namespace Game.Stage
             StartBossBattle -= StartBoss;
         }
 
-        private IEnumerator StartStage()
+        private IEnumerator StartWave()
         {
             yield return _waveStartDelay;
 
-            yield return enemySpawner.SpawnWaves(stagesInfo[_currentStageInfoIndex].enemyWaves);
+            yield return enemySpawner.SpawnWaves(_gameStages.stages[_currentStageInfoIndex].enemyWaves);
 
             yield return _bossCallDelay;
 
-            _currentBoss = enemySpawner.SpawnBoss(stagesInfo[_currentStageInfoIndex].waveBossInfo.type);
+            _currentBoss = enemySpawner.SpawnBoss(_gameStages.stages[_currentStageInfoIndex].waveBossInfo.type);
             StartBoss();
         }
 
         private void StartBoss()
         {
-            _currentBoss.StartBossBattle(stagesInfo[_currentStage].waveBossInfo);
+            _currentBoss.StartBossBattle(_gameStages.stages[_currentStageInfoIndex].waveBossInfo);
         }
 
         private void StartNextStage()
         {
             _currentStageInfoIndex++;
             
-            if (_currentStageInfoIndex >= stagesInfo.Length)
+            if (_currentStageInfoIndex >= _gameStages.stages.Length)
             {
                 GameEvents.OnGameEnd?.Invoke(true);
             }
-            else if (stagesInfo[_currentStageInfoIndex].isContinuation)
+            else if (_gameStages.stages[_currentStageInfoIndex].isContinuation)
             {
                 if (_stageCoroutine != null)
                 {
@@ -79,7 +81,7 @@ namespace Game.Stage
                     _stageCoroutine = null;
                 }
 
-                StartCoroutine(StartStage());
+                StartCoroutine(StartWave());
             }
             else
                 StartCoroutine(StartNextStageCoroutine());
@@ -107,18 +109,22 @@ namespace Game.Stage
                 _stageCoroutine = null;
             }
             
-            StartCoroutine(StartStage());
+            StartCoroutine(StartWave());
         }
 
         private void InitializeStages()
         {
+            Debug.Log(GameInfo.DifficultyType.ToString());
+            _gameStages = stagesInfo[(int)GameInfo.DifficultyType];
+            Debug.Log(_gameStages.stages.Length);
+
             if (_stageCoroutine != null)
             {
                 StopCoroutine(_stageCoroutine);
                 _stageCoroutine = null;
             }
 
-            StartCoroutine(StartStage());
+            StartCoroutine(StartWave());
         }
     }
 }

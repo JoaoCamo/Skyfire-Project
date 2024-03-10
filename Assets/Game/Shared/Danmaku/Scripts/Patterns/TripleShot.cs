@@ -25,7 +25,7 @@ namespace Game.Danmaku
                         for (int j = 0; j < timesToShoot; j++)
                         {
                             EnemyProjectileManager.RequestBullet?.Invoke(projectileType, transform.position, speed, angle);
-                            speed -= 0.1f;
+                            speed += shotSpeedReduction;
                         }
 
                         angle += 35f;
@@ -47,7 +47,7 @@ namespace Game.Danmaku
                         for (int k = 0; k < timesToShoot; k++)
                         {
                             EnemyProjectileManager.RequestBullet?.Invoke(projectileType, transform.position, speed, angle);
-                            speed -= 0.1f;
+                            speed += shotSpeedReduction;
                         }
 
                         angle += 35f;

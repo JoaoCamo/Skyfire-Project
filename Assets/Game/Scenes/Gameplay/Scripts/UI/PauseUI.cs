@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
+using Game.Navigation;
 using Game.Player.Controls;
 
 namespace Game.Gameplay.UI
@@ -22,6 +24,18 @@ namespace Game.Gameplay.UI
             _pauseInput.performed += TogglePauseInputAction;
 
             resumeButton.onClick.AddListener(TogglePause);
+            
+            restartButton.onClick.AddListener(() =>
+            {
+                Time.timeScale = 1;
+                NavigationController.RequestSceneLoad(Scenes.Gameplay, LoadSceneMode.Single, true);
+            });
+            
+            returnToMainMenuButton.onClick.AddListener(() =>
+            {
+                Time.timeScale = 1;
+                NavigationController.RequestSceneLoad(Scenes.MainMenu, LoadSceneMode.Single, true);
+            });
         }
 
         private void OnEnable()

@@ -12,6 +12,7 @@ namespace Game.Danmaku
         public int timesToLoop;
         public int timesToShoot;
         public float shotSpeed;
+        public float shotSpeedReduction;
         public float shotDelay;
         public float shotStartDelay;
     }

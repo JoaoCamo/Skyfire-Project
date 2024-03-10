@@ -4,7 +4,8 @@ namespace Game.Navigation
     public struct SceneNavigationInfo
     {
         public Scenes scene;
-        public bool isSingle;
+        public UnityEngine.SceneManagement.LoadSceneMode loadSceneMode;
+        public bool hasLoading;
         public UnityEngine.UI.Button button;
     }
 }

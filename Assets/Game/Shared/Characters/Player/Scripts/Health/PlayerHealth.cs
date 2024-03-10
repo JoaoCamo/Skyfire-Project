@@ -52,11 +52,14 @@ namespace Game.Player
             else
             {
                 PlayerAttack.RequestNewBomb?.Invoke(3, true);
-                PlayerAttack.RequestPowerValueChange(-1.5f);
+                PlayerAttack.RequestPowerValueChange?.Invoke(-1.5f);
                 GameEvents.OnHealthValueChange?.Invoke(_health);
                 StartCoroutine(StartInvincibility());
                 StartCoroutine(StartShockwave());
                 StartCoroutine(StopMovement());
+                
+                if(other.gameObject.layer == ENEMY_BULLET_LAYER)
+                    other.gameObject.SetActive(false);
             }
         }
 

@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Game/Scenes/Init/Init.unity
+    guid: 476c3549cec1fba4c9055090fe9ccc33
+  - enabled: 1
+    path: Assets/Game/Scenes/Menus/Main_Menu/MainMenu.unity
+    guid: 7b0c574e0fbd8bc49b5703fc4f836a45
+  - enabled: 1
+    path: Assets/Game/Scenes/Menus/Options/Options.unity
+    guid: 90ee1b86852da07449d0b10e5b0c98a2
+  - enabled: 1
+    path: Assets/Game/Scenes/Menus/Difficulty_Selection/DifficultySelection.unity
+    guid: b8f1346357289ee42b4e5cd261c3a547
+  - enabled: 1
+    path: Assets/Game/Scenes/Menus/Character_Selection/CharacterSelection.unity
+    guid: f2dde6a1072caba4b8c135034ddb9a83
+  - enabled: 1
     path: Assets/Game/Scenes/Gameplay/Gameplay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
