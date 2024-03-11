@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Game.Loading;
+using Random = UnityEngine.Random;
 
 namespace Game.Navigation
 {
@@ -11,9 +12,11 @@ namespace Game.Navigation
     {
         private LoadingController _loadingController;
 
+        private const float MIN_EXTRA_DELAY = 1;
+        private const float MAX_EXTRA_DELAY = 3;
+        
         private readonly Stack<Scenes> _loadedScenes = new Stack<Scenes>();
         private readonly WaitForFixedUpdate _wait = new WaitForFixedUpdate();
-        private readonly WaitForSeconds _extraDelay = new WaitForSeconds(2);
 
         public static Action<Scenes, LoadSceneMode, bool> RequestSceneLoad;
         public static Action RequestSceneUnload;
@@ -39,9 +42,7 @@ namespace Game.Navigation
         private void LoadNewScene(Scenes scene, LoadSceneMode loadSceneMode, bool hasLoading)
         {
             if (hasLoading)
-            {
                 StartCoroutine(LoadScene(scene, loadSceneMode));
-            }
             else
             {
                 if(loadSceneMode == LoadSceneMode.Single)
@@ -68,7 +69,9 @@ namespace Game.Navigation
                 yield return _wait;
             }
 
-            yield return _extraDelay;
+            float extraDelay = Random.Range(MIN_EXTRA_DELAY, MAX_EXTRA_DELAY);
+            
+            yield return new WaitForSeconds(extraDelay);
             
             _loadingController.ToggleLoading(false);
         }

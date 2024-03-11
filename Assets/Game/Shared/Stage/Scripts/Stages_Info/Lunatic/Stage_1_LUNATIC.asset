@@ -102,8 +102,8 @@ MonoBehaviour:
         timesToLoop: 0
         timesToShoot: 3
         shotSpeed: 1
-        shotSpeedReduction: 0.3
-        shotDelay: 0.6
+        shotSpeedReduction: 0.45
+        shotDelay: 0.5
         shotStartDelay: 2
     - hasMovement: 1
       attackInfo:
@@ -111,8 +111,8 @@ MonoBehaviour:
         projectileType: 3
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 2
-        shotSpeed: 2
-        shotSpeedReduction: 1.5
+        timesToShoot: 3
+        shotSpeed: 1.25
+        shotSpeedReduction: -0.5
         shotDelay: 0.5
         shotStartDelay: 2

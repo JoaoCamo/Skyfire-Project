@@ -8,6 +8,8 @@ namespace Game.Enemy.Boss
     {
         private readonly Vector2 _initialPosition = new Vector2 (-0.375f, 0.45f);
         private readonly WaitForSeconds _randomMovementDelay = new WaitForSeconds(3);
+        private readonly WaitForSeconds _returnToInitialPositionDelay = new WaitForSeconds(1);
+            
         private const float X_MIN_POSITION = -1.15f;
         private const float X_MAX_POSITION = 0.4f;
         private const float Y_MIN_POSITION = 0;
@@ -15,7 +17,7 @@ namespace Game.Enemy.Boss
         
         private bool _canMove = false;
 
-        private Coroutine _randomMovementCoroutine;
+        private Coroutine _randomMovementCoroutine = null;
 
         private void Start()
         {
@@ -28,9 +30,13 @@ namespace Game.Enemy.Boss
             transform.DOMove(_initialPosition, 1).SetEase(Ease.Linear);
         }
 
-        public void StartRandomMovement()
+        public IEnumerator StartRandomMovement()
         {
-            ReturnToStartPosition();
+            StopRandomMovement();
+            transform.DOMove(_initialPosition, 1).SetEase(Ease.Linear);
+
+            yield return _returnToInitialPositionDelay;
+            
             _canMove = true;
             _randomMovementCoroutine = StartCoroutine(RandomMovement());
         }
@@ -54,13 +60,14 @@ namespace Game.Enemy.Boss
 
         private void StopRandomMovement()
         {
-            transform.DOKill();
-
-            if (_randomMovementCoroutine == null) return;
+            if (_randomMovementCoroutine != null)
+            {
+                _canMove = false;
+                StopCoroutine(_randomMovementCoroutine);
+                _randomMovementCoroutine = null;
+            }
             
-            _canMove = false;
-            StopCoroutine( _randomMovementCoroutine);
-            _randomMovementCoroutine = null;
+            transform.DOKill();
         }
     }
 }

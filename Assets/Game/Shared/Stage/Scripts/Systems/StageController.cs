@@ -114,9 +114,7 @@ namespace Game.Stage
 
         private void InitializeStages()
         {
-            Debug.Log(GameInfo.DifficultyType.ToString());
             _gameStages = stagesInfo[(int)GameInfo.DifficultyType];
-            Debug.Log(_gameStages.stages.Length);
 
             if (_stageCoroutine != null)
             {

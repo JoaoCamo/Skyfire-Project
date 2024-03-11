@@ -8,13 +8,13 @@ namespace Game.Enemy.Boss
     {
         [SerializeField] private EnemyAttackReference attackReference;
 
-        private BossAttackInfo[] bossAttackInfo;
+        private BossAttackInfo[] _bossAttackInfo;
         private BossMovementController _movementController;
 
         private EnemyAttackBase _attackBase;
         private Coroutine _attackCoroutine;
 
-        public BossAttackInfo[] BossAttackInfo { get => bossAttackInfo; set => bossAttackInfo = value; }
+        public BossAttackInfo[] BossAttackInfo { get => _bossAttackInfo; set => _bossAttackInfo = value; }
 
         private void Awake()
         {
@@ -25,22 +25,22 @@ namespace Game.Enemy.Boss
         {
             StopAttack();
 
-            switch(bossAttackInfo[attackIndex].hasMovement)
+            switch(_bossAttackInfo[attackIndex].hasMovement)
             {
                 case true:
-                    _movementController.StartRandomMovement();
+                    StartCoroutine(_movementController.StartRandomMovement());
                     break;
                 case false:
                     _movementController.ReturnToStartPosition();
                     break;
             }
 
-            EnemyAttackPatterns attackPattern = bossAttackInfo[attackIndex].attackInfo.attackPattern;
+            EnemyAttackPatterns attackPattern = _bossAttackInfo[attackIndex].attackInfo.attackPattern;
 
             _attackBase = Instantiate(attackReference.enemyAttackPrefabs[(int)attackPattern], transform).GetComponent<EnemyAttackBase>();
-            _attackBase.SetShot(bossAttackInfo[attackIndex].attackInfo);
+            _attackBase.SetShot(_bossAttackInfo[attackIndex].attackInfo);
 
-            yield return new WaitForSeconds(bossAttackInfo[attackIndex].attackInfo.shotStartDelay);
+            yield return new WaitForSeconds(_bossAttackInfo[attackIndex].attackInfo.shotStartDelay);
 
             _attackCoroutine = StartCoroutine(_attackBase.Shoot());
 
