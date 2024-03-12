@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Game.Danmaku;
+using Game.Projectiles;
 
 namespace Game.Enemy
 {
@@ -17,22 +17,18 @@ namespace Game.Enemy
             StopAttack();
         }
 
-        public void SetAttack(EnemyAttackInfo attackInfo)
+        public void SetAttack(EnemyAttackInfo attackInfo, EnemyProjectileManager enemyProjectileManager)
         {
+            StopAttack();
+
             _attackBase = Instantiate(attackReference.GetAttack(attackInfo.attackPattern), transform).GetComponent<EnemyAttackBase>();
-            _attackBase.SetShot(attackInfo);
+            _attackBase.SetShot(attackInfo, enemyProjectileManager);
 
             StartCoroutine(StartAttack(attackInfo.shotStartDelay));
         }
 
         private IEnumerator StartAttack(float delay)
         {
-            if(_attackCoroutine != null)
-            {
-                StopCoroutine(_attackCoroutine);
-                _attackCoroutine = null;
-            }
-
             yield return new WaitForSeconds(delay);
 
             _attackCoroutine = StartCoroutine(_attackBase.Shoot());

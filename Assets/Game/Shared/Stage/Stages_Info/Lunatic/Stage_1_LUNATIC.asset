@@ -24,7 +24,7 @@ MonoBehaviour:
       movementChangeInfo:
       - changeDelay: 2
         changeDuration: 2
-        movementDirection: {x: -0.5, y: -0.5}
+        movementDirection: {x: 0, y: -0.5}
     possibleDrops:
     - dropType: 3
       dropChance: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
       movementChangeInfo:
       - changeDelay: 2
         changeDuration: 2
-        movementDirection: {x: 0.5, y: -0.5}
+        movementDirection: {x: 0, y: -0.5}
     possibleDrops:
     - dropType: 0
       dropChance: 1
@@ -101,18 +101,18 @@ MonoBehaviour:
         isInfiniteLoop: 1
         timesToLoop: 0
         timesToShoot: 3
-        shotSpeed: 1
-        shotSpeedReduction: 0.45
+        shotSpeed: 0.8
+        shotSpeedReduction: 0.35
         shotDelay: 0.5
         shotStartDelay: 2
-    - hasMovement: 1
+    - hasMovement: 0
       attackInfo:
         attackPattern: 1
         projectileType: 3
         isInfiniteLoop: 1
         timesToLoop: 0
         timesToShoot: 3
-        shotSpeed: 1.25
-        shotSpeedReduction: -0.5
+        shotSpeed: 1
+        shotSpeedReduction: -0.35
         shotDelay: 0.5
         shotStartDelay: 2

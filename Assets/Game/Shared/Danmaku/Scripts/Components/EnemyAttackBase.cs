@@ -6,6 +6,8 @@ namespace Game.Danmaku
 {
     public class EnemyAttackBase : MonoBehaviour
     {
+        protected EnemyProjectileManager enemyProjectileManager;
+
         protected ProjectileType projectileType;
         protected bool isInfiniteLoop;
         protected int timesToLoop;
@@ -14,8 +16,9 @@ namespace Game.Danmaku
         protected float shotSpeed;
         protected float shotSpeedReduction;
 
-        public void SetShot(EnemyAttackInfo enemyAttack)
+        public void SetShot(EnemyAttackInfo enemyAttack, EnemyProjectileManager enemyProjectileManager)
         {
+            this.enemyProjectileManager = enemyProjectileManager;
             this.projectileType = enemyAttack.projectileType;
             this.isInfiniteLoop = enemyAttack.isInfiniteLoop;
             this.timesToLoop = enemyAttack.timesToLoop;

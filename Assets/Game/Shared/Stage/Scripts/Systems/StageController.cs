@@ -7,6 +7,7 @@ using Game.Enemy.Boss;
 using Game.Static.Events;
 using Game.Gameplay.Animation;
 using Game.Static;
+using Game.Projectiles;
 
 namespace Game.Stage
 {
@@ -25,7 +26,7 @@ namespace Game.Stage
         private Coroutine _stageCoroutine;
 
         private readonly WaitForSeconds _waveStartDelay = new WaitForSeconds(2.5f);
-        private readonly WaitForSeconds _bossCallDelay = new WaitForSeconds(5);
+        private readonly WaitForSeconds _bossCallDelay = new WaitForSeconds(7.5f);
         private readonly WaitForSeconds _sceneFadeDelay = new WaitForSeconds(2);
 
         public static Action CallNextStage { get; private set; }
@@ -56,12 +57,15 @@ namespace Game.Stage
 
             yield return _bossCallDelay;
 
+            EnemySpawner.RequestClearEnemies?.Invoke();
+
             _currentBoss = enemySpawner.SpawnBoss(_gameStages.stages[_currentStageInfoIndex].waveBossInfo.type);
             StartBoss();
         }
 
         private void StartBoss()
         {
+            EnemyProjectileManager.RequestClearProjectiles?.Invoke();
             _currentBoss.StartBossBattle(_gameStages.stages[_currentStageInfoIndex].waveBossInfo);
         }
 

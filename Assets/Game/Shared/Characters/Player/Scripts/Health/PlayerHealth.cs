@@ -3,20 +3,20 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using Game.Static.Events;
+using Game.Animation;
 
 namespace Game.Player
 {
     public class PlayerHealth : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] private GameObject playerHitShockwavePrefab;
+        [SerializeField] private GameObject shockwavePrefab;
         
         private int _health = 2;
         private bool _canTakeDamage = true;
         private PlayerAttack _playerAttack;
         private PlayerMovement _playerMovement;
         private readonly WaitForSeconds _invincibilityDelay = new WaitForSeconds(0.25f);
-        private readonly WaitForSeconds _shockwaveFadeDelay = new WaitForSeconds(1f);
         private readonly WaitForSeconds _stopActionDelay = new WaitForSeconds(0.5f);
 
         private const int MAX_HEALTH_VALUE = 8;
@@ -55,8 +55,8 @@ namespace Game.Player
                 PlayerAttack.RequestPowerValueChange?.Invoke(-1.5f);
                 GameEvents.OnHealthValueChange?.Invoke(_health);
                 StartCoroutine(StartInvincibility());
-                StartCoroutine(StartShockwave());
                 StartCoroutine(StopMovement());
+                StartShockWave();
                 
                 if(other.gameObject.layer == ENEMY_BULLET_LAYER)
                     other.gameObject.SetActive(false);
@@ -78,19 +78,6 @@ namespace Game.Player
             _canTakeDamage = true;
         }
 
-        private IEnumerator StartShockwave()
-        {
-            SpriteRenderer shockwaveSpriteRenderer = Instantiate(playerHitShockwavePrefab, transform).GetComponent<SpriteRenderer>();
-            shockwaveSpriteRenderer.transform.DOScale(1, 1);
-            
-            Color newColor = new Color(0, 0, 0, 0);
-            shockwaveSpriteRenderer.DOColor(newColor, 1);
-
-            yield return _shockwaveFadeDelay;
-            
-            Destroy(shockwaveSpriteRenderer.gameObject);
-        }
-
         private IEnumerator StopMovement()
         {
             _playerAttack.CanShoot = false;
@@ -98,6 +85,11 @@ namespace Game.Player
             yield return _stopActionDelay;
             _playerMovement.SpeedMultiplayer = 1;
             _playerAttack.CanShoot = true;
+        }
+
+        private void StartShockWave()
+        {
+            Instantiate(shockwavePrefab, transform.position, Quaternion.identity).GetComponent<ShockwaveAnimation>().StartShockwave(0.75f);
         }
 
         private void AddLife()

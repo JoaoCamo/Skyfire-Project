@@ -22,7 +22,7 @@ namespace Game.Danmaku
                         speed = shotSpeed;
                         for (int j = 0; j < timesToShoot; j++)
                         {
-                            EnemyProjectileManager.RequestBullet?.Invoke(projectileType, transform.position, speed, angle);
+                            enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
                             speed += shotSpeedReduction;
                         }
                         yield return delay;
@@ -39,7 +39,7 @@ namespace Game.Danmaku
                         speed = shotSpeed;
                         for (int k = 0; k < timesToShoot; k++)
                         {
-                            EnemyProjectileManager.RequestBullet?.Invoke(projectileType, transform.position, speed, angle);
+                            enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
                             speed += shotSpeedReduction;
                         }
                         yield return delay;

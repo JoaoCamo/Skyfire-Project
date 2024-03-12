@@ -24,7 +24,7 @@ MonoBehaviour:
       movementChangeInfo:
       - changeDelay: 2
         changeDuration: 2
-        movementDirection: {x: -0.5, y: -0.5}
+        movementDirection: {x: 0, y: -0.5}
     possibleDrops:
     - dropType: 3
       dropChance: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
       movementChangeInfo:
       - changeDelay: 2
         changeDuration: 2
-        movementDirection: {x: 0.5, y: -0.5}
+        movementDirection: {x: 0, y: -0.5}
     possibleDrops:
     - dropType: 0
       dropChance: 1
@@ -92,7 +92,7 @@ MonoBehaviour:
         dropChance: 1
         timesToDrop: 10
     bossAttackInfo:
-    - hasMovement: 1
+    - hasMovement: 0
       attackInfo:
         attackPattern: 1
         projectileType: 3

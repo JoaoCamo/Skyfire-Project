@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Danmaku;
+using Game.Projectiles;
 
 namespace Game.Enemy
 {
@@ -19,7 +20,7 @@ namespace Game.Enemy
             attackController = GetComponent<EnemyAttackController>();
         }
 
-        public void SetEnemy(EnemyAttackInfo enemyAttackInfo, EnemyMovementInfo enemyMovementInfo, EnemyInitialPosition enemyInitialPosition, PossibleDrops[] possibleDrops, int enemyHealth)
+        public void SetEnemy(EnemyAttackInfo enemyAttackInfo, EnemyMovementInfo enemyMovementInfo, EnemyInitialPosition enemyInitialPosition, PossibleDrops[] possibleDrops, int enemyHealth, EnemyProjectileManager enemyProjectileManager)
         {
             if(!gameObject.activeSelf)
                 gameObject.SetActive(true);
@@ -27,13 +28,21 @@ namespace Game.Enemy
             health.SetHealth(enemyHealth, possibleDrops);
             movement.SetPosition(enemyInitialPosition);
             movement.SetMovement(enemyMovementInfo);
-            attackController.SetAttack(enemyAttackInfo);
+            attackController.SetAttack(enemyAttackInfo, enemyProjectileManager);
 
         }
 
         public void UpdatePosition()
         {
             movement.UpdatePosition();
+        }
+
+        public void ForceClear()
+        {
+            if (!gameObject.activeSelf) return;
+
+            EnemySpawner.RequestShockwave?.Invoke(transform.position ,0.4f);
+            gameObject.SetActive(false);
         }
     }
 }

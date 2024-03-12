@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Game.Danmaku;
+using Game.Projectiles;
 
 namespace Game.Enemy.Boss
 {
@@ -8,13 +9,16 @@ namespace Game.Enemy.Boss
     {
         [SerializeField] private EnemyAttackReference attackReference;
 
+        private EnemyProjectileManager _enemyProjectileManager;
+
         private BossAttackInfo[] _bossAttackInfo;
         private BossMovementController _movementController;
 
         private EnemyAttackBase _attackBase;
         private Coroutine _attackCoroutine;
 
-        public BossAttackInfo[] BossAttackInfo { get => _bossAttackInfo; set => _bossAttackInfo = value; }
+        public EnemyProjectileManager EnemyProjectileManager { set => _enemyProjectileManager = value; }
+        public BossAttackInfo[] BossAttackInfo { set => _bossAttackInfo = value; }
 
         private void Awake()
         {
@@ -38,7 +42,7 @@ namespace Game.Enemy.Boss
             EnemyAttackPatterns attackPattern = _bossAttackInfo[attackIndex].attackInfo.attackPattern;
 
             _attackBase = Instantiate(attackReference.enemyAttackPrefabs[(int)attackPattern], transform).GetComponent<EnemyAttackBase>();
-            _attackBase.SetShot(_bossAttackInfo[attackIndex].attackInfo);
+            _attackBase.SetShot(_bossAttackInfo[attackIndex].attackInfo, _enemyProjectileManager);
 
             yield return new WaitForSeconds(_bossAttackInfo[attackIndex].attackInfo.shotStartDelay);
 

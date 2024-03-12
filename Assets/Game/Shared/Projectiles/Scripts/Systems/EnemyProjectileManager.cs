@@ -11,7 +11,6 @@ namespace Game.Projectiles
         [SerializeField] private ProjectilesReference projectilesReference;
         private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
         
-        public static Action<ProjectileType, Vector2, float, float> RequestBullet;
         public static Action RequestClearProjectiles;
 
         private void Update()
@@ -28,18 +27,16 @@ namespace Game.Projectiles
 
         private void OnEnable()
         {
-            RequestBullet += FireProjectile;
             RequestClearProjectiles += ClearBullets;
         }
 
         private void OnDisable()
         {
-            RequestBullet -= FireProjectile;
             RequestClearProjectiles -= ClearBullets;
         }
         
         public void FireProjectile(ProjectileType projectileType, Vector2 originPosition, float speed, float rotation)
-        { 
+        {
             ProjectileBase projectileBase = GetProjectile(projectileType);
             projectileBase.SetProjectileData(speed,originPosition,Quaternion.Euler(0,0,rotation));
             projectileBase.Show();
@@ -62,7 +59,10 @@ namespace Game.Projectiles
         private void ClearBullets()
         {
             foreach (ProjectileBase projectile in _projectiles)
+            {
+                projectile.gameObject.SetActive(false);
                 Destroy(projectile.gameObject);
+            }
 
             _projectiles.Clear();
         }

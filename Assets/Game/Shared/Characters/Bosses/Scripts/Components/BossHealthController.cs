@@ -1,16 +1,14 @@
 using System.Collections;
 using UnityEngine;
-using DG.Tweening;
 using Game.Drop;
 using Game.Stage;
 using Game.Gameplay.UI;
+using Game.Animation;
 
 namespace Game.Enemy.Boss
 {
     public class BossHealthController : MonoBehaviour
     {
-        [SerializeField] private GameObject shockwavePrefab;
-
         private BossHealthInfo[] _bossHealthInfo;
 
         private BossAttackController _attackController;
@@ -56,6 +54,8 @@ namespace Game.Enemy.Boss
 
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
+                    EnemySpawner.RequestShockwave?.Invoke(transform.position ,2);
+
                     StageController.CallNextStage?.Invoke();
                     BossHealthUI.ToggleHealthBar?.Invoke(false);
                     Destroy(gameObject);
@@ -96,27 +96,10 @@ namespace Game.Enemy.Boss
             }
         }
 
-        private IEnumerator StartShockwave()
-        {
-            SpriteRenderer shockwaveSpriteRenderer = Instantiate(shockwavePrefab, transform).GetComponent<SpriteRenderer>();
-            shockwaveSpriteRenderer.transform.DOScale(1, 1);
-
-            yield return _shockwaveFadeDelay;
-
-            Color originalColor = shockwaveSpriteRenderer.color;
-            Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
-
-            shockwaveSpriteRenderer.DOColor(newColor, 0.25f);
-
-            yield return _shockwaveFadeDelay;
-
-            Destroy(shockwaveSpriteRenderer.gameObject);
-        }
-
         private IEnumerator InitiliazeNextPhase()
         {
             ResetHealth();
-            StartCoroutine(StartShockwave());
+            EnemySpawner.RequestShockwave?.Invoke(transform.position, 0.75f);
 
             _canTakeDamage = false;
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Gameplay.UI;
+using Game.Projectiles;
 
 namespace Game.Enemy.Boss
 {
@@ -12,6 +13,11 @@ namespace Game.Enemy.Boss
         {
             _attackController = GetComponent<BossAttackController>();
             _healthController = GetComponent<BossHealthController>();
+        }
+
+        public void SetProjectileManager(EnemyProjectileManager enemyProjectileManager)
+        {
+            _attackController.EnemyProjectileManager = enemyProjectileManager;
         }
 
         public void StartBossBattle(BossInfo bossInfo)

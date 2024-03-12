@@ -14,6 +14,8 @@ namespace Game.Projectiles
         private float _speed;
         private Transform _selfTransform;
 
+        private bool _waitingForJobCompletion = false;
+
         public float Speed {  get => _speed; set => _speed = value; }
 
         protected void Awake()
@@ -23,6 +25,9 @@ namespace Game.Projectiles
     
         protected void OnDestroy()
         {
+            if (_waitingForJobCompletion)
+                CompleteJob();
+
             _positionResult.Dispose();
         }
     
@@ -40,12 +45,16 @@ namespace Game.Projectiles
         {
             ProjectileJob projectileJob = new ProjectileJob(_speed, Time.deltaTime, _selfTransform.position, _selfTransform.rotation, _positionResult);
             _jobHandle = projectileJob.Schedule();
+
+            _waitingForJobCompletion = true;
         }
     
         public void CompleteJob()
         {
             _jobHandle.Complete();
             transform.position = _positionResult[0];
+
+            _waitingForJobCompletion = false;
         }
     
         public void AllocateMemory()
