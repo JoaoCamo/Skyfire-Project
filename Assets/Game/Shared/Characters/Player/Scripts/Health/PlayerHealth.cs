@@ -16,7 +16,7 @@ namespace Game.Player
         private PlayerAttack _playerAttack;
         private PlayerMovement _playerMovement;
         private readonly WaitForSeconds _invincibilityDelay = new WaitForSeconds(0.25f);
-        private readonly WaitForSeconds _shockwaveFadeDelay = new WaitForSeconds(0.5f);
+        private readonly WaitForSeconds _shockwaveFadeDelay = new WaitForSeconds(1f);
         private readonly WaitForSeconds _stopActionDelay = new WaitForSeconds(0.5f);
 
         private const int MAX_HEALTH_VALUE = 8;
@@ -83,12 +83,8 @@ namespace Game.Player
             SpriteRenderer shockwaveSpriteRenderer = Instantiate(playerHitShockwavePrefab, transform).GetComponent<SpriteRenderer>();
             shockwaveSpriteRenderer.transform.DOScale(1, 1);
             
-            yield return _shockwaveFadeDelay;
-            
-            Color originalColor = shockwaveSpriteRenderer.color;
-            Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
-            
-            shockwaveSpriteRenderer.DOColor(newColor, 0.25f);
+            Color newColor = new Color(0, 0, 0, 0);
+            shockwaveSpriteRenderer.DOColor(newColor, 1);
 
             yield return _shockwaveFadeDelay;
             
@@ -115,8 +111,6 @@ namespace Game.Player
                 _health++;
                 GameEvents.OnHealthValueChange?.Invoke(_health);
             }
-            
-            GameEvents.OnPointsValueChange?.Invoke(1000);
         }
     }
 }
