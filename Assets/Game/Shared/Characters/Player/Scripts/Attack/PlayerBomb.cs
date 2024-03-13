@@ -6,42 +6,59 @@ namespace Game.Player
 {
     public class PlayerBomb : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer[] bombSpriteRenderers;
+        [SerializeField] private SpriteRenderer projectileSpriteRenderer;
+        [SerializeField] private SpriteRenderer bombSpriteRenderer;
 
-        private readonly WaitForSeconds _bombPhaseOneDelay = new WaitForSeconds(0.5f);
-        private readonly WaitForSeconds _bombPhaseTwoDelay = new WaitForSeconds(3.5f);
-        private readonly WaitForSeconds _bombFadeDelay = new WaitForSeconds(0.75f);
+        private Rigidbody2D _rigidbody2D;
+        private bool _canExplode = true;
+        
+        private const int ENEMY_LAYER = 8;
+
+        private readonly WaitForSeconds _bombDelay = new WaitForSeconds(1);
+        private readonly WaitForSeconds _bombDestroyDelay = new WaitForSeconds(1);
+
+        private void Awake()
+        {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
 
         private void Start()
         {
-            StartCoroutine(BombPhaseOne());
+            _rigidbody2D.velocity = new Vector2(0, 1f);
+            StartCoroutine(BombCoroutine());
         }
 
-        private IEnumerator BombPhaseOne()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            transform.DOScale(0.2f, 0.5f).SetEase(Ease.Linear);
-
-            yield return _bombPhaseOneDelay;
-
-            StartCoroutine(BombPhaseTwo());
+            if(other.gameObject.layer == ENEMY_LAYER)
+                StartCoroutine(Explode());
         }
 
-        private IEnumerator BombPhaseTwo()
+        private IEnumerator BombCoroutine()
         {
-            transform.DOScale(1.5f, 3.5f).SetEase(Ease.InOutExpo);
+            yield return _bombDelay;
 
-            yield return _bombPhaseTwoDelay;
+            if (_canExplode)
+                StartCoroutine(Explode());
+        }
 
-            foreach (SpriteRenderer spriteRenderer in bombSpriteRenderers)
-            {
-                Color initialColor = spriteRenderer.color;
-                Color newColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
-                spriteRenderer.DOColor(newColor, 0.5f);
-            }
+        private IEnumerator Explode()
+        {
+            _canExplode = false;
             
-            yield return _bombFadeDelay;
-            
-            Destroy(this.gameObject);
+            _rigidbody2D.velocity = Vector2.zero;
+            projectileSpriteRenderer.enabled = false;
+
+            Color originalColor = bombSpriteRenderer.color;
+            bombSpriteRenderer.DOColor(new Color(originalColor.r, originalColor.g, originalColor.b, 0), 1f);
+            bombSpriteRenderer.transform.DOScale(5, 1f);
+
+            yield return _bombDestroyDelay;
+
+            bombSpriteRenderer.DOKill();
+            bombSpriteRenderer.transform.DOKill();
+
+            Destroy(gameObject);
         }
     }
 }

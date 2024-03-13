@@ -9,6 +9,7 @@ namespace Game.Enemy.Boss
         private readonly Vector2 _initialPosition = new Vector2 (-0.375f, 0.45f);
         private readonly WaitForSeconds _randomMovementDelay = new WaitForSeconds(3);
         private readonly WaitForSeconds _returnToInitialPositionDelay = new WaitForSeconds(1);
+        private readonly WaitForSeconds _movementDurationDelay = new WaitForSeconds(2);
             
         private const float X_MIN_POSITION = -1.15f;
         private const float X_MAX_POSITION = 0.4f;
@@ -50,11 +51,9 @@ namespace Game.Enemy.Boss
                 float xPosition = Random.Range(X_MIN_POSITION, X_MAX_POSITION);
                 float yPosition = Random.Range(Y_MIN_POSITION, Y_MAX_POSITION);
 
-                float movementDuration = Random.Range(1f, 2f);
+                transform.DOMove(new Vector3(xPosition, yPosition), 2);
 
-                transform.DOMove(new Vector3(xPosition, yPosition), movementDuration);
-                
-                yield return new WaitForSeconds(movementDuration);
+                yield return _movementDurationDelay;
             }
         }
 

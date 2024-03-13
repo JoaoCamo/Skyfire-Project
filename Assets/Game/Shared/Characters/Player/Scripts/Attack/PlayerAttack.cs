@@ -23,6 +23,7 @@ namespace Game.Player
         private Coroutine _secondaryShotCoroutine;
         private readonly WaitForSeconds _primaryShotDelay = new WaitForSeconds(0.075f);
         private readonly WaitForSeconds _secondaryShotDelay = new WaitForSeconds(0.125f);
+        private readonly WaitForSeconds _bombDelay = new WaitForSeconds(0.5f);
         private readonly WaitForSeconds _bombCooldown = new WaitForSeconds(5);
 
         private const float MAX_POWER_VALUE = 4;
@@ -76,12 +77,21 @@ namespace Game.Player
         private void UseBomb(InputAction.CallbackContext callbackContext)
         {
             if (_currentBombs == 0 || !_canBomb) return;
-
-            Instantiate(playerBombPrefab, transform.position, quaternion.identity);
+            
             _currentBombs--;
             
             GameEvents.OnBombValueChange?.Invoke(_currentBombs);
+            StartCoroutine(FireBombs());
             StartCoroutine(BombCooldown());
+        }
+
+        private IEnumerator FireBombs()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Instantiate(playerBombPrefab, transform.position, quaternion.identity);
+                yield return _bombDelay;
+            }
         }
 
         private IEnumerator BombCooldown()
