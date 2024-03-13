@@ -13,6 +13,7 @@ namespace Game.Player
         private bool _canExplode = true;
         
         private const int ENEMY_LAYER = 8;
+        private const int ENEMY_PROJECTILE_LAYER = 9;
 
         private readonly WaitForSeconds _bombDelay = new WaitForSeconds(1);
         private readonly WaitForSeconds _bombDestroyDelay = new WaitForSeconds(1);
@@ -30,8 +31,9 @@ namespace Game.Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.gameObject.layer == ENEMY_LAYER)
-                StartCoroutine(Explode());
+            if (other.gameObject.layer == ENEMY_LAYER || other.gameObject.layer == ENEMY_PROJECTILE_LAYER)
+                if(_canExplode)
+                    StartCoroutine(Explode());
         }
 
         private IEnumerator BombCoroutine()

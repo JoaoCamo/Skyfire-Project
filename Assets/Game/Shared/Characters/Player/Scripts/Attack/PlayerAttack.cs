@@ -14,6 +14,7 @@ namespace Game.Player
         [SerializeField] private GameObject playerBombPrefab;
         
         private ProjectileManager _projectileManager;
+        private PlayerHealth _health;
 
         private PlayerControls _playerControls;
         private InputAction _shootInput;
@@ -45,6 +46,7 @@ namespace Game.Player
         private void Awake()
         {
             _projectileManager = GetComponent<ProjectileManager>();
+            _health = GetComponent<PlayerHealth>();
             
             _playerControls = new PlayerControls();
             _shootInput = _playerControls.Player.Shoot;
@@ -60,18 +62,18 @@ namespace Game.Player
 
         private void OnEnable()
         {
-            _shootInput.Enable();
-            _bombInput.Enable();
+            ToggleInput(true);
             RequestPowerValueChange += ChangePowerValue;
             RequestNewBomb += AddBomb;
+            GameEvents.TogglePlayerInputs += ToggleInput;
         }
 
         private void OnDisable()
         {
-            _shootInput.Disable();
-            _bombInput.Disable();
+            ToggleInput(false);
             RequestPowerValueChange -= ChangePowerValue;
             RequestNewBomb -= AddBomb;
+            GameEvents.TogglePlayerInputs -= ToggleInput;
         }
 
         private void UseBomb(InputAction.CallbackContext callbackContext)
@@ -79,7 +81,8 @@ namespace Game.Player
             if (_currentBombs == 0 || !_canBomb) return;
             
             _currentBombs--;
-            
+
+            _health.RequestInvincibility?.Invoke();
             GameEvents.OnBombValueChange?.Invoke(_currentBombs);
             StartCoroutine(FireBombs());
             StartCoroutine(BombCooldown());
@@ -87,11 +90,15 @@ namespace Game.Player
 
         private IEnumerator FireBombs()
         {
+            _canShoot = false;
+
             for (int i = 0; i < 3; i++)
             {
                 Instantiate(playerBombPrefab, transform.position, quaternion.identity);
                 yield return _bombDelay;
             }
+
+            _canShoot = true;
         }
 
         private IEnumerator BombCooldown()
@@ -214,6 +221,20 @@ namespace Game.Player
             _powerLevel = (int)_currentPower >= (_powerLevel + 1) || (int)_currentPower < _powerLevel ? (int)_currentPower : _powerLevel;
             
             GameEvents.OnPowerValueChange?.Invoke(_currentPower);
+        }
+
+        private void ToggleInput(bool state)
+        {
+            if(state)
+            {
+                _shootInput.Enable();
+                _bombInput.Enable();
+            }
+            else
+            {
+                _shootInput.Disable();
+                _bombInput.Disable();
+            }
         }
     }
 }

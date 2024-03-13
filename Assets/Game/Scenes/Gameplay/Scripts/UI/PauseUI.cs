@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Game.Navigation;
 using Game.Player.Controls;
+using Game.Static.Events;
 
 namespace Game.Gameplay.UI
 {
@@ -50,11 +51,16 @@ namespace Game.Gameplay.UI
 
         private void TogglePauseInputAction(InputAction.CallbackContext callbackContext)
         {
+            if (GameOverUI.LoseScreenOpen)
+                return;
+
             TogglePause();
         }
 
         private void TogglePause()
         {
+            GameEvents.TogglePlayerInputs?.Invoke(_isPaused);
+
             _isPaused = !_isPaused;
 
             canvasGroup.DOFade(_isPaused ? 1 : 0, 0.25f).SetUpdate(isIndependentUpdate: true);

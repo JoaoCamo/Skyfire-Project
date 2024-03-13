@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using Game.Static.Events;
+using Game.Static;
 
 namespace Game.Gameplay.UI
 {
@@ -16,9 +17,8 @@ namespace Game.Gameplay.UI
         [SerializeField] private Image[] bombImages;
         [SerializeField] private Sprite[] bombSprites;
 
-        private float _highScore = 0;
-        private float _currentScore = 0;
-        private float _scoreTargetValue = 0;
+        private int _highScore = 0;
+        private int _scoreTargetValue = 0;
 
         private void Awake()
         {
@@ -31,6 +31,7 @@ namespace Game.Gameplay.UI
             GameEvents.OnPowerValueChange += UpdatePowerText;
             GameEvents.OnHealthValueChange += UpdateLives;
             GameEvents.OnBombValueChange += UpdateBombs;
+            GameEvents.OnRetry += ResetScore;
         }
 
         private void OnDisable()
@@ -39,24 +40,25 @@ namespace Game.Gameplay.UI
             GameEvents.OnPowerValueChange -= UpdatePowerText;
             GameEvents.OnHealthValueChange -= UpdateLives;
             GameEvents.OnBombValueChange -= UpdateBombs;
+            GameEvents.OnRetry -= ResetScore;
         }
 
         private void UpdateScore(int valueToAdd)
         {
             _scoreTargetValue += valueToAdd;
-            float duration = _scoreTargetValue - _currentScore >= 500 ? 2 : 0.5f;
+            float duration = _scoreTargetValue - GameInfo.CurrentScore >= 500 ? 2 : 0.5f;
 
             if (_scoreTargetValue > _highScore)
                 DOTween.To(() => _highScore, x =>
                 {
                     _highScore = x;
-                    highScoreText.text = _highScore.ToString("0");
+                    highScoreText.text = _highScore.ToString();
                 }, _scoreTargetValue, duration).SetEase(Ease.Linear);
 
-            DOTween.To(() => _currentScore, x =>
+            DOTween.To(() => GameInfo.CurrentScore, x =>
             {
-                _currentScore = x;
-                currentScoreText.text = _currentScore.ToString("0");
+                GameInfo.CurrentScore = x;
+                currentScoreText.text = GameInfo.CurrentScore.ToString();
             }, _scoreTargetValue, duration).SetEase(Ease.Linear);
         }
 
@@ -81,6 +83,13 @@ namespace Game.Gameplay.UI
         private void GetHighScore()
         {
             
+        }
+
+        private void ResetScore()
+        {
+            _scoreTargetValue = 0;
+            GameInfo.CurrentScore = 0;
+            currentScoreText.text = GameInfo.CurrentScore.ToString();
         }
     }
 }

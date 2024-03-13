@@ -2,7 +2,7 @@ using System.Collections;
 using Game.Projectiles;
 using UnityEngine;
 
-namespace Game.Danmaku
+namespace Game.Danmaku.Patterns
 {
     public class TripleShot : EnemyAttackBase
     {
@@ -16,9 +16,9 @@ namespace Game.Danmaku
             {
                 while(true)
                 {
-                    angle = EnemyProjectileManager.AimAtPlayer(transform.position, 125);
-                    
-                    for(int i = 0; i < 3; i++)
+                    angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 115) : 205;
+
+                    for (int i = 0; i < 3; i++)
                     {
                         speed = shotSpeed;
 
@@ -28,7 +28,7 @@ namespace Game.Danmaku
                             speed += shotSpeedReduction;
                         }
 
-                        angle += 35f;
+                        angle += 25f;
                     }
 
                     yield return delay;
@@ -38,7 +38,7 @@ namespace Game.Danmaku
             {
                 for (int i = 0; i < timesToLoop; i++)
                 {
-                    angle = EnemyProjectileManager.AimAtPlayer(transform.position, 125);
+                    angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 115) : 205;
 
                     for (int j = 0; j < 3; j++)
                     {
@@ -50,7 +50,7 @@ namespace Game.Danmaku
                             speed += shotSpeedReduction;
                         }
 
-                        angle += 35f;
+                        angle += 25f;
                     }
 
                     yield return delay;

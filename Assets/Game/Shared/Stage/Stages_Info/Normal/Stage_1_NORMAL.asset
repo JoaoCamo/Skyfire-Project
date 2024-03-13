@@ -37,6 +37,7 @@ MonoBehaviour:
     attackInfo:
       attackPattern: 0
       projectileType: 3
+      isAimed: 0
       isInfiniteLoop: 1
       timesToLoop: 0
       timesToShoot: 3
@@ -70,6 +71,7 @@ MonoBehaviour:
     attackInfo:
       attackPattern: 0
       projectileType: 3
+      isAimed: 0
       isInfiniteLoop: 1
       timesToLoop: 0
       timesToShoot: 3
@@ -96,6 +98,7 @@ MonoBehaviour:
       attackInfo:
         attackPattern: 1
         projectileType: 3
+        isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
         timesToShoot: 2

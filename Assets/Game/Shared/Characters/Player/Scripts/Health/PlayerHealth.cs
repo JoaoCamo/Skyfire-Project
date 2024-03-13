@@ -23,6 +23,7 @@ namespace Game.Player
         private const int ENEMY_BULLET_LAYER = 9;
         private const int ENEMY_LAYER = 8;
 
+        public Action RequestInvincibility;
         public static Action RequestNewLife;
 
         private void Awake()
@@ -30,16 +31,21 @@ namespace Game.Player
             _playerAttack = GetComponent<PlayerAttack>();
             _playerMovement = GetComponent<PlayerMovement>();
             GameEvents.OnHealthValueChange?.Invoke(_health);
+
+            RequestInvincibility += () => { StartCoroutine(StartInvincibility()); };
         }
 
         private void OnEnable()
         {
             RequestNewLife += AddLife;
+            GameEvents.OnRetry += RetryReset;
         }
 
         private void OnDisable()
         {
+            RequestInvincibility -= 
             RequestNewLife -= AddLife;
+            GameEvents.OnRetry -= RetryReset;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -48,19 +54,21 @@ namespace Game.Player
             
             if (other.gameObject.layer != ENEMY_BULLET_LAYER && other.gameObject.layer != ENEMY_LAYER) return;
 
-            if (--_health < 0) GameEvents.OnGameEnd?.Invoke(false);
+            StartCoroutine(StartInvincibility());
+            StartCoroutine(StopMovement());
+            StartShockWave();
+
+            if (--_health < 0)
+                GameEvents.OnGameEndLose?.Invoke(); 
             else
             {
                 PlayerAttack.RequestNewBomb?.Invoke(3, true);
                 PlayerAttack.RequestPowerValueChange?.Invoke(-1.5f);
                 GameEvents.OnHealthValueChange?.Invoke(_health);
-                StartCoroutine(StartInvincibility());
-                StartCoroutine(StopMovement());
-                StartShockWave();
-                
-                if(other.gameObject.layer == ENEMY_BULLET_LAYER)
-                    other.gameObject.SetActive(false);
             }
+
+            if (other.gameObject.layer == ENEMY_BULLET_LAYER)
+                other.gameObject.SetActive(false);
         }
 
         private IEnumerator StartInvincibility()
@@ -75,6 +83,7 @@ namespace Game.Player
                 
                 yield return _invincibilityDelay;
             }
+
             _canTakeDamage = true;
         }
 
@@ -103,6 +112,14 @@ namespace Game.Player
                 _health++;
                 GameEvents.OnHealthValueChange?.Invoke(_health);
             }
+        }
+
+        private void RetryReset()
+        {
+            _health = 2;
+            PlayerAttack.RequestNewBomb?.Invoke(3, true);
+            GameEvents.OnHealthValueChange?.Invoke(_health);
+            PlayerAttack.RequestPowerValueChange?.Invoke(4);
         }
     }
 }

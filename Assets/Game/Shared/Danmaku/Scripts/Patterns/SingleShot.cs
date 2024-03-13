@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Game.Projectiles;
 
-namespace Game.Danmaku
+namespace Game.Danmaku.Patterns
 {
     public class SingleShot : EnemyAttackBase
     {
@@ -18,7 +18,7 @@ namespace Game.Danmaku
                 {
                     for (int i = 0; i < timesToShoot; i++)
                     {
-                        angle = EnemyProjectileManager.AimAtPlayer(transform.position);
+                        angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
                         speed = shotSpeed;
                         for (int j = 0; j < timesToShoot; j++)
                         {
@@ -35,7 +35,7 @@ namespace Game.Danmaku
                 {
                     for (int j = 0; j < timesToShoot; j++)
                     {
-                        angle = EnemyProjectileManager.AimAtPlayer(transform.position);
+                        angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
                         speed = shotSpeed;
                         for (int k = 0; k < timesToShoot; k++)
                         {

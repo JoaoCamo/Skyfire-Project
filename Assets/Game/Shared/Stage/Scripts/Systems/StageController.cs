@@ -75,7 +75,7 @@ namespace Game.Stage
             
             if (_currentStageInfoIndex >= _gameStages.stages.Length)
             {
-                GameEvents.OnGameEnd?.Invoke(true);
+                GameEvents.OnGameEndWin?.Invoke(true);
             }
             else if (_gameStages.stages[_currentStageInfoIndex].isContinuation)
             {

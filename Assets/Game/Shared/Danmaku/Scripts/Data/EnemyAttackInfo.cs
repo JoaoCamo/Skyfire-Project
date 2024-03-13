@@ -1,5 +1,4 @@
 using Game.Projectiles;
-using Game.Enemy;
 
 namespace Game.Danmaku
 {
@@ -8,6 +7,7 @@ namespace Game.Danmaku
     {
         public EnemyAttackPatterns attackPattern;
         public ProjectileType projectileType;
+        public bool isAimed;
         public bool isInfiniteLoop;
         public int timesToLoop;
         public int timesToShoot;

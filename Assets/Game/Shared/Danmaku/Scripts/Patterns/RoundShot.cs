@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Game.Projectiles;
 
-namespace Game.Danmaku
+namespace Game.Danmaku.Patterns
 {
     public class RoundShot : EnemyAttackBase
     {
@@ -16,7 +16,7 @@ namespace Game.Danmaku
             {
                 while (true)
                 {
-                    angle = EnemyProjectileManager.AimAtPlayer(transform.position);
+                    angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
 
                     for (int i = 0; i < 16; i++)
                     {
@@ -37,7 +37,7 @@ namespace Game.Danmaku
             {
                 for (int i = 0; i < timesToLoop; i++)
                 {
-                    angle = EnemyProjectileManager.AimAtPlayer(transform.position);
+                    angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
 
                     for (int j = 0; j < 16; j++)
                     {

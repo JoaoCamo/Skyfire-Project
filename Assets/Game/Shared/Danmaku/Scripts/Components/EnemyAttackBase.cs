@@ -9,6 +9,7 @@ namespace Game.Danmaku
         protected EnemyProjectileManager enemyProjectileManager;
 
         protected ProjectileType projectileType;
+        protected bool isAimed;
         protected bool isInfiniteLoop;
         protected int timesToLoop;
         protected int timesToShoot;
@@ -20,6 +21,7 @@ namespace Game.Danmaku
         {
             this.enemyProjectileManager = enemyProjectileManager;
             this.projectileType = enemyAttack.projectileType;
+            this.isAimed = enemyAttack.isAimed;
             this.isInfiniteLoop = enemyAttack.isInfiniteLoop;
             this.timesToLoop = enemyAttack.timesToLoop;
             this.timesToShoot = enemyAttack.timesToShoot;

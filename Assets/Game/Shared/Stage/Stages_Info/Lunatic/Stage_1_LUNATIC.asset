@@ -24,7 +24,7 @@ MonoBehaviour:
       movementChangeInfo:
       - changeDelay: 2
         changeDuration: 2
-        movementDirection: {x: 0, y: -0.5}
+        movementDirection: {x: 1, y: -0.5}
     possibleDrops:
     - dropType: 3
       dropChance: 1
@@ -35,14 +35,15 @@ MonoBehaviour:
     waveInitialDelay: 5
     isAsyncWave: 1
     attackInfo:
-      attackPattern: 2
+      attackPattern: 1
       projectileType: 3
+      isAimed: 1
       isInfiniteLoop: 1
       timesToLoop: 0
-      timesToShoot: 3
+      timesToShoot: 2
       shotSpeed: 0.75
-      shotSpeedReduction: -0.2
-      shotDelay: 1
+      shotSpeedReduction: -0.5
+      shotDelay: 1.5
       shotStartDelay: 1
   - enemyType: 0
     initialPosition:
@@ -54,7 +55,7 @@ MonoBehaviour:
       movementChangeInfo:
       - changeDelay: 2
         changeDuration: 2
-        movementDirection: {x: 0, y: -0.5}
+        movementDirection: {x: -1, y: -0.5}
     possibleDrops:
     - dropType: 0
       dropChance: 1
@@ -68,14 +69,15 @@ MonoBehaviour:
     waveInitialDelay: 5
     isAsyncWave: 0
     attackInfo:
-      attackPattern: 2
+      attackPattern: 1
       projectileType: 3
+      isAimed: 1
       isInfiniteLoop: 1
       timesToLoop: 0
-      timesToShoot: 3
+      timesToShoot: 2
       shotSpeed: 0.75
-      shotSpeedReduction: -0.2
-      shotDelay: 1
+      shotSpeedReduction: -0.5
+      shotDelay: 1.5
       shotStartDelay: 1
   waveBossInfo:
     type: 0
@@ -94,21 +96,23 @@ MonoBehaviour:
         dropChance: 1
         timesToDrop: 10
     bossAttackInfo:
-    - hasMovement: 1
+    - hasMovement: 0
       attackInfo:
-        attackPattern: 2
+        attackPattern: 1
         projectileType: 3
+        isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 3
-        shotSpeed: 0.8
-        shotSpeedReduction: 0.35
-        shotDelay: 0.5
+        timesToShoot: 2
+        shotSpeed: 1
+        shotSpeedReduction: 0.65
+        shotDelay: 0.65
         shotStartDelay: 2
     - hasMovement: 0
       attackInfo:
         attackPattern: 1
         projectileType: 3
+        isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
         timesToShoot: 3

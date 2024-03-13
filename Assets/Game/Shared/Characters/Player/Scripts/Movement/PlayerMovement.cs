@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Game.Player.Controls;
+using Game.Static.Events;
 
 namespace Game.Player
 {
@@ -42,14 +43,14 @@ namespace Game.Player
 
         private void OnEnable()
         {
-            _moveControl.Enable();
-            _focusControl.Enable();
+            ToggleInput(true);
+            GameEvents.TogglePlayerInputs += ToggleInput;
         }
 
         private void OnDisable()
         {
-            _moveControl.Disable();
-            _focusControl.Disable();
+            ToggleInput(false);
+            GameEvents.TogglePlayerInputs -= ToggleInput;
         }
 
         private void Update()
@@ -69,6 +70,20 @@ namespace Game.Player
             hitBoxSprite.SetActive(_isUsingFocus);
             focusCollectArea.localScale = _isUsingFocus ? _collectAreaFocusScale : _collectAreaNormalScale;
             _moveSpeed = _isUsingFocus ? baseMoveSpeed / 2f : baseMoveSpeed;
+        }
+
+        private void ToggleInput(bool state)
+        {
+            if (state)
+            {
+                _moveControl.Enable();
+                _focusControl.Enable();
+            }
+            else
+            {
+                _moveControl.Disable();
+                _focusControl.Disable();
+            }
         }
     }
 }
