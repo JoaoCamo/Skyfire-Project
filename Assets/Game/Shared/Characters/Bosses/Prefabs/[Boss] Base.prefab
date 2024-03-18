@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -21991945
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3fbf32cca1ff87e46859ecd603b66892, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f669d377250d54049a448e6e89676c11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -233,4 +233,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a9f1e12ea37824c849db8526cb7446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shockwavePrefab: {fileID: 741453721323078059, guid: c4b37868f0f99414fb3608ff941d734c, type: 3}

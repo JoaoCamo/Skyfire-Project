@@ -4,6 +4,7 @@ using Game.Drop;
 using Game.Stage;
 using Game.Gameplay.UI;
 using Game.Animation;
+using Game.Projectiles;
 
 namespace Game.Enemy.Boss
 {
@@ -55,9 +56,10 @@ namespace Game.Enemy.Boss
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
                     EnemySpawner.RequestShockwave?.Invoke(transform.position ,2);
-
-                    StageController.CallNextStage?.Invoke();
                     BossHealthUI.ToggleHealthBar?.Invoke(false);
+                    EnemyProjectileManager.RequestFullClear?.Invoke();
+                    
+                    StageController.CallNextStage?.Invoke();
                     Destroy(gameObject);
                 }
                 else

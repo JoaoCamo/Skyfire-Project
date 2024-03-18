@@ -4,7 +4,7 @@ using Game.Projectiles;
 
 namespace Game.Danmaku
 {
-    public class EnemyAttackBase : MonoBehaviour
+    public class DanmakuBase : MonoBehaviour
     {
         protected EnemyProjectileManager enemyProjectileManager;
 
@@ -17,9 +17,9 @@ namespace Game.Danmaku
         protected float shotSpeed;
         protected float shotSpeedReduction;
 
-        public void SetShot(EnemyAttackInfo enemyAttack, EnemyProjectileManager enemyProjectileManager)
+        public void SetShot(EnemyAttackInfo enemyAttack, EnemyProjectileManager projectileManager)
         {
-            this.enemyProjectileManager = enemyProjectileManager;
+            this.enemyProjectileManager = projectileManager;
             this.projectileType = enemyAttack.projectileType;
             this.isAimed = enemyAttack.isAimed;
             this.isInfiniteLoop = enemyAttack.isInfiniteLoop;

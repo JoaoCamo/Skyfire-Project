@@ -14,7 +14,7 @@ namespace Game.Enemy.Boss
         private BossAttackInfo[] _bossAttackInfo;
         private BossMovementController _movementController;
 
-        private EnemyAttackBase _attackBase;
+        private DanmakuBase _attackBase;
         private Coroutine _attackCoroutine;
 
         public EnemyProjectileManager EnemyProjectileManager { set => _enemyProjectileManager = value; }
@@ -41,7 +41,7 @@ namespace Game.Enemy.Boss
 
             EnemyAttackPatterns attackPattern = _bossAttackInfo[attackIndex].attackInfo.attackPattern;
 
-            _attackBase = Instantiate(attackReference.enemyAttackPrefabs[(int)attackPattern], transform).GetComponent<EnemyAttackBase>();
+            _attackBase = Instantiate(attackReference.enemyAttackPrefabs[(int)attackPattern], transform).GetComponent<DanmakuBase>();
             _attackBase.SetShot(_bossAttackInfo[attackIndex].attackInfo, _enemyProjectileManager);
 
             yield return new WaitForSeconds(_bossAttackInfo[attackIndex].attackInfo.shotStartDelay);

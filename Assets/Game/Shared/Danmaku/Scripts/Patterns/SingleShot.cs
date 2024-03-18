@@ -4,7 +4,7 @@ using Game.Projectiles;
 
 namespace Game.Danmaku.Patterns
 {
-    public class SingleShot : EnemyAttackBase
+    public class SingleShot : DanmakuBase
     {
         public override IEnumerator Shoot()
         {

@@ -6,5 +6,6 @@ namespace Game.Projectiles
         PlayerBlue,
         PlayerMissile,
         EnemyOrbRed,
+        EnemyBulletRed,
     }
 }

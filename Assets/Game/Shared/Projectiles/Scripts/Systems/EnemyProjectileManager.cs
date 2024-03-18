@@ -10,8 +10,8 @@ namespace Game.Projectiles
     {
         [SerializeField] private ProjectilesReference projectilesReference;
         private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
-        
-        public static Action RequestClearProjectiles;
+
+        public static Action RequestFullClear { private set; get; }
 
         private void Update()
         {
@@ -27,12 +27,12 @@ namespace Game.Projectiles
 
         private void OnEnable()
         {
-            RequestClearProjectiles += ClearBullets;
+            RequestFullClear += ClearBullets;
         }
 
         private void OnDisable()
         {
-            RequestClearProjectiles -= ClearBullets;
+            RequestFullClear -= ClearBullets;
         }
         
         public void FireProjectile(ProjectileType projectileType, Vector2 originPosition, float speed, float rotation)

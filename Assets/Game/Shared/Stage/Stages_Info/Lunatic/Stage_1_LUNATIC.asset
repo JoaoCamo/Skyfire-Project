@@ -45,7 +45,7 @@ MonoBehaviour:
       shotSpeedReduction: -0.5
       shotDelay: 1.5
       shotStartDelay: 1
-  - enemyType: 0
+  - enemyType: 1
     initialPosition:
       enemyInitialPositionX: 4
       enemyInitialPositionY: 2
@@ -91,7 +91,7 @@ MonoBehaviour:
         timesToDrop: 0
       - dropType: 2
         dropChance: 1
-        timesToDrop: 10
+        timesToDrop: 1
       - dropType: 3
         dropChance: 1
         timesToDrop: 10

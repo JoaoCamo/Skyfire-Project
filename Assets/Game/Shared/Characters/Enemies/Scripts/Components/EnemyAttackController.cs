@@ -8,7 +8,7 @@ namespace Game.Enemy
     public class EnemyAttackController : MonoBehaviour
     {
         [SerializeField] private EnemyAttackReference attackReference;
-        private EnemyAttackBase _attackBase;
+        private DanmakuBase _attackBase;
 
         private Coroutine _attackCoroutine;
 
@@ -21,7 +21,7 @@ namespace Game.Enemy
         {
             StopAttack();
 
-            _attackBase = Instantiate(attackReference.GetAttack(attackInfo.attackPattern), transform).GetComponent<EnemyAttackBase>();
+            _attackBase = Instantiate(attackReference.GetAttack(attackInfo.attackPattern), transform).GetComponent<DanmakuBase>();
             _attackBase.SetShot(attackInfo, enemyProjectileManager);
 
             StartCoroutine(StartAttack(attackInfo.shotStartDelay));

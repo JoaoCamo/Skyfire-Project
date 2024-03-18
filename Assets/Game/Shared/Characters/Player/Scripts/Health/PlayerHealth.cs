@@ -50,6 +50,9 @@ namespace Game.Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.gameObject.layer == ENEMY_BULLET_LAYER)
+                other.gameObject.SetActive(false);
+            
             if (!_canTakeDamage) return;
             
             if (other.gameObject.layer != ENEMY_BULLET_LAYER && other.gameObject.layer != ENEMY_LAYER) return;
@@ -66,9 +69,6 @@ namespace Game.Player
                 PlayerAttack.RequestPowerValueChange?.Invoke(-1.5f);
                 GameEvents.OnHealthValueChange?.Invoke(_health);
             }
-
-            if (other.gameObject.layer == ENEMY_BULLET_LAYER)
-                other.gameObject.SetActive(false);
         }
 
         private IEnumerator StartInvincibility()

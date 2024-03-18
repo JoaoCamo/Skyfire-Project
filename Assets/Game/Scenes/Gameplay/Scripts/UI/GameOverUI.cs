@@ -28,9 +28,17 @@ namespace Game.Gameplay.UI
                 GameInfo.RetryCount--;
             });
 
-            restartButton.onClick.AddListener(() => NavigationController.RequestSceneLoad?.Invoke(Scenes.Gameplay, LoadSceneMode.Single, true));
+            restartButton.onClick.AddListener(() =>
+            {
+                Time.timeScale = 1;
+                NavigationController.RequestSceneLoad(Scenes.Gameplay, LoadSceneMode.Single, true);
+            });
 
-            returnToMainMenuButton.onClick.AddListener(() => NavigationController.RequestSceneLoad?.Invoke(Scenes.MainMenu, LoadSceneMode.Single, true));
+            returnToMainMenuButton.onClick.AddListener(() =>
+            {
+                Time.timeScale = 1;
+                NavigationController.RequestSceneLoad(Scenes.MainMenu, LoadSceneMode.Single, true);
+            });
         }
 
         private void OnEnable()

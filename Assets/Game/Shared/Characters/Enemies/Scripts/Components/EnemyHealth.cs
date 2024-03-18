@@ -31,7 +31,7 @@ namespace Game.Enemy
             
             GameEvents.OnPointsValueChange?.Invoke(10);
             DropItems();
-            EnemySpawner.RequestShockwave?.Invoke(transform.position, 0.4f);
+            EnemySpawner.RequestShockwave?.Invoke(transform.position, 0.3f);
             gameObject.SetActive(false);
         }
 

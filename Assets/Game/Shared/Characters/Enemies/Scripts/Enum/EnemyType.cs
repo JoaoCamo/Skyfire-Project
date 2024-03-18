@@ -2,6 +2,7 @@ namespace Game.Enemy
 {
     public enum EnemyType
     {
-        Test
+        UavM1,
+        UavB1,
     }
 }

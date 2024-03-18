@@ -65,7 +65,7 @@ namespace Game.Stage
 
         private void StartBoss()
         {
-            EnemyProjectileManager.RequestClearProjectiles?.Invoke();
+            EnemyProjectileManager.RequestFullClear?.Invoke();
             _currentBoss.StartBossBattle(_gameStages.stages[_currentStageInfoIndex].waveBossInfo);
         }
 
