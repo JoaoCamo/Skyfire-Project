@@ -17,7 +17,6 @@ namespace Game.Gameplay.UI
         [SerializeField] private Image[] bombImages;
         [SerializeField] private Sprite[] bombSprites;
 
-        private int _highScore = 0;
         private int _scoreTargetValue = 0;
 
         private void Awake()
@@ -48,17 +47,17 @@ namespace Game.Gameplay.UI
             _scoreTargetValue += valueToAdd;
             float duration = _scoreTargetValue - GameInfo.CurrentScore >= 500 ? 2 : 0.5f;
 
-            if (_scoreTargetValue > _highScore)
-                DOTween.To(() => _highScore, x =>
-                {
-                    _highScore = x;
-                    highScoreText.text = _highScore.ToString();
-                }, _scoreTargetValue, duration).SetEase(Ease.Linear);
-
             DOTween.To(() => GameInfo.CurrentScore, x =>
             {
                 GameInfo.CurrentScore = x;
                 currentScoreText.text = GameInfo.CurrentScore.ToString();
+
+                if(GameInfo.CurrentScore > GameInfo.CurrentHighScore)
+                {
+                    GameInfo.CurrentHighScore = x;
+                    highScoreText.text = GameInfo.CurrentHighScore.ToString();
+                }
+
             }, _scoreTargetValue, duration).SetEase(Ease.Linear);
         }
 

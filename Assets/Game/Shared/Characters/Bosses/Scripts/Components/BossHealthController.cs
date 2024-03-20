@@ -3,7 +3,6 @@ using UnityEngine;
 using Game.Drop;
 using Game.Stage;
 using Game.Gameplay.UI;
-using Game.Animation;
 using Game.Projectiles;
 
 namespace Game.Enemy.Boss
@@ -45,7 +44,9 @@ namespace Game.Enemy.Boss
             if (!_canTakeDamage) return;
 
             _currentHealth -= (_currentHealth - damage >= 0) ? damage : 0;
-            BossHealthUI.RequestHealthBarChange?.Invoke(_currentHealthInfo.barHealth, _currentHealth, 0.1f);
+
+            if(_currentHealth >= 0)
+                BossHealthUI.RequestHealthBarChange?.Invoke(_currentHealthInfo.barHealth, _currentHealth, 0.1f);
 
             if (_currentHealth <= 0)
             {
@@ -73,8 +74,7 @@ namespace Game.Enemy.Boss
             _currentHealth = _currentHealthInfo.barHealth;
             _hasDroppedItems = false;
 
-            BossHealthUI.RequestHealthBarChange?.Invoke(_currentHealthInfo.barHealth, _currentHealth, 1);
-            BossHealthUI.RequestHealthBarIndicatorsChange?.Invoke(_bossHealthBars - (_currentHealthBar + 1));
+            BossHealthUI.RequestHealthBarColorChange?.Invoke(_bossHealthBars - (_currentHealthBar + 1));
         }
 
         private void DropItems()
@@ -114,7 +114,7 @@ namespace Game.Enemy.Boss
         {
             _bossHealthInfo = bossHealthInfo;
 
-            _bossHealthBars = (_bossHealthInfo.Length);
+            _bossHealthBars = _bossHealthInfo.Length;
             _currentHealthInfo = _bossHealthInfo[_currentHealthBar];
             _currentHealth = _currentHealthInfo.barHealth;
         }
@@ -122,7 +122,7 @@ namespace Game.Enemy.Boss
         public void InitializeBoss()
         {
             _canTakeDamage = true;
-            BossHealthUI.RequestHealthBarIndicatorsChange?.Invoke(_bossHealthBars - (_currentHealthBar+1));
+            BossHealthUI.RequestHealthBarColorChange?.Invoke(_bossHealthBars - (_currentHealthBar+1));
             StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
         }
     }

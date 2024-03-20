@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 namespace Game.Gameplay.UI
@@ -8,67 +8,51 @@ namespace Game.Gameplay.UI
     public class BossHealthUI : MonoBehaviour
     {
         [SerializeField] private CanvasGroup canvasGroup;
-        [SerializeField] private RectTransform fillTransform;
-        [SerializeField] private RectTransform healthBarIndicatorsParentRight;
-        [SerializeField] private RectTransform healthBarIndicatorsParentLeft;
-        [SerializeField] private GameObject healthBarIndicatorPrefab;
+        [SerializeField] private Image healthBarUp;
+        [SerializeField] private Image healthBarDown;
 
-        private readonly List<GameObject> _healthBarIndicators = new List<GameObject>();
+        private readonly Color32[] _healthBarColor = { new Color32(185,60,60,255), new Color32(185,100,60,255), new Color32(185,170,60,255), new Color32(175,185,60,255), new Color32(90,185,60,255) };
 
         public static Action<bool> ToggleHealthBar { private set; get; }
         public static Action<int, int, float> RequestHealthBarChange { private set; get; }
-        public static Action<int> RequestHealthBarIndicatorsChange { private set; get; }
+        public static Action<int> RequestHealthBarColorChange { private set; get; }
 
         private void OnEnable()
         {
             ToggleHealthBar += Toggle;
             RequestHealthBarChange += ChangeBarFill;
-            RequestHealthBarIndicatorsChange += SetHealthBarIndicators;
+            RequestHealthBarColorChange += SetHealthBarColors;
         }
 
         private void OnDisable()
         {
             ToggleHealthBar -= Toggle;
             RequestHealthBarChange -= ChangeBarFill;
-            RequestHealthBarIndicatorsChange -= SetHealthBarIndicators;
-        }
-
-        private void Awake()
-        {
-            InitializeIndicators();
-        }
-
-        private void InitializeIndicators()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                Transform parent = i%2 == 0 ? healthBarIndicatorsParentRight : healthBarIndicatorsParentLeft;
-                GameObject healthBar = Instantiate(healthBarIndicatorPrefab, parent);
-                _healthBarIndicators.Add(healthBar);
-            }
+            RequestHealthBarColorChange -= SetHealthBarColors;
         }
 
         private void Toggle(bool state)
         {
             int value = state ? 1 : 0;
-            fillTransform.DOScale(value, value).SetEase(Ease.Linear);
             canvasGroup.DOFade(value, 0.5f).SetEase(Ease.Linear);
+            healthBarUp.transform.DOScaleX(value, value).SetEase(Ease.Linear);
+            healthBarDown.transform.DOScaleX(value, value).SetEase(Ease.Linear);
         }
 
         private void ChangeBarFill(int maxHealth, int currentHealth, float duration)
         {
             float ratio = (float)currentHealth / (float)maxHealth;
-            fillTransform.DOScaleX(ratio, duration).SetEase(Ease.Linear);
+            healthBarUp.transform.DOScaleX(ratio, duration).SetEase(Ease.Linear);
         }
 
-        private void SetHealthBarIndicators(int remainingHealthBars)
+        private void SetHealthBarColors(int remainingHealthBars)
         {
-            int value = remainingHealthBars * 2;
+            healthBarUp.transform.DOKill();
 
-            for (int i = 0; i < _healthBarIndicators.Count; i++)
-            {
-                _healthBarIndicators[i].SetActive(i < value);
-            }
+            healthBarUp.color = _healthBarColor[remainingHealthBars];
+            healthBarUp.transform.localScale = Vector3.one;
+
+            healthBarDown.color = remainingHealthBars - 1 >= 0 ? _healthBarColor[remainingHealthBars-1] : new Color32(0,0,0,0);
         }
     }
 }
