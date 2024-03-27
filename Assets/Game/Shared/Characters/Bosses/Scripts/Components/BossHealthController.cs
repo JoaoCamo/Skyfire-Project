@@ -74,7 +74,7 @@ namespace Game.Enemy.Boss
             _currentHealth = _currentHealthInfo.barHealth;
             _hasDroppedItems = false;
 
-            BossHealthUI.RequestHealthBarColorChange?.Invoke(_bossHealthBars - (_currentHealthBar + 1));
+            BossHealthUI.RequestHealthBarColorChange?.Invoke(_bossHealthBars - (_currentHealthBar + 1), true);
         }
 
         private void DropItems()
@@ -122,7 +122,7 @@ namespace Game.Enemy.Boss
         public void InitializeBoss()
         {
             _canTakeDamage = true;
-            BossHealthUI.RequestHealthBarColorChange?.Invoke(_bossHealthBars - (_currentHealthBar+1));
+            BossHealthUI.RequestHealthBarColorChange?.Invoke(_bossHealthBars - (_currentHealthBar+1), false);
             StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
         }
     }

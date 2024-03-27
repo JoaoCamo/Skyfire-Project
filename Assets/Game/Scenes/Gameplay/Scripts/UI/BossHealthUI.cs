@@ -15,7 +15,7 @@ namespace Game.Gameplay.UI
 
         public static Action<bool> ToggleHealthBar { private set; get; }
         public static Action<int, int, float> RequestHealthBarChange { private set; get; }
-        public static Action<int> RequestHealthBarColorChange { private set; get; }
+        public static Action<int, bool> RequestHealthBarColorChange { private set; get; }
 
         private void OnEnable()
         {
@@ -45,13 +45,15 @@ namespace Game.Gameplay.UI
             healthBarUp.transform.DOScaleX(ratio, duration).SetEase(Ease.Linear);
         }
 
-        private void SetHealthBarColors(int remainingHealthBars)
+        private void SetHealthBarColors(int remainingHealthBars, bool isMidBattle)
         {
-            healthBarUp.transform.DOKill();
+            if (isMidBattle)
+            {
+                healthBarUp.transform.DOKill();
+                healthBarUp.transform.localScale = Vector3.one;
+            }
 
             healthBarUp.color = _healthBarColor[remainingHealthBars];
-            healthBarUp.transform.localScale = Vector3.one;
-
             healthBarDown.color = remainingHealthBars - 1 >= 0 ? _healthBarColor[remainingHealthBars-1] : new Color32(0,0,0,0);
         }
     }
