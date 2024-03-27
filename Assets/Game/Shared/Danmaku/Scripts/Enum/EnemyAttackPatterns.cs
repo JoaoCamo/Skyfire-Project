@@ -6,5 +6,6 @@ namespace Game.Danmaku
         TripleShot,
         RoundShot16,
         RoundShot32,
+        DoubleKite,
     }
 }

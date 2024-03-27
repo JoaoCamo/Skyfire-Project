@@ -21,6 +21,7 @@ namespace Game.Enemy.Boss
         private bool _canTakeDamage = false;
 
         private readonly WaitForSeconds _shockwaveFadeDelay = new WaitForSeconds(0.5f);
+        private readonly WaitForSeconds _canTakeDamageDelay = new WaitForSeconds(1.25f);
         private const int PLAYER_PROJECTILE_LAYER = 7;
         private const int PLAYER_BOMB_LAYER = 13;
 
@@ -119,11 +120,13 @@ namespace Game.Enemy.Boss
             _currentHealth = _currentHealthInfo.barHealth;
         }
 
-        public void InitializeBoss()
+        public IEnumerator InitializeBoss()
         {
-            _canTakeDamage = true;
             BossHealthUI.RequestHealthBarColorChange?.Invoke(_bossHealthBars - (_currentHealthBar+1), false);
             StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
+
+            yield return _canTakeDamageDelay;
+            _canTakeDamage = true;
         }
     }
 }

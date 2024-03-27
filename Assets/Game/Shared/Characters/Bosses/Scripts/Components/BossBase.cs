@@ -25,7 +25,7 @@ namespace Game.Enemy.Boss
             BossHealthUI.ToggleHealthBar?.Invoke(true);
             _attackController.BossAttackInfo = bossInfo.bossAttackInfo;
             _healthController.SetHealth(bossInfo.bossHealthInfo);
-            _healthController.InitializeBoss();
+            StartCoroutine(_healthController.InitializeBoss());
         }
     }
 }

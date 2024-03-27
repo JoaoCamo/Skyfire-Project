@@ -229,7 +229,7 @@ MonoBehaviour:
     bossAttackInfo:
     - hasMovement: 1
       attackInfo:
-        attackPattern: 3
+        attackPattern: 2
         projectileType: 4
         isAimed: 1
         isInfiniteLoop: 1
