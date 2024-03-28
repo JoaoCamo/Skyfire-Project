@@ -239,12 +239,9 @@ MonoBehaviour:
         timesToDrop: 5
     - barHealth: 200
       possibleDrops:
-      - dropType: 1
+      - dropType: 4
         dropChance: 1
         timesToDrop: 1
-      - dropType: 0
-        dropChance: 1
-        timesToDrop: 5
       - dropType: 3
         dropChance: 1
         timesToDrop: 5
@@ -263,15 +260,15 @@ MonoBehaviour:
         shotStartDelay: 2
     - hasMovement: 1
       attackInfo:
-        attackPattern: 3
-        projectileType: 4
-        isAimed: 1
+        attackPattern: 4
+        projectileType: 3
+        isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 2
-        shotSpeed: 0.75
-        shotSpeedReduction: -0.25
-        shotDelay: 1
+        timesToShoot: 9
+        shotSpeed: 0.7
+        shotSpeedReduction: -0.07
+        shotDelay: 0.6
         shotStartDelay: 2
     - hasMovement: 1
       attackInfo:

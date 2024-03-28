@@ -11,7 +11,7 @@ namespace Game.Danmaku.Patterns
             WaitForSeconds delay = new WaitForSeconds(shotDelay);
             float angleFront;
             float angleBack;
-            float angleStep = 75/timesToShoot;
+            float angleStep = 90/timesToShoot;
             float angleMultiplier;
             float speed;
 
