@@ -1,12 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Game.Navigation;
 
 namespace Game.Menus
 {
     public class OptionsController : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI titleMesh;
+        [SerializeField] private Button volumeButton;
         [SerializeField] private Button returnButton;
+        [SerializeField] private CanvasGroup volumeCanvas;
+        [SerializeField] private CanvasGroup mainCanvas;
+
+        private bool _onMainPage = true;
 
         private void Awake()
         {
@@ -15,7 +22,40 @@ namespace Game.Menus
 
         private void LoadButtons()
         {
-            returnButton.onClick.AddListener(() => NavigationController.RequestSceneUnload?.Invoke());
+            volumeButton.onClick.AddListener(VolumeButtonOnClick);
+            returnButton.onClick.AddListener(ReturnButtonOnClick);
+        }
+
+        private void ChangeCanvas(CanvasGroup canvasToHide, CanvasGroup canvasToShow, string newTitle)
+        {
+            titleMesh.text = newTitle;
+
+            canvasToHide.alpha = 0;
+            canvasToHide.interactable = false;
+            canvasToHide.blocksRaycasts = false;
+
+            canvasToShow.alpha = 1;
+            canvasToShow.interactable = true;
+            canvasToShow.blocksRaycasts = true;
+        }
+
+        private void VolumeButtonOnClick()
+        {
+            _onMainPage = false;
+            ChangeCanvas(mainCanvas, volumeCanvas, "VOLUME");
+        }
+
+        private void ReturnButtonOnClick()
+        {
+            if (_onMainPage)
+            {
+                NavigationController.RequestSceneUnload?.Invoke();
+            }
+            else
+            {
+                _onMainPage = true;
+                ChangeCanvas(volumeCanvas, mainCanvas, "OPTIONS");
+            }
         }
     }
 }

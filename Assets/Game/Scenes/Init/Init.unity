@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 866796522}
   - component: {fileID: 866796521}
   m_Layer: 0
-  m_Name: '[Frame Rate Limiter]'
+  m_Name: '[Game Init]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -731,7 +731,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 294474811}
   - {fileID: 866796522}
+  - {fileID: 294474811}
   - {fileID: 1652154342}
   - {fileID: 341604718}

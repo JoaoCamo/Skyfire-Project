@@ -2,7 +2,7 @@ namespace Game.Player
 {
     public enum PlayerType
     {
-        Null = -1,
+        None = -1,
         Type1 = 0,
         Type2 = 1
     }

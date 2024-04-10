@@ -100,9 +100,9 @@ namespace Game.Stage
             fadeToBlack.DOColor(new Color(0, 0, 0, 1), 1);
             
             yield return _sceneFadeDelay;
-            
-            //sceneBackgroundAnimator.
-            
+
+            //sceneBackgroundAnimator.ChangeBackgroundAnimation(_currentStage);
+
             yield return _sceneFadeDelay;
             
             fadeToBlack.DOColor(new Color(0, 0, 0, 0), 1);

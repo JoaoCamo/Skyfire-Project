@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7725491, g: 0.9803922, b: 0.58431375, a: 1}
+  m_Color: {r: 0.050980393, g: 0.08627451, b: 0.050980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7725491, g: 0.9803922, b: 0.58431375, a: 1}
+  m_Color: {r: 0.050980393, g: 0.08627451, b: 0.050980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1504,6 +1504,7 @@ MonoBehaviour:
       hasLoading: 1
       button: {fileID: 704342537}
     playerType: 0
+    outline: {fileID: 704342538}
     description: Type 1
   - navigationInfo:
       scene: 4
@@ -1511,6 +1512,7 @@ MonoBehaviour:
       hasLoading: 1
       button: {fileID: 1086182983}
     playerType: 1
+    outline: {fileID: 1086182984}
     description: Type 2
   description: {fileID: 1028189850}
   returnButton: {fileID: 128112153}

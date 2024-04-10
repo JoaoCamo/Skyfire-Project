@@ -13,7 +13,11 @@ namespace Game.Menus
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private Button returnButton;
 
-        private PlayerType _playerType = PlayerType.Null;
+        private PlayerType _playerType = PlayerType.None;
+        private Image _selectedOutline = null;
+
+        private readonly Color32 _activatedColor = new Color32(181, 230, 137, 255);
+        private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
 
         private void Awake()
         {
@@ -26,14 +30,14 @@ namespace Game.Menus
             {
                 characterInfo.navigationInfo.button.onClick.AddListener(() =>
                 {
-                    SelectCharacter(characterInfo.playerType, characterInfo.description, characterInfo.navigationInfo);
+                    SelectCharacter(characterInfo.playerType, characterInfo.outline, characterInfo.description, characterInfo.navigationInfo);
                 });
             }
 
             returnButton.onClick.AddListener(() => NavigationController.RequestSceneUnload?.Invoke());
         }
 
-        private void SelectCharacter(PlayerType playerType, string descriptionText ,SceneNavigationInfo navigationInfo)
+        private void SelectCharacter(PlayerType playerType, Image outline, string descriptionText ,SceneNavigationInfo navigationInfo)
         {
             if(playerType == _playerType)
                 NavigationController.RequestSceneLoad?.Invoke(navigationInfo.scene, navigationInfo.loadSceneMode, navigationInfo.hasLoading);
@@ -42,7 +46,17 @@ namespace Game.Menus
                 GameInfo.PlayerType = playerType;
                 _playerType = playerType;
                 description.text = descriptionText;
+                SetOutline(outline);
             }
+        }
+
+        private void SetOutline(Image newOutline)
+        {
+            if (_selectedOutline != null)
+                _selectedOutline.color = _disabledColor;
+
+            _selectedOutline = newOutline;
+            _selectedOutline.color = _activatedColor;
         }
     }
 
@@ -51,6 +65,7 @@ namespace Game.Menus
     {
         public SceneNavigationInfo navigationInfo;
         public PlayerType playerType;
+        public Image outline;
         public string description;
     }
 }

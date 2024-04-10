@@ -229,13 +229,13 @@ MonoBehaviour:
     bossAttackInfo:
     - hasMovement: 1
       attackInfo:
-        attackPattern: 2
+        attackPattern: 5
         projectileType: 4
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 2
-        shotSpeed: 0.75
-        shotSpeedReduction: -0.25
-        shotDelay: 1
+        timesToShoot: 8
+        shotSpeed: 0.65
+        shotSpeedReduction: 0
+        shotDelay: 0.125
         shotStartDelay: 2

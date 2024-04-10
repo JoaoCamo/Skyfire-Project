@@ -7,5 +7,6 @@ namespace Game.Danmaku
         Round16,
         Round32,
         DoubleKite,
+        RoundShotProgressive,
     }
 }

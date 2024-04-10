@@ -12,48 +12,25 @@ namespace Game.Danmaku.Patterns
             float angle;
             float speed;
 
-            if (isInfiniteLoop)
+            timesToLoop = isInfiniteLoop ? 9999999 : timesToLoop;
+
+            for (int i = 0; i < timesToLoop; i++)
             {
-                while (true)
+                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
+
+                for (int j = 0; j < 32; j++)
                 {
-                    angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
+                    speed = shotSpeed;
 
-                    for (int i = 0; i < 32; i++)
+                    for (int k = 0; k < timesToShoot; k++)
                     {
-                        speed = shotSpeed;
-
-                        for (int j = 0; j < timesToShoot; j++)
-                        {
-                            enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
-                            speed += shotSpeedReduction;
-                        }
-                        angle += 360f / 32f;
+                        enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
+                        speed += shotSpeedReduction;
                     }
-
-                    yield return delay;
+                    angle += 360f / 32f;
                 }
-            }
-            else
-            {
-                for (int i = 0; i < timesToLoop; i++)
-                {
-                    angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
 
-                    for (int j = 0; j < 32; j++)
-                    {
-                        speed = shotSpeed;
-
-                        for (int z = 0; z < timesToShoot; z++)
-                        {
-                            enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
-                            speed += shotSpeedReduction;
-                        }
-
-                        angle += 360f / 32f;
-                    }
-
-                    yield return delay;
-                }
+                yield return delay;
             }
         }
     }

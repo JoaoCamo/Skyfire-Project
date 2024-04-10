@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.70980394, g: 0.90196085, b: 0.5372549, a: 1}
+  m_Color: {r: 0.050980393, g: 0.08627451, b: 0.050980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1631,28 +1631,36 @@ MonoBehaviour:
       hasLoading: 0
       button: {fileID: 957646597}
     difficultyType: 0
-    description: Easy
+    outline: {fileID: 957646598}
+    description: Smooth skies and basic maneuvers. Ideal for novice pilots looking
+      to hone their skills without too much pressure.
   - navigationInfo:
       scene: 3
       loadSceneMode: 1
       hasLoading: 0
       button: {fileID: 1621082025}
     difficultyType: 1
-    description: Normal
+    outline: {fileID: 1621082026}
+    description: Moderate aerial danger with increased enemy activity. Suitable for
+      skilled pilots ready to face typical combat scenarios.
   - navigationInfo:
       scene: 3
       loadSceneMode: 1
       hasLoading: 0
       button: {fileID: 2062611697}
     difficultyType: 2
-    description: Hard
+    outline: {fileID: 2062611698}
+    description: Intense dogfights and complex enemy formations. Recommended for
+      experienced pilots seeking a formidable challenge in the skies.
   - navigationInfo:
       scene: 3
       loadSceneMode: 1
       hasLoading: 0
       button: {fileID: 1885555771}
     difficultyType: 3
-    description: Lunatic
+    outline: {fileID: 1885555772}
+    description: Ruthless enemies and relentless barrages. Only the most elite pilots
+      can hope to survive the chaotic onslaught on this hell of bullets.
   description: {fileID: 458178266}
   returnButton: {fileID: 613666930}
 --- !u!1 &1514363641
@@ -1829,7 +1837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.70980394, g: 0.90196085, b: 0.5372549, a: 1}
+  m_Color: {r: 0.050980393, g: 0.08627451, b: 0.050980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2128,7 +2136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.70980394, g: 0.90196085, b: 0.5372549, a: 1}
+  m_Color: {r: 0.050980393, g: 0.08627451, b: 0.050980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2325,7 +2333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.70980394, g: 0.90196085, b: 0.5372549, a: 1}
+  m_Color: {r: 0.050980393, g: 0.08627451, b: 0.050980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

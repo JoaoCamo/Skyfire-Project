@@ -1,6 +1,6 @@
 using System.Collections;
-using Game.Projectiles;
 using UnityEngine;
+using Game.Projectiles;
 
 namespace Game.Danmaku.Patterns
 {
@@ -11,50 +11,27 @@ namespace Game.Danmaku.Patterns
             float speed;
             float angle;
             WaitForSeconds delay = new WaitForSeconds(shotDelay);
-        
-            if(isInfiniteLoop)
+
+            timesToLoop = isInfiniteLoop ? 999999 : timesToLoop;
+
+            for (int i = 0; i < timesToLoop; i++)
             {
-                while(true)
+                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 115) : 205;
+
+                for (int j = 0; j < 3; j++)
                 {
-                    angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 115) : 205;
+                    speed = shotSpeed;
 
-                    for (int i = 0; i < 3; i++)
+                    for (int k = 0; k < timesToShoot; k++)
                     {
-                        speed = shotSpeed;
-
-                        for (int j = 0; j < timesToShoot; j++)
-                        {
-                            enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
-                            speed += shotSpeedReduction;
-                        }
-
-                        angle += 25f;
+                        enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
+                        speed += shotSpeedReduction;
                     }
 
-                    yield return delay;
+                    angle += 25f;
                 }
-            }
-            else
-            {
-                for (int i = 0; i < timesToLoop; i++)
-                {
-                    angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 115) : 205;
 
-                    for (int j = 0; j < 3; j++)
-                    {
-                        speed = shotSpeed;
-
-                        for (int k = 0; k < timesToShoot; k++)
-                        {
-                            enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
-                            speed += shotSpeedReduction;
-                        }
-
-                        angle += 25f;
-                    }
-
-                    yield return delay;
-                }
+                yield return delay;
             }
         }
     }

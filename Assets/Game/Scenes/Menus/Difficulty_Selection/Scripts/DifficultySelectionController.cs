@@ -13,7 +13,11 @@ namespace Game.Menus
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private Button returnButton;
 
-        private DifficultyType _difficultyType = DifficultyType.Null;
+        private DifficultyType _difficultyType = DifficultyType.None;
+        private Image _selectedOutline = null;
+
+        private readonly Color32 _activatedColor = new Color32(181, 230, 137, 255);
+        private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
 
         private void Awake()
         {
@@ -26,14 +30,14 @@ namespace Game.Menus
             {
                 difficultyInfo.navigationInfo.button.onClick.AddListener(() =>
                 {
-                    SelectDifficulty(difficultyInfo.difficultyType, difficultyInfo.description, difficultyInfo.navigationInfo);
+                    SelectDifficulty(difficultyInfo.difficultyType, difficultyInfo.outline, difficultyInfo.description, difficultyInfo.navigationInfo);
                 });
             }
 
             returnButton.onClick.AddListener(() => NavigationController.RequestSceneUnload?.Invoke());
         }
         
-        private void SelectDifficulty(DifficultyType difficultyType, string descriptionText ,SceneNavigationInfo navigationInfo)
+        private void SelectDifficulty(DifficultyType difficultyType, Image outline, string descriptionText ,SceneNavigationInfo navigationInfo)
         {
             if(difficultyType == _difficultyType)
                 NavigationController.RequestSceneLoad?.Invoke(navigationInfo.scene, navigationInfo.loadSceneMode, navigationInfo.hasLoading);
@@ -42,7 +46,17 @@ namespace Game.Menus
                 GameInfo.DifficultyType = difficultyType;
                 _difficultyType = difficultyType;
                 description.text = descriptionText;
+                SetOutline(outline);
             }
+        }
+
+        private void SetOutline(Image newOutline)
+        {
+            if (_selectedOutline != null)
+                _selectedOutline.color = _disabledColor;
+
+            _selectedOutline = newOutline;
+            _selectedOutline.color = _activatedColor;
         }
     }
 
@@ -51,6 +65,7 @@ namespace Game.Menus
     {
         public SceneNavigationInfo navigationInfo;
         public DifficultyType difficultyType;
+        public Image outline;
         public string description;
     }
 }
