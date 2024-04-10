@@ -6,7 +6,7 @@ namespace Game.Enemy
 {
     public class EnemyMovement : MonoBehaviour
     {
-        private readonly float[] _xSpawnPosition = {-1.425f, -0.825f, -0.35f, 0.125f, 0.7f};
+        private readonly float[] _xSpawnPosition = {-1.4f, -0.95f, -0.55f, 0f, 0.55f, 0.95f, 1.4f};
         private readonly float[] _ySpawnPosition = {1.1f, 0.8f, 0.45f, 0.2f};
 
         private Rigidbody2D _rigidbody2D;

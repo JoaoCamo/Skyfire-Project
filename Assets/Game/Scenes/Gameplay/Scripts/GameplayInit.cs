@@ -7,7 +7,7 @@ namespace Game.Gameplay.Init
     {
         [SerializeField] private GameObject[] _playerPrefabs;
 
-        private readonly Vector2 PLAYER_SPAWN_POSITION = new Vector2(-0.375f, -0.75f);
+        private readonly Vector2 PLAYER_SPAWN_POSITION = new Vector2(0f, -0.4f);
 
         private void Awake()
         {

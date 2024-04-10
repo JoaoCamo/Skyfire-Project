@@ -35,7 +35,7 @@ namespace Game.Enemy.Boss
                     StartCoroutine(_movementController.StartRandomMovement());
                     break;
                 case false:
-                    _movementController.ReturnToStartPosition();
+                    _movementController.ReturnToCentralPosition();
                     break;
             }
 

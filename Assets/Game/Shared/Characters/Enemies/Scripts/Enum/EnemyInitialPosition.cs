@@ -11,16 +11,18 @@ namespace Game.Enemy
     {
         Top,
         High,
-        Medium,
+        Middle,
         Low
     }
 
     public enum EnemyInitialPositionX
     {
         Left,
+        FarLeft,
         MiddleLeft,
         Middle,
         MiddleRight,
+        FarRight,
         Right
     }
 }

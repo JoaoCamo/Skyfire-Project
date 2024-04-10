@@ -47,7 +47,7 @@ MonoBehaviour:
       shotStartDelay: 1
   - enemyType: 1
     initialPosition:
-      enemyInitialPositionX: 4
+      enemyInitialPositionX: 6
       enemyInitialPositionY: 2
     movementInfo:
       movementDirection: {x: -1, y: 0}

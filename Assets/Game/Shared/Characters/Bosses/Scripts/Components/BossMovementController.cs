@@ -6,37 +6,43 @@ namespace Game.Enemy.Boss
 {
     public class BossMovementController : MonoBehaviour
     {
-        private readonly Vector2 _initialPosition = new Vector2 (-0.375f, 0.45f);
+        private readonly Vector2 _initialPosition = new Vector2(0, 1.1f);
+        private readonly Vector2 _centralPosition = new Vector2 (0, 0.45f);
         private readonly WaitForSeconds _randomMovementDelay = new WaitForSeconds(3);
-        private readonly WaitForSeconds _returnToInitialPositionDelay = new WaitForSeconds(1);
+        private readonly WaitForSeconds _returnToCentralPositionDelay = new WaitForSeconds(1);
         private readonly WaitForSeconds _movementDurationDelay = new WaitForSeconds(2);
             
-        private const float X_MIN_POSITION = -1.15f;
-        private const float X_MAX_POSITION = 0.4f;
-        private const float Y_MIN_POSITION = 0;
+        private const float X_MIN_POSITION = -1f;
+        private const float X_MAX_POSITION = 1f;
+        private const float Y_MIN_POSITION = 0.1f;
         private const float Y_MAX_POSITION = 0.8f;
         
         private bool _canMove = false;
 
         private Coroutine _randomMovementCoroutine = null;
 
-        private void Start()
+        private void Awake()
         {
-            ReturnToStartPosition();
+            transform.position = _initialPosition;
         }
 
-        public void ReturnToStartPosition()
+        private void Start()
+        {
+            ReturnToCentralPosition();
+        }
+
+        public void ReturnToCentralPosition()
         {
             StopRandomMovement();
-            transform.DOMove(_initialPosition, 1).SetEase(Ease.Linear);
+            transform.DOMove(_centralPosition, 1).SetEase(Ease.Linear);
         }
 
         public IEnumerator StartRandomMovement()
         {
             StopRandomMovement();
-            transform.DOMove(_initialPosition, 1).SetEase(Ease.Linear);
+            transform.DOMove(_centralPosition, 1).SetEase(Ease.Linear);
 
-            yield return _returnToInitialPositionDelay;
+            yield return _returnToCentralPositionDelay;
             
             _canMove = true;
             _randomMovementCoroutine = StartCoroutine(RandomMovement());
