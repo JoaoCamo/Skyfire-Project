@@ -1505,7 +1505,9 @@ MonoBehaviour:
       button: {fileID: 704342537}
     playerType: 0
     outline: {fileID: 704342538}
-    description: Type 1
+    description: Captain Hiroshi is a calm and skilled pilot, known for his precise
+      maneuvers and sharp reflexes. He can deftly navigate through tight spaces,
+      evading enemy fire with ease.
   - navigationInfo:
       scene: 4
       loadSceneMode: 0
@@ -1513,7 +1515,8 @@ MonoBehaviour:
       button: {fileID: 1086182983}
     playerType: 1
     outline: {fileID: 1086182984}
-    description: Type 2
+    description: Lieutenant Chen, daring and innovative, employs unconventional tactics
+      in aerial combat. Inspired by speed and agility, she swiftly outmaneuvers opponents.
   description: {fileID: 1028189850}
   returnButton: {fileID: 128112153}
 --- !u!4 &1423152142
