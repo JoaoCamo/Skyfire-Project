@@ -11,7 +11,7 @@ namespace Game.Gameplay.UI
         [SerializeField] private Image healthBarUp;
         [SerializeField] private Image healthBarDown;
 
-        private readonly Color32[] _healthBarColor = { new Color32(185,60,60,255), new Color32(185,100,60,255), new Color32(185,170,60,255), new Color32(175,185,60,255), new Color32(90,185,60,255) };
+        private readonly Color32[] _healthBarColor = { new Color32(185,60,60,255), new Color32(185,100,60,255), new Color32(185,170,60,255), new Color32(175,175,60,255), new Color32(90,185,60,255) };
 
         public static Action<bool> ToggleHealthBar { private set; get; }
         public static Action<int, int, float> RequestHealthBarChange { private set; get; }

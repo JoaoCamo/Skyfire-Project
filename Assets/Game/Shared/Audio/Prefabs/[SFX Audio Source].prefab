@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8189813070507140752}
   - component: {fileID: 5271660339966230755}
   m_Layer: 0
-  m_Name: '[Audio Source]'
+  m_Name: '[SFX Audio Source]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

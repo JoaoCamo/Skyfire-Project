@@ -88,7 +88,7 @@ namespace Game.Enemy
 
         private void SpawnShockwave(Vector2 position ,float endRadius)
         {
-            Instantiate(shockwavePrefab, position, Quaternion.identity).GetComponent<ShockwaveAnimation>().StartShockwave(endRadius);
+            Instantiate(shockwavePrefab, position, Quaternion.identity).GetComponent<BulletClearShockwaveAnimation>().StartShockwave(endRadius);
         }
 
         private void ClearEnemies()

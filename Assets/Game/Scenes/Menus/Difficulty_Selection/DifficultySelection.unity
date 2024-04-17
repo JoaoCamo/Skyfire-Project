@@ -1641,8 +1641,8 @@ MonoBehaviour:
       button: {fileID: 1621082025}
     difficultyType: 1
     outline: {fileID: 1621082026}
-    description: Moderate aerial danger with increased enemy activity. Suitable for
-      skilled pilots ready to face typical combat scenarios.
+    description: Moderate aerial danger. Suitable for skilled pilots ready to face
+      typical combat scenarios.
   - navigationInfo:
       scene: 3
       loadSceneMode: 1

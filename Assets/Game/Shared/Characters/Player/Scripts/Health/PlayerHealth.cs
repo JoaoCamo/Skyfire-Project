@@ -14,7 +14,7 @@ namespace Game.Player
         
         private int _health = 2;
         private bool _canTakeDamage = true;
-        private PlayerAttack _playerAttack;
+        private PlayerAttackBase _playerAttack;
         private PlayerMovement _playerMovement;
         private readonly WaitForSeconds _invincibilityDelay = new WaitForSeconds(0.25f);
         private readonly WaitForSeconds _stopActionDelay = new WaitForSeconds(0.5f);
@@ -28,7 +28,7 @@ namespace Game.Player
 
         private void Awake()
         {
-            _playerAttack = GetComponent<PlayerAttack>();
+            _playerAttack = GetComponent<PlayerAttackBase>();
             _playerMovement = GetComponent<PlayerMovement>();
             GameEvents.OnHealthValueChange?.Invoke(_health);
 
@@ -65,8 +65,8 @@ namespace Game.Player
                 GameEvents.OnGameEndLose?.Invoke(); 
             else
             {
-                PlayerAttack.RequestNewBomb?.Invoke(3, true);
-                PlayerAttack.RequestPowerValueChange?.Invoke(-1.5f);
+                PlayerAttackBase.RequestNewBomb?.Invoke(3, true);
+                PlayerAttackBase.RequestPowerValueChange?.Invoke(-1.5f);
                 GameEvents.OnHealthValueChange?.Invoke(_health);
             }
         }
@@ -98,14 +98,14 @@ namespace Game.Player
 
         private void StartShockWave()
         {
-            Instantiate(shockwavePrefab, transform.position, Quaternion.identity).GetComponent<ShockwaveAnimation>().StartShockwave(0.75f);
+            Instantiate(shockwavePrefab, transform.position, Quaternion.identity).GetComponent<BulletClearShockwaveAnimation>().StartShockwave(0.75f);
         }
 
         private void AddLife()
         {
             if (_health + 1 > MAX_HEALTH_VALUE)
             {
-                PlayerAttack.RequestNewBomb(1, false);
+                PlayerAttackBase.RequestNewBomb(1, false);
             }
             else
             {
@@ -117,9 +117,9 @@ namespace Game.Player
         private void RetryReset()
         {
             _health = 2;
-            PlayerAttack.RequestNewBomb?.Invoke(3, true);
+            PlayerAttackBase.RequestNewBomb?.Invoke(3, true);
             GameEvents.OnHealthValueChange?.Invoke(_health);
-            PlayerAttack.RequestPowerValueChange?.Invoke(4);
+            PlayerAttackBase.RequestPowerValueChange?.Invoke(4);
         }
     }
 }

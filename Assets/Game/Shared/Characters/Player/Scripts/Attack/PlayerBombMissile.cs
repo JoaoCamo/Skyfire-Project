@@ -1,22 +1,25 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using Game.Animation;
 
 namespace Game.Player
 {
-    public class PlayerBomb : MonoBehaviour
+    public class PlayerBombMissile : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer projectileSpriteRenderer;
-        [SerializeField] private SpriteRenderer bombSpriteRenderer;
+        [SerializeField] private SpriteAnimationOneWay explosionAnimation;
+        [SerializeField] private Transform explosionTransform;
 
         private Rigidbody2D _rigidbody2D;
         private bool _canExplode = true;
+        private float _animationDuration;
+        private WaitForSeconds _animationDelay;
         
         private const int ENEMY_LAYER = 8;
         private const int ENEMY_PROJECTILE_LAYER = 9;
 
         private readonly WaitForSeconds _bombDelay = new WaitForSeconds(1);
-        private readonly WaitForSeconds _bombDestroyDelay = new WaitForSeconds(1);
 
         private void Awake()
         {
@@ -25,6 +28,8 @@ namespace Game.Player
 
         private void Start()
         {
+            _animationDuration = explosionAnimation.GetAnimationDuration();
+            _animationDelay = new WaitForSeconds(_animationDuration);
             _rigidbody2D.velocity = new Vector2(0, 1f);
             StartCoroutine(BombCoroutine());
         }
@@ -51,14 +56,10 @@ namespace Game.Player
             _rigidbody2D.velocity = Vector2.zero;
             projectileSpriteRenderer.enabled = false;
 
-            Color originalColor = bombSpriteRenderer.color;
-            bombSpriteRenderer.DOColor(new Color(originalColor.r, originalColor.g, originalColor.b, 0), 1f);
-            bombSpriteRenderer.transform.DOScale(5, 1f);
+            explosionAnimation.StartAnimation();
+            explosionTransform.DOScale(3, _animationDuration).SetEase(Ease.Linear);
 
-            yield return _bombDestroyDelay;
-
-            bombSpriteRenderer.DOKill();
-            bombSpriteRenderer.transform.DOKill();
+            yield return _animationDelay;
 
             Destroy(gameObject);
         }

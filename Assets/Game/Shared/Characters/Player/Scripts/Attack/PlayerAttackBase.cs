@@ -9,11 +9,18 @@ using Game.Static.Events;
 
 namespace Game.Player
 {
-    public class PlayerAttack : MonoBehaviour
+    public class PlayerAttackBase : MonoBehaviour
     {
         [SerializeField] private GameObject playerBombPrefab;
-        
-        private ProjectileManager _projectileManager;
+
+        [SerializeField] protected ProjectileType projectileTypePrimary;
+        [SerializeField] protected ProjectileType projectileTypeSecondary;
+
+        protected ProjectileManager _projectileManager;
+        protected bool _canAttack = false;
+        protected bool _canShoot = true;
+        protected int _powerLevel = 0;
+
         private PlayerHealth _health;
 
         private PlayerControls _playerControls;
@@ -22,8 +29,6 @@ namespace Game.Player
 
         private Coroutine _primaryShotCoroutine;
         private Coroutine _secondaryShotCoroutine;
-        private readonly WaitForSeconds _primaryShotDelay = new WaitForSeconds(0.075f);
-        private readonly WaitForSeconds _secondaryShotDelay = new WaitForSeconds(0.125f);
         private readonly WaitForSeconds _bombDelay = new WaitForSeconds(0.5f);
         private readonly WaitForSeconds _bombCooldown = new WaitForSeconds(5);
 
@@ -32,10 +37,7 @@ namespace Game.Player
         private const int MAX_BOMBS = 8;
 
         private float _currentPower = 0;
-        private int _powerLevel = 0;
         private int _currentBombs = 3;
-        private bool _canAttack = false;
-        private bool _canShoot = true;
         private bool _canBomb = true;
 
         public bool CanShoot { get => _canShoot; set => _canShoot = value; }
@@ -163,53 +165,14 @@ namespace Game.Player
             _canAttack = false;
         }
 
-        private IEnumerator PrimaryShot()
-        {
-            while (_canAttack)
-            {
-                if (_canShoot)
-                {
-                    Vector3 position = transform.position;
-                    _projectileManager.FireProjectile(ProjectileType.PlayerBlue, new Vector3(0.025f, 0) + position, 2.5f, Quaternion.Euler(0, 0, 0));
-                    _projectileManager.FireProjectile(ProjectileType.PlayerBlue, new Vector3(-0.025f, 0) + position, 2.5f, Quaternion.Euler(0, 0, 0));
-                }
-                yield return _primaryShotDelay;
-            }
+        protected virtual IEnumerator PrimaryShot()
+        { 
+            yield return null;
         }
 
-        private IEnumerator SecondaryShot()
+        protected virtual IEnumerator SecondaryShot()
         {
-            while (_canAttack)
-            {
-                Vector3 position = transform.position;
-
-                if (_canShoot)
-                {
-                    switch (_powerLevel)
-                    {
-                        case 1:
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            break;
-                        case 2:
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            break;
-                        case 3:
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            break;
-                        case 4:
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            _projectileManager.FireProjectile(ProjectileType.PlayerMissile, new Vector3(-0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            break;
-                    }
-                }
-
-                yield return _secondaryShotDelay;
-            }
+            yield return null;
         }
 
         private void ChangePowerValue(float valueToChange)

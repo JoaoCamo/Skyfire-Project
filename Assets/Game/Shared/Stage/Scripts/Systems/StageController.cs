@@ -15,7 +15,7 @@ namespace Game.Stage
     {
         [SerializeField] private GameStages[] stagesInfo;
         [SerializeField] private EnemySpawner enemySpawner;
-        [SerializeField] private SceneBackgroundAnimator sceneBackgroundAnimator;
+        [SerializeField] private StageEffectsController stageEffectsController;
         [SerializeField] private SpriteRenderer fadeToBlack;
 
         private GameStages _gameStages;
@@ -101,7 +101,8 @@ namespace Game.Stage
             
             yield return _sceneFadeDelay;
 
-            //sceneBackgroundAnimator.ChangeBackgroundAnimation(_currentStage);
+            stageEffectsController.StartAnimation(_currentStage);
+            //StartCoroutine(stageEffectsController.StartStageMusic(_currentStage));
 
             yield return _sceneFadeDelay;
             
@@ -125,6 +126,11 @@ namespace Game.Stage
                 StopCoroutine(_stageCoroutine);
                 _stageCoroutine = null;
             }
+
+            stageEffectsController.StartAnimation(_currentStage);
+            //StartCoroutine(stageEffectsController.StartStageMusic(_currentStage));
+
+            fadeToBlack.DOColor(new Color(0, 0, 0, 0), 5);
 
             StartCoroutine(StartWave());
         }

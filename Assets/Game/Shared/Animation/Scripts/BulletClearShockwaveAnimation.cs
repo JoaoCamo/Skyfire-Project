@@ -4,7 +4,7 @@ using DG.Tweening;
 
 namespace Game.Animation
 {
-    public class ShockwaveAnimation : MonoBehaviour
+    public class BulletClearShockwaveAnimation : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
 
