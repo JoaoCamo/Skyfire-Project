@@ -21,6 +21,7 @@ namespace Game.Enemy.Boss
     public struct BossAttackInfo
     {
         public bool hasMovement;
+        public float movementDelay;
         public EnemyAttackInfo attackInfo;
     }
 }

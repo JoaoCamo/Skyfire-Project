@@ -36,7 +36,7 @@ MonoBehaviour:
     isAsyncWave: 1
     attackInfo:
       attackPattern: 0
-      projectileType: 3
+      projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 2
@@ -67,7 +67,7 @@ MonoBehaviour:
     isAsyncWave: 0
     attackInfo:
       attackPattern: 0
-      projectileType: 3
+      projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 2
@@ -98,7 +98,7 @@ MonoBehaviour:
     isAsyncWave: 1
     attackInfo:
       attackPattern: 1
-      projectileType: 4
+      projectileType: 5
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 2
@@ -129,7 +129,7 @@ MonoBehaviour:
     isAsyncWave: 1
     attackInfo:
       attackPattern: 1
-      projectileType: 4
+      projectileType: 5
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 2
@@ -166,7 +166,7 @@ MonoBehaviour:
     isAsyncWave: 1
     attackInfo:
       attackPattern: 3
-      projectileType: 3
+      projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 2
@@ -203,7 +203,7 @@ MonoBehaviour:
     isAsyncWave: 0
     attackInfo:
       attackPattern: 3
-      projectileType: 3
+      projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 2
@@ -236,9 +236,10 @@ MonoBehaviour:
         timesToDrop: 5
     bossAttackInfo:
     - hasMovement: 1
+      movementDelay: 3
       attackInfo:
         attackPattern: 3
-        projectileType: 4
+        projectileType: 5
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
@@ -248,9 +249,10 @@ MonoBehaviour:
         shotDelay: 1
         shotStartDelay: 2
     - hasMovement: 1
+      movementDelay: 5
       attackInfo:
         attackPattern: 4
-        projectileType: 3
+        projectileType: 4
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0

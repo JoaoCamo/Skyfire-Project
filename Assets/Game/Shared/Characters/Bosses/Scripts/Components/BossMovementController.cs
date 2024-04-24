@@ -8,7 +8,6 @@ namespace Game.Enemy.Boss
     {
         private readonly Vector2 _initialPosition = new Vector2(0, 1.1f);
         private readonly Vector2 _centralPosition = new Vector2 (0, 0.45f);
-        private readonly WaitForSeconds _randomMovementDelay = new WaitForSeconds(3);
         private readonly WaitForSeconds _returnToCentralPositionDelay = new WaitForSeconds(1);
         private readonly WaitForSeconds _movementDurationDelay = new WaitForSeconds(2);
             
@@ -37,7 +36,7 @@ namespace Game.Enemy.Boss
             transform.DOMove(_centralPosition, 1).SetEase(Ease.Linear);
         }
 
-        public IEnumerator StartRandomMovement()
+        public IEnumerator StartRandomMovement(float movementDelay)
         {
             StopRandomMovement();
             transform.DOMove(_centralPosition, 1).SetEase(Ease.Linear);
@@ -45,14 +44,16 @@ namespace Game.Enemy.Boss
             yield return _returnToCentralPositionDelay;
             
             _canMove = true;
-            _randomMovementCoroutine = StartCoroutine(RandomMovement());
+            _randomMovementCoroutine = StartCoroutine(RandomMovement(movementDelay));
         }
 
-        private IEnumerator RandomMovement()
+        private IEnumerator RandomMovement(float movementDelay)
         {
+            WaitForSeconds randomMovementDelay = new WaitForSeconds(movementDelay);
+
             while (_canMove)
             {
-                yield return _randomMovementDelay;
+                yield return randomMovementDelay;
 
                 float xPosition = Random.Range(X_MIN_POSITION, X_MAX_POSITION);
                 float yPosition = Random.Range(Y_MIN_POSITION, Y_MAX_POSITION);

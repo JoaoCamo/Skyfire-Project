@@ -11,7 +11,7 @@ namespace Game.Audio
 
         private readonly List<AudioSource> _audioSources = new List<AudioSource>();
 
-        public static Action<SfxTypes> OnRequestSfx;
+        public static Action<SfxTypes> RequestSfx { private set; get; }
 
         private void Awake()
         {
@@ -24,12 +24,12 @@ namespace Game.Audio
 
         private void OnEnable()
         {
-            OnRequestSfx += RequestSoundEffect;
+            RequestSfx += RequestSoundEffect;
         }
 
         private void OnDisable()
         {
-            OnRequestSfx -= RequestSoundEffect;
+            RequestSfx -= RequestSoundEffect;
         }
 
         private void RequestSoundEffect(SfxTypes sfxType)

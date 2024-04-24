@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Unity.Mathematics;
 using Game.Player.Controls;
 using Game.Projectiles;
 using Game.Static.Events;
@@ -11,8 +10,7 @@ namespace Game.Player
 {
     public class PlayerAttackBase : MonoBehaviour
     {
-        [SerializeField] private GameObject playerBombPrefab;
-
+        [SerializeField] protected GameObject playerBombPrefab;
         [SerializeField] protected ProjectileType projectileTypePrimary;
         [SerializeField] protected ProjectileType projectileTypeSecondary;
 
@@ -29,7 +27,6 @@ namespace Game.Player
 
         private Coroutine _primaryShotCoroutine;
         private Coroutine _secondaryShotCoroutine;
-        private readonly WaitForSeconds _bombDelay = new WaitForSeconds(0.5f);
         private readonly WaitForSeconds _bombCooldown = new WaitForSeconds(5);
 
         private const float MAX_POWER_VALUE = 4;
@@ -90,17 +87,9 @@ namespace Game.Player
             StartCoroutine(BombCooldown());
         }
 
-        private IEnumerator FireBombs()
+        protected virtual IEnumerator FireBombs()
         {
-            _canShoot = false;
-
-            for (int i = 0; i < 3; i++)
-            {
-                Instantiate(playerBombPrefab, transform.position, quaternion.identity);
-                yield return _bombDelay;
-            }
-
-            _canShoot = true;
+            yield return null;
         }
 
         private IEnumerator BombCooldown()

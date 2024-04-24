@@ -2,14 +2,11 @@ namespace Game.Audio
 {
     public enum SfxTypes
     {
-        SelectMenu,
-        Pause,
-        PlayerHit,
-        PlayerShot,
-        PlayerBomb,
-        EnemyExplosion,
-        EnemyShot,
+        EnemyHit,
         Collect,
-        BossExplosion
+        EnemyExplosion,
+        PlayerShoot,
+        BossExplosion,
+        BombExplosion,
     }
 }

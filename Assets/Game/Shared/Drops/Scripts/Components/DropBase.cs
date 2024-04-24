@@ -1,4 +1,5 @@
 using UnityEngine;
+using Game.Audio;
 
 namespace Game.Drop
 {
@@ -24,6 +25,7 @@ namespace Game.Drop
         protected virtual void OnCollect()
         {
             _canGoToPlayer = false;
+            SoundEffectController.RequestSfx?.Invoke(SfxTypes.Collect);
         }
         
         public void GoToPlayer(Vector3 playerPosition)

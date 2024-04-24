@@ -32,7 +32,7 @@ namespace Game.Enemy.Boss
             switch(_bossAttackInfo[attackIndex].hasMovement)
             {
                 case true:
-                    StartCoroutine(_movementController.StartRandomMovement());
+                    StartCoroutine(_movementController.StartRandomMovement(_bossAttackInfo[attackIndex].movementDelay));
                     break;
                 case false:
                     _movementController.ReturnToCentralPosition();

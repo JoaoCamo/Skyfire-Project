@@ -2,9 +2,10 @@ namespace Game.Projectiles
 {
     public enum ProjectileType
     {
-        PlayerWhite,
-        PlayerBlue,
+        PlayerOrange,
+        PlayerPurple,
         PlayerMissile,
+        PlayerLaser,
         EnemyOrbRed,
         EnemyBulletRed,
     }

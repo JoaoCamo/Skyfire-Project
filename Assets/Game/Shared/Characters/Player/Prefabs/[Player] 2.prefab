@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBombPrefab: {fileID: 65714368792062840, guid: b7f1f098ca6bf4b4f81a1976daf1e983, type: 3}
   projectileTypePrimary: 1
-  projectileTypeSecondary: 2
+  projectileTypeSecondary: 3
 --- !u!114 &8925077327150331220
 MonoBehaviour:
   m_ObjectHideFlags: 0

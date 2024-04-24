@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using Game.Animation;
+using Game.Audio;
 
 namespace Game.Player
 {
@@ -58,6 +59,7 @@ namespace Game.Player
 
             explosionAnimation.StartAnimation();
             explosionTransform.DOScale(3, _animationDuration).SetEase(Ease.Linear);
+            SoundEffectController.RequestSfx?.Invoke(SfxTypes.BombExplosion);
 
             yield return _animationDelay;
 

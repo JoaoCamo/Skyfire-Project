@@ -1,6 +1,7 @@
 using UnityEngine;
 using Game.Drop;
 using Game.Static.Events;
+using Game.Audio;
 
 namespace Game.Enemy
 {
@@ -27,8 +28,11 @@ namespace Game.Enemy
         private void ReceiveDamage(int damage)
         {
             _health -= damage;
+            SoundEffectController.RequestSfx?.Invoke(SfxTypes.EnemyHit);
+
             if (_health > 0) return;
-            
+
+            SoundEffectController.RequestSfx.Invoke(SfxTypes.EnemyExplosion);
             GameEvents.OnPointsValueChange?.Invoke(10);
             DropItems();
             EnemySpawner.RequestShockwave?.Invoke(transform.position, 0.3f);

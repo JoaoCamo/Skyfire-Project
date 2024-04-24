@@ -4,6 +4,7 @@ using Game.Drop;
 using Game.Stage;
 using Game.Gameplay.UI;
 using Game.Projectiles;
+using Game.Audio;
 
 namespace Game.Enemy.Boss
 {
@@ -45,8 +46,9 @@ namespace Game.Enemy.Boss
             if (!_canTakeDamage) return;
 
             _currentHealth -= (_currentHealth - damage >= 0) ? damage : 0;
+            SoundEffectController.RequestSfx?.Invoke(SfxTypes.EnemyHit);
 
-            if(_currentHealth >= 0)
+            if (_currentHealth >= 0)
                 BossHealthUI.RequestHealthBarChange?.Invoke(_currentHealthInfo.barHealth, _currentHealth, 0.1f);
 
             if (_currentHealth <= 0)
@@ -57,15 +59,19 @@ namespace Game.Enemy.Boss
 
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
-                    EnemySpawner.RequestShockwave?.Invoke(transform.position ,2);
+                    EnemySpawner.RequestShockwave?.Invoke(transform.position, 2);
                     BossHealthUI.ToggleHealthBar?.Invoke(false);
                     EnemyProjectileManager.RequestFullClear?.Invoke();
-                    
+
+                    SoundEffectController.RequestSfx.Invoke(SfxTypes.BossExplosion);
                     StageController.CallNextStage?.Invoke();
                     Destroy(gameObject);
                 }
                 else
+                {
+                    SoundEffectController.RequestSfx.Invoke(SfxTypes.BossExplosion);
                     StartCoroutine(InitiliazeNextPhase());
+                }
             }
         }
 
