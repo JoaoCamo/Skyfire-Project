@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 public class BeamAnimation : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class BeamAnimation : MonoBehaviour
     [SerializeField] private Sprite[] thirdStageSprites;
     [SerializeField] private int timesToRepeatSecondStage;
     [SerializeField] private int framesPerSecond;
-    [SerializeField] private CapsuleCollider2D beamCollider;
+    [SerializeField] private Transform beamColliderTransform;
 
     private WaitForSeconds _animationDelay;
     private SpriteRenderer _spriteRenderer;
@@ -23,13 +24,16 @@ public class BeamAnimation : MonoBehaviour
 
     public IEnumerator StartAnimation()
     {
+        float durationFirstStage = (1f / framesPerSecond) * firstStageSprites.Length;
+        float durationThirdStage = (1f / framesPerSecond) * thirdStageSprites.Length;
+
+        beamColliderTransform.DOScaleY(1, durationFirstStage);
+
         foreach (Sprite sprite in firstStageSprites)
         {
             _spriteRenderer.sprite = sprite;
             yield return _animationDelay;
         }
-
-        beamCollider.enabled = true;
 
         for (int i = 0; i < timesToRepeatSecondStage; i++)
         {
@@ -40,7 +44,7 @@ public class BeamAnimation : MonoBehaviour
             }
         }
 
-        beamCollider.enabled = false;
+        beamColliderTransform.DOScaleY(0, durationThirdStage);
 
         foreach (Sprite sprite in thirdStageSprites)
         {
