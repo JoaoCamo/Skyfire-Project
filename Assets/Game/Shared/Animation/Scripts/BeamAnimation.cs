@@ -8,7 +8,7 @@ public class BeamAnimation : MonoBehaviour
     [SerializeField] private Sprite[] thirdStageSprites;
     [SerializeField] private int timesToRepeatSecondStage;
     [SerializeField] private int framesPerSecond;
-    [SerializeField] private CircleCollider2D beamCollider;
+    [SerializeField] private CapsuleCollider2D beamCollider;
 
     private WaitForSeconds _animationDelay;
     private SpriteRenderer _spriteRenderer;
