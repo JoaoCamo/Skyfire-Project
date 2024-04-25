@@ -14,6 +14,7 @@ namespace Game.Player
         [SerializeField] protected ProjectileType projectileTypePrimary;
         [SerializeField] protected ProjectileType projectileTypeSecondary;
 
+        protected WaitForSeconds _bombCooldown = new WaitForSeconds(5);
         protected ProjectileManager _projectileManager;
         protected bool _canAttack = false;
         protected bool _canShoot = true;
@@ -27,7 +28,6 @@ namespace Game.Player
 
         private Coroutine _primaryShotCoroutine;
         private Coroutine _secondaryShotCoroutine;
-        private readonly WaitForSeconds _bombCooldown = new WaitForSeconds(5);
 
         private const float MAX_POWER_VALUE = 4;
         private const float MIN_POWER_VALUE = 0;

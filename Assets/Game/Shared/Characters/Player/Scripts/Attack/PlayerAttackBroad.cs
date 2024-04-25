@@ -64,7 +64,7 @@ namespace Game.Player
         {
             _canShoot = false;
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 Instantiate(playerBombPrefab, transform.position, Quaternion.identity);
                 SoundEffectController.RequestSfx?.Invoke(SfxTypes.PlayerShoot);

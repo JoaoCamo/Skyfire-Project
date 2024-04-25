@@ -8,6 +8,7 @@ public class BeamAnimation : MonoBehaviour
     [SerializeField] private Sprite[] thirdStageSprites;
     [SerializeField] private int timesToRepeatSecondStage;
     [SerializeField] private int framesPerSecond;
+    [SerializeField] private CircleCollider2D beamCollider;
 
     private WaitForSeconds _animationDelay;
     private SpriteRenderer _spriteRenderer;
@@ -28,6 +29,8 @@ public class BeamAnimation : MonoBehaviour
             yield return _animationDelay;
         }
 
+        beamCollider.enabled = true;
+
         for (int i = 0; i < timesToRepeatSecondStage; i++)
         {
             foreach (Sprite sprite in secondStageSprites)
@@ -36,6 +39,8 @@ public class BeamAnimation : MonoBehaviour
                 yield return _animationDelay;
             }
         }
+
+        beamCollider.enabled = false;
 
         foreach (Sprite sprite in thirdStageSprites)
         {

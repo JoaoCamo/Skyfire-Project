@@ -8,7 +8,7 @@ namespace Game.Player
     {
         private readonly WaitForSeconds _primaryShotDelay = new WaitForSeconds(0.075f);
         private readonly WaitForSeconds _secondaryShotDelay = new WaitForSeconds(0.125f);
-        private readonly WaitForSeconds _bombDelay = new WaitForSeconds(0.5f);
+        protected new WaitForSeconds _bombCooldown = new WaitForSeconds(10);
 
         protected override IEnumerator PrimaryShot()
         {
@@ -64,12 +64,10 @@ namespace Game.Player
         {
             _canShoot = false;
 
-            for (int i = 0; i < 3; i++)
-            {
-                Instantiate(playerBombPrefab, transform.position, Quaternion.identity);
-                SoundEffectController.RequestSfx?.Invoke(SfxTypes.PlayerShoot);
-                yield return _bombDelay;
-            }
+            SoundEffectController.RequestSfx?.Invoke(SfxTypes.PlayerShoot);
+            PlayerBombBeam bomb =  Instantiate(playerBombPrefab, transform).GetComponent<PlayerBombBeam>();
+
+            yield return StartCoroutine(bomb.StartBeam());
 
             _canShoot = true;
         }

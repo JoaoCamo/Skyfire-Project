@@ -48,6 +48,7 @@ namespace Game.Loading
             }
 
             canvasGroup.alpha = state ? 1 : 0;
+            canvasGroup.blocksRaycasts = state;
         }
     }
 }
