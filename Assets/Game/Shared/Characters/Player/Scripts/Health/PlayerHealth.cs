@@ -31,19 +31,18 @@ namespace Game.Player
             _playerAttack = GetComponent<PlayerAttackBase>();
             _playerMovement = GetComponent<PlayerMovement>();
             GameEvents.OnHealthValueChange?.Invoke(_health);
-
-            RequestInvincibility += () => { StartCoroutine(StartInvincibility()); };
         }
 
         private void OnEnable()
         {
+            RequestInvincibility += StartInvincibility;
             RequestNewLife += AddLife;
             GameEvents.OnRetry += RetryReset;
         }
 
         private void OnDisable()
         {
-            RequestInvincibility -= 
+            RequestInvincibility -= StartInvincibility;
             RequestNewLife -= AddLife;
             GameEvents.OnRetry -= RetryReset;
         }
@@ -57,7 +56,7 @@ namespace Game.Player
             
             if (other.gameObject.layer != ENEMY_BULLET_LAYER && other.gameObject.layer != ENEMY_LAYER) return;
 
-            StartCoroutine(StartInvincibility());
+            StartInvincibility();
             StartCoroutine(StopMovement());
             StartShockWave();
 
@@ -71,7 +70,12 @@ namespace Game.Player
             }
         }
 
-        private IEnumerator StartInvincibility()
+        private void StartInvincibility()
+        {
+            StartCoroutine(StartInvincibilityCoroutine());
+        }
+
+        private IEnumerator StartInvincibilityCoroutine()
         {
             _canTakeDamage = false;
 

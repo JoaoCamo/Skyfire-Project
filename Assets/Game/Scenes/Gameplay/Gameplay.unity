@@ -3448,7 +3448,7 @@ GameObject:
   - component: {fileID: 860223014}
   - component: {fileID: 860223015}
   m_Layer: 0
-  m_Name: '[Scene Background Animator]'
+  m_Name: '[Scene Effects Controller]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6265,7 +6265,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -433767187783139437, guid: afe451774d1ca674b9eacbe91ff53943, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -8095,9 +8095,9 @@ SceneRoots:
   - {fileID: 1751820672}
   - {fileID: 860223014}
   - {fileID: 1715835641}
+  - {fileID: 154345717}
   - {fileID: 1380291706}
   - {fileID: 400662909}
   - {fileID: 1456520436}
-  - {fileID: 154345717}
   - {fileID: 1161189816}
   - {fileID: 1862468064}
