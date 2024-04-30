@@ -22,7 +22,6 @@ namespace Game.Enemy.Boss
         private bool _hasDroppedItems = false;
         private bool _canTakeDamage = false;
 
-        private readonly WaitForSeconds _shockwaveFadeDelay = new WaitForSeconds(0.5f);
         private readonly WaitForSeconds _canTakeDamageDelay = new WaitForSeconds(1.25f);
         private const int PLAYER_PROJECTILE_LAYER = 7;
         private const int PLAYER_BOMB_LAYER = 13;
@@ -61,6 +60,7 @@ namespace Game.Enemy.Boss
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
                     SpecialEffectsManager.RequestBulletClearShockwave?.Invoke(transform.position);
+                    SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
                     BossHealthUI.ToggleHealthBar?.Invoke(false);
                     EnemyProjectileManager.RequestFullClear?.Invoke();
 
