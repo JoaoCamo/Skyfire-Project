@@ -2295,6 +2295,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596853824}
   m_CullTransparentMesh: 1
+--- !u!1 &603394216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603394217}
+  - component: {fileID: 603394218}
+  m_Layer: 0
+  m_Name: '[Special Effects Manager]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603394217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603394216}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603394218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603394216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd1117dd5e480e04abe329979d8f6c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionShockwave: {fileID: 741453721323078059, guid: c4b37868f0f99414fb3608ff941d734c, type: 3}
+  bulletClearShockwave: {fileID: 741453721323078059, guid: 85267e0553c27da41a78845029b8f6fb, type: 3}
 --- !u!1 &623891679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5073,7 +5119,6 @@ MonoBehaviour:
   enemyReference: {fileID: 11400000, guid: d0ce997af2022a04ca9f1d78f3d2dad0, type: 2}
   bossReference: {fileID: 11400000, guid: a8094ca168786794dbcef7d2c5a07de0, type: 2}
   enemyProjectileManager: {fileID: 1380291705}
-  shockwavePrefab: {fileID: 741453721323078059, guid: c4b37868f0f99414fb3608ff941d734c, type: 3}
 --- !u!114 &1380291708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8099,5 +8144,6 @@ SceneRoots:
   - {fileID: 1380291706}
   - {fileID: 400662909}
   - {fileID: 1456520436}
+  - {fileID: 603394217}
   - {fileID: 1161189816}
   - {fileID: 1862468064}

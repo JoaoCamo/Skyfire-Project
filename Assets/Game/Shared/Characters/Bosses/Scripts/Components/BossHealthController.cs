@@ -5,6 +5,7 @@ using Game.Stage;
 using Game.Gameplay.UI;
 using Game.Projectiles;
 using Game.Audio;
+using Game.Gameplay.Effects;
 
 namespace Game.Enemy.Boss
 {
@@ -59,7 +60,7 @@ namespace Game.Enemy.Boss
 
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
-                    EnemySpawner.RequestShockwave?.Invoke(transform.position, 2);
+                    SpecialEffectsManager.RequestBulletClearShockwave?.Invoke(transform.position);
                     BossHealthUI.ToggleHealthBar?.Invoke(false);
                     EnemyProjectileManager.RequestFullClear?.Invoke();
 
@@ -108,7 +109,7 @@ namespace Game.Enemy.Boss
         private IEnumerator InitiliazeNextPhase()
         {
             ResetHealth();
-            EnemySpawner.RequestShockwave?.Invoke(transform.position, 0.75f);
+            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
 
             _canTakeDamage = false;
 

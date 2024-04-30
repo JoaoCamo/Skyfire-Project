@@ -10,14 +10,19 @@ namespace Game.Animation
 
         private readonly WaitForSeconds _delay = new WaitForSeconds(0.25f);
 
-        public void StartShockwave(float endRadius)
+        private void OnEnable()
         {
-            StartCoroutine(ShockwaveCoroutine(endRadius));
+            StartShockwave();
         }
 
-        private IEnumerator ShockwaveCoroutine(float endRadius)
+        public void StartShockwave()
         {
-            transform.DOScale(endRadius, 0.5f).SetEase(Ease.Linear);
+            StartCoroutine(ShockwaveCoroutine());
+        }
+
+        private IEnumerator ShockwaveCoroutine()
+        {
+            transform.DOScale(3, 0.5f).SetEase(Ease.Linear);
 
             yield return _delay;
 

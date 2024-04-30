@@ -1,6 +1,7 @@
 using UnityEngine;
 using Game.Danmaku;
 using Game.Projectiles;
+using Game.Gameplay.Effects;
 
 namespace Game.Enemy
 {
@@ -41,7 +42,7 @@ namespace Game.Enemy
         {
             if (!gameObject.activeSelf) return;
 
-            EnemySpawner.RequestShockwave?.Invoke(transform.position ,0.4f);
+            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
             gameObject.SetActive(false);
         }
     }

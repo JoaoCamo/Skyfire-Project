@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3284540469996531411}
   - component: {fileID: 7620657547692103317}
-  - component: {fileID: 7561522912610135152}
   - component: {fileID: -2570175749828305007}
+  - component: {fileID: 7561522912610135152}
   m_Layer: 7
   m_Name: '[Projectile] Player Blue'
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -982955615
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b6d8b60bbefcdfe4c9f2e97fe065168f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7561522912610135152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691203705503227908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e40dbaf9889b54ca6e259a2a6d4a1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileType: 1
 --- !u!58 &-2570175749828305007
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +121,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!114 &7561522912610135152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691203705503227908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15e40dbaf9889b54ca6e259a2a6d4a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: 1

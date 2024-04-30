@@ -3,16 +3,16 @@ using UnityEngine;
 
 namespace Game.Animation
 {
-    public class SpriteAnimationOneWay : MonoBehaviour
+    public class ExplosionShockwaveAnimation : MonoBehaviour
     {
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private int framesPerSecond;
-        [SerializeField] private bool playOnEnable;
 
         private WaitForSeconds _animationDelay;
         private SpriteRenderer _spriteRenderer;
 
         private Coroutine _animationCoroutine;
+
 
         private void Awake()
         {
@@ -22,20 +22,19 @@ namespace Game.Animation
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        private void OnEnable()
-        {
-            if (playOnEnable) StartAnimation();
-        }
-
         private void OnDisable()
         {
             StopAnimation();
         }
 
-        public void StartAnimation()
+        public void StartAnimation(Vector3 position)
         {
             StopAnimation();
+
+            transform.position = position;
+            gameObject.SetActive(true);
             _animationCoroutine = StartCoroutine(Animate());
+
         }
 
         private void StopAnimation()
@@ -54,14 +53,9 @@ namespace Game.Animation
                 _spriteRenderer.sprite = sprite;
                 yield return _animationDelay;
             }
-        }
 
-        public float GetAnimationDuration()
-        {
-            float timeDelay = 1f / framesPerSecond;
-            float totalDelay = sprites.Length * timeDelay;
-
-            return totalDelay;
+            _spriteRenderer.sprite = null;
+            gameObject.SetActive(false);
         }
     }
 }

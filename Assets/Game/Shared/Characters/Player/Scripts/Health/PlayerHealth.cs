@@ -3,14 +3,13 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using Game.Static.Events;
-using Game.Animation;
+using Game.Gameplay.Effects;
 
 namespace Game.Player
 {
     public class PlayerHealth : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] private GameObject shockwavePrefab;
         
         private int _health = 2;
         private bool _canTakeDamage = true;
@@ -102,7 +101,7 @@ namespace Game.Player
 
         private void StartShockWave()
         {
-            Instantiate(shockwavePrefab, transform.position, Quaternion.identity).GetComponent<BulletClearShockwaveAnimation>().StartShockwave(0.75f);
+            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
         }
 
         private void AddLife()

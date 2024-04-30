@@ -2,6 +2,7 @@ using UnityEngine;
 using Game.Drop;
 using Game.Static.Events;
 using Game.Audio;
+using Game.Gameplay.Effects;
 
 namespace Game.Enemy
 {
@@ -35,7 +36,7 @@ namespace Game.Enemy
             SoundEffectController.RequestSfx.Invoke(SfxTypes.EnemyExplosion);
             GameEvents.OnPointsValueChange?.Invoke(10);
             DropItems();
-            EnemySpawner.RequestShockwave?.Invoke(transform.position, 0.3f);
+            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
             gameObject.SetActive(false);
         }
 
