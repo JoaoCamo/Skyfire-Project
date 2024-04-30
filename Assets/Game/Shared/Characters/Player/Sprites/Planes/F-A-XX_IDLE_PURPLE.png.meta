@@ -93,11 +93,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F-A-XX IDLE PURPLE_0
+      name: F-A-XX_IDLE_PURPLE_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c12832382ce557a4aa8174a15ccbd836
-      internalID: 696785033
+      spriteID: 6c593d2859e54d343a0943b29f0b850e
+      internalID: 2046525493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE PURPLE_1
+      name: F-A-XX_IDLE_PURPLE_1
       rect:
         serializedVersion: 2
         x: 65
@@ -132,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d645594303d47b34e8cbca9444d6643c
-      internalID: -396948181
+      spriteID: ade43126a900e7e498e25f301b40f19a
+      internalID: 982507228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE PURPLE_2
+      name: F-A-XX_IDLE_PURPLE_2
       rect:
         serializedVersion: 2
         x: 130
@@ -153,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5731ddf91ce4cfb408f56ef71651337e
-      internalID: -815174703
+      spriteID: 2b7bbf78ccf3d5b47b0a7c30b268e163
+      internalID: 977777614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE PURPLE_3
+      name: F-A-XX_IDLE_PURPLE_3
       rect:
         serializedVersion: 2
         x: 195
@@ -174,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 068d76b902440434f8e7ef45f1b1ea0b
-      internalID: 1904887452
+      spriteID: 5d255f230b3117a4a85e0986d47a3666
+      internalID: 387403510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE PURPLE_4
+      name: F-A-XX_IDLE_PURPLE_4
       rect:
         serializedVersion: 2
         x: 260
@@ -195,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c69a484379e42df4fb1881b79ff3a627
-      internalID: -1809534359
+      spriteID: def3b20ce141edc409bb7143596bebbd
+      internalID: 1235693162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE PURPLE_5
+      name: F-A-XX_IDLE_PURPLE_5
       rect:
         serializedVersion: 2
         x: 325
@@ -216,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a60085d3f7cce9541be03bc664356db9
-      internalID: -2090863890
+      spriteID: b01c5485c749a694394556890b2d7d7d
+      internalID: -2048615100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE PURPLE_6
+      name: F-A-XX_IDLE_PURPLE_6
       rect:
         serializedVersion: 2
         x: 390
@@ -237,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80e0c998ece98f045bdde473fff9b7f3
-      internalID: -115696544
+      spriteID: 4a2c9b3944a755049a4d86c8dce50cab
+      internalID: 418830184
       vertices: []
       indices: 
       edges: []
@@ -254,13 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      F-A-XX IDLE PURPLE_0: 696785033
-      F-A-XX IDLE PURPLE_1: -396948181
-      F-A-XX IDLE PURPLE_2: -815174703
-      F-A-XX IDLE PURPLE_3: 1904887452
-      F-A-XX IDLE PURPLE_4: -1809534359
-      F-A-XX IDLE PURPLE_5: -2090863890
-      F-A-XX IDLE PURPLE_6: -115696544
+      F-A-XX_IDLE_PURPLE_0: 2046525493
+      F-A-XX_IDLE_PURPLE_1: 982507228
+      F-A-XX_IDLE_PURPLE_2: 977777614
+      F-A-XX_IDLE_PURPLE_3: 387403510
+      F-A-XX_IDLE_PURPLE_4: 1235693162
+      F-A-XX_IDLE_PURPLE_5: -2048615100
+      F-A-XX_IDLE_PURPLE_6: 418830184
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

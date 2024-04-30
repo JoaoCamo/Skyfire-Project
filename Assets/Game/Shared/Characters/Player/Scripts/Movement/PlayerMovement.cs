@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Game.Player.Controls;
 using Game.Static.Events;
+using Game.Animation;
 
 namespace Game.Player
 {
@@ -10,6 +11,8 @@ namespace Game.Player
         [SerializeField] private float baseMoveSpeed;
         [SerializeField] private Transform focusCollectArea;
         [SerializeField] private GameObject hitBoxSprite;
+        [SerializeField] private SpriteRenderer playerSpriteRenderer;
+        [SerializeField] private PlayerSpriteAnimation playerSpriteAnimation;
         
         private float _moveSpeed;
         private float _speedMultiplayer = 1;
@@ -19,6 +22,8 @@ namespace Game.Player
         private InputAction _focusControl;
         private Vector2 _moveInput;
         private bool _isUsingFocus = false;
+        private bool _isAnimatingSideMovement = false;
+        private bool _isAnimatingIdle = false;
 
         private readonly Vector2 _collectAreaNormalScale = new Vector2(1, 1);
         private readonly Vector2 _collectAreaFocusScale = new Vector2(1.5f, 1.5f);
@@ -61,6 +66,20 @@ namespace Game.Player
         private void FixedUpdate()
         {
             _rigidbody2D.velocity = _moveInput * (_moveSpeed * _speedMultiplayer);
+            playerSpriteRenderer.flipX = _rigidbody2D.velocity.x < 0;
+            
+            if(!_isAnimatingIdle && _rigidbody2D.velocity.x == 0)
+            {
+                _isAnimatingIdle = true;
+                _isAnimatingSideMovement = false;
+                playerSpriteAnimation.StartAnimation(true);
+            }
+            else if(!_isAnimatingSideMovement && _rigidbody2D.velocity.x != 0)
+            {
+                _isAnimatingSideMovement= true;
+                _isAnimatingIdle = false;
+                playerSpriteAnimation.StartAnimation(false);
+            }
         }
 
         private void ToggleFocus(InputAction.CallbackContext context)

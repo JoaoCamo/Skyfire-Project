@@ -202,6 +202,8 @@ MonoBehaviour:
   baseMoveSpeed: 1.2
   focusCollectArea: {fileID: 8968091188784028352}
   hitBoxSprite: {fileID: 3239717684454984469}
+  playerSpriteRenderer: {fileID: 3740866710106339307}
+  playerSpriteAnimation: {fileID: 9152720024684350915}
 --- !u!114 &4907731293897198815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4302461979167073277}
   - component: {fileID: 3740866710106339307}
-  - component: {fileID: 4153784366443230607}
+  - component: {fileID: 9152720024684350915}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -329,7 +331,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4153784366443230607
+--- !u!114 &9152720024684350915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -338,19 +340,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 5243196747209315696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeaf4fbfd10cc614d9d826a4b95914e8, type: 3}
+  m_Script: {fileID: 11500000, guid: b4bb76ceca3cbc145ba6437edb5c6512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 696785033, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
-  - {fileID: -396948181, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
-  - {fileID: -815174703, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
-  - {fileID: 1904887452, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
-  - {fileID: -1809534359, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
-  - {fileID: -2090863890, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
-  - {fileID: -115696544, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
+  idleSprites:
+  - {fileID: 2046525493, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
+  - {fileID: 982507228, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
+  - {fileID: 977777614, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
+  - {fileID: 387403510, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
+  - {fileID: 1235693162, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
+  - {fileID: -2048615100, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
+  - {fileID: 418830184, guid: 6de958ce8db751741b50200a552fc6d2, type: 3}
+  sideMovementSprites:
+  - {fileID: 1666762759, guid: 728d396b28d45c3469387afe10c607d7, type: 3}
+  - {fileID: 1643820795, guid: 728d396b28d45c3469387afe10c607d7, type: 3}
+  - {fileID: -285751705, guid: 728d396b28d45c3469387afe10c607d7, type: 3}
+  - {fileID: 869507789, guid: 728d396b28d45c3469387afe10c607d7, type: 3}
+  - {fileID: -1789659526, guid: 728d396b28d45c3469387afe10c607d7, type: 3}
+  - {fileID: -675502963, guid: 728d396b28d45c3469387afe10c607d7, type: 3}
+  - {fileID: -461023055, guid: 728d396b28d45c3469387afe10c607d7, type: 3}
   framesPerSecond: 10
-  playOnEnable: 1
 --- !u!1 &7706484483321218187
 GameObject:
   m_ObjectHideFlags: 0

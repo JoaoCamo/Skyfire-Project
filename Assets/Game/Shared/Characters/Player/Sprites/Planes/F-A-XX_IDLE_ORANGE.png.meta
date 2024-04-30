@@ -93,11 +93,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F-A-XX IDLE ORANGE_0
+      name: F-A-XX_IDLE_ORANGE_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b054d5bc73a4af24db4cf8d429ca4d87
-      internalID: 1099543091
+      spriteID: 6630a69c19e428c43862bd26564b554e
+      internalID: -508110443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE ORANGE_1
+      name: F-A-XX_IDLE_ORANGE_1
       rect:
         serializedVersion: 2
         x: 65
@@ -132,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8bccad41145d554fb8a1a48fc995d92
-      internalID: 1301940318
+      spriteID: 531001330e34e4d4f88f34a43ff74fab
+      internalID: -1957923431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE ORANGE_2
+      name: F-A-XX_IDLE_ORANGE_2
       rect:
         serializedVersion: 2
         x: 130
@@ -153,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e6a511ad3616894ebbe2624a7af3fa6
-      internalID: 353576522
+      spriteID: 48a887588ad629549984cf14327ff358
+      internalID: -2089149742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE ORANGE_3
+      name: F-A-XX_IDLE_ORANGE_3
       rect:
         serializedVersion: 2
         x: 195
@@ -174,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 501abe29b6c33184592a690d807a1109
-      internalID: 817502531
+      spriteID: f53b35f247a564749a1625c276a44adf
+      internalID: 1070965965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE ORANGE_4
+      name: F-A-XX_IDLE_ORANGE_4
       rect:
         serializedVersion: 2
         x: 260
@@ -195,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f33481ebc8bd57b469a0df463a04543f
-      internalID: 1793205186
+      spriteID: 02a27aa9ce9457e4da24929a4db96681
+      internalID: 1104440297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE ORANGE_5
+      name: F-A-XX_IDLE_ORANGE_5
       rect:
         serializedVersion: 2
         x: 325
@@ -216,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c0cbc2af711cb54d839345505103a87
-      internalID: -826923295
+      spriteID: 377be1b931013794bb8b45a052fde3b3
+      internalID: 261774374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX IDLE ORANGE_6
+      name: F-A-XX_IDLE_ORANGE_6
       rect:
         serializedVersion: 2
         x: 390
@@ -237,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54b53bfb753ac66489a67f1fe32073d9
-      internalID: -1963531984
+      spriteID: b47f699cd812ac04885afcf3362925f7
+      internalID: 507770953
       vertices: []
       indices: 
       edges: []
@@ -254,13 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      F-A-XX IDLE ORANGE_0: 1099543091
-      F-A-XX IDLE ORANGE_1: 1301940318
-      F-A-XX IDLE ORANGE_2: 353576522
-      F-A-XX IDLE ORANGE_3: 817502531
-      F-A-XX IDLE ORANGE_4: 1793205186
-      F-A-XX IDLE ORANGE_5: -826923295
-      F-A-XX IDLE ORANGE_6: -1963531984
+      F-A-XX_IDLE_ORANGE_0: -508110443
+      F-A-XX_IDLE_ORANGE_1: -1957923431
+      F-A-XX_IDLE_ORANGE_2: -2089149742
+      F-A-XX_IDLE_ORANGE_3: 1070965965
+      F-A-XX_IDLE_ORANGE_4: 1104440297
+      F-A-XX_IDLE_ORANGE_5: 261774374
+      F-A-XX_IDLE_ORANGE_6: 507770953
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
