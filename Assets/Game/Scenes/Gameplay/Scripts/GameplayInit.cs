@@ -15,6 +15,7 @@ namespace Game.Gameplay.Init
 
             GameInfo.RetryCount = 3;
             GameInfo.CurrentScore = 0;
+            GameInfo.CurrentHighScore = GameDataManager.GetHighScore(GameInfo.PlayerType);
 
             Destroy(gameObject);
         }

@@ -6,6 +6,9 @@ namespace Game.Navigation
         Options,
         DifficultySelection,
         CharacterSelection,
-        Gameplay
+        Gameplay,
+        ViewScores,
+        AddScores,
+        Ending,
     }
 }

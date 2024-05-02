@@ -3,7 +3,6 @@ using UnityEngine;
 using Game.Drop;
 using Game.Stage;
 using Game.Gameplay.UI;
-using Game.Projectiles;
 using Game.Audio;
 using Game.Gameplay.Effects;
 
@@ -12,7 +11,7 @@ namespace Game.Enemy.Boss
     public class BossHealthController : MonoBehaviour
     {
         private BossHealthInfo[] _bossHealthInfo;
-
+        
         private BossAttackController _attackController;
 
         private BossHealthInfo _currentHealthInfo;
@@ -62,7 +61,6 @@ namespace Game.Enemy.Boss
                     SpecialEffectsManager.RequestBulletClearShockwave?.Invoke(transform.position);
                     SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
                     BossHealthUI.ToggleHealthBar?.Invoke(false);
-                    EnemyProjectileManager.RequestFullClear?.Invoke();
 
                     SoundEffectController.RequestSfx.Invoke(SfxTypes.BossExplosion);
                     StageController.CallNextStage?.Invoke();
@@ -70,6 +68,8 @@ namespace Game.Enemy.Boss
                 }
                 else
                 {
+                    SpecialEffectsManager.RequestBulletClearShockwave?.Invoke(transform.position);
+                    SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
                     SoundEffectController.RequestSfx.Invoke(SfxTypes.BossExplosion);
                     StartCoroutine(InitiliazeNextPhase());
                 }

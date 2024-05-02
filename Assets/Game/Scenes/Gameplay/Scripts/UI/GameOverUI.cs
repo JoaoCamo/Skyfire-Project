@@ -13,7 +13,7 @@ namespace Game.Gameplay.UI
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Button retryButton;
         [SerializeField] private Button restartButton;
-        [SerializeField] private Button returnToMainMenuButton;
+        [SerializeField] private Button returnButton;
 
         private bool _loseScreenOpen = false;
 
@@ -34,10 +34,10 @@ namespace Game.Gameplay.UI
                 NavigationController.RequestSceneLoad(Scenes.Gameplay, LoadSceneMode.Single, true);
             });
 
-            returnToMainMenuButton.onClick.AddListener(() =>
+            returnButton.onClick.AddListener(() =>
             {
                 Time.timeScale = 1;
-                NavigationController.RequestSceneLoad(Scenes.MainMenu, LoadSceneMode.Single, true);
+                NavigationController.RequestSceneLoad(Scenes.AddScores, LoadSceneMode.Single, true);
             });
         }
 

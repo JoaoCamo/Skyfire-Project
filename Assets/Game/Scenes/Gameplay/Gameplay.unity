@@ -274,7 +274,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 803961429}
   resumeButton: {fileID: 1920477555}
   restartButton: {fileID: 2100227307}
-  returnToMainMenuButton: {fileID: 2058069772}
+  returnButton: {fileID: 2058069772}
 --- !u!1 &119146029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,7 +1607,7 @@ GameObject:
   - component: {fileID: 448496287}
   - component: {fileID: 448496286}
   m_Layer: 0
-  m_Name: '[Button] Return To Main Menu'
+  m_Name: '[Button] Return To Main Menu Lose'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6206,7 +6206,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 1463793861}
   retryButton: {fileID: 518242490}
   restartButton: {fileID: 1467292507}
-  returnToMainMenuButton: {fileID: 448496286}
+  returnButton: {fileID: 448496286}
 --- !u!1 &1678512339
 GameObject:
   m_ObjectHideFlags: 0
@@ -7639,7 +7639,7 @@ GameObject:
   - component: {fileID: 2058069773}
   - component: {fileID: 2058069772}
   m_Layer: 0
-  m_Name: '[Button] Return To Main Menu'
+  m_Name: '[Button] Return To Main Menu Pause'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

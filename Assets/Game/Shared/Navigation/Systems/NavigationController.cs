@@ -18,8 +18,8 @@ namespace Game.Navigation
         private readonly Stack<Scenes> _loadedScenes = new Stack<Scenes>();
         private readonly WaitForFixedUpdate _wait = new WaitForFixedUpdate();
 
-        public static Action<Scenes, LoadSceneMode, bool> RequestSceneLoad;
-        public static Action RequestSceneUnload;
+        public static Action<Scenes, LoadSceneMode, bool> RequestSceneLoad { private set; get; }
+        public static Action RequestSceneUnload { private set; get; }
 
         private void Awake()
         {

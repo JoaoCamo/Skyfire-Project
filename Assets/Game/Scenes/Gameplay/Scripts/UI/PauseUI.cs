@@ -14,7 +14,7 @@ namespace Game.Gameplay.UI
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private Button resumeButton;
         [SerializeField] private Button restartButton;
-        [SerializeField] private Button returnToMainMenuButton;
+        [SerializeField] private Button returnButton;
 
         private InputAction _pauseInput;
         private bool _isPaused = false;
@@ -32,7 +32,7 @@ namespace Game.Gameplay.UI
                 NavigationController.RequestSceneLoad(Scenes.Gameplay, LoadSceneMode.Single, true);
             });
             
-            returnToMainMenuButton.onClick.AddListener(() =>
+            returnButton.onClick.AddListener(() =>
             {
                 Time.timeScale = 1;
                 NavigationController.RequestSceneLoad(Scenes.MainMenu, LoadSceneMode.Single, true);

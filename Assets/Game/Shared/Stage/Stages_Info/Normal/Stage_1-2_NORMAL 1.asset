@@ -239,7 +239,7 @@ MonoBehaviour:
       movementDelay: 3
       attackInfo:
         attackPattern: 3
-        projectileType: 5
+        projectileType: 10
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
       movementDelay: 5
       attackInfo:
         attackPattern: 4
-        projectileType: 4
+        projectileType: 7
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0

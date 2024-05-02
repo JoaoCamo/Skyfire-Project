@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Gameplay/Gameplay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Game/Scenes/Menus/View_Scores/ViewScores.unity
+    guid: 9f7df0c98db332644b2e6fa03d801ca1
+  - enabled: 1
+    path: Assets/Game/Scenes/Menus/Add_Scores/AddScores.unity
+    guid: 18fa86bef6a9eb84fb33742be974e6ba
+  - enabled: 1
+    path: Assets/Game/Scenes/Menus/Ending/Ending.unity
+    guid: 7563e00d3f6cd1d45bf9bc8d78847560
   m_configObjects: {}

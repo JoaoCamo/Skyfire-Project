@@ -81,7 +81,7 @@ namespace Game.Gameplay.UI
 
         private void GetHighScore()
         {
-            
+            highScoreText.text = GameDataManager.GetHighScore(GameInfo.PlayerType).ToString();
         }
 
         private void ResetScore()

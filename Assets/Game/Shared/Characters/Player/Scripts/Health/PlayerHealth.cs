@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Game.Static.Events;
 using Game.Gameplay.Effects;
+using Game.Audio;
 
 namespace Game.Player
 {
@@ -57,7 +58,8 @@ namespace Game.Player
 
             StartInvincibility();
             StartCoroutine(StopMovement());
-            StartShockWave();
+            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
+            SoundEffectController.RequestSfx?.Invoke(SfxTypes.PlayerHit);
 
             if (--_health < 0)
                 GameEvents.OnGameEndLose?.Invoke(); 
@@ -97,11 +99,6 @@ namespace Game.Player
             yield return _stopActionDelay;
             _playerMovement.SpeedMultiplayer = 1;
             _playerAttack.CanShoot = true;
-        }
-
-        private void StartShockWave()
-        {
-            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
         }
 
         private void AddLife()

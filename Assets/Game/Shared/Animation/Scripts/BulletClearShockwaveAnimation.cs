@@ -8,7 +8,7 @@ namespace Game.Animation
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
 
-        private readonly WaitForSeconds _delay = new WaitForSeconds(0.25f);
+        private readonly WaitForSeconds _delay = new WaitForSeconds(0.5f);
 
         private void OnEnable()
         {
@@ -22,7 +22,7 @@ namespace Game.Animation
 
         private IEnumerator ShockwaveCoroutine()
         {
-            transform.DOScale(3, 0.5f).SetEase(Ease.Linear);
+            transform.DOScale(5, 1).SetEase(Ease.Linear);
 
             yield return _delay;
 
