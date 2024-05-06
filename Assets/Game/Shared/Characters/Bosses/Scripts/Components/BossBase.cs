@@ -22,7 +22,7 @@ namespace Game.Enemy.Boss
 
         public void StartBossBattle(BossInfo bossInfo)
         {
-            BossHealthUI.ToggleHealthBar?.Invoke(true);
+            BossHealthUI.ToggleHealthBar(true);
             _attackController.BossAttackInfo = bossInfo.bossAttackInfo;
             _healthController.SetHealth(bossInfo.bossHealthInfo);
             StartCoroutine(_healthController.InitializeBoss());

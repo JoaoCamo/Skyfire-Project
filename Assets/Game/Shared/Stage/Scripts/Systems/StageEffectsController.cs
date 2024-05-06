@@ -24,12 +24,14 @@ namespace Game.Gameplay.Animation
 
         public IEnumerator StartStageMusic(int currentStage)
         {
-            audioSource.DOFade(0, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
+            yield return null;
 
-            yield return _audioFadeDelay;
-
-            audioSource.clip = stageAudioClips[currentStage];
-            audioSource.DOFade(1, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
+            //audioSource.DOFade(0, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
+            //
+            //yield return _audioFadeDelay;
+            //
+            //audioSource.clip = stageAudioClips[currentStage];
+            //audioSource.DOFade(1, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
         }
 
         public void StartAnimation(int currentStage)

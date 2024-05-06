@@ -29,14 +29,14 @@ namespace Game.Enemy
         private void ReceiveDamage(int damage)
         {
             _health -= damage;
-            SoundEffectController.RequestSfx?.Invoke(SfxTypes.EnemyHit);
+            SoundEffectController.RequestSfx(SfxTypes.EnemyHit);
 
             if (_health > 0) return;
 
-            SoundEffectController.RequestSfx.Invoke(SfxTypes.EnemyExplosion);
-            GameEvents.OnPointsValueChange?.Invoke(10);
+            GameEvents.OnPointsValueChange(10);
             DropItems();
-            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
+            SoundEffectController.RequestSfx(SfxTypes.EnemyExplosion);
+            SpecialEffectsManager.RequestShockwave(transform.position);
             gameObject.SetActive(false);
         }
 
@@ -56,7 +56,7 @@ namespace Game.Enemy
                     var originPosition = transform.position;
                     float xPosition = originPosition.x + Random.Range(-0.1f, 0.1f);
                     float yPosition = originPosition.y + Random.Range(-0.1f, 0.1f);
-                    DropManager.RequestDrop?.Invoke(possibleDrop.dropType, new Vector3(xPosition, yPosition));
+                    DropManager.RequestDrop(possibleDrop.dropType, new Vector3(xPosition, yPosition));
                 }
             }
         }

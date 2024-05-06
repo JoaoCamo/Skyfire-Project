@@ -12,7 +12,7 @@ namespace Game.Danmaku.Patterns
             float angle;
             float innerAngle;
 
-            timesToLoop = isInfiniteLoop ? 9999999 : timesToLoop;
+            timesToLoop = isInfiniteLoop ? 999999 : timesToLoop;
 
             for (int i = 0; i < timesToLoop; i++)
             {

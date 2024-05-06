@@ -12,8 +12,8 @@ namespace Game.Navigation
     {
         private LoadingController _loadingController;
 
-        private const float MIN_EXTRA_DELAY = 0.5f;
-        private const float MAX_EXTRA_DELAY = 3f;
+        private const float MIN_EXTRA_DELAY = 0.25f;
+        private const float MAX_EXTRA_DELAY = 1f;
         
         private readonly Stack<Scenes> _loadedScenes = new Stack<Scenes>();
         private readonly WaitForFixedUpdate _wait = new WaitForFixedUpdate();

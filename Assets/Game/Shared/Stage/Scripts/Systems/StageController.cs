@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Game.Enemy;
 using Game.Enemy.Boss;
@@ -8,6 +9,7 @@ using Game.Static.Events;
 using Game.Gameplay.Animation;
 using Game.Static;
 using Game.Projectiles;
+using Game.Navigation;
 
 namespace Game.Stage
 {
@@ -28,6 +30,7 @@ namespace Game.Stage
         private readonly WaitForSeconds _waveStartDelay = new WaitForSeconds(2.5f);
         private readonly WaitForSeconds _bossCallDelay = new WaitForSeconds(7.5f);
         private readonly WaitForSeconds _sceneFadeDelay = new WaitForSeconds(2);
+        private readonly WaitForSeconds _gameEndDelay = new WaitForSeconds(5);
 
         public static Action CallNextStage { get; private set; }
         public static Action StartBossBattle { get; private set; }
@@ -57,7 +60,7 @@ namespace Game.Stage
 
             yield return _bossCallDelay;
 
-            EnemySpawner.RequestClearEnemies?.Invoke();
+            EnemySpawner.RequestClearEnemies();
 
             _currentBoss = enemySpawner.SpawnBoss(_gameStages.stages[_currentStageInfoIndex].waveBossInfo.type);
             StartBoss();
@@ -65,7 +68,7 @@ namespace Game.Stage
 
         private void StartBoss()
         {
-            EnemyProjectileManager.RequestFullClear?.Invoke();
+            EnemyProjectileManager.RequestFullClear();
             _currentBoss.StartBossBattle(_gameStages.stages[_currentStageInfoIndex].waveBossInfo);
         }
 
@@ -75,7 +78,9 @@ namespace Game.Stage
             
             if (_currentStageInfoIndex >= _gameStages.stages.Length)
             {
-                GameEvents.OnGameEndWin?.Invoke(true);
+                //GameEvents.OnGameEndWin(true);
+                StartCoroutine(EndStages());
+                
             }
             else if (_gameStages.stages[_currentStageInfoIndex].isContinuation)
             {
@@ -102,7 +107,7 @@ namespace Game.Stage
             yield return _sceneFadeDelay;
 
             stageEffectsController.StartAnimation(_currentStage);
-            //StartCoroutine(stageEffectsController.StartStageMusic(_currentStage));
+            StartCoroutine(stageEffectsController.StartStageMusic(_currentStage));
 
             yield return _sceneFadeDelay;
             
@@ -128,11 +133,17 @@ namespace Game.Stage
             }
 
             stageEffectsController.StartAnimation(_currentStage);
-            //StartCoroutine(stageEffectsController.StartStageMusic(_currentStage));
+            StartCoroutine(stageEffectsController.StartStageMusic(_currentStage));
 
             fadeToBlack.DOColor(new Color(0, 0, 0, 0), 5);
 
             StartCoroutine(StartWave());
+        }
+
+        private IEnumerator EndStages()
+        {
+            yield return _gameEndDelay;
+            NavigationController.RequestSceneLoad(Scenes.AddScores, LoadSceneMode.Single, true);
         }
     }
 }

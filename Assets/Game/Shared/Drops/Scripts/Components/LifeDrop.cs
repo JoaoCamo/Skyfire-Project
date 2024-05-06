@@ -23,9 +23,9 @@ namespace Game.Drop
         protected override void OnCollect()
         {
             base.OnCollect();
-            PlayerHealth.RequestNewLife?.Invoke();
-            GameEvents.OnPointsValueChange?.Invoke(dropPointsValue);
-            PopUpTextManager.RequestPopUpText.Invoke(transform.position, dropPointsValue.ToString(), Color.grey);
+            PlayerHealth.RequestNewLife();
+            GameEvents.OnPointsValueChange(dropPointsValue);
+            PopUpTextManager.RequestPopUpText(transform.position, dropPointsValue.ToString(), Color.grey);
 
             gameObject.SetActive(false);
         }

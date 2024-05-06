@@ -45,10 +45,10 @@ namespace Game.Enemy.Boss
             if (!_canTakeDamage) return;
 
             _currentHealth -= (_currentHealth - damage >= 0) ? damage : 0;
-            SoundEffectController.RequestSfx?.Invoke(SfxTypes.EnemyHit);
+            SoundEffectController.RequestSfx(SfxTypes.EnemyHit);
 
             if (_currentHealth >= 0)
-                BossHealthUI.RequestHealthBarChange?.Invoke(_currentHealthInfo.barHealth, _currentHealth, 0.1f);
+                BossHealthUI.RequestHealthBarChange(_currentHealthInfo.barHealth, _currentHealth, 0.1f);
 
             if (_currentHealth <= 0)
             {
@@ -58,19 +58,19 @@ namespace Game.Enemy.Boss
 
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
-                    SpecialEffectsManager.RequestBulletClearShockwave?.Invoke(transform.position);
-                    SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
-                    BossHealthUI.ToggleHealthBar?.Invoke(false);
+                    SpecialEffectsManager.RequestBulletClearShockwave(transform.position);
+                    SpecialEffectsManager.RequestShockwave(transform.position);
+                    BossHealthUI.ToggleHealthBar(false);
 
-                    SoundEffectController.RequestSfx.Invoke(SfxTypes.BossExplosion);
-                    StageController.CallNextStage?.Invoke();
+                    SoundEffectController.RequestSfx(SfxTypes.BossExplosion);
+                    StageController.CallNextStage();
                     Destroy(gameObject);
                 }
                 else
                 {
-                    SpecialEffectsManager.RequestBulletClearShockwave?.Invoke(transform.position);
-                    SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
-                    SoundEffectController.RequestSfx.Invoke(SfxTypes.BossExplosion);
+                    SpecialEffectsManager.RequestBulletClearShockwave(transform.position);
+                    SpecialEffectsManager.RequestShockwave(transform.position);
+                    SoundEffectController.RequestSfx(SfxTypes.BossExplosion);
                     StartCoroutine(InitiliazeNextPhase());
                 }
             }
@@ -82,7 +82,7 @@ namespace Game.Enemy.Boss
             _currentHealth = _currentHealthInfo.barHealth;
             _hasDroppedItems = false;
 
-            BossHealthUI.RequestHealthBarColorChange?.Invoke(_bossHealthBars - (_currentHealthBar + 1), true);
+            BossHealthUI.RequestHealthBarColorChange(_bossHealthBars - (_currentHealthBar + 1), true);
         }
 
         private void DropItems()
@@ -101,7 +101,7 @@ namespace Game.Enemy.Boss
                     var originPosition = transform.position;
                     float xPosition = originPosition.x + Random.Range(-0.1f, 0.1f);
                     float yPosition = originPosition.y + Random.Range(-0.1f, 0.1f);
-                    DropManager.RequestDrop?.Invoke(possibleDrop.dropType, new Vector3(xPosition, yPosition));
+                    DropManager.RequestDrop(possibleDrop.dropType, new Vector3(xPosition, yPosition));
                 }
             }
         }
@@ -109,7 +109,7 @@ namespace Game.Enemy.Boss
         private IEnumerator InitiliazeNextPhase()
         {
             ResetHealth();
-            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
+            SpecialEffectsManager.RequestShockwave(transform.position);
 
             _canTakeDamage = false;
 
@@ -129,7 +129,7 @@ namespace Game.Enemy.Boss
 
         public IEnumerator InitializeBoss()
         {
-            BossHealthUI.RequestHealthBarColorChange?.Invoke(_bossHealthBars - (_currentHealthBar+1), false);
+            BossHealthUI.RequestHealthBarColorChange(_bossHealthBars - (_currentHealthBar + 1), false);
             StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
 
             yield return _canTakeDamageDelay;

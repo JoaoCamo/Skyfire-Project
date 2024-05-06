@@ -20,7 +20,7 @@ namespace Game.Menus
         private void Awake()
         {
             resetScoresButton.onClick.AddListener(ResetScores);
-            returnButton.onClick.AddListener(() => NavigationController.RequestSceneUnload?.Invoke());
+            returnButton.onClick.AddListener(() => NavigationController.RequestSceneUnload());
             LoadScores();
         }
 

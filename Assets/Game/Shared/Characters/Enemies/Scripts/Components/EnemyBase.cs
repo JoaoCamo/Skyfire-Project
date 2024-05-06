@@ -2,6 +2,7 @@ using UnityEngine;
 using Game.Danmaku;
 using Game.Projectiles;
 using Game.Gameplay.Effects;
+using Game.Audio;
 
 namespace Game.Enemy
 {
@@ -42,7 +43,8 @@ namespace Game.Enemy
         {
             if (!gameObject.activeSelf) return;
 
-            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
+            SoundEffectController.RequestSfx(SfxTypes.EnemyExplosion);
+            SpecialEffectsManager.RequestShockwave(transform.position);
             gameObject.SetActive(false);
         }
     }

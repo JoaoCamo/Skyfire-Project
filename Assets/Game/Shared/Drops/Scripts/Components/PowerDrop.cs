@@ -25,9 +25,9 @@ namespace Game.Drop
         protected override void OnCollect()
         {
             base.OnCollect();
-            PlayerAttackBase.RequestPowerValueChange?.Invoke(powerValue);
-            GameEvents.OnPointsValueChange?.Invoke(dropPointsValue);
-            PopUpTextManager.RequestPopUpText.Invoke(transform.position, dropPointsValue.ToString(), Color.grey);
+            PlayerAttackBase.RequestPowerValueChange(powerValue);
+            GameEvents.OnPointsValueChange(dropPointsValue);
+            PopUpTextManager.RequestPopUpText(transform.position, dropPointsValue.ToString(), Color.grey);
 
             gameObject.SetActive(false);
         }

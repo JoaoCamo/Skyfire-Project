@@ -24,8 +24,8 @@ namespace Game.Drop
         {
             base.OnCollect();
             PlayerAttackBase.RequestNewBomb(1, false);
-            GameEvents.OnPointsValueChange?.Invoke(dropPointsValue);
-            PopUpTextManager.RequestPopUpText.Invoke(transform.position, dropPointsValue.ToString(), Color.grey);
+            GameEvents.OnPointsValueChange(dropPointsValue);
+            PopUpTextManager.RequestPopUpText(transform.position, dropPointsValue.ToString(), Color.grey);
 
             gameObject.SetActive(false);
         }

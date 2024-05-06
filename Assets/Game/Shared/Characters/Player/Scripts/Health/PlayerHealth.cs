@@ -58,16 +58,16 @@ namespace Game.Player
 
             StartInvincibility();
             StartCoroutine(StopMovement());
-            SpecialEffectsManager.RequestShockwave?.Invoke(transform.position);
-            SoundEffectController.RequestSfx?.Invoke(SfxTypes.PlayerHit);
+            SpecialEffectsManager.RequestShockwave(transform.position);
+            SoundEffectController.RequestSfx(SfxTypes.PlayerHit);
 
             if (--_health < 0)
                 GameEvents.OnGameEndLose?.Invoke(); 
             else
             {
-                PlayerAttackBase.RequestNewBomb?.Invoke(3, true);
-                PlayerAttackBase.RequestPowerValueChange?.Invoke(-1.5f);
-                GameEvents.OnHealthValueChange?.Invoke(_health);
+                PlayerAttackBase.RequestNewBomb(3, true);
+                PlayerAttackBase.RequestPowerValueChange(-1.5f);
+                GameEvents.OnHealthValueChange(_health);
             }
         }
 
@@ -110,16 +110,16 @@ namespace Game.Player
             else
             {
                 _health++;
-                GameEvents.OnHealthValueChange?.Invoke(_health);
+                GameEvents.OnHealthValueChange(_health);
             }
         }
 
         private void RetryReset()
         {
             _health = 2;
-            PlayerAttackBase.RequestNewBomb?.Invoke(3, true);
-            GameEvents.OnHealthValueChange?.Invoke(_health);
-            PlayerAttackBase.RequestPowerValueChange?.Invoke(4);
+            PlayerAttackBase.RequestNewBomb(3, true);
+            GameEvents.OnHealthValueChange(_health);
+            PlayerAttackBase.RequestPowerValueChange(4);
         }
     }
 }

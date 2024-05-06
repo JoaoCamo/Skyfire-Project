@@ -16,7 +16,7 @@ namespace Game.Menus
         {
             foreach (SceneNavigationInfo sceneNavigation in sceneNavigationInfos)
             {
-                sceneNavigation.button.onClick.AddListener(() => NavigationController.RequestSceneLoad?.Invoke(sceneNavigation.scene, sceneNavigation.loadSceneMode, sceneNavigation.hasLoading));
+                sceneNavigation.button.onClick.AddListener(() => NavigationController.RequestSceneLoad(sceneNavigation.scene, sceneNavigation.loadSceneMode, sceneNavigation.hasLoading));
             }
         }
     }

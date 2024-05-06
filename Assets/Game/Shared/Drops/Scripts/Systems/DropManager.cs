@@ -12,8 +12,8 @@ namespace Game.Drop
 
         public List<DropBase> DropBases => _dropBases;
 
-        public static Action<DropType, Vector3> RequestDrop;
-        public static Action RequestCollectAll;
+        public static Action<DropType, Vector3> RequestDrop { private set; get; }
+        public static Action RequestCollectAll { private set; get; }
 
         private void OnEnable()
         {

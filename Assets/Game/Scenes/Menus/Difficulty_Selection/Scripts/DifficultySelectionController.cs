@@ -34,13 +34,13 @@ namespace Game.Menus
                 });
             }
 
-            returnButton.onClick.AddListener(() => NavigationController.RequestSceneUnload?.Invoke());
+            returnButton.onClick.AddListener(() => NavigationController.RequestSceneUnload());
         }
         
         private void SelectDifficulty(DifficultyType difficultyType, Image outline, string descriptionText ,SceneNavigationInfo navigationInfo)
         {
             if(difficultyType == _difficultyType)
-                NavigationController.RequestSceneLoad?.Invoke(navigationInfo.scene, navigationInfo.loadSceneMode, navigationInfo.hasLoading);
+                NavigationController.RequestSceneLoad(navigationInfo.scene, navigationInfo.loadSceneMode, navigationInfo.hasLoading);
             else
             {
                 GameInfo.DifficultyType = difficultyType;

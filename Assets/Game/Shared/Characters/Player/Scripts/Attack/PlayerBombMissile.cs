@@ -59,7 +59,7 @@ namespace Game.Player
 
             explosionAnimation.StartAnimation();
             explosionTransform.DOScale(3, _animationDuration).SetEase(Ease.Linear);
-            SoundEffectController.RequestSfx?.Invoke(SfxTypes.BombExplosion);
+            SoundEffectController.RequestSfx(SfxTypes.BombExplosion);
 
             yield return _animationDelay;
 

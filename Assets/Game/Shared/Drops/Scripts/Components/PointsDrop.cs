@@ -27,8 +27,8 @@ namespace Game.Drop
             base.OnCollect();
             float valueMultiplayer = GetDropValueMultiplayer();
             int dropValue = (int)(dropPointsValue * valueMultiplayer);
-            GameEvents.OnPointsValueChange?.Invoke(dropValue);
-            PopUpTextManager.RequestPopUpText.Invoke(transform.position, dropValue.ToString(), valueMultiplayer >= 1f ? Color.yellow : Color.grey);
+            GameEvents.OnPointsValueChange(dropValue);
+            PopUpTextManager.RequestPopUpText(transform.position, dropValue.ToString(), valueMultiplayer >= 1f ? Color.yellow : Color.grey);
             gameObject.SetActive(false);
         }
 

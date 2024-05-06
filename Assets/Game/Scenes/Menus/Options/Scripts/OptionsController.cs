@@ -49,7 +49,7 @@ namespace Game.Menus
         {
             if (_onMainPage)
             {
-                NavigationController.RequestSceneUnload?.Invoke();
+                NavigationController.RequestSceneUnload();
             }
             else
             {

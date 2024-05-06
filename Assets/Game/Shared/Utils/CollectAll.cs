@@ -7,7 +7,7 @@ namespace Game.Utils
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            DropManager.RequestCollectAll?.Invoke();
+            DropManager.RequestCollectAll();
         }
     }
 }

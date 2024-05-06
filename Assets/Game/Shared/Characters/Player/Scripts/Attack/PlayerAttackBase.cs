@@ -81,8 +81,8 @@ namespace Game.Player
             
             _currentBombs--;
 
-            _health.RequestInvincibility?.Invoke();
-            GameEvents.OnBombValueChange?.Invoke(_currentBombs);
+            _health.RequestInvincibility();
+            GameEvents.OnBombValueChange(_currentBombs);
             StartCoroutine(FireBombs());
             StartCoroutine(BombCooldown());
         }

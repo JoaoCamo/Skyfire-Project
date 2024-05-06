@@ -25,7 +25,7 @@ namespace Game.Drop
         protected virtual void OnCollect()
         {
             _canGoToPlayer = false;
-            SoundEffectController.RequestSfx?.Invoke(SfxTypes.Collect);
+            SoundEffectController.RequestSfx(SfxTypes.Collect);
         }
         
         public void GoToPlayer(Vector3 playerPosition)
