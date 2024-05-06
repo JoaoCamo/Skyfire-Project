@@ -41,7 +41,16 @@ namespace Game.Projectiles
             projectileBase.SetProjectileData(speed,originPosition,Quaternion.Euler(0,0,rotation));
             projectileBase.Show();
         }
-        
+
+        public ProjectileBase GetFireProjectile(ProjectileType projectileType, Vector2 originPosition, float speed, float rotation)
+        {
+            ProjectileBase projectileBase = GetProjectile(projectileType);
+            projectileBase.SetProjectileData(speed, originPosition, Quaternion.Euler(0, 0, rotation));
+            projectileBase.Show();
+
+            return projectileBase;
+        }
+
         private ProjectileBase GetProjectile(ProjectileType projectileType)
         {
             ProjectileBase projectileBase = _projectiles.Find(p => !p.gameObject.activeSelf && p.ProjectileType == projectileType) ?? CreateProjectile(projectileType);

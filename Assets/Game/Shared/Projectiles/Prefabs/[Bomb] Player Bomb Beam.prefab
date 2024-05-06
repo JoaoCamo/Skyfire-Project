@@ -119,8 +119,10 @@ MonoBehaviour:
   - {fileID: 1832157743, guid: 48917eba87ccb534fba98492ceb3d5ff, type: 3}
   - {fileID: 1560316975, guid: 48917eba87ccb534fba98492ceb3d5ff, type: 3}
   - {fileID: -970259770, guid: 48917eba87ccb534fba98492ceb3d5ff, type: 3}
+  framesPerSecondFirstStage: 15
+  framesPerSecondSecondStage: 10
+  framesPerSecondThirdStage: 15
   timesToRepeatSecondStage: 10
-  framesPerSecond: 10
   beamColliderTransform: {fileID: 8335760653658621178}
 --- !u!114 &8692702445730461152
 MonoBehaviour:

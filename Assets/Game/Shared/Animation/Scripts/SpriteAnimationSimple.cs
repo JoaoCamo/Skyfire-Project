@@ -30,14 +30,14 @@ namespace Game.Animation
             if(playOnEnable) StartAnimation();
         }
 
+        private void OnDisable()
+        {
+            StopAnimation();
+        }
+
         public void StartAnimation()
         {
-            if (_animationCoroutine != null)
-            {
-                StopCoroutine(_animationCoroutine);
-                _animationCoroutine = null;
-            }
-
+            StopAnimation();
             _animationCoroutine = StartCoroutine(Animate());
         }
 

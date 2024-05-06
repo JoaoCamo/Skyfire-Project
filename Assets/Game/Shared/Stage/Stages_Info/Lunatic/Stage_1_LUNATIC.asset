@@ -16,5 +16,20 @@ MonoBehaviour:
   enemyWaves: []
   waveBossInfo:
     type: 0
-    bossHealthInfo: []
-    bossAttackInfo: []
+    bossHealthInfo:
+    - barHealth: 999
+      possibleDrops: []
+    bossAttackInfo:
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 6
+        projectileType: 4
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 6
+        shotSpeed: 0.4
+        shotSpeedReduction: 0
+        shotDelay: 10
+        shotStartDelay: 2

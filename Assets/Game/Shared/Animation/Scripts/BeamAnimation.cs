@@ -7,32 +7,34 @@ public class BeamAnimation : MonoBehaviour
     [SerializeField] private Sprite[] firstStageSprites;
     [SerializeField] private Sprite[] secondStageSprites;
     [SerializeField] private Sprite[] thirdStageSprites;
+    [SerializeField] private int framesPerSecondFirstStage;
+    [SerializeField] private int framesPerSecondSecondStage;
+    [SerializeField] private int framesPerSecondThirdStage;
     [SerializeField] private int timesToRepeatSecondStage;
-    [SerializeField] private int framesPerSecond;
     [SerializeField] private Transform beamColliderTransform;
 
-    private WaitForSeconds _animationDelay;
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
-        float timeDelay = 1f / framesPerSecond;
-
-        _animationDelay = new WaitForSeconds(timeDelay);
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public IEnumerator StartAnimation()
     {
-        float durationFirstStage = (1f / framesPerSecond) * firstStageSprites.Length;
-        float durationThirdStage = (1f / framesPerSecond) * thirdStageSprites.Length;
+        WaitForSeconds firstStageDelay = new WaitForSeconds(1f / framesPerSecondFirstStage);
+        WaitForSeconds secondStageDelay = new WaitForSeconds(1f / framesPerSecondSecondStage);
+        WaitForSeconds thirdStageDelay = new WaitForSeconds(1f / framesPerSecondThirdStage);
+
+        float durationFirstStage = (1f / framesPerSecondFirstStage) * firstStageSprites.Length;
+        float durationThirdStage = (1f / framesPerSecondThirdStage) * thirdStageSprites.Length;
 
         beamColliderTransform.DOScaleY(1, durationFirstStage);
 
         foreach (Sprite sprite in firstStageSprites)
         {
             _spriteRenderer.sprite = sprite;
-            yield return _animationDelay;
+            yield return firstStageDelay;
         }
 
         for (int i = 0; i < timesToRepeatSecondStage; i++)
@@ -40,7 +42,7 @@ public class BeamAnimation : MonoBehaviour
             foreach (Sprite sprite in secondStageSprites)
             {
                 _spriteRenderer.sprite = sprite;
-                yield return _animationDelay;
+                yield return secondStageDelay;
             }
         }
 
@@ -49,7 +51,7 @@ public class BeamAnimation : MonoBehaviour
         foreach (Sprite sprite in thirdStageSprites)
         {
             _spriteRenderer.sprite = sprite;
-            yield return _animationDelay;
+            yield return thirdStageDelay;
         }
     }
 }

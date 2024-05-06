@@ -7,7 +7,7 @@ namespace Game.Enemy.Boss
     public class BossMovementController : MonoBehaviour
     {
         private readonly Vector2 _initialPosition = new Vector2(0, 1.1f);
-        private readonly Vector2 _centralPosition = new Vector2 (0, 0.45f);
+        private readonly Vector2 _centralPosition = new Vector2 (0, 0.6f);
         private readonly WaitForSeconds _returnToCentralPositionDelay = new WaitForSeconds(1);
         private readonly WaitForSeconds _movementDurationDelay = new WaitForSeconds(2);
             

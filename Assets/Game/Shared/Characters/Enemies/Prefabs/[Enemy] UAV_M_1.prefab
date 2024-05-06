@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775daed339b144748ad1b745c0456d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
+  enemyType: 1
 --- !u!114 &3282461510516443746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3899194914476840299}
   - component: {fileID: 4661896822875207098}
+  - component: {fileID: 1302718901026728954}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -221,7 +222,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -21991945
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9037c97150113174fbe9ca82ec5cd93e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -234,3 +235,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1302718901026728954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229916594890874993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeaf4fbfd10cc614d9d826a4b95914e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1280239986, guid: e70631ff558af134e9ab155f0b7fb3c9, type: 3}
+  - {fileID: -366015375, guid: e70631ff558af134e9ab155f0b7fb3c9, type: 3}
+  - {fileID: 626478144, guid: e70631ff558af134e9ab155f0b7fb3c9, type: 3}
+  - {fileID: 1466770235, guid: e70631ff558af134e9ab155f0b7fb3c9, type: 3}
+  - {fileID: 566317493, guid: e70631ff558af134e9ab155f0b7fb3c9, type: 3}
+  framesPerSecond: 40
+  playOnEnable: 1
