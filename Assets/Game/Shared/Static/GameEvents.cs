@@ -10,7 +10,6 @@ namespace Game.Static.Events
         public static Action<int> OnHealthValueChange;
         public static Action<int> OnBombValueChange;
         public static Action<bool> OnPauseGame;
-        public static Action<bool> OnGameEndWin;
         public static Action OnGameEndLose;
         public static Action OnRetry;
     }

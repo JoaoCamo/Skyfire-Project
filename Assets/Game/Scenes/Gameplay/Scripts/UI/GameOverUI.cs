@@ -21,11 +21,27 @@ namespace Game.Gameplay.UI
 
         private void Awake()
         {
+            LoadButtons();
+        }
+
+        private void OnEnable()
+        {
+            GameEvents.OnGameEndLose += GameOverToggle;
+        }
+
+        private void OnDisable()
+        {
+            GameEvents.OnGameEndLose -= GameOverToggle;
+        }
+
+        private void LoadButtons()
+        {
             retryButton.onClick.AddListener(() =>
             {
                 GameOverToggle();
-                GameEvents.OnRetry?.Invoke();
+                GameEvents.OnRetry();
                 GameInfo.RetryCount--;
+                GameInfo.usedRetry = true;
             });
 
             restartButton.onClick.AddListener(() =>
@@ -39,16 +55,6 @@ namespace Game.Gameplay.UI
                 Time.timeScale = 1;
                 NavigationController.RequestSceneLoad(Scenes.AddScores, LoadSceneMode.Single, true);
             });
-        }
-
-        private void OnEnable()
-        {
-            GameEvents.OnGameEndLose += GameOverToggle;
-        }
-
-        private void OnDisable()
-        {
-            GameEvents.OnGameEndLose -= GameOverToggle;
         }
 
         private void GameOverToggle()

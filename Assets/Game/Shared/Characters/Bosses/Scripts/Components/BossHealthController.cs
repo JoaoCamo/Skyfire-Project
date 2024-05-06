@@ -44,7 +44,7 @@ namespace Game.Enemy.Boss
         {
             if (!_canTakeDamage) return;
 
-            _currentHealth -= (_currentHealth - damage >= 0) ? damage : 0;
+            _currentHealth = (_currentHealth - damage >= 0) ? _currentHealth - damage : 0;
             SoundEffectController.RequestSfx(SfxTypes.EnemyHit);
 
             if (_currentHealth >= 0)

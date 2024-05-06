@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Game.Enemy;
 using Game.Enemy.Boss;
-using Game.Static.Events;
 using Game.Gameplay.Animation;
 using Game.Static;
 using Game.Projectiles;
@@ -78,9 +77,7 @@ namespace Game.Stage
             
             if (_currentStageInfoIndex >= _gameStages.stages.Length)
             {
-                //GameEvents.OnGameEndWin(true);
                 StartCoroutine(EndStages());
-                
             }
             else if (_gameStages.stages[_currentStageInfoIndex].isContinuation)
             {
@@ -135,15 +132,19 @@ namespace Game.Stage
             stageEffectsController.StartAnimation(_currentStage);
             StartCoroutine(stageEffectsController.StartStageMusic(_currentStage));
 
-            fadeToBlack.DOColor(new Color(0, 0, 0, 0), 5);
-
             StartCoroutine(StartWave());
         }
 
         private IEnumerator EndStages()
         {
+            fadeToBlack.DOColor(new Color(0, 0, 0, 1), 2.5f);
+
             yield return _gameEndDelay;
-            NavigationController.RequestSceneLoad(Scenes.AddScores, LoadSceneMode.Single, true);
+
+            if(GameInfo.DifficultyType != DifficultyType.Easy && !GameInfo.usedRetry)
+                NavigationController.RequestSceneLoad(Scenes.Ending, LoadSceneMode.Single, true);
+            else
+                NavigationController.RequestSceneLoad(Scenes.AddScores, LoadSceneMode.Single, true);
         }
     }
 }

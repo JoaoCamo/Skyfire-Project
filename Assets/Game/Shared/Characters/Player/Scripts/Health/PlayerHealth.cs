@@ -117,8 +117,8 @@ namespace Game.Player
         private void RetryReset()
         {
             _health = 2;
-            PlayerAttackBase.RequestNewBomb(3, true);
             GameEvents.OnHealthValueChange(_health);
+            PlayerAttackBase.RequestNewBomb(3, true);
             PlayerAttackBase.RequestPowerValueChange(4);
         }
     }
