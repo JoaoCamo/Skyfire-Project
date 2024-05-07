@@ -4,7 +4,7 @@ using Game.Projectiles;
 
 namespace Game.Danmaku.Patterns
 {
-    public class ExpandingHalfMoonShot : DanmakuBase
+    public class ExpandingFullMoon : DanmakuBase
     {
         public override IEnumerator Shoot()
         {
@@ -17,15 +17,15 @@ namespace Game.Danmaku.Patterns
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 140) : 230;
+                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 135) : 225;
                 speed = shotSpeed;
 
-                ProjectileBase[] mainProjectiles = new ProjectileBase[3];
+                ProjectileBase[] mainProjectiles = new ProjectileBase[4];
 
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < 4; j++)
                 {
                     mainProjectiles[j] = enemyProjectileManager.GetFireProjectile(projectileType, transform.position, speed, angle);
-                    angle += 50;
+                    angle += 90;
                 }
 
                 yield return shotActionDelay;
@@ -40,7 +40,7 @@ namespace Game.Danmaku.Patterns
                     angle = mainProjectiles[j].transform.rotation.z + 90f;
                     mainProjectiles[j].Speed = shotSpeed;
 
-                    for (int k = 0; k < 7; k++)
+                    for (int k = 0; k < 14; k++)
                     {
                         speed = shotSpeed + shotSpeedReduction;
 
@@ -50,7 +50,7 @@ namespace Game.Danmaku.Patterns
                             speed += shotSpeedReduction;
                         }
 
-                        angle += 180f / 6f;
+                        angle += 360f / 14f;
                     }
                 }
 

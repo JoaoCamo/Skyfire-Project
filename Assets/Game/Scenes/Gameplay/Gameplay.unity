@@ -2339,8 +2339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1117dd5e480e04abe329979d8f6c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionShockwave: {fileID: 741453721323078059, guid: c4b37868f0f99414fb3608ff941d734c, type: 3}
-  bulletClearShockwave: {fileID: 741453721323078059, guid: 85267e0553c27da41a78845029b8f6fb, type: 3}
+  explosionPrefab: {fileID: 741453721323078059, guid: c4b37868f0f99414fb3608ff941d734c, type: 3}
+  bulletClearShockwavePrefab: {fileID: 741453721323078059, guid: 85267e0553c27da41a78845029b8f6fb, type: 3}
 --- !u!1 &623891679
 GameObject:
   m_ObjectHideFlags: 0

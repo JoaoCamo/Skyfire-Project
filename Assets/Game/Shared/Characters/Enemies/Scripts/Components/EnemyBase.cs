@@ -44,7 +44,7 @@ namespace Game.Enemy
             if (!gameObject.activeSelf) return;
 
             SoundEffectController.RequestSfx(SfxTypes.EnemyExplosion);
-            SpecialEffectsManager.RequestShockwave(transform.position);
+            SpecialEffectsManager.RequestExplosion(transform.position);
             gameObject.SetActive(false);
         }
     }

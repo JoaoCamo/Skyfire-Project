@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5862965474558633040}
   - component: {fileID: 3118172281482223228}
   m_Layer: 6
-  m_Name: '[Prefab] Shockwave'
+  m_Name: '[Prefab] Explosion'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

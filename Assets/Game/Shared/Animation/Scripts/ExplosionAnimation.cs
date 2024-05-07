@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Animation
 {
-    public class ExplosionShockwaveAnimation : MonoBehaviour
+    public class ExplosionAnimation : MonoBehaviour
     {
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private int framesPerSecond;

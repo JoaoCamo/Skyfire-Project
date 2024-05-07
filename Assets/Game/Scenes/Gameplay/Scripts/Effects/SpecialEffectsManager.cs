@@ -7,48 +7,48 @@ namespace Game.Gameplay.Effects
 {
     public class SpecialEffectsManager : MonoBehaviour
     {
-        [SerializeField] private GameObject explosionShockwave;
-        [SerializeField] private GameObject bulletClearShockwave;
+        [SerializeField] private GameObject explosionPrefab;
+        [SerializeField] private GameObject bulletClearShockwavePrefab;
 
-        private readonly List<ExplosionShockwaveAnimation> _explosionShowaveList = new List<ExplosionShockwaveAnimation>();
+        private readonly List<ExplosionAnimation> _explosionList = new List<ExplosionAnimation>();
 
-        public static Action<Vector3> RequestShockwave { private set; get; }
+        public static Action<Vector3> RequestExplosion { private set; get; }
         public static Action<Vector3> RequestBulletClearShockwave { private set; get; }
 
         private void OnEnable()
         {
-            RequestShockwave += SpawnShockwave;
+            RequestExplosion += SpawnExplosion;
             RequestBulletClearShockwave += SpawnBulletClearShockwave;
         }
 
         private void OnDisable()
         {
-            RequestShockwave -= SpawnShockwave;
+            RequestExplosion -= SpawnExplosion;
             RequestBulletClearShockwave -= SpawnBulletClearShockwave;
         }
 
-        private void SpawnShockwave(Vector3 position)
+        private void SpawnExplosion(Vector3 position)
         {
-            ExplosionShockwaveAnimation shockwave = GetShockwave();
-            shockwave.StartAnimation(position);
+            ExplosionAnimation explosion = GetExplosion();
+            explosion.StartAnimation(position);
         }
 
-        private ExplosionShockwaveAnimation GetShockwave()
+        private ExplosionAnimation GetExplosion()
         {
-            ExplosionShockwaveAnimation shockwave = _explosionShowaveList.Find(s => !s.gameObject.activeSelf) ?? CreateShockwave();
-            return shockwave;
+            ExplosionAnimation explosion = _explosionList.Find(s => !s.gameObject.activeSelf) ?? CreateExplosion();
+            return explosion;
         }
 
-        private ExplosionShockwaveAnimation CreateShockwave()
+        private ExplosionAnimation CreateExplosion()
         {
-            ExplosionShockwaveAnimation shockwave = Instantiate(explosionShockwave).GetComponent<ExplosionShockwaveAnimation>();
-            _explosionShowaveList.Add(shockwave);
-            return shockwave;
+            ExplosionAnimation explosion = Instantiate(explosionPrefab).GetComponent<ExplosionAnimation>();
+            _explosionList.Add(explosion);
+            return explosion;
         }
 
         private void SpawnBulletClearShockwave(Vector3 position)
         {
-            Instantiate(bulletClearShockwave, position, Quaternion.identity);
+            Instantiate(bulletClearShockwavePrefab, position, Quaternion.identity);
         }
     }
 }

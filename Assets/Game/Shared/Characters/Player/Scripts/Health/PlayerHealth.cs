@@ -58,7 +58,7 @@ namespace Game.Player
 
             StartInvincibility();
             StartCoroutine(StopMovement());
-            SpecialEffectsManager.RequestShockwave(transform.position);
+            SpecialEffectsManager.RequestExplosion(transform.position);
             SoundEffectController.RequestSfx(SfxTypes.PlayerHit);
 
             if (--_health < 0)

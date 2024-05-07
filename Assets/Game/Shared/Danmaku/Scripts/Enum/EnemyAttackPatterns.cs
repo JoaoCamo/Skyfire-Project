@@ -9,5 +9,7 @@ namespace Game.Danmaku
         DoubleKite,
         RoundProgressive,
         ExpandingHalfMoon,
+        ExpandingFullMoon,
+        ProgressiveRoundAim
     }
 }

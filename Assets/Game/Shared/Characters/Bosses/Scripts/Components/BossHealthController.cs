@@ -59,7 +59,7 @@ namespace Game.Enemy.Boss
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
                     SpecialEffectsManager.RequestBulletClearShockwave(transform.position);
-                    SpecialEffectsManager.RequestShockwave(transform.position);
+                    SpecialEffectsManager.RequestExplosion(transform.position);
                     BossHealthUI.ToggleHealthBar(false);
 
                     SoundEffectController.RequestSfx(SfxTypes.BossExplosion);
@@ -69,7 +69,7 @@ namespace Game.Enemy.Boss
                 else
                 {
                     SpecialEffectsManager.RequestBulletClearShockwave(transform.position);
-                    SpecialEffectsManager.RequestShockwave(transform.position);
+                    SpecialEffectsManager.RequestExplosion(transform.position);
                     SoundEffectController.RequestSfx(SfxTypes.BossExplosion);
                     StartCoroutine(InitiliazeNextPhase());
                 }
@@ -109,7 +109,6 @@ namespace Game.Enemy.Boss
         private IEnumerator InitiliazeNextPhase()
         {
             ResetHealth();
-            SpecialEffectsManager.RequestShockwave(transform.position);
 
             _canTakeDamage = false;
 

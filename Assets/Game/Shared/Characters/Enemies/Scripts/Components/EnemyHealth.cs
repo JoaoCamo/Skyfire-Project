@@ -36,7 +36,7 @@ namespace Game.Enemy
             GameEvents.OnPointsValueChange(10);
             DropItems();
             SoundEffectController.RequestSfx(SfxTypes.EnemyExplosion);
-            SpecialEffectsManager.RequestShockwave(transform.position);
+            SpecialEffectsManager.RequestExplosion(transform.position);
             gameObject.SetActive(false);
         }
 
