@@ -4,13 +4,13 @@ using UnityEngine;
 using Game.Projectiles;
 
 namespace Game.Danmaku.Patterns
-{ 
-    public class ProgressiveRoundAimShot : DanmakuBase
+{
+    public class ProgressiveRoundStopShot : DanmakuBase
     {
         public override IEnumerator Shoot()
         {
             WaitForSeconds delay = new WaitForSeconds(shotDelay);
-            WaitForSeconds fireShotDelay = new WaitForSeconds(0.05f);
+            WaitForSeconds fireShotDelay = new WaitForSeconds(0.1f);
             WaitForSeconds bulletStopCoroutineDelay = new WaitForSeconds(0.5f);
             float speed;
             float angle;
@@ -53,10 +53,7 @@ namespace Game.Danmaku.Patterns
 
         private IEnumerator BulletStopCoroutine(List<ProjectileBase> projectilesToStop)
         {
-            WaitForSeconds shotStopDelay = new WaitForSeconds(0.35f);
-            WaitForSeconds shotAimDelay = new WaitForSeconds(0.5f);
-
-            yield return shotStopDelay;
+            WaitForSeconds shotStopDelay = new WaitForSeconds(0.15f);
 
             for (int i = 4; i < projectilesToStop.Count; i += 4)
             {
@@ -65,18 +62,20 @@ namespace Game.Danmaku.Patterns
                     projectilesToStop[i].Speed *= 0.25f;
                     i++;
                 }
-            }
 
-            yield return shotAimDelay;
+                yield return shotStopDelay;
+            }
 
             for (int i = 4; i < projectilesToStop.Count; i += 4)
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    projectilesToStop[i].transform.rotation = Quaternion.Euler(0, 0, EnemyProjectileManager.AimAtPlayer(projectilesToStop[i].transform.position));
+                    projectilesToStop[i].transform.rotation = Quaternion.Euler(0, 0, 180);
                     projectilesToStop[i].Speed = shotSpeed;
                     i++;
                 }
+
+                yield return shotStopDelay;
             }
         }
     }

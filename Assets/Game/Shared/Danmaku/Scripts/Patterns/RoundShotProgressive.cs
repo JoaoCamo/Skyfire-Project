@@ -18,7 +18,7 @@ namespace Game.Danmaku.Patterns
             {
                 angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
 
-                for (int j = 0; j < 64; j++)
+                for (int j = 0; j < 32; j++)
                 {
                     innerAngle = angle;
 
@@ -27,7 +27,7 @@ namespace Game.Danmaku.Patterns
                         enemyProjectileManager.FireProjectile(projectileType, transform.position, shotSpeed, innerAngle);
                         innerAngle += 360f / timesToShoot;
                     }
-                    angle += 360f / 64f;
+                    angle += 360f / 32f;
 
                     yield return delay;
                 }

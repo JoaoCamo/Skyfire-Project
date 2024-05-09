@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isContinuation: 0
   enemyWaves: []
-  waveBossInfo:
+  bossInfo:
     type: 0
     bossHealthInfo:
-    - barHealth: 999
+    - barHealth: 9999
       possibleDrops: []
     bossAttackInfo:
-    - hasMovement: 0
-      movementDelay: 0
+    - hasMovement: 1
+      movementDelay: 5
       attackInfo:
-        attackPattern: 8
+        attackPattern: 9
         projectileType: 4
         isAimed: 0
         isInfiniteLoop: 1
-        timesToLoop: 1
-        timesToShoot: 12
-        shotSpeed: 0.5
-        shotSpeedReduction: 0.005
-        shotDelay: 2
-        shotStartDelay: 2
+        timesToLoop: 0
+        timesToShoot: 16
+        shotSpeed: 0.4
+        shotSpeedReduction: 0.0025
+        shotDelay: 0.25
+        shotStartDelay: 1

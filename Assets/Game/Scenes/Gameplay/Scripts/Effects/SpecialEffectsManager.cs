@@ -13,7 +13,7 @@ namespace Game.Gameplay.Effects
         private readonly List<ExplosionAnimation> _explosionList = new List<ExplosionAnimation>();
 
         public static Action<Vector3> RequestExplosion { private set; get; }
-        public static Action<Vector3> RequestBulletClearShockwave { private set; get; }
+        public static Action<Vector3, float> RequestBulletClearShockwave { private set; get; }
 
         private void OnEnable()
         {
@@ -46,9 +46,10 @@ namespace Game.Gameplay.Effects
             return explosion;
         }
 
-        private void SpawnBulletClearShockwave(Vector3 position)
+        private void SpawnBulletClearShockwave(Vector3 position, float radius)
         {
-            Instantiate(bulletClearShockwavePrefab, position, Quaternion.identity);
+            BulletClearShockwaveAnimation shockwave = Instantiate(bulletClearShockwavePrefab, position, Quaternion.identity).GetComponent<BulletClearShockwaveAnimation>();
+            shockwave.StartShockwave(radius);
         }
     }
 }

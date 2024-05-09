@@ -58,6 +58,7 @@ namespace Game.Player
 
             StartInvincibility();
             StartCoroutine(StopMovement());
+            SpecialEffectsManager.RequestBulletClearShockwave(transform.position, 1.5f);
             SpecialEffectsManager.RequestExplosion(transform.position);
             SoundEffectController.RequestSfx(SfxTypes.PlayerHit);
 

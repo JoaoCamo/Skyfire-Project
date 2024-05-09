@@ -61,14 +61,14 @@ namespace Game.Stage
 
             EnemySpawner.RequestClearEnemies();
 
-            _currentBoss = enemySpawner.SpawnBoss(_gameStages.stages[_currentStageInfoIndex].waveBossInfo.type);
+            _currentBoss = enemySpawner.SpawnBoss(_gameStages.stages[_currentStageInfoIndex].bossInfo.type);
             StartBoss();
         }
 
         private void StartBoss()
         {
             EnemyProjectileManager.RequestFullClear();
-            _currentBoss.StartBossBattle(_gameStages.stages[_currentStageInfoIndex].waveBossInfo);
+            _currentBoss.StartBossBattle(_gameStages.stages[_currentStageInfoIndex].bossInfo);
         }
 
         private void StartNextStage()

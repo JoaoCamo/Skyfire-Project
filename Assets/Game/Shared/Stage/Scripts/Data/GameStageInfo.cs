@@ -9,6 +9,6 @@ namespace Game.Stage
     {
         public bool isContinuation;
         public EnemyWave[] enemyWaves;
-        public BossInfo waveBossInfo;
+        public BossInfo bossInfo;
     }
 }

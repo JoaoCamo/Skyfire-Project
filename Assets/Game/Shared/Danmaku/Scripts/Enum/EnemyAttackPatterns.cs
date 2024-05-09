@@ -10,6 +10,7 @@ namespace Game.Danmaku
         RoundProgressive,
         ExpandingHalfMoon,
         ExpandingFullMoon,
-        ProgressiveRoundAim
+        ProgressiveRoundAim,
+        ProgressiveRoundStop,
     }
 }

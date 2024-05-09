@@ -55,24 +55,18 @@ namespace Game.Enemy.Boss
                 _canTakeDamage = false;
                 
                 DropItems();
+                SpecialEffectsManager.RequestBulletClearShockwave(transform.position, 5);
+                SpecialEffectsManager.RequestExplosion(transform.position);
+                SoundEffectController.RequestSfx(SfxTypes.BossExplosion);
 
                 if (++_currentHealthBar >= _bossHealthBars)
                 {
-                    SpecialEffectsManager.RequestBulletClearShockwave(transform.position);
-                    SpecialEffectsManager.RequestExplosion(transform.position);
                     BossHealthUI.ToggleHealthBar(false);
-
-                    SoundEffectController.RequestSfx(SfxTypes.BossExplosion);
                     StageController.CallNextStage();
                     Destroy(gameObject);
                 }
                 else
-                {
-                    SpecialEffectsManager.RequestBulletClearShockwave(transform.position);
-                    SpecialEffectsManager.RequestExplosion(transform.position);
-                    SoundEffectController.RequestSfx(SfxTypes.BossExplosion);
                     StartCoroutine(InitiliazeNextPhase());
-                }
             }
         }
 
