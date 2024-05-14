@@ -12,7 +12,6 @@ namespace Game.Enemy
         private Rigidbody2D _rigidbody2D;
         private float _xDirection = 0;
         private float _yDirection = 0;
-        private float _speed = 0;
 
         private Coroutine _movementChangeCoroutine;
         private Tween _xDirectionTween;
@@ -25,7 +24,7 @@ namespace Game.Enemy
 
         public void UpdatePosition()
         {
-            _rigidbody2D.velocity = new Vector2(_xDirection, _yDirection) * _speed;
+            _rigidbody2D.velocity = new Vector2(_xDirection, _yDirection);
         }
 
         public void SetPosition(EnemyInitialPosition enemyInitialPosition)
@@ -39,7 +38,6 @@ namespace Game.Enemy
 
             this._xDirection = enemyMovementInfo.movementDirection.x;
             this._yDirection = enemyMovementInfo.movementDirection.y;
-            this._speed = enemyMovementInfo.speed;
 
             _movementChangeCoroutine = StartCoroutine(MovementChangeCoroutine(enemyMovementInfo));
         }
@@ -56,7 +54,6 @@ namespace Game.Enemy
             _yDirectionTween.Kill();
             _xDirection = 0;
             _yDirection = 0;
-            _speed = 0;
         }
 
         private IEnumerator MovementChangeCoroutine(EnemyMovementInfo enemyMovementInfo)

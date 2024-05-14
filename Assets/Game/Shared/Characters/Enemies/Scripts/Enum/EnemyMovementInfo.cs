@@ -4,7 +4,6 @@ namespace Game.Enemy
     public struct EnemyMovementInfo
     {
         public UnityEngine.Vector2 movementDirection;
-        public float speed;
         public MovementChangeInfo[] movementChangeInfo;
     }
 

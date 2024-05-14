@@ -27,7 +27,6 @@ namespace Game.Stage
         private Coroutine _stageCoroutine;
 
         private readonly WaitForSeconds _waveStartDelay = new WaitForSeconds(2.5f);
-        private readonly WaitForSeconds _bossCallDelay = new WaitForSeconds(7.5f);
         private readonly WaitForSeconds _sceneFadeDelay = new WaitForSeconds(2);
         private readonly WaitForSeconds _gameEndDelay = new WaitForSeconds(5);
 
@@ -57,7 +56,7 @@ namespace Game.Stage
 
             yield return enemySpawner.SpawnWaves(_gameStages.stages[_currentStageInfoIndex].enemyWaves);
 
-            yield return _bossCallDelay;
+            yield return new WaitForSeconds(_gameStages.stages[_currentStageInfoIndex].bossSpawnDelay);
 
             EnemySpawner.RequestClearEnemies();
 

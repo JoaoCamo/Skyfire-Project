@@ -8,6 +8,7 @@ namespace Game.Stage
     public class GameStageInfo : ScriptableObject
     {
         public bool isContinuation;
+        public float bossSpawnDelay;
         public EnemyWave[] enemyWaves;
         public BossInfo bossInfo;
     }
