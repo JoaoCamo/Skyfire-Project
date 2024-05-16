@@ -9,6 +9,11 @@ namespace Game.Enemy
         private readonly float[] _xSpawnPosition = {-1.4f, -0.95f, -0.55f, 0f, 0.55f, 0.95f, 1.4f};
         private readonly float[] _ySpawnPosition = {1.1f, 0.8f, 0.45f, 0.2f};
 
+        private const float X_MAX_RANDOM_POSITION = 0.95f;
+        private const float X_MIN_RANDOM_POSITION = -0.95f;
+        private const float Y_MAX_RANDOM_POSITION = 0.8f;
+        private const float Y_MIN_RANDOM_POSITION = 0.2f;
+
         private Rigidbody2D _rigidbody2D;
         private float _xDirection = 0;
         private float _yDirection = 0;
@@ -29,7 +34,10 @@ namespace Game.Enemy
 
         public void SetPosition(EnemyInitialPosition enemyInitialPosition)
         {
-            transform.position = new Vector2(_xSpawnPosition[(int)enemyInitialPosition.enemyInitialPositionX], _ySpawnPosition[(int)enemyInitialPosition.enemyInitialPositionY]);
+            float xPosition = enemyInitialPosition.enemyInitialPositionX != EnemyInitialPositionX.Random ? _xSpawnPosition[(int)enemyInitialPosition.enemyInitialPositionX] : Random.Range(X_MIN_RANDOM_POSITION, X_MAX_RANDOM_POSITION);
+            float yPosition = enemyInitialPosition.enemyInitialPositionY != EnemyInitialPositionY.Random ? _ySpawnPosition[(int)enemyInitialPosition.enemyInitialPositionY] : Random.Range(Y_MIN_RANDOM_POSITION, Y_MAX_RANDOM_POSITION); ;
+
+            transform.position = new Vector2(xPosition, yPosition);
         }
 
         public void SetMovement(EnemyMovementInfo enemyMovementInfo)

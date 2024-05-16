@@ -12,7 +12,8 @@ namespace Game.Enemy
         Top,
         High,
         Middle,
-        Low
+        Low,
+        Random
     }
 
     public enum EnemyInitialPositionX
@@ -23,6 +24,7 @@ namespace Game.Enemy
         Middle,
         MiddleRight,
         FarRight,
-        Right
+        Right,
+        Random
     }
 }

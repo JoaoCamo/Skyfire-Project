@@ -67,6 +67,7 @@ namespace Game.Stage
         private void StartBoss()
         {
             EnemyProjectileManager.RequestFullClear();
+            stageEffectsController.SetMusic(_gameStages.stages[_currentStageInfoIndex].bossMusic);
             _currentBoss.StartBossBattle(_gameStages.stages[_currentStageInfoIndex].bossInfo);
         }
 
@@ -103,7 +104,7 @@ namespace Game.Stage
             yield return _sceneFadeDelay;
 
             stageEffectsController.StartAnimation(_currentStage);
-            StartCoroutine(stageEffectsController.StartStageMusic(_currentStage));
+            stageEffectsController.SetMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
 
             yield return _sceneFadeDelay;
             
@@ -129,7 +130,7 @@ namespace Game.Stage
             }
 
             stageEffectsController.StartAnimation(_currentStage);
-            StartCoroutine(stageEffectsController.StartStageMusic(_currentStage));
+            stageEffectsController.SetMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
 
             StartCoroutine(StartWave());
         }

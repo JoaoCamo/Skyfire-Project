@@ -10,7 +10,6 @@ namespace Game.Gameplay.Animation
         [SerializeField] private SpriteRenderer continuationBackground;
         [SerializeField] private Sprite[] stageBackgroundSprites;
         [SerializeField] private AudioSource audioSource;
-        [SerializeField] private AudioClip[] stageAudioClips;
 
         private bool _canAnimate = true;
         private Coroutine _animationCoroutine;
@@ -22,16 +21,11 @@ namespace Game.Gameplay.Animation
         private const float ANIMATION_DURATION = 3;
         private const float AUDIO_FADE_DURATION = 2;
 
-        public IEnumerator StartStageMusic(int currentStage)
+        public void SetMusic(AudioClip clip)
         {
-            yield return null;
+            if (clip == null) return;
 
-            //audioSource.DOFade(0, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
-            //
-            //yield return _audioFadeDelay;
-            //
-            //audioSource.clip = stageAudioClips[currentStage];
-            //audioSource.DOFade(1, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
+            StartCoroutine(StartStageMusic(clip));
         }
 
         public void StartAnimation(int currentStage)
@@ -63,6 +57,16 @@ namespace Game.Gameplay.Animation
                 background.transform.DOKill();
                 _animationCoroutine = null;
             }
+        }
+
+        private IEnumerator StartStageMusic(AudioClip clip)
+        {
+            audioSource.DOFade(0, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
+            
+            yield return _audioFadeDelay;
+            
+            audioSource.clip = clip;
+            audioSource.DOFade(1, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Game.Danmaku.Patterns
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
+                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0,360);
 
                 for (int j = 0; j < 32; j++)
                 {

@@ -9,6 +9,8 @@ namespace Game.Stage
     {
         public bool isContinuation;
         public float bossSpawnDelay;
+        public AudioClip stageMusic;
+        public AudioClip bossMusic;
         public EnemyWave[] enemyWaves;
         public BossInfo bossInfo;
     }
