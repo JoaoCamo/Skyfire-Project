@@ -117,8 +117,8 @@ MonoBehaviour:
       timesToShoot: 1
       shotSpeed: 0.2
       shotSpeedReduction: 0
-      shotDelay: 1
-      shotStartDelay: 1
+      shotDelay: 0
+      shotStartDelay: 2
   - enemyType: 1
     initialPosition:
       enemyInitialPositionX: 4
@@ -153,8 +153,8 @@ MonoBehaviour:
       timesToShoot: 1
       shotSpeed: 0.2
       shotSpeedReduction: 0
-      shotDelay: 1
-      shotStartDelay: 1
+      shotDelay: 0
+      shotStartDelay: 2
   - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 7
@@ -253,7 +253,7 @@ MonoBehaviour:
       isInfiniteLoop: 0
       timesToLoop: 2
       timesToShoot: 1
-      shotSpeed: 0.5
+      shotSpeed: 0.2
       shotSpeedReduction: 0
       shotDelay: 1.5
       shotStartDelay: 1.5
@@ -289,7 +289,7 @@ MonoBehaviour:
       isInfiniteLoop: 0
       timesToLoop: 2
       timesToShoot: 1
-      shotSpeed: 0.5
+      shotSpeed: 0.2
       shotSpeedReduction: 0
       shotDelay: 1.5
       shotStartDelay: 1.5
@@ -325,7 +325,7 @@ MonoBehaviour:
       isInfiniteLoop: 0
       timesToLoop: 2
       timesToShoot: 1
-      shotSpeed: 0.5
+      shotSpeed: 0.2
       shotSpeedReduction: 0
       shotDelay: 1.5
       shotStartDelay: 1.5
@@ -361,10 +361,10 @@ MonoBehaviour:
       isInfiniteLoop: 0
       timesToLoop: 2
       timesToShoot: 1
-      shotSpeed: 0.5
+      shotSpeed: 0.2
       shotSpeedReduction: 0
       shotDelay: 1.5
-      shotStartDelay: 2
+      shotStartDelay: 1.5
   - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   bossInfo:
     type: 0
     bossHealthInfo:
-    - barHealth: 150
+    - barHealth: 225
       possibleDrops:
       - dropType: 0
         dropChance: 1
@@ -441,7 +441,7 @@ MonoBehaviour:
         timesToDrop: 1
     bossAttackInfo:
     - hasMovement: 1
-      movementDelay: 6
+      movementDelay: 3
       attackInfo:
         attackPattern: 1
         projectileType: 4
@@ -451,5 +451,5 @@ MonoBehaviour:
         timesToShoot: 6
         shotSpeed: 0.75
         shotSpeedReduction: -0.1
-        shotDelay: 2.25
+        shotDelay: 1.75
         shotStartDelay: 2

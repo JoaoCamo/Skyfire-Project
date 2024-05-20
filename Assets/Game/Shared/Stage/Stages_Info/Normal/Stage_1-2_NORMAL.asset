@@ -189,7 +189,7 @@ MonoBehaviour:
       timesToShoot: 1
       shotSpeed: 0.25
       shotSpeedReduction: 0
-      shotDelay: 0
+      shotDelay: 1
       shotStartDelay: 2
   - enemyType: 1
     initialPosition:
@@ -225,7 +225,7 @@ MonoBehaviour:
       timesToShoot: 1
       shotSpeed: 0.25
       shotSpeedReduction: 0
-      shotDelay: 0
+      shotDelay: 1
       shotStartDelay: 2
   - enemyType: 0
     initialPosition:
@@ -274,7 +274,7 @@ MonoBehaviour:
         changeDuration: 1.5
         movementDirection: {x: -0.4, y: 0.05}
     possibleDrops:
-    - dropType: 0
+    - dropType: 3
       dropChance: 1
       timesToDrop: 1
     enemyHealth: 2
@@ -323,10 +323,10 @@ MonoBehaviour:
       projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 1
+      timesToLoop: 1
+      timesToShoot: 2
       shotSpeed: 0.25
-      shotSpeedReduction: 0
+      shotSpeedReduction: -0.15
       shotDelay: 0
       shotStartDelay: 2
   - enemyType: 1
@@ -359,10 +359,10 @@ MonoBehaviour:
       projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 1
+      timesToLoop: 1
+      timesToShoot: 2
       shotSpeed: 0.25
-      shotSpeedReduction: 0
+      shotSpeedReduction: -0.15
       shotDelay: 0
       shotStartDelay: 2
   - enemyType: 0
@@ -434,12 +434,12 @@ MonoBehaviour:
   bossInfo:
     type: 0
     bossHealthInfo:
-    - barHealth: 150
+    - barHealth: 225
       possibleDrops:
       - dropType: 3
         dropChance: 1
         timesToDrop: 10
-    - barHealth: 175
+    - barHealth: 300
       possibleDrops:
       - dropType: 3
         dropChance: 1
@@ -447,12 +447,12 @@ MonoBehaviour:
       - dropType: 0
         dropChance: 1
         timesToDrop: 5
-    - barHealth: 150
+    - barHealth: 350
       possibleDrops:
       - dropType: 3
         dropChance: 1
         timesToDrop: 10
-    - barHealth: 200
+    - barHealth: 350
       possibleDrops:
       - dropType: 3
         dropChance: 1
@@ -464,52 +464,52 @@ MonoBehaviour:
     - hasMovement: 0
       movementDelay: 0
       attackInfo:
-        attackPattern: 0
-        projectileType: 0
-        isAimed: 0
-        isInfiniteLoop: 0
+        attackPattern: 2
+        projectileType: 4
+        isAimed: 1
+        isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 0
-        shotSpeed: 0
-        shotSpeedReduction: 0
-        shotDelay: 0
-        shotStartDelay: 0
-    - hasMovement: 0
-      movementDelay: 0
+        timesToShoot: 2
+        shotSpeed: 0.75
+        shotSpeedReduction: -0.35
+        shotDelay: 1.25
+        shotStartDelay: 1
+    - hasMovement: 1
+      movementDelay: 10
       attackInfo:
-        attackPattern: 0
-        projectileType: 0
+        attackPattern: 8
+        projectileType: 6
         isAimed: 0
-        isInfiniteLoop: 0
+        isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 0
-        shotSpeed: 0
-        shotSpeedReduction: 0
-        shotDelay: 0
-        shotStartDelay: 0
-    - hasMovement: 0
-      movementDelay: 0
+        timesToShoot: 12
+        shotSpeed: 0.4
+        shotSpeedReduction: 0.01
+        shotDelay: 1.25
+        shotStartDelay: 1
+    - hasMovement: 1
+      movementDelay: 3
       attackInfo:
-        attackPattern: 0
-        projectileType: 0
-        isAimed: 0
-        isInfiniteLoop: 0
+        attackPattern: 5
+        projectileType: 7
+        isAimed: 1
+        isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 0
-        shotSpeed: 0
+        timesToShoot: 4
+        shotSpeed: 0.65
         shotSpeedReduction: 0
-        shotDelay: 0
-        shotStartDelay: 0
-    - hasMovement: 0
-      movementDelay: 0
+        shotDelay: 0.1
+        shotStartDelay: 1
+    - hasMovement: 1
+      movementDelay: 7.5
       attackInfo:
-        attackPattern: 0
-        projectileType: 0
+        attackPattern: 9
+        projectileType: 6
         isAimed: 0
-        isInfiniteLoop: 0
+        isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 0
-        shotSpeed: 0
-        shotSpeedReduction: 0
-        shotDelay: 0
-        shotStartDelay: 0
+        timesToShoot: 16
+        shotSpeed: 0.4
+        shotSpeedReduction: 0.01
+        shotDelay: 0.5
+        shotStartDelay: 1

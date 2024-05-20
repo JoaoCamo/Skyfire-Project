@@ -71,6 +71,7 @@ namespace Game.Enemy
                 yield return new WaitForSeconds(movementChangeInfo.changeDelay);
                 _xDirectionTween = DOTween.To(() => _xDirection, x => _xDirection = x, movementChangeInfo.movementDirection.x, movementChangeInfo.changeDuration).SetEase(Ease.Linear);
                 _yDirectionTween = DOTween.To(() => _yDirection, x => _yDirection = x, movementChangeInfo.movementDirection.y, movementChangeInfo.changeDuration).SetEase(Ease.Linear);
+                yield return new WaitForSeconds(movementChangeInfo.changeDuration);
             }
         }
     }
