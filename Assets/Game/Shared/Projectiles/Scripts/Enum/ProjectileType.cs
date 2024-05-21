@@ -17,6 +17,9 @@ namespace Game.Projectiles
         EnemyBulletTwoBlue,
         EnemyDonetRed,
         EnemyDonetGreen,
-        EnemyDonetBlue
+        EnemyDonetBlue,
+        EnemyOrbBigRed,
+        EnemyOrbBigGreen,
+        EnemyOrbBigBlue
     }
 }
