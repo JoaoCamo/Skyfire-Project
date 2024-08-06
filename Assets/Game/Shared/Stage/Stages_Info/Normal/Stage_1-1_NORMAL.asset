@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Stage_1-1_NORMAL
   m_EditorClassIdentifier: 
   isContinuation: 0
-  bossSpawnDelay: 5
-  stageMusic: {fileID: 0}
+  bossSpawnDelay: 8
+  stageMusic: {fileID: 8300000, guid: b4a1d590eaf845a4a9fb8516cf2bc90d, type: 3}
   bossMusic: {fileID: 0}
   enemyWaves:
   - enemyType: 0
@@ -22,409 +22,223 @@ MonoBehaviour:
       enemyInitialPositionX: 7
       enemyInitialPositionY: 0
     movementInfo:
-      movementDirection: {x: 0, y: -0.35}
-      movementChangeInfo:
-      - changeDelay: 0.25
-        changeDuration: 3
-        movementDirection: {x: 0, y: -0.1}
-      - changeDelay: 4
-        changeDuration: 1.5
-        movementDirection: {x: 0.4, y: 0.05}
-    possibleDrops:
-    - dropType: 3
-      dropChance: 1
-      timesToDrop: 1
-    enemyHealth: 1
-    enemyAmount: 7
-    enemySpawnDelay: 1
-    waveInitialDelay: 8
-    isAsyncWave: 1
-    attackInfo:
-      attackPattern: 0
-      projectileType: 9
-      isAimed: 1
-      isInfiniteLoop: 0
-      timesToLoop: 1
-      timesToShoot: 1
-      shotSpeed: 0.2
-      shotSpeedReduction: 0
-      shotDelay: 0
-      shotStartDelay: 3
-  - enemyType: 0
-    initialPosition:
-      enemyInitialPositionX: 7
-      enemyInitialPositionY: 0
-    movementInfo:
-      movementDirection: {x: 0, y: -0.35}
-      movementChangeInfo:
-      - changeDelay: 0.25
-        changeDuration: 3
-        movementDirection: {x: 0, y: -0.1}
-      - changeDelay: 4
-        changeDuration: 1.5
-        movementDirection: {x: -0.4, y: 0.05}
-    possibleDrops:
-    - dropType: 0
-      dropChance: 1
-      timesToDrop: 1
-    enemyHealth: 1
-    enemyAmount: 7
-    enemySpawnDelay: 1
-    waveInitialDelay: 10
-    isAsyncWave: 0
-    attackInfo:
-      attackPattern: 0
-      projectileType: 9
-      isAimed: 1
-      isInfiniteLoop: 0
-      timesToLoop: 1
-      timesToShoot: 1
-      shotSpeed: 0.2
-      shotSpeedReduction: 0
-      shotDelay: 0
-      shotStartDelay: 3
-  - enemyType: 1
-    initialPosition:
-      enemyInitialPositionX: 2
-      enemyInitialPositionY: 0
-    movementInfo:
-      movementDirection: {x: 0, y: -0.75}
+      movementDirection: {x: 0, y: -0.45}
       movementChangeInfo:
       - changeDelay: 0
-        changeDuration: 2
-        movementDirection: {x: 0, y: 0}
-      - changeDelay: 5
-        changeDuration: 1
-        movementDirection: {x: -0.75, y: 0}
+        changeDuration: 4
+        movementDirection: {x: 0, y: -0.6}
     possibleDrops:
-    - dropType: 3
-      dropChance: 1
-      timesToDrop: 2
     - dropType: 0
-      dropChance: 1
-      timesToDrop: 2
-    enemyHealth: 15
-    enemyAmount: 1
-    enemySpawnDelay: 0
-    waveInitialDelay: 5
-    isAsyncWave: 1
-    attackInfo:
-      attackPattern: 3
-      projectileType: 4
-      isAimed: 1
-      isInfiniteLoop: 0
-      timesToLoop: 1
-      timesToShoot: 1
-      shotSpeed: 0.2
-      shotSpeedReduction: 0
-      shotDelay: 0
-      shotStartDelay: 2
-  - enemyType: 1
-    initialPosition:
-      enemyInitialPositionX: 4
-      enemyInitialPositionY: 0
-    movementInfo:
-      movementDirection: {x: 0, y: -0.75}
-      movementChangeInfo:
-      - changeDelay: 0
-        changeDuration: 2
-        movementDirection: {x: 0, y: 0}
-      - changeDelay: 5
-        changeDuration: 1
-        movementDirection: {x: 0.75, y: 0}
-    possibleDrops:
-    - dropType: 3
-      dropChance: 1
-      timesToDrop: 2
-    - dropType: 0
-      dropChance: 1
-      timesToDrop: 2
-    enemyHealth: 15
-    enemyAmount: 1
-    enemySpawnDelay: 0
-    waveInitialDelay: 7.5
-    isAsyncWave: 0
-    attackInfo:
-      attackPattern: 3
-      projectileType: 4
-      isAimed: 1
-      isInfiniteLoop: 0
-      timesToLoop: 1
-      timesToShoot: 1
-      shotSpeed: 0.2
-      shotSpeedReduction: 0
-      shotDelay: 0
-      shotStartDelay: 2
-  - enemyType: 0
-    initialPosition:
-      enemyInitialPositionX: 7
-      enemyInitialPositionY: 0
-    movementInfo:
-      movementDirection: {x: 0, y: -0.35}
-      movementChangeInfo:
-      - changeDelay: 0.25
-        changeDuration: 3
-        movementDirection: {x: 0, y: -0.1}
-      - changeDelay: 4
-        changeDuration: 1.5
-        movementDirection: {x: 0.4, y: 0.05}
-    possibleDrops:
-    - dropType: 3
       dropChance: 1
       timesToDrop: 1
-    enemyHealth: 2
+    - dropType: 1
+      dropChance: 0.05
+      timesToDrop: 1
+    enemyHealth: 1
     enemyAmount: 15
-    enemySpawnDelay: 0.25
+    enemySpawnDelay: 1
     waveInitialDelay: 4
     isAsyncWave: 1
     attackInfo:
       attackPattern: 0
-      projectileType: 7
-      isAimed: 1
+      projectileType: 0
+      isAimed: 0
       isInfiniteLoop: 0
-      timesToLoop: 1
-      timesToShoot: 1
-      shotSpeed: 0.25
+      timesToLoop: 0
+      timesToShoot: 0
+      shotSpeed: 0
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 1
+      shotStartDelay: 0
   - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 7
       enemyInitialPositionY: 0
     movementInfo:
-      movementDirection: {x: 0, y: -0.35}
+      movementDirection: {x: 0, y: -0.45}
       movementChangeInfo:
-      - changeDelay: 0.25
-        changeDuration: 3
-        movementDirection: {x: 0, y: -0.1}
-      - changeDelay: 4
-        changeDuration: 1.5
-        movementDirection: {x: -0.4, y: 0.05}
+      - changeDelay: 0
+        changeDuration: 4
+        movementDirection: {x: 0, y: -0.6}
     possibleDrops:
     - dropType: 3
       dropChance: 1
       timesToDrop: 1
-    enemyHealth: 2
+    enemyHealth: 1
     enemyAmount: 15
-    enemySpawnDelay: 0.25
-    waveInitialDelay: 10
+    enemySpawnDelay: 1
+    waveInitialDelay: 4.5
     isAsyncWave: 0
     attackInfo:
       attackPattern: 0
-      projectileType: 7
+      projectileType: 0
+      isAimed: 0
+      isInfiniteLoop: 0
+      timesToLoop: 0
+      timesToShoot: 0
+      shotSpeed: 0
+      shotSpeedReduction: 0
+      shotDelay: 0
+      shotStartDelay: 0
+  - enemyType: 0
+    initialPosition:
+      enemyInitialPositionX: 3
+      enemyInitialPositionY: 0
+    movementInfo:
+      movementDirection: {x: 0, y: -0.45}
+      movementChangeInfo:
+      - changeDelay: 1.5
+        changeDuration: 0.5
+        movementDirection: {x: -0.5, y: 0}
+    possibleDrops:
+    - dropType: 3
+      dropChance: 1
+      timesToDrop: 1
+    enemyHealth: 5
+    enemyAmount: 8
+    enemySpawnDelay: 0.5
+    waveInitialDelay: 2.5
+    isAsyncWave: 1
+    attackInfo:
+      attackPattern: 0
+      projectileType: 0
+      isAimed: 0
+      isInfiniteLoop: 0
+      timesToLoop: 0
+      timesToShoot: 0
+      shotSpeed: 0
+      shotSpeedReduction: 0
+      shotDelay: 0
+      shotStartDelay: 0
+  - enemyType: 0
+    initialPosition:
+      enemyInitialPositionX: 3
+      enemyInitialPositionY: 0
+    movementInfo:
+      movementDirection: {x: 0, y: -0.45}
+      movementChangeInfo:
+      - changeDelay: 1.5
+        changeDuration: 0.5
+        movementDirection: {x: 0.5, y: 0}
+    possibleDrops:
+    - dropType: 0
+      dropChance: 1
+      timesToDrop: 1
+    enemyHealth: 5
+    enemyAmount: 8
+    enemySpawnDelay: 0.5
+    waveInitialDelay: 2.75
+    isAsyncWave: 0
+    attackInfo:
+      attackPattern: 0
+      projectileType: 0
+      isAimed: 0
+      isInfiniteLoop: 0
+      timesToLoop: 0
+      timesToShoot: 0
+      shotSpeed: 0
+      shotSpeedReduction: 0
+      shotDelay: 0
+      shotStartDelay: 0
+  - enemyType: 1
+    initialPosition:
+      enemyInitialPositionX: 7
+      enemyInitialPositionY: 0
+    movementInfo:
+      movementDirection: {x: 0, y: -0.45}
+      movementChangeInfo:
+      - changeDelay: 1
+        changeDuration: 0.5
+        movementDirection: {x: 0, y: 0}
+      - changeDelay: 3
+        changeDuration: 0.25
+        movementDirection: {x: 0, y: 0.3}
+    possibleDrops:
+    - dropType: 3
+      dropChance: 1
+      timesToDrop: 2
+    enemyHealth: 4
+    enemyAmount: 12
+    enemySpawnDelay: 0.75
+    waveInitialDelay: 2
+    isAsyncWave: 0
+    attackInfo:
+      attackPattern: 1
+      projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
       timesToShoot: 1
-      shotSpeed: 0.25
+      shotSpeed: 0.4
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 1
-  - enemyType: 1
-    initialPosition:
-      enemyInitialPositionX: 2
-      enemyInitialPositionY: 0
-    movementInfo:
-      movementDirection: {x: 0, y: -0.75}
-      movementChangeInfo:
-      - changeDelay: 0
-        changeDuration: 2
-        movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
-        changeDuration: 2
-        movementDirection: {x: -0.7, y: 0}
-    possibleDrops:
-    - dropType: 3
-      dropChance: 1
-      timesToDrop: 2
-    - dropType: 0
-      dropChance: 1
-      timesToDrop: 2
-    enemyHealth: 20
-    enemyAmount: 1
-    enemySpawnDelay: 0
-    waveInitialDelay: 6
-    isAsyncWave: 1
-    attackInfo:
-      attackPattern: 3
-      projectileType: 9
-      isAimed: 1
-      isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 1
-      shotSpeed: 0.2
-      shotSpeedReduction: 0
-      shotDelay: 1.5
-      shotStartDelay: 1.5
-  - enemyType: 1
-    initialPosition:
-      enemyInitialPositionX: 4
-      enemyInitialPositionY: 0
-    movementInfo:
-      movementDirection: {x: 0, y: -0.75}
-      movementChangeInfo:
-      - changeDelay: 0
-        changeDuration: 2
-        movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
-        changeDuration: 2
-        movementDirection: {x: 0.7, y: 0}
-    possibleDrops:
-    - dropType: 3
-      dropChance: 1
-      timesToDrop: 2
-    - dropType: 0
-      dropChance: 1
-      timesToDrop: 2
-    enemyHealth: 20
-    enemyAmount: 1
-    enemySpawnDelay: 0
-    waveInitialDelay: 6
-    isAsyncWave: 0
-    attackInfo:
-      attackPattern: 3
-      projectileType: 9
-      isAimed: 1
-      isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 1
-      shotSpeed: 0.2
-      shotSpeedReduction: 0
-      shotDelay: 1.5
-      shotStartDelay: 1.5
-  - enemyType: 1
-    initialPosition:
-      enemyInitialPositionX: 2
-      enemyInitialPositionY: 0
-    movementInfo:
-      movementDirection: {x: 0, y: -0.75}
-      movementChangeInfo:
-      - changeDelay: 0
-        changeDuration: 2
-        movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
-        changeDuration: 2
-        movementDirection: {x: -0.7, y: 0}
-    possibleDrops:
-    - dropType: 3
-      dropChance: 1
-      timesToDrop: 2
-    - dropType: 0
-      dropChance: 1
-      timesToDrop: 2
-    enemyHealth: 20
-    enemyAmount: 1
-    enemySpawnDelay: 0
-    waveInitialDelay: 10
-    isAsyncWave: 1
-    attackInfo:
-      attackPattern: 3
-      projectileType: 4
-      isAimed: 1
-      isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 1
-      shotSpeed: 0.2
-      shotSpeedReduction: 0
-      shotDelay: 1.5
-      shotStartDelay: 1.5
-  - enemyType: 1
-    initialPosition:
-      enemyInitialPositionX: 4
-      enemyInitialPositionY: 0
-    movementInfo:
-      movementDirection: {x: 0, y: -0.75}
-      movementChangeInfo:
-      - changeDelay: 0
-        changeDuration: 2
-        movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
-        changeDuration: 2
-        movementDirection: {x: 0.7, y: 0}
-    possibleDrops:
-    - dropType: 3
-      dropChance: 1
-      timesToDrop: 2
-    - dropType: 0
-      dropChance: 1
-      timesToDrop: 2
-    enemyHealth: 20
-    enemyAmount: 1
-    enemySpawnDelay: 0
-    waveInitialDelay: 10
-    isAsyncWave: 1
-    attackInfo:
-      attackPattern: 3
-      projectileType: 6
-      isAimed: 1
-      isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 1
-      shotSpeed: 0.2
-      shotSpeedReduction: 0
-      shotDelay: 1.5
       shotStartDelay: 1.5
   - enemyType: 0
     initialPosition:
-      enemyInitialPositionX: 0
-      enemyInitialPositionY: 4
+      enemyInitialPositionX: 7
+      enemyInitialPositionY: 0
     movementInfo:
-      movementDirection: {x: 0.7, y: 0}
+      movementDirection: {x: 0, y: -0.3}
       movementChangeInfo:
       - changeDelay: 0
         changeDuration: 4
-        movementDirection: {x: 0.85, y: 0}
+        movementDirection: {x: 0, y: -0.75}
     possibleDrops:
     - dropType: 0
       dropChance: 1
       timesToDrop: 1
-    enemyHealth: 2
+    - dropType: 1
+      dropChance: 0.05
+      timesToDrop: 1
+    enemyHealth: 1
     enemyAmount: 15
-    enemySpawnDelay: 0.25
-    waveInitialDelay: 11
+    enemySpawnDelay: 0.5
+    waveInitialDelay: 0.5
     isAsyncWave: 1
     attackInfo:
       attackPattern: 0
-      projectileType: 4
-      isAimed: 0
+      projectileType: 10
+      isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 0
-      timesToShoot: 0
-      shotSpeed: 0
+      timesToLoop: 1
+      timesToShoot: 1
+      shotSpeed: 0.15
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 0
-  - enemyType: 0
+      shotStartDelay: 2
+  - enemyType: 1
     initialPosition:
-      enemyInitialPositionX: 6
-      enemyInitialPositionY: 4
+      enemyInitialPositionX: 7
+      enemyInitialPositionY: 0
     movementInfo:
-      movementDirection: {x: -0.7, y: 0}
+      movementDirection: {x: 0, y: -0.45}
       movementChangeInfo:
-      - changeDelay: 0
-        changeDuration: 4
-        movementDirection: {x: -0.85, y: 0}
+      - changeDelay: 1
+        changeDuration: 0.5
+        movementDirection: {x: 0, y: 0}
+      - changeDelay: 3
+        changeDuration: 0.25
+        movementDirection: {x: 0, y: 0.3}
     possibleDrops:
     - dropType: 0
       dropChance: 1
       timesToDrop: 1
-    enemyHealth: 2
-    enemyAmount: 15
-    enemySpawnDelay: 0.25
-    waveInitialDelay: 11
+    enemyHealth: 4
+    enemyAmount: 6
+    enemySpawnDelay: 0.75
+    waveInitialDelay: 2
     isAsyncWave: 0
     attackInfo:
-      attackPattern: 0
+      attackPattern: 1
       projectileType: 4
-      isAimed: 0
+      isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 0
-      timesToShoot: 0
-      shotSpeed: 0
+      timesToLoop: 1
+      timesToShoot: 1
+      shotSpeed: 0.4
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 0
+      shotStartDelay: 1.5
   bossInfo:
     type: 0
     bossHealthInfo:
@@ -432,11 +246,11 @@ MonoBehaviour:
       possibleDrops:
       - dropType: 0
         dropChance: 1
-        timesToDrop: 3
+        timesToDrop: 5
       - dropType: 3
         dropChance: 1
-        timesToDrop: 4
-      - dropType: 1
+        timesToDrop: 5
+      - dropType: 5
         dropChance: 1
         timesToDrop: 1
     bossAttackInfo:

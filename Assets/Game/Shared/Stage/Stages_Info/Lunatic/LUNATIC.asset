@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LUNATIC
   m_EditorClassIdentifier: 
   stages:
-  - {fileID: 11400000, guid: ae32dd7317749c645911cd2a1c603b4e, type: 2}
+  - {fileID: 11400000, guid: 8a8e457a5023359479a8fadc89397140, type: 2}

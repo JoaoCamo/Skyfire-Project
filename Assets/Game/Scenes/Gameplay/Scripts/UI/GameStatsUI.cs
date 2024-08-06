@@ -88,7 +88,9 @@ namespace Game.Gameplay.UI
         {
             _scoreTargetValue = 0;
             GameInfo.CurrentScore = 0;
+            GameInfo.CurrentHighScore = 0;
             currentScoreText.text = GameInfo.CurrentScore.ToString();
+            GetHighScore();
         }
     }
 }

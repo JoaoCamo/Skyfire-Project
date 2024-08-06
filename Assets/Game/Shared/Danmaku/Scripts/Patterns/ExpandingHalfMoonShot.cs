@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Game.Projectiles;
+using Game.Audio;
 
 namespace Game.Danmaku.Patterns
 {
@@ -28,6 +29,7 @@ namespace Game.Danmaku.Patterns
                     angle += 50;
                 }
 
+                SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
                 yield return shotActionDelay;
 
                 foreach (ProjectileBase projectile in mainProjectiles)

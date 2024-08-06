@@ -29,32 +29,17 @@ namespace Game.Player
         {
             while (_canAttack)
             {
-                Vector3 position = transform.position;
-
                 if (_canShoot)
                 {
-                    switch (_powerLevel)
+                    switch (playerMovement.IsUsingFocus)
                     {
-                        case 1:
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                        case true:
+                            SecondaryShotFocus();
                             break;
-                        case 2:
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, -10));
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 10));
-                            break;
-                        case 3:
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, -10));
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 10));
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
-                            break;
-                        case 4:
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, -10));
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 10));
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, -2.5f));
-                            _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 2.5f));
+                        case false:
+                            SecondaryShotNormal();
                             break;
                     }
-                    SoundEffectController.RequestSfx?.Invoke(SfxTypes.PlayerShoot);
                 }
                 yield return _secondaryShotDelay;
             }
@@ -72,6 +57,60 @@ namespace Game.Player
             }
 
             _canShoot = true;
+        }
+
+        private void SecondaryShotNormal()
+        {
+            Vector3 position = transform.position;
+            switch (_powerLevel)
+            {
+                case 1:
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                    break;
+                case 2:
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, -10));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 10));
+                    break;
+                case 3:
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, -10));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 10));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                    break;
+                case 4:
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, -10));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 10));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, -2.5f));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 2.5f));
+                    break;
+            }
+            SoundEffectController.RequestSfx?.Invoke(SfxTypes.PlayerShoot);
+        }
+
+        private void SecondaryShotFocus()
+        {
+            Vector3 position = transform.position;
+            switch (_powerLevel)
+            {
+                case 1:
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                    break;
+                case 2:
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, -5));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 5));
+                    break;
+                case 3:
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, -5));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 5));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 0));
+                    break;
+                case 4:
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, -5));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.075f, 0f) + position, 2f, Quaternion.Euler(0, 0, 5));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, 2.5f));
+                    _projectileManager.FireProjectile(projectileTypeSecondary, new Vector3(-0.05f, 0.1f) + position, 2f, Quaternion.Euler(0, 0, -2.5f));
+                    break;
+            }
+            SoundEffectController.RequestSfx?.Invoke(SfxTypes.PlayerShoot);
         }
     }
 }

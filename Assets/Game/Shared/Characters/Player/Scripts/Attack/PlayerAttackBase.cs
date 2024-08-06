@@ -16,6 +16,7 @@ namespace Game.Player
 
         protected WaitForSeconds _bombCooldown = new WaitForSeconds(5);
         protected ProjectileManager _projectileManager;
+        protected PlayerMovement playerMovement;
         protected bool _canAttack = false;
         protected bool _canShoot = true;
         protected int _powerLevel = 0;
@@ -46,6 +47,7 @@ namespace Game.Player
         {
             _projectileManager = GetComponent<ProjectileManager>();
             _health = GetComponent<PlayerHealth>();
+            playerMovement = GetComponent<PlayerMovement>();
             
             _playerControls = new PlayerControls();
             _shootInput = _playerControls.Player.Shoot;
@@ -83,6 +85,7 @@ namespace Game.Player
 
             _health.RequestInvincibility();
             GameEvents.OnBombValueChange(_currentBombs);
+            Drop.DropManager.RequestCollectAll();
             StartCoroutine(FireBombs());
             StartCoroutine(BombCooldown());
         }

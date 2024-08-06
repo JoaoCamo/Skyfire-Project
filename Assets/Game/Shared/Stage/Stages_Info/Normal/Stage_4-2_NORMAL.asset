@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d22f2a4b29eaf84e82e6fedb5ac42ee, type: 3}
   m_Name: Stage_4-2_NORMAL
   m_EditorClassIdentifier: 
-  isContinuation: 0
+  isContinuation: 1
   bossSpawnDelay: 0
   stageMusic: {fileID: 0}
-  bossMusic: {fileID: 0}
+  bossMusic: {fileID: 8300000, guid: e746d6cda34ef21439fda57f31e77286, type: 3}
   enemyWaves: []
   bossInfo:
     type: 0

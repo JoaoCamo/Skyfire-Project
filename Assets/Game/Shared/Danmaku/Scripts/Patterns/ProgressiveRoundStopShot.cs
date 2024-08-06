@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Projectiles;
+using Game.Audio;
 
 namespace Game.Danmaku.Patterns
 {
@@ -11,7 +12,6 @@ namespace Game.Danmaku.Patterns
         {
             WaitForSeconds delay = new WaitForSeconds(shotDelay);
             WaitForSeconds fireShotDelay = new WaitForSeconds(0.1f);
-            WaitForSeconds bulletStopCoroutineDelay = new WaitForSeconds(0.5f);
             float speed;
             float angle;
             float innerAngle;
@@ -38,10 +38,9 @@ namespace Game.Danmaku.Patterns
                     angle += 10;
                     speed += shotSpeedReduction;
 
+                    SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
                     yield return fireShotDelay;
                 }
-
-                yield return bulletStopCoroutineDelay;
 
                 StartCoroutine(BulletStopCoroutine(new List<ProjectileBase>(projectiles)));
 
@@ -54,6 +53,9 @@ namespace Game.Danmaku.Patterns
         private IEnumerator BulletStopCoroutine(List<ProjectileBase> projectilesToStop)
         {
             WaitForSeconds shotStopDelay = new WaitForSeconds(0.15f);
+            WaitForSeconds bulletStopDelay = new WaitForSeconds(0.5f);
+
+            yield return bulletStopDelay;
 
             for (int i = 4; i < projectilesToStop.Count; i += 4)
             {

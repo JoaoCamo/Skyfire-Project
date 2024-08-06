@@ -6,6 +6,7 @@ using DG.Tweening;
 using Game.Navigation;
 using Game.Player.Controls;
 using Game.Static.Events;
+using Game.Gameplay.StageEffects;
 
 namespace Game.Gameplay.UI
 {
@@ -59,9 +60,11 @@ namespace Game.Gameplay.UI
 
         private void TogglePause()
         {
-            GameEvents.TogglePlayerInputs?.Invoke(_isPaused);
+            GameEvents.TogglePlayerInputs(_isPaused);
 
             _isPaused = !_isPaused;
+
+            StageEffectsController.ToggleMusic(_isPaused);
 
             canvasGroup.DOFade(_isPaused ? 1 : 0, 0.25f).SetUpdate(isIndependentUpdate: true);
             canvasGroup.interactable = _isPaused;

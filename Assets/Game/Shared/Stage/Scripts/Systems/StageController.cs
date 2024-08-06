@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Game.Enemy;
 using Game.Enemy.Boss;
-using Game.Gameplay.Animation;
+using Game.Gameplay.StageEffects;
 using Game.Static;
 using Game.Projectiles;
 using Game.Navigation;

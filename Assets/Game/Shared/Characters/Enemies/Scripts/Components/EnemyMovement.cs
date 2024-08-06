@@ -35,7 +35,7 @@ namespace Game.Enemy
         public void SetPosition(EnemyInitialPosition enemyInitialPosition)
         {
             float xPosition = enemyInitialPosition.enemyInitialPositionX != EnemyInitialPositionX.Random ? _xSpawnPosition[(int)enemyInitialPosition.enemyInitialPositionX] : Random.Range(X_MIN_RANDOM_POSITION, X_MAX_RANDOM_POSITION);
-            float yPosition = enemyInitialPosition.enemyInitialPositionY != EnemyInitialPositionY.Random ? _ySpawnPosition[(int)enemyInitialPosition.enemyInitialPositionY] : Random.Range(Y_MIN_RANDOM_POSITION, Y_MAX_RANDOM_POSITION); ;
+            float yPosition = enemyInitialPosition.enemyInitialPositionY != EnemyInitialPositionY.Random ? _ySpawnPosition[(int)enemyInitialPosition.enemyInitialPositionY] : Random.Range(Y_MIN_RANDOM_POSITION, Y_MAX_RANDOM_POSITION);
 
             transform.position = new Vector2(xPosition, yPosition);
         }

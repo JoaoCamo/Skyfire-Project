@@ -102,9 +102,9 @@ namespace Game.Enemy.Boss
 
         private IEnumerator InitiliazeNextPhase()
         {
-            ResetHealth();
-
             _canTakeDamage = false;
+
+            ResetHealth();
 
             yield return StartCoroutine(_attackController.InitializeNextAttack(_currentHealthBar));
 

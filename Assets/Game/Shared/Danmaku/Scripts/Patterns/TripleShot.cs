@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Game.Projectiles;
+using Game.Audio;
 
 namespace Game.Danmaku.Patterns
 {
@@ -16,7 +17,7 @@ namespace Game.Danmaku.Patterns
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 115) : 205;
+                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 115) : Random.Range(90,270);
 
                 for (int j = 0; j < 3; j++)
                 {
@@ -31,6 +32,7 @@ namespace Game.Danmaku.Patterns
                     angle += 25f;
                 }
 
+                SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
                 yield return delay;
             }
         }

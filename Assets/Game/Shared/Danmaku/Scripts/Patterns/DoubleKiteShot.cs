@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Game.Projectiles;
+using Game.Audio;
 
 namespace Game.Danmaku.Patterns
 {
@@ -44,6 +45,7 @@ namespace Game.Danmaku.Patterns
                     angleMultiplier++;
                 }
 
+                SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
                 yield return delay;
             }
         }

@@ -9,5 +9,6 @@ namespace Game.Audio
         BossExplosion,
         BombExplosion,
         PlayerHit,
+        EnemyShoot
     }
 }

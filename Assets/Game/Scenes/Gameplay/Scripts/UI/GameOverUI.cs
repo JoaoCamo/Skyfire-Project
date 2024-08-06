@@ -5,6 +5,7 @@ using DG.Tweening;
 using Game.Navigation;
 using Game.Static;
 using Game.Static.Events;
+using Game.Gameplay.StageEffects;
 
 namespace Game.Gameplay.UI
 {
@@ -64,6 +65,8 @@ namespace Game.Gameplay.UI
             retryButton.interactable = GameInfo.RetryCount > 0;
 
             _loseScreenOpen = !_loseScreenOpen;
+
+            StageEffectsController.ToggleMusic(_loseScreenOpen);
 
             canvasGroup.DOFade(_loseScreenOpen ? 1 : 0, 0.25f).SetUpdate(isIndependentUpdate: true);
             canvasGroup.interactable = _loseScreenOpen;

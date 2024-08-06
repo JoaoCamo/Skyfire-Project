@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Game.Projectiles;
+using Game.Audio;
 
 namespace Game.Danmaku.Patterns
 {
@@ -16,17 +17,16 @@ namespace Game.Danmaku.Patterns
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                for (int j = 0; j < timesToShoot; j++)
+                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
+                speed = shotSpeed;
+                for (int k = 0; k < timesToShoot; k++)
                 {
-                    angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 180;
-                    speed = shotSpeed;
-                    for (int k = 0; k < timesToShoot; k++)
-                    {
-                        enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
-                        speed += shotSpeedReduction;
-                    }
-                    yield return delay;
+                    enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, angle);
+                    speed += shotSpeedReduction;
                 }
+
+                SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
+                yield return delay;
             }
         }
     }

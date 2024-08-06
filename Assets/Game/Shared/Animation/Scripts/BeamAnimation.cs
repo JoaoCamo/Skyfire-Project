@@ -2,56 +2,59 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 
-public class BeamAnimation : MonoBehaviour
+namespace Game.Animation
 {
-    [SerializeField] private Sprite[] firstStageSprites;
-    [SerializeField] private Sprite[] secondStageSprites;
-    [SerializeField] private Sprite[] thirdStageSprites;
-    [SerializeField] private int framesPerSecondFirstStage;
-    [SerializeField] private int framesPerSecondSecondStage;
-    [SerializeField] private int framesPerSecondThirdStage;
-    [SerializeField] private int timesToRepeatSecondStage;
-    [SerializeField] private Transform beamColliderTransform;
-
-    private SpriteRenderer _spriteRenderer;
-
-    private void Awake()
+    public class BeamAnimation : MonoBehaviour
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+        [SerializeField] private Sprite[] firstStageSprites;
+        [SerializeField] private Sprite[] secondStageSprites;
+        [SerializeField] private Sprite[] thirdStageSprites;
+        [SerializeField] private int framesPerSecondFirstStage;
+        [SerializeField] private int framesPerSecondSecondStage;
+        [SerializeField] private int framesPerSecondThirdStage;
+        [SerializeField] private int timesToRepeatSecondStage;
+        [SerializeField] private Transform beamColliderTransform;
 
-    public IEnumerator StartAnimation()
-    {
-        WaitForSeconds firstStageDelay = new WaitForSeconds(1f / framesPerSecondFirstStage);
-        WaitForSeconds secondStageDelay = new WaitForSeconds(1f / framesPerSecondSecondStage);
-        WaitForSeconds thirdStageDelay = new WaitForSeconds(1f / framesPerSecondThirdStage);
+        private SpriteRenderer _spriteRenderer;
 
-        float durationFirstStage = (1f / framesPerSecondFirstStage) * firstStageSprites.Length;
-        float durationThirdStage = (1f / framesPerSecondThirdStage) * thirdStageSprites.Length;
-
-        beamColliderTransform.DOScaleY(1, durationFirstStage);
-
-        foreach (Sprite sprite in firstStageSprites)
+        private void Awake()
         {
-            _spriteRenderer.sprite = sprite;
-            yield return firstStageDelay;
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        for (int i = 0; i < timesToRepeatSecondStage; i++)
+        public IEnumerator StartAnimation()
         {
-            foreach (Sprite sprite in secondStageSprites)
+            WaitForSeconds firstStageDelay = new WaitForSeconds(1f / framesPerSecondFirstStage);
+            WaitForSeconds secondStageDelay = new WaitForSeconds(1f / framesPerSecondSecondStage);
+            WaitForSeconds thirdStageDelay = new WaitForSeconds(1f / framesPerSecondThirdStage);
+
+            float durationFirstStage = (1f / framesPerSecondFirstStage) * firstStageSprites.Length;
+            float durationThirdStage = (1f / framesPerSecondThirdStage) * thirdStageSprites.Length;
+
+            beamColliderTransform.DOScaleY(1, durationFirstStage);
+
+            foreach (Sprite sprite in firstStageSprites)
             {
                 _spriteRenderer.sprite = sprite;
-                yield return secondStageDelay;
+                yield return firstStageDelay;
             }
-        }
 
-        beamColliderTransform.DOScaleY(0, durationThirdStage);
+            for (int i = 0; i < timesToRepeatSecondStage; i++)
+            {
+                foreach (Sprite sprite in secondStageSprites)
+                {
+                    _spriteRenderer.sprite = sprite;
+                    yield return secondStageDelay;
+                }
+            }
 
-        foreach (Sprite sprite in thirdStageSprites)
-        {
-            _spriteRenderer.sprite = sprite;
-            yield return thirdStageDelay;
+            beamColliderTransform.DOScaleY(0, durationThirdStage);
+
+            foreach (Sprite sprite in thirdStageSprites)
+            {
+                _spriteRenderer.sprite = sprite;
+                yield return thirdStageDelay;
+            }
         }
     }
 }

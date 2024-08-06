@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 
-namespace Game.Gameplay.Animation
+namespace Game.Gameplay.StageEffects
 {
     public class StageEffectsController : MonoBehaviour
     {
@@ -17,9 +18,21 @@ namespace Game.Gameplay.Animation
         private readonly Vector2 _initialPosition = new Vector2(0, 0);
         private readonly Vector2 _finalPosition = new Vector2(0, -2);
         private readonly WaitForSeconds _animationDelay = new WaitForSeconds(3);
-        private readonly WaitForSeconds _audioFadeDelay = new WaitForSeconds(2);
+        private readonly WaitForSeconds _audioFadeDelay = new WaitForSeconds(0.5f);
         private const float ANIMATION_DURATION = 3;
         private const float AUDIO_FADE_DURATION = 2;
+
+        public static Action<bool> ToggleMusic { private set; get; }
+
+        private void OnEnable()
+        {
+            ToggleMusic += PauseMusic;
+        }
+
+        private void OnDisable()
+        {
+            ToggleMusic -= PauseMusic;
+        }
 
         public void SetMusic(AudioClip clip)
         {
@@ -64,9 +77,19 @@ namespace Game.Gameplay.Animation
             audioSource.DOFade(0, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
             
             yield return _audioFadeDelay;
-            
+
             audioSource.clip = clip;
-            audioSource.DOFade(1, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
+            audioSource.Play();
+            
+            audioSource.DOFade(0.25f, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
+        }
+
+        private void PauseMusic(bool state)
+        {
+            if(state)
+                audioSource.Pause();
+            else
+                audioSource.Play();
         }
     }
 }

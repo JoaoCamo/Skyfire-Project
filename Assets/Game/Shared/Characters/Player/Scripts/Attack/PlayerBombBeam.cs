@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Game.Animation;
 
 namespace Game.Player
 {

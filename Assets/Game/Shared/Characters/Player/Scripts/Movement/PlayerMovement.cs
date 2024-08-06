@@ -28,8 +28,9 @@ namespace Game.Player
         private readonly Vector2 _collectAreaNormalScale = new Vector2(1, 1);
         private readonly Vector2 _collectAreaFocusScale = new Vector2(1.5f, 1.5f);
 
+        public bool IsUsingFocus => _isUsingFocus;
         public float SpeedMultiplayer { get => _speedMultiplayer; set => _speedMultiplayer = value; }
-        public static Transform PlayerTransform;
+        public static Transform PlayerTransform { get; private set; }
 
         private void Awake()
         {

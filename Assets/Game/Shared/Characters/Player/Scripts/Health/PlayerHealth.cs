@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Game.Static.Events;
 using Game.Gameplay.Effects;
+using Game.Gameplay.UI;
 using Game.Audio;
 
 namespace Game.Player
@@ -112,6 +113,7 @@ namespace Game.Player
             {
                 _health++;
                 GameEvents.OnHealthValueChange(_health);
+                PopUpTextManager.RequestPopUpText(new Vector2(0,0.4f), "EXTEND!", Color.grey);
             }
         }
 

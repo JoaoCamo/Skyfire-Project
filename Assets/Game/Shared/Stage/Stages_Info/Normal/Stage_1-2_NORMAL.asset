@@ -15,7 +15,7 @@ MonoBehaviour:
   isContinuation: 1
   bossSpawnDelay: 8
   stageMusic: {fileID: 0}
-  bossMusic: {fileID: 0}
+  bossMusic: {fileID: 8300000, guid: 13951218856a5094f96099d658063b68, type: 3}
   enemyWaves:
   - enemyType: 1
     initialPosition:
@@ -27,7 +27,7 @@ MonoBehaviour:
       - changeDelay: 0
         changeDuration: 2
         movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
+      - changeDelay: 4
         changeDuration: 2
         movementDirection: {x: -0.7, y: 0}
     possibleDrops:
@@ -43,11 +43,11 @@ MonoBehaviour:
     waveInitialDelay: 4
     isAsyncWave: 1
     attackInfo:
-      attackPattern: 3
+      attackPattern: 2
       projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
+      timesToLoop: 1
       timesToShoot: 1
       shotSpeed: 0.25
       shotSpeedReduction: 0
@@ -63,9 +63,9 @@ MonoBehaviour:
       - changeDelay: 0
         changeDuration: 2
         movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
+      - changeDelay: 4
         changeDuration: 2
-        movementDirection: {x: 0.7, y: 0}
+        movementDirection: {x: -0.7, y: 0}
     possibleDrops:
     - dropType: 0
       dropChance: 1
@@ -79,11 +79,11 @@ MonoBehaviour:
     waveInitialDelay: 5
     isAsyncWave: 1
     attackInfo:
-      attackPattern: 3
+      attackPattern: 2
       projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
+      timesToLoop: 1
       timesToShoot: 1
       shotSpeed: 0.25
       shotSpeedReduction: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
       - changeDelay: 0
         changeDuration: 2
         movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
+      - changeDelay: 4
         changeDuration: 2
         movementDirection: {x: -0.7, y: 0}
     possibleDrops:
@@ -181,11 +181,11 @@ MonoBehaviour:
     waveInitialDelay: 0
     isAsyncWave: 1
     attackInfo:
-      attackPattern: 3
+      attackPattern: 2
       projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
+      timesToLoop: 1
       timesToShoot: 1
       shotSpeed: 0.25
       shotSpeedReduction: 0
@@ -201,9 +201,9 @@ MonoBehaviour:
       - changeDelay: 0
         changeDuration: 2
         movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
+      - changeDelay: 4
         changeDuration: 2
-        movementDirection: {x: 0.7, y: 0}
+        movementDirection: {x: -0.7, y: 0}
     possibleDrops:
     - dropType: 0
       dropChance: 1
@@ -217,11 +217,11 @@ MonoBehaviour:
     waveInitialDelay: 2
     isAsyncWave: 1
     attackInfo:
-      attackPattern: 3
+      attackPattern: 2
       projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
+      timesToLoop: 1
       timesToShoot: 1
       shotSpeed: 0.25
       shotSpeedReduction: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
       - changeDelay: 0
         changeDuration: 2
         movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
+      - changeDelay: 4
         changeDuration: 2
         movementDirection: {x: -0.7, y: 0}
     possibleDrops:
@@ -319,12 +319,12 @@ MonoBehaviour:
     waveInitialDelay: 0
     isAsyncWave: 1
     attackInfo:
-      attackPattern: 3
+      attackPattern: 2
       projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
-      timesToShoot: 2
+      timesToShoot: 1
       shotSpeed: 0.25
       shotSpeedReduction: -0.15
       shotDelay: 0
@@ -339,9 +339,9 @@ MonoBehaviour:
       - changeDelay: 0
         changeDuration: 2
         movementDirection: {x: 0, y: 0}
-      - changeDelay: 8
+      - changeDelay: 4
         changeDuration: 2
-        movementDirection: {x: 0.7, y: 0}
+        movementDirection: {x: -0.7, y: 0}
     possibleDrops:
     - dropType: 0
       dropChance: 1
@@ -355,12 +355,12 @@ MonoBehaviour:
     waveInitialDelay: 0
     isAsyncWave: 1
     attackInfo:
-      attackPattern: 3
+      attackPattern: 2
       projectileType: 4
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
-      timesToShoot: 2
+      timesToShoot: 1
       shotSpeed: 0.25
       shotSpeedReduction: -0.15
       shotDelay: 0
@@ -452,14 +452,14 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 10
-    - barHealth: 350
+    - barHealth: 375
       possibleDrops:
       - dropType: 3
         dropChance: 1
         timesToDrop: 10
-      - dropType: 1
+      - dropType: 0
         dropChance: 1
-        timesToDrop: 1
+        timesToDrop: 5
     bossAttackInfo:
     - hasMovement: 0
       movementDelay: 0
@@ -475,18 +475,18 @@ MonoBehaviour:
         shotDelay: 1.25
         shotStartDelay: 1
     - hasMovement: 1
-      movementDelay: 10
+      movementDelay: 0.5
       attackInfo:
-        attackPattern: 8
-        projectileType: 6
+        attackPattern: 10
+        projectileType: 4
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 12
-        shotSpeed: 0.4
-        shotSpeedReduction: 0.01
-        shotDelay: 1.25
-        shotStartDelay: 1
+        timesToShoot: 20
+        shotSpeed: 0.2
+        shotSpeedReduction: 0.025
+        shotDelay: 0.25
+        shotStartDelay: 2
     - hasMovement: 1
       movementDelay: 3
       attackInfo:
@@ -499,17 +499,17 @@ MonoBehaviour:
         shotSpeed: 0.65
         shotSpeedReduction: 0
         shotDelay: 0.1
-        shotStartDelay: 1
+        shotStartDelay: 2
     - hasMovement: 1
-      movementDelay: 7.5
+      movementDelay: 6
       attackInfo:
-        attackPattern: 9
-        projectileType: 6
+        attackPattern: 8
+        projectileType: 4
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 16
+        timesToShoot: 12
         shotSpeed: 0.4
         shotSpeedReduction: 0.01
-        shotDelay: 0.5
-        shotStartDelay: 1
+        shotDelay: 2
+        shotStartDelay: 2
