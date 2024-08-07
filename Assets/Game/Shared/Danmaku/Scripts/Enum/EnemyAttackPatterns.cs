@@ -12,7 +12,7 @@ namespace Game.Danmaku
         ExpandingFullMoon,
         ProgressiveRoundAim,
         ProgressiveRoundStop,
-        RisingCircle,
+        RisingHalfCircle,
         DoubleCircleHoming,
         BulletScatterFreezing,
         Circle,
@@ -21,5 +21,10 @@ namespace Game.Danmaku
         RoseOfWindsAndCircle,
         Rain,
         Flower,
+        HomingAndScatterCircle,
+        FallingCircle,
+        OrbitCircle,
+        Tornado,
+        CircleAndHalfMoon,
     }
 }

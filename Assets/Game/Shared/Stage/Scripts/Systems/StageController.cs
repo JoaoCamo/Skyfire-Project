@@ -59,6 +59,7 @@ namespace Game.Stage
             yield return new WaitForSeconds(_gameStages.stages[_currentStageInfoIndex].bossSpawnDelay);
 
             EnemySpawner.RequestClearEnemies();
+            EnemyProjectileManager.RequestFullClear();
 
             _currentBoss = enemySpawner.SpawnBoss(_gameStages.stages[_currentStageInfoIndex].bossInfo.type);
             StartBoss();
@@ -66,7 +67,6 @@ namespace Game.Stage
 
         private void StartBoss()
         {
-            EnemyProjectileManager.RequestFullClear();
             stageEffectsController.SetMusic(_gameStages.stages[_currentStageInfoIndex].bossMusic);
             _currentBoss.StartBossBattle(_gameStages.stages[_currentStageInfoIndex].bossInfo);
         }
@@ -105,6 +105,8 @@ namespace Game.Stage
 
             stageEffectsController.StartAnimation(_currentStage);
             stageEffectsController.SetMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
+
+            EnemyProjectileManager.RequestFullClear();
 
             yield return _sceneFadeDelay;
             

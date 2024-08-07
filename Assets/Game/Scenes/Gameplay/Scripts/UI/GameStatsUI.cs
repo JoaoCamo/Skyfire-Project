@@ -4,6 +4,7 @@ using TMPro;
 using DG.Tweening;
 using Game.Static.Events;
 using Game.Static;
+using Game.Player;
 
 namespace Game.Gameplay.UI
 {
@@ -21,7 +22,7 @@ namespace Game.Gameplay.UI
 
         private void Awake()
         {
-            GetHighScore();
+            ResetScore();
         }
 
         private void OnEnable()
@@ -45,7 +46,7 @@ namespace Game.Gameplay.UI
         private void UpdateScore(int valueToAdd)
         {
             _scoreTargetValue += valueToAdd;
-            float duration = _scoreTargetValue - GameInfo.CurrentScore >= 500 ? 2 : 0.5f;
+            PlayerHealth.RequestCheckForExtraLife(_scoreTargetValue);
 
             DOTween.To(() => GameInfo.CurrentScore, x =>
             {
@@ -58,7 +59,7 @@ namespace Game.Gameplay.UI
                     highScoreText.text = GameInfo.CurrentHighScore.ToString();
                 }
 
-            }, _scoreTargetValue, duration).SetEase(Ease.Linear);
+            }, _scoreTargetValue, 1).SetEase(Ease.Linear);
         }
 
         private void UpdatePowerText(float value)

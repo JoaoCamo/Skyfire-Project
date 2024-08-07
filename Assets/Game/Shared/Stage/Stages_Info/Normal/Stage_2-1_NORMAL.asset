@@ -333,18 +333,18 @@ MonoBehaviour:
         timesToShoot: 2
         shotSpeed: 0.75
         shotSpeedReduction: -0.35
-        shotDelay: 0.75
+        shotDelay: 1.15
         shotStartDelay: 1
     - hasMovement: 1
-      movementDelay: 3
+      movementDelay: 4
       attackInfo:
-        attackPattern: 4
+        attackPattern: 5
         projectileType: 12
-        isAimed: 0
+        isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 7
-        shotSpeed: 0.8
-        shotSpeedReduction: -0.1
-        shotDelay: 0.5
-        shotStartDelay: 2
+        timesToShoot: 5
+        shotSpeed: 0.2
+        shotSpeedReduction: 0.01
+        shotDelay: 0.1
+        shotStartDelay: 1

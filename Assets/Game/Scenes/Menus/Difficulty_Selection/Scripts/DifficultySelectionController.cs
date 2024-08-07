@@ -10,6 +10,7 @@ namespace Game.Menus
     public class DifficultySelectionController : MonoBehaviour
     {
         [SerializeField] private DifficultySelectionInfo[] difficultySelectionInfos;
+        [SerializeField] private GameObject confirmSelection;
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private Button returnButton;
 
@@ -47,6 +48,7 @@ namespace Game.Menus
                 _difficultyType = difficultyType;
                 description.text = descriptionText;
                 SetOutline(outline);
+                confirmSelection.SetActive(true);
             }
         }
 

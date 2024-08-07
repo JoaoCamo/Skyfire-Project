@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Game.Player;
+using Game.Gameplay.Effects;
 
 namespace Game.Projectiles
 {
@@ -11,7 +12,18 @@ namespace Game.Projectiles
         [SerializeField] private ProjectilesReference projectilesReference;
         private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
 
+        public static Action RequestClear { private set; get; }
         public static Action RequestFullClear { private set; get; }
+
+        private void OnEnable()
+        {
+            RequestFullClear += FullClearBullets;
+        }
+
+        private void OnDisable()
+        {
+            RequestFullClear -= FullClearBullets;
+        }
 
         private void Update()
         {
@@ -23,16 +35,6 @@ namespace Game.Projectiles
         {
             foreach (var projectile in _projectiles.Where(projectile => projectile.gameObject.activeSelf))
                 projectile.CompleteJob();
-        }
-
-        private void OnEnable()
-        {
-            RequestFullClear += ClearBullets;
-        }
-
-        private void OnDisable()
-        {
-            RequestFullClear -= ClearBullets;
         }
         
         public void FireProjectile(ProjectileType projectileType, Vector2 originPosition, float speed, float rotation)
@@ -64,11 +66,14 @@ namespace Game.Projectiles
             _projectiles.Add(newProjectile);
             return newProjectile;
         }
-        
-        private void ClearBullets()
+
+        private void FullClearBullets()
         {
             foreach (ProjectileBase projectile in _projectiles)
             {
+                if(projectile.gameObject.activeSelf)
+                    SpecialEffectsManager.RequestBulletHide(projectile.transform.position);
+
                 projectile.gameObject.SetActive(false);
                 Destroy(projectile.gameObject);
             }

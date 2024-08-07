@@ -16,9 +16,9 @@ namespace Game.Gameplay.UI
         [SerializeField] private Button restartButton;
         [SerializeField] private Button returnButton;
 
-        private bool _loseScreenOpen = false;
+        private static bool _loseScreenOpen = false;
 
-        public static bool LoseScreenOpen { get; private set; }
+        public static bool LoseScreenOpen => _loseScreenOpen;
 
         private void Awake()
         {

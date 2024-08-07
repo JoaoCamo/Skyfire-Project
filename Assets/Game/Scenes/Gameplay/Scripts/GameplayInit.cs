@@ -12,11 +12,7 @@ namespace Game.Gameplay.Init
         private void Awake()
         {
             Instantiate(_playerPrefabs[(int)GameInfo.PlayerType], PLAYER_SPAWN_POSITION, Quaternion.identity);
-
             GameInfo.RetryCount = 3;
-            GameInfo.CurrentScore = 0;
-            GameInfo.CurrentHighScore = GameDataManager.GetHighScore(GameInfo.PlayerType);
-
             Destroy(gameObject);
         }
     }

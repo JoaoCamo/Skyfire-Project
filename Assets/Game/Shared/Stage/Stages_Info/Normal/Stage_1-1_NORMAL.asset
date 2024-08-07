@@ -156,7 +156,10 @@ MonoBehaviour:
     possibleDrops:
     - dropType: 3
       dropChance: 1
-      timesToDrop: 2
+      timesToDrop: 1
+    - dropType: 0
+      dropChance: 1
+      timesToDrop: 1
     enemyHealth: 4
     enemyAmount: 12
     enemySpawnDelay: 0.75
@@ -185,7 +188,10 @@ MonoBehaviour:
         movementDirection: {x: 0, y: -0.75}
     possibleDrops:
     - dropType: 0
-      dropChance: 1
+      dropChance: 0.5
+      timesToDrop: 1
+    - dropType: 3
+      dropChance: 0.5
       timesToDrop: 1
     - dropType: 1
       dropChance: 0.05

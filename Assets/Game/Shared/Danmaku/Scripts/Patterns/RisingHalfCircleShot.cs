@@ -1,12 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using Game.Projectiles;
-using Game.Danmaku;
 using Game.Audio;
 
 namespace Game.Danmaku.Patterns
 {
-    public class RisingCircleShot : DanmakuBase
+    public class RisingHalfCircleShot : DanmakuBase
     {
         public override IEnumerator Shoot()
         {

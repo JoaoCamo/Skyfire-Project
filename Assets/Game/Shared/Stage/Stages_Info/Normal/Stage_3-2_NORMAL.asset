@@ -398,7 +398,7 @@ MonoBehaviour:
         timesToDrop: 15
     bossAttackInfo:
     - hasMovement: 1
-      movementDelay: 2
+      movementDelay: 3
       attackInfo:
         attackPattern: 5
         projectileType: 8
@@ -406,9 +406,9 @@ MonoBehaviour:
         isInfiniteLoop: 1
         timesToLoop: 0
         timesToShoot: 6
-        shotSpeed: 0.35
+        shotSpeed: 0.3
         shotSpeedReduction: 0.015
-        shotDelay: 0.05
+        shotDelay: 0.075
         shotStartDelay: 1
     - hasMovement: 0
       movementDelay: 0

@@ -20,12 +20,16 @@ namespace Game.Player
         private readonly WaitForSeconds _invincibilityDelay = new WaitForSeconds(0.25f);
         private readonly WaitForSeconds _stopActionDelay = new WaitForSeconds(0.5f);
 
+        private readonly int[] _pointsNeededForExtraLife = new int[] { 1000000, 2500000, 5000000, 7500000, 10000000 };
+        private int _extraLifeIndex = 0;
+
         private const int MAX_HEALTH_VALUE = 8;
         private const int ENEMY_BULLET_LAYER = 9;
         private const int ENEMY_LAYER = 8;
 
         public Action RequestInvincibility;
         public static Action RequestNewLife;
+        public static Action<int> RequestCheckForExtraLife;
 
         private void Awake()
         {
@@ -38,6 +42,7 @@ namespace Game.Player
         {
             RequestInvincibility += StartInvincibility;
             RequestNewLife += AddLife;
+            RequestCheckForExtraLife += CheckForExtraLife;
             GameEvents.OnRetry += RetryReset;
         }
 
@@ -45,6 +50,7 @@ namespace Game.Player
         {
             RequestInvincibility -= StartInvincibility;
             RequestNewLife -= AddLife;
+            RequestCheckForExtraLife -= CheckForExtraLife;
             GameEvents.OnRetry -= RetryReset;
         }
 
@@ -114,6 +120,18 @@ namespace Game.Player
                 _health++;
                 GameEvents.OnHealthValueChange(_health);
                 PopUpTextManager.RequestPopUpText(new Vector2(0,0.4f), "EXTEND!", Color.grey);
+            }
+        }
+
+        private void CheckForExtraLife(int points)
+        {
+            if (_extraLifeIndex > _pointsNeededForExtraLife.Length)
+                return;
+
+            if(points >= _pointsNeededForExtraLife[_extraLifeIndex])
+            {
+                _extraLifeIndex++;
+                AddLife();
             }
         }
 
