@@ -5,7 +5,7 @@ using Game.Audio;
 
 namespace Game.Danmaku.Patterns
 {
-    public class FlowerShot : DanmakuBase
+    public class FlowerAndCircleShot : DanmakuBase
     {
         public override IEnumerator Shoot()
         {
@@ -17,10 +17,12 @@ namespace Game.Danmaku.Patterns
 
             timesToLoop = isInfiniteLoop ? 999999 : timesToLoop;
 
+            StartCoroutine(SecondaryShot());
+
             for (int i = 0; i < timesToLoop; i++)
             {
-                angleClockwise = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0, 360);
-                angleCounterClockwise = angleClockwise + ( 360f / (timesToShoot * 2));
+                angleClockwise = 45;
+                angleCounterClockwise = angleClockwise;
                 speed = shotSpeed;
 
                 for (int j = 0; j < 36; j++)
@@ -42,12 +44,35 @@ namespace Game.Danmaku.Patterns
                         innerAngle += 360f / timesToShoot;
                     }
 
-                    angleClockwise += 10;
-                    angleCounterClockwise -= 10;
+                    angleClockwise += 2f;
+                    angleCounterClockwise -= 2f;
 
                     SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
                     yield return delay;
                 }
+            }
+        }
+
+        private IEnumerator SecondaryShot()
+        {
+            WaitForSeconds delay = new WaitForSeconds(2);
+            int timesToFire = timesToShoot * 3;
+            float angle;
+            float speed = shotSpeed / 2;
+
+            for (int i = 0; i < timesToLoop; i++)
+            {
+                yield return delay;
+
+                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0, 360);
+
+                for (int j = 0; j < timesToFire; j++)
+                {
+                    enemyProjectileManager.FireProjectile(ProjectileType.EnemyBulletTwoRed, transform.position, speed, angle);
+                    angle += 360f / timesToFire;
+                }
+
+                SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
             }
         }
     }

@@ -6,6 +6,7 @@ using Game.Static.Events;
 using Game.Gameplay.Effects;
 using Game.Gameplay.UI;
 using Game.Audio;
+using Game.Drop;
 
 namespace Game.Player
 {
@@ -137,10 +138,13 @@ namespace Game.Player
 
         private void RetryReset()
         {
+            Vector3 dropPositon = transform.position + new Vector3(0, 0.25f, 0);
+
             _health = 2;
             GameEvents.OnHealthValueChange(_health);
             PlayerAttackBase.RequestNewBomb(3, true);
-            PlayerAttackBase.RequestPowerValueChange(4);
+            PlayerAttackBase.RequestPowerValueChange(-4);
+            DropManager.RequestDrop(DropType.FullPower, dropPositon);
         }
     }
 }

@@ -22,9 +22,10 @@ namespace Game.Danmaku
         Rain,
         Flower,
         HomingAndScatterCircle,
-        FallingCircle,
+        FlowerAndCircle,
         OrbitCircle,
         Tornado,
         CircleAndHalfMoon,
+        FallingPetals,
     }
 }

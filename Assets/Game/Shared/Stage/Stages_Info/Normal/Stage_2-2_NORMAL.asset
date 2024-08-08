@@ -357,7 +357,10 @@ MonoBehaviour:
     type: 0
     bossHealthInfo:
     - barHealth: 300
-      possibleDrops: []
+      possibleDrops:
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
     - barHealth: 350
       possibleDrops:
       - dropType: 3
@@ -385,8 +388,8 @@ MonoBehaviour:
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 10
-        shotSpeed: 0.7
+        timesToShoot: 8
+        shotSpeed: 0.6
         shotSpeedReduction: -0.05
         shotDelay: 0.5
         shotStartDelay: 1
@@ -427,5 +430,5 @@ MonoBehaviour:
         timesToShoot: 20
         shotSpeed: 1
         shotSpeedReduction: 0
-        shotDelay: 7.5
+        shotDelay: 5.5
         shotStartDelay: 2

@@ -503,7 +503,7 @@ MonoBehaviour:
       shotSpeedReduction: 0
       shotDelay: 0.1
       shotStartDelay: 1
-  - enemyType: 2
+  - enemyType: 1
     initialPosition:
       enemyInitialPositionX: 0
       enemyInitialPositionY: 4
@@ -523,9 +523,9 @@ MonoBehaviour:
     - dropType: 3
       dropChance: 1
       timesToDrop: 2
-    enemyHealth: 10
-    enemyAmount: 8
-    enemySpawnDelay: 0.3
+    enemyHealth: 8
+    enemyAmount: 2
+    enemySpawnDelay: 0.5
     waveInitialDelay: 4
     isAsyncWave: 0
     attackInfo:
@@ -562,7 +562,7 @@ MonoBehaviour:
     enemyHealth: 30
     enemyAmount: 1
     enemySpawnDelay: 0
-    waveInitialDelay: 3
+    waveInitialDelay: 7
     isAsyncWave: 1
     attackInfo:
       attackPattern: 5
@@ -570,7 +570,7 @@ MonoBehaviour:
       isAimed: 0
       isInfiniteLoop: 0
       timesToLoop: 5
-      timesToShoot: 6
+      timesToShoot: 3
       shotSpeed: 0.65
       shotSpeedReduction: 0
       shotDelay: 0.1
@@ -598,7 +598,7 @@ MonoBehaviour:
     enemyHealth: 30
     enemyAmount: 1
     enemySpawnDelay: 0
-    waveInitialDelay: 3
+    waveInitialDelay: 8
     isAsyncWave: 1
     attackInfo:
       attackPattern: 5
@@ -606,7 +606,7 @@ MonoBehaviour:
       isAimed: 0
       isInfiniteLoop: 0
       timesToLoop: 5
-      timesToShoot: 6
+      timesToShoot: 3
       shotSpeed: 0.65
       shotSpeedReduction: 0
       shotDelay: 0.1
@@ -634,7 +634,7 @@ MonoBehaviour:
     enemyHealth: 30
     enemyAmount: 1
     enemySpawnDelay: 0
-    waveInitialDelay: 3
+    waveInitialDelay: 8
     isAsyncWave: 0
     attackInfo:
       attackPattern: 5
@@ -642,7 +642,7 @@ MonoBehaviour:
       isAimed: 0
       isInfiniteLoop: 0
       timesToLoop: 5
-      timesToShoot: 6
+      timesToShoot: 3
       shotSpeed: 0.65
       shotSpeedReduction: 0
       shotDelay: 0.1
@@ -655,7 +655,7 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 10
-    - barHealth: 375
+    - barHealth: 300
       possibleDrops:
       - dropType: 0
         dropChance: 1
@@ -663,7 +663,7 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 10
-    - barHealth: 325
+    - barHealth: 300
       possibleDrops:
       - dropType: 3
         dropChance: 1
@@ -684,7 +684,7 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 10
-    - barHealth: 400
+    - barHealth: 450
       possibleDrops:
       - dropType: 0
         dropChance: 1
@@ -707,17 +707,17 @@ MonoBehaviour:
         shotDelay: 2
         shotStartDelay: 1.25
     - hasMovement: 1
-      movementDelay: 10
+      movementDelay: 3.5
       attackInfo:
-        attackPattern: 20
+        attackPattern: 23
         projectileType: 6
-        isAimed: 0
+        isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 3
-        shotSpeed: 0.65
+        timesToShoot: 2
+        shotSpeed: 0.5
         shotSpeedReduction: -0.15
-        shotDelay: 0.75
+        shotDelay: 0.5
         shotStartDelay: 2
     - hasMovement: 1
       movementDelay: 3
@@ -758,16 +758,16 @@ MonoBehaviour:
         shotSpeedReduction: 0
         shotDelay: 0.1
         shotStartDelay: 2
-    - hasMovement: 1
-      movementDelay: 3.5
+    - hasMovement: 0
+      movementDelay: 0
       attackInfo:
-        attackPattern: 23
-        projectileType: 6
-        isAimed: 1
+        attackPattern: 20
+        projectileType: 12
+        isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 2
+        timesToShoot: 16
         shotSpeed: 0.5
-        shotSpeedReduction: -0.15
-        shotDelay: 0.5
+        shotSpeedReduction: 0
+        shotDelay: 0.225
         shotStartDelay: 2

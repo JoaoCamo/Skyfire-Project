@@ -10,6 +10,7 @@ namespace Game.Danmaku.Patterns
     {
         private readonly List<ProjectileBase> projectiles = new List<ProjectileBase>();
         private Coroutine _orbitCoroutine;
+        private bool _orbitDirection = true;
         private bool _canOrbit = false;
 
         public override IEnumerator Shoot()
@@ -48,6 +49,8 @@ namespace Game.Danmaku.Patterns
 
                 StopOrbit();
 
+                _orbitDirection = !_orbitDirection;
+
                 yield return delay;
             }
         }
@@ -77,11 +80,14 @@ namespace Game.Danmaku.Patterns
         private IEnumerator Orbit()
         {
             WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
+            float angleStep;
 
             while (_canOrbit)
             {
+                angleStep = _orbitDirection ? 1f : -1f;
+
                 foreach (ProjectileBase projectile in projectiles)
-                    projectile.transform.Rotate(0, 0, 1f);
+                    projectile.transform.Rotate(0, 0, angleStep);
 
                 yield return waitForFixedUpdate;
             }

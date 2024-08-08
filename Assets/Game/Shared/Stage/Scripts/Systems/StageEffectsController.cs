@@ -78,6 +78,7 @@ namespace Game.Gameplay.StageEffects
             
             yield return _audioFadeDelay;
 
+            audioSource.Stop();
             audioSource.clip = clip;
             audioSource.Play();
             

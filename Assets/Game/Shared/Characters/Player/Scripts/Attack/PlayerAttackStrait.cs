@@ -8,7 +8,7 @@ namespace Game.Player
     {
         private readonly WaitForSeconds _primaryShotDelay = new WaitForSeconds(0.075f);
         private readonly WaitForSeconds _secondaryShotDelay = new WaitForSeconds(0.125f);
-        protected new WaitForSeconds _bombCooldown = new WaitForSeconds(10);
+        protected new WaitForSeconds _bombCooldown = new WaitForSeconds(12.5f);
 
         protected override IEnumerator PrimaryShot()
         {
@@ -47,14 +47,10 @@ namespace Game.Player
 
         protected override IEnumerator FireBombs()
         {
-            _canShoot = false;
-
             SoundEffectController.RequestSfx?.Invoke(SfxTypes.PlayerShoot);
-            PlayerBombBeam bomb =  Instantiate(playerBombPrefab, transform).GetComponent<PlayerBombBeam>();
+            PlayerBombShield bomb =  Instantiate(playerBombPrefab, transform.position, Quaternion.identity).GetComponent<PlayerBombShield>();
 
-            yield return StartCoroutine(bomb.StartBeam());
-
-            _canShoot = true;
+            yield return StartCoroutine(bomb.StartShield());
         }
 
         private void SecondaryShotNormal()

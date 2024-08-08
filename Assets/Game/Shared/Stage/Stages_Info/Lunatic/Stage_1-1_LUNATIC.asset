@@ -19,5 +19,95 @@ MonoBehaviour:
   enemyWaves: []
   bossInfo:
     type: 0
-    bossHealthInfo: []
-    bossAttackInfo: []
+    bossHealthInfo:
+    - barHealth: 10
+      possibleDrops: []
+    - barHealth: 10
+      possibleDrops: []
+    - barHealth: 10
+      possibleDrops: []
+    - barHealth: 10
+      possibleDrops: []
+    - barHealth: 10
+      possibleDrops: []
+    - barHealth: 10
+      possibleDrops: []
+    bossAttackInfo:
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 0
+        projectileType: 0
+        isAimed: 0
+        isInfiniteLoop: 0
+        timesToLoop: 0
+        timesToShoot: 0
+        shotSpeed: 0
+        shotSpeedReduction: 0
+        shotDelay: 0
+        shotStartDelay: 0
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 0
+        projectileType: 0
+        isAimed: 0
+        isInfiniteLoop: 0
+        timesToLoop: 0
+        timesToShoot: 0
+        shotSpeed: 0
+        shotSpeedReduction: 0
+        shotDelay: 0
+        shotStartDelay: 0
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 0
+        projectileType: 0
+        isAimed: 0
+        isInfiniteLoop: 0
+        timesToLoop: 0
+        timesToShoot: 0
+        shotSpeed: 0
+        shotSpeedReduction: 0
+        shotDelay: 0
+        shotStartDelay: 0
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 0
+        projectileType: 0
+        isAimed: 0
+        isInfiniteLoop: 0
+        timesToLoop: 0
+        timesToShoot: 0
+        shotSpeed: 0
+        shotSpeedReduction: 0
+        shotDelay: 0
+        shotStartDelay: 0
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 0
+        projectileType: 0
+        isAimed: 0
+        isInfiniteLoop: 0
+        timesToLoop: 0
+        timesToShoot: 0
+        shotSpeed: 0
+        shotSpeedReduction: 0
+        shotDelay: 0
+        shotStartDelay: 0
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 0
+        projectileType: 0
+        isAimed: 0
+        isInfiniteLoop: 0
+        timesToLoop: 0
+        timesToShoot: 0
+        shotSpeed: 0
+        shotSpeedReduction: 0
+        shotDelay: 0
+        shotStartDelay: 0

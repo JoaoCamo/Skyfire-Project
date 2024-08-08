@@ -4,7 +4,7 @@ using DG.Tweening;
 
 namespace Game.Animation
 {
-    public class BeamAnimation : MonoBehaviour
+    public class ShieldAnimation : MonoBehaviour
     {
         [SerializeField] private Sprite[] firstStageSprites;
         [SerializeField] private Sprite[] secondStageSprites;
@@ -31,7 +31,7 @@ namespace Game.Animation
             float durationFirstStage = (1f / framesPerSecondFirstStage) * firstStageSprites.Length;
             float durationThirdStage = (1f / framesPerSecondThirdStage) * thirdStageSprites.Length;
 
-            beamColliderTransform.DOScaleY(1, durationFirstStage);
+            beamColliderTransform.DOScale(1, durationFirstStage);
 
             foreach (Sprite sprite in firstStageSprites)
             {
@@ -41,14 +41,11 @@ namespace Game.Animation
 
             for (int i = 0; i < timesToRepeatSecondStage; i++)
             {
-                foreach (Sprite sprite in secondStageSprites)
-                {
-                    _spriteRenderer.sprite = sprite;
-                    yield return secondStageDelay;
-                }
+                _spriteRenderer.sprite = secondStageSprites[Random.Range(0,secondStageSprites.Length)];
+                yield return secondStageDelay;
             }
 
-            beamColliderTransform.DOScaleY(0, durationThirdStage);
+            beamColliderTransform.DOScale(0, durationThirdStage);
 
             foreach (Sprite sprite in thirdStageSprites)
             {

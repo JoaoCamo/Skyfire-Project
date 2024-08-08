@@ -34,7 +34,7 @@ namespace Game.Enemy.Boss
         {
             if (other.gameObject.layer != PLAYER_PROJECTILE_LAYER && other.gameObject.layer != PLAYER_BOMB_LAYER) return;
 
-            ReceiveDamage(other.gameObject.layer == PLAYER_PROJECTILE_LAYER ? 1 : 20);
+            ReceiveDamage(other.gameObject.layer == PLAYER_PROJECTILE_LAYER ? 1 : 30);
 
             if (other.gameObject.layer == PLAYER_PROJECTILE_LAYER)
                 other.gameObject.SetActive(false);

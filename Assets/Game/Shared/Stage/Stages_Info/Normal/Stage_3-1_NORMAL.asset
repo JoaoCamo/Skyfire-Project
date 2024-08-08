@@ -453,7 +453,13 @@ MonoBehaviour:
     type: 0
     bossHealthInfo:
     - barHealth: 375
-      possibleDrops: []
+      possibleDrops:
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 5
     - barHealth: 425
       possibleDrops:
       - dropType: 3

@@ -16,9 +16,6 @@ namespace Game.Player
         private bool _canExplode = true;
         private float _animationDuration;
         private WaitForSeconds _animationDelay;
-        
-        private const int ENEMY_LAYER = 8;
-        private const int ENEMY_PROJECTILE_LAYER = 9;
 
         private readonly WaitForSeconds _bombDelay = new WaitForSeconds(1);
 
@@ -33,13 +30,6 @@ namespace Game.Player
             _animationDelay = new WaitForSeconds(_animationDuration);
             _rigidbody2D.velocity = new Vector2(0, 1f);
             StartCoroutine(BombCoroutine());
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.layer == ENEMY_LAYER || other.gameObject.layer == ENEMY_PROJECTILE_LAYER)
-                if(_canExplode)
-                    StartCoroutine(Explode());
         }
 
         private IEnumerator BombCoroutine()

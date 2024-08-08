@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc11decb8fc659419ac8e3edcfb124b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBombPrefab: {fileID: 2460864675217973346, guid: d79e043fe75defc44b530a56b2ba9723, type: 3}
+  playerBombPrefab: {fileID: 2147207127477033909, guid: 6861ca7cf4db3d5418cd4e55973ccf34, type: 3}
   projectileTypePrimary: 1
   projectileTypeSecondary: 3
 --- !u!114 &8925077327150331220

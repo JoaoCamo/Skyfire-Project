@@ -500,8 +500,8 @@ MonoBehaviour:
         shotSpeedReduction: 0
         shotDelay: 0.1
         shotStartDelay: 2
-    - hasMovement: 1
-      movementDelay: 6
+    - hasMovement: 0
+      movementDelay: 0
       attackInfo:
         attackPattern: 8
         projectileType: 4

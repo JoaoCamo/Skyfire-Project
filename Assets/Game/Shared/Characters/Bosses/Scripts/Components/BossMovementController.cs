@@ -11,8 +11,8 @@ namespace Game.Enemy.Boss
         private readonly WaitForSeconds _returnToCentralPositionDelay = new WaitForSeconds(1);
         private readonly WaitForSeconds _movementDurationDelay = new WaitForSeconds(2);
             
-        private const float X_MIN_POSITION = -0.5f;
-        private const float X_MAX_POSITION = 0.5f;
+        private const float X_MIN_POSITION = -0.25f;
+        private const float X_MAX_POSITION = 0.25f;
         private const float Y_MIN_POSITION = 0.3f;
         private const float Y_MAX_POSITION = 0.8f;
         
