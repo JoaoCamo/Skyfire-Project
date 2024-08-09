@@ -27,5 +27,13 @@ namespace Game.Danmaku
         Tornado,
         CircleAndHalfMoon,
         FallingPetals,
+        BulletCorridor,
+        BulletSpiral,
+        CircleSlowdown,
+        BorderOfWaveAndParticle,
+        DoubleCircle,
+        ClosingCircle,
+        RoundShotProgressiveBoss,
+        DoubleCircleSlowdown,
     }
 }

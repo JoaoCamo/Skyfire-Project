@@ -37,4 +37,4 @@ MonoBehaviour:
   - audioClips:
     - {fileID: 8300000, guid: 5a0f3b0b72e34b0459411ebb0526283e, type: 3}
     - {fileID: 8300000, guid: d82931b34413e304b83b3d9ef84144a9, type: 3}
-    volume: 0.75
+    volume: 0.5

@@ -5,27 +5,28 @@ using Game.Audio;
 
 namespace Game.Danmaku.Patterns
 {
-    public class FlowerShot : DanmakuBase
+    public class BulletCorridorShot : DanmakuBase
     {
         public override IEnumerator Shoot()
         {
             WaitForSeconds delay = new WaitForSeconds(shotDelay);
+            WaitForSeconds innerDelay = new WaitForSeconds(0.1f);
             float speed;
-            float angleClockwise;
-            float angleCounterClockwise;
+            float angle;
             float innerAngle;
+            bool invertAngle;
 
             timesToLoop = isInfiniteLoop ? 999999 : timesToLoop;
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                angleClockwise = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0, 360);
-                angleCounterClockwise = angleClockwise;
+                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 0;
                 speed = shotSpeed;
+                invertAngle = false;
 
                 for (int j = 0; j < 36; j++)
                 {
-                    innerAngle = angleClockwise;
+                    innerAngle = angle;
                     speed += shotSpeedReduction;
 
                     for (int k = 0; k < timesToShoot; k++)
@@ -34,20 +35,16 @@ namespace Game.Danmaku.Patterns
                         innerAngle += 360f / timesToShoot;
                     }
 
-                    innerAngle = angleCounterClockwise;
+                    angle += invertAngle ? 2f : -2f;
 
-                    for (int k = 0; k < timesToShoot; k++)
-                    {
-                        enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, innerAngle);
-                        innerAngle += 360f / timesToShoot;
-                    }
-
-                    angleClockwise += 10;
-                    angleCounterClockwise -= 10;
+                    if (j % 18 == 0)
+                        invertAngle = !invertAngle;
 
                     SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
-                    yield return delay;
+                    yield return innerDelay;
                 }
+
+                yield return delay;
             }
         }
     }

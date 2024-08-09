@@ -17,7 +17,7 @@ namespace Game.Animation
 
         private IEnumerator ShockwaveCoroutine(float radius)
         {
-            transform.DOScale(radius, 1).SetEase(Ease.Linear);
+            transform.DOScale(radius, 0.75f).SetEase(Ease.Linear);
 
             yield return _delay;
 

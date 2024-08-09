@@ -362,19 +362,94 @@ MonoBehaviour:
   bossInfo:
     type: 0
     bossHealthInfo:
-    - barHealth: 10
+    - barHealth: 300
+      possibleDrops: []
+    - barHealth: 375
+      possibleDrops: []
+    - barHealth: 325
+      possibleDrops: []
+    - barHealth: 475
+      possibleDrops: []
+    - barHealth: 350
+      possibleDrops: []
+    - barHealth: 450
       possibleDrops: []
     bossAttackInfo:
+    - hasMovement: 1
+      movementDelay: 2
+      attackInfo:
+        attackPattern: 24
+        projectileType: 12
+        isAimed: 0
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 6
+        shotSpeed: 0.6
+        shotSpeedReduction: 0
+        shotDelay: 0.1
+        shotStartDelay: 1
     - hasMovement: 0
       movementDelay: 0
       attackInfo:
-        attackPattern: 0
-        projectileType: 0
-        isAimed: 0
-        isInfiniteLoop: 0
+        attackPattern: 25
+        projectileType: 10
+        isAimed: 1
+        isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 0
-        shotSpeed: 0
+        timesToShoot: 32
+        shotSpeed: 0.7
         shotSpeedReduction: 0
-        shotDelay: 0
-        shotStartDelay: 0
+        shotDelay: 0.75
+        shotStartDelay: 2
+    - hasMovement: 1
+      movementDelay: 2
+      attackInfo:
+        attackPattern: 24
+        projectileType: 12
+        isAimed: 0
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 7
+        shotSpeed: 0.65
+        shotSpeedReduction: 0
+        shotDelay: 0.05
+        shotStartDelay: 1
+    - hasMovement: 1
+      movementDelay: 4
+      attackInfo:
+        attackPattern: 26
+        projectileType: 8
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 15
+        shotSpeed: 0.3
+        shotSpeedReduction: 0
+        shotDelay: 4
+        shotStartDelay: 2
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 27
+        projectileType: 7
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 36
+        shotSpeed: 1
+        shotSpeedReduction: 0.15
+        shotDelay: 0.4
+        shotStartDelay: 2
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 28
+        projectileType: 12
+        isAimed: 0
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 4
+        shotSpeed: 0.5
+        shotSpeedReduction: 0
+        shotDelay: 0.025
+        shotStartDelay: 2

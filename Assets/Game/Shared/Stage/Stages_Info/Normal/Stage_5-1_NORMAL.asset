@@ -382,14 +382,14 @@ MonoBehaviour:
       shotStartDelay: 0.75
   - enemyType: 0
     initialPosition:
-      enemyInitialPositionX: 5
+      enemyInitialPositionX: 1
       enemyInitialPositionY: 0
     movementInfo:
-      movementDirection: {x: -0.35, y: -1.25}
+      movementDirection: {x: 0.35, y: -1.25}
       movementChangeInfo:
       - changeDelay: 0.5
         changeDuration: 0.25
-        movementDirection: {x: -0.85, y: 0}
+        movementDirection: {x: 0.85, y: 0}
     possibleDrops:
     - dropType: 0
       dropChance: 1

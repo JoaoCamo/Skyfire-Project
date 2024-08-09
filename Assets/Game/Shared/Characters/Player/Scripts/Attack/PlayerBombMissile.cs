@@ -17,7 +17,7 @@ namespace Game.Player
         private float _animationDuration;
         private WaitForSeconds _animationDelay;
 
-        private readonly WaitForSeconds _bombDelay = new WaitForSeconds(1);
+        private readonly WaitForSeconds _bombDelay = new WaitForSeconds(0.75f);
 
         private void Awake()
         {

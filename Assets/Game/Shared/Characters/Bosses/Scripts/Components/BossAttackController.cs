@@ -29,15 +29,7 @@ namespace Game.Enemy.Boss
         {
             StopAttack();
 
-            switch(_bossAttackInfo[attackIndex].hasMovement)
-            {
-                case true:
-                    StartCoroutine(_movementController.StartRandomMovement(_bossAttackInfo[attackIndex].movementDelay));
-                    break;
-                case false:
-                    _movementController.ReturnToCentralPosition();
-                    break;
-            }
+            _movementController.ReturnToCentralPosition();
 
             EnemyAttackPatterns attackPattern = _bossAttackInfo[attackIndex].attackInfo.attackPattern;
 
@@ -45,6 +37,9 @@ namespace Game.Enemy.Boss
             _attackBase.SetShot(_bossAttackInfo[attackIndex].attackInfo, _enemyProjectileManager);
 
             yield return new WaitForSeconds(_bossAttackInfo[attackIndex].attackInfo.shotStartDelay);
+
+            if (_bossAttackInfo[attackIndex].hasMovement)
+                StartCoroutine(_movementController.StartRandomMovement(_bossAttackInfo[attackIndex].movementDelay));
 
             _attackCoroutine = StartCoroutine(_attackBase.Shoot());
 

@@ -117,7 +117,7 @@ MonoBehaviour:
   framesPerSecondFirstStage: 12
   framesPerSecondSecondStage: 8
   framesPerSecondThirdStage: 12
-  timesToRepeatSecondStage: 40
+  timesToRepeatSecondStage: 30
   beamColliderTransform: {fileID: 6318280869999918170}
 --- !u!1 &2147207127477033909
 GameObject:
