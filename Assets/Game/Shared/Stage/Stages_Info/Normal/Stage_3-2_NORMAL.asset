@@ -308,7 +308,7 @@ MonoBehaviour:
       dropChance: 1
       timesToDrop: 3
     enemyHealth: 40
-    enemyAmount: 2
+    enemyAmount: 3
     enemySpawnDelay: 0.15
     waveInitialDelay: 5
     isAsyncWave: 1
@@ -420,7 +420,7 @@ MonoBehaviour:
         timesToLoop: 0
         timesToShoot: 6
         shotSpeed: 0.65
-        shotSpeedReduction: 0
+        shotSpeedReduction: 0.55
         shotDelay: 0.5
         shotStartDelay: 2
     - hasMovement: 1

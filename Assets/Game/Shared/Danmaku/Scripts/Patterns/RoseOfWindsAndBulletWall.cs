@@ -6,17 +6,16 @@ using Game.Audio;
 
 namespace Game.Danmaku.Patterns
 {
-    public class RoseOfWindsAndCircleShot : DanmakuBase
+    public class RoseOfWindsAndBulletWall : DanmakuBase
     {
         private readonly List<ProjectileBase> projectiles = new List<ProjectileBase>();
-        private Coroutine roseOfWindsCoroutine;
+        private Coroutine roseOfWindsCoroutine = null;
         private bool _updateRoseOfWinds = false;
 
         public override IEnumerator Shoot()
         {
             WaitForSeconds delay = new WaitForSeconds(shotDelay);
-            WaitForSeconds innerDelay = new WaitForSeconds(0.05f);
-            WaitForSeconds stopRoseOfWindsDelay = new WaitForSeconds(2f);
+            WaitForSeconds innerDelay = new WaitForSeconds(0.075f);
             float angle;
 
             timesToLoop = isInfiniteLoop ? 999999 : timesToLoop;
@@ -30,19 +29,17 @@ namespace Game.Danmaku.Patterns
                 StartRoseOfWinds();
                 angle = Random.Range(0, 360);
 
-                for (int j = 0; j < 36; j++)
+                for (int j = 0; j < 50; j++)
                 {
                     for (int k = 0; k < timesToShoot; k++)
                     {
-                        projectiles.Add(enemyProjectileManager.GetFireProjectile(projectileType, transform.position, 0.5f, angle));
+                        projectiles.Add(enemyProjectileManager.GetFireProjectile(projectileType, transform.position, shotSpeed, angle));
                         angle += 360f / timesToShoot;
                     }
 
                     SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
                     yield return innerDelay;
                 }
-
-                yield return stopRoseOfWindsDelay;
 
                 StopRoseOfWinds();
 
@@ -54,27 +51,32 @@ namespace Game.Danmaku.Patterns
 
         private IEnumerator SecondaryShot()
         {
-            WaitForSeconds delay = new WaitForSeconds(1f);
-            float angle;
+            WaitForSeconds delay = new WaitForSeconds(1.5f);
+            WaitForSeconds innerDelay = new WaitForSeconds(0.075f);
+            int timesToFire = timesToShoot * 2;
+            float angleStep = 360f / timesToFire;
+            float angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, (90 - (angleStep / 2))) : Random.Range(0, 360);
+            float innerAngle;
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0, 360);
+                innerAngle = angle;
 
-                for (int j = 0; j < 18; j++)
+                for (int k = 0; k < timesToFire; k++)
                 {
-                    enemyProjectileManager.FireProjectile(ProjectileType.EnemyOrbBigGreen, transform.position, shotSpeed, angle);
-                    angle += 360f / 18;
+                    enemyProjectileManager.GetFireProjectile(ProjectileType.EnemyBulletTwoBlue, transform.position, 1.25f, innerAngle);
+                    innerAngle += angleStep;
                 }
 
                 SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
-                yield return delay;
+
+                yield return innerDelay;
             }
         }
 
         private void StartRoseOfWinds()
         {
-            if(roseOfWindsCoroutine != null)
+            if (roseOfWindsCoroutine != null)
             {
                 StopCoroutine(roseOfWindsCoroutine);
                 roseOfWindsCoroutine = null;
@@ -85,7 +87,7 @@ namespace Game.Danmaku.Patterns
 
         private void StopRoseOfWinds()
         {
-            if(roseOfWindsCoroutine != null)
+            if (roseOfWindsCoroutine != null)
             {
                 StopCoroutine(roseOfWindsCoroutine);
                 roseOfWindsCoroutine = null;
@@ -101,7 +103,7 @@ namespace Game.Danmaku.Patterns
         {
             WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
 
-            while(_updateRoseOfWinds)
+            while (_updateRoseOfWinds)
             {
                 foreach (ProjectileBase projectile in projectiles)
                     projectile.transform.Rotate(0, 0, 3.5f);

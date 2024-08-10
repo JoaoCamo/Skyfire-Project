@@ -14,8 +14,8 @@ namespace Game.Danmaku.Patterns
         {
             List<ProjectileBase> projectiles = new List<ProjectileBase>();
             WaitForSeconds delay = new WaitForSeconds(shotDelay);
-            Vector2 originPositionLeft = new Vector2(-0.3f, 0.5f);
-            Vector2 originPositionRight = new Vector2(0.3f, 0.5f);
+            Vector2 originPositionLeft = new Vector2(-0.3f, transform.position.y);
+            Vector2 originPositionRight = new Vector2(0.3f, transform.position.y);
             float angleLeft;
             float angleRight;
             float speed = shotSpeed;

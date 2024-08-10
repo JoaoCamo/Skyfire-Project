@@ -20,19 +20,24 @@ namespace Game.Danmaku.Patterns
             for (int i = 0; i < timesToLoop; i++)
             {
                 angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 0;
-                speed = shotSpeed;
 
-                for (int j = 0; j < 36; j++)
+                for (int j = 0; j < 27; j++)
                 {
                     innerAngle = angle;
-                    speed += shotSpeedReduction;
 
                     for (int k = 0; k < timesToShoot; k++)
                     {
-                        enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, innerAngle);
+                        speed = shotSpeed;
+
+                        for (int l = 0; l < 2; l++)
+                        {
+                            enemyProjectileManager.FireProjectile(projectileType, transform.position, speed, innerAngle);
+                            speed += shotSpeedReduction;
+                        }
+                        
                         innerAngle += 360f / timesToShoot;
                     }
-                    angle += 360f / 36f;
+                    angle += 5;
 
                     SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
                     yield return innerDelay;

@@ -65,24 +65,25 @@ namespace Game.Danmaku.Patterns
         {
             WaitForSeconds delay = new WaitForSeconds(1.5f);
             WaitForSeconds innerDelay = new WaitForSeconds(0.1f);
+            int timesToFire = timesToShoot / 2;
             float angle;
             float innerAngle;
-            int timesToFire = timesToShoot / 2;
+            float angleStep = 360f / timesToFire;
 
             for (int i = 0; i < timesToLoop; i++)
             {
                 yield return delay;
 
-                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, 60) : Random.Range(0, 360);
+                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, (90 - (angleStep / 2))) : Random.Range(0, 360);
 
-                for (int j = 0; j < 60; j++)
+                for (int j = 0; j < 90; j++)
                 {
                     innerAngle = angle;
 
                     for (int k = 0; k < timesToFire; k++)
                     {
                         enemyProjectileManager.GetFireProjectile(ProjectileType.EnemyBulletTwoBlue, transform.position, 1.25f, innerAngle);
-                        innerAngle += 20;
+                        innerAngle += angleStep;
                     }
 
                     SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);

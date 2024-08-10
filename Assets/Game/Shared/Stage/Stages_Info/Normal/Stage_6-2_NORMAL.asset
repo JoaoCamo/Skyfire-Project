@@ -125,19 +125,220 @@ MonoBehaviour:
   bossInfo:
     type: 0
     bossHealthInfo:
-    - barHealth: 10
-      possibleDrops: []
+    - barHealth: 325
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 5
+    - barHealth: 375
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 5
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 1
+        dropChance: 1
+        timesToDrop: 1
+    - barHealth: 275
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 5
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
+    - barHealth: 400
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
+    - barHealth: 325
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 5
+    - barHealth: 400
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 5
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 1
+        dropChance: 1
+        timesToDrop: 1
+    - barHealth: 325
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 5
+    - barHealth: 400
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 5
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 1
+        dropChance: 1
+        timesToDrop: 1
+    - barHealth: 325
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 5
+    - barHealth: 500
+      possibleDrops:
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 25
     bossAttackInfo:
     - hasMovement: 0
       movementDelay: 0
       attackInfo:
-        attackPattern: 0
-        projectileType: 0
-        isAimed: 0
-        isInfiniteLoop: 0
+        attackPattern: 29
+        projectileType: 7
+        isAimed: 1
+        isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 0
-        shotSpeed: 0
+        timesToShoot: 36
+        shotSpeed: 0.4
         shotSpeedReduction: 0
-        shotDelay: 0
-        shotStartDelay: 0
+        shotDelay: 0.3
+        shotStartDelay: 1
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 34
+        projectileType: 11
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 8
+        shotSpeed: 0.6
+        shotSpeedReduction: 0.35
+        shotDelay: 1.25
+        shotStartDelay: 1
+    - hasMovement: 1
+      movementDelay: 2.25
+      attackInfo:
+        attackPattern: 31
+        projectileType: 10
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 9
+        shotSpeed: 0.3
+        shotSpeedReduction: 0.6
+        shotDelay: 2.5
+        shotStartDelay: 2
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 32
+        projectileType: 10
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 36
+        shotSpeed: 1.25
+        shotSpeedReduction: 0.1
+        shotDelay: 1
+        shotStartDelay: 2
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 29
+        projectileType: 7
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 36
+        shotSpeed: 0.5
+        shotSpeedReduction: 0
+        shotDelay: 0.3
+        shotStartDelay: 1
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 30
+        projectileType: 11
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 36
+        shotSpeed: 0.3
+        shotSpeedReduction: 0.2
+        shotDelay: 0.75
+        shotStartDelay: 2
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 33
+        projectileType: 16
+        isAimed: 0
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 8
+        shotSpeed: 0.8
+        shotSpeedReduction: 0.075
+        shotDelay: 0.25
+        shotStartDelay: 2
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 28
+        projectileType: 12
+        isAimed: 0
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 6
+        shotSpeed: 0.6
+        shotSpeedReduction: 0.25
+        shotDelay: 0.025
+        shotStartDelay: 2
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 35
+        projectileType: 10
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 9
+        shotSpeed: 1.5
+        shotSpeedReduction: 0.75
+        shotDelay: 0.15
+        shotStartDelay: 2
+    - hasMovement: 0
+      movementDelay: 0
+      attackInfo:
+        attackPattern: 36
+        projectileType: 5
+        isAimed: 1
+        isInfiniteLoop: 1
+        timesToLoop: 0
+        timesToShoot: 8
+        shotSpeed: 0.3
+        shotSpeedReduction: 0.5
+        shotDelay: 0.2
+        shotStartDelay: 2

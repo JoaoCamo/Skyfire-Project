@@ -31,7 +31,7 @@ namespace Game.Danmaku.Patterns
                 }
 
                 SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
-                angleStep += 0.2f;
+                angleStep += shotSpeedReduction;
 
                 yield return delay;
             }

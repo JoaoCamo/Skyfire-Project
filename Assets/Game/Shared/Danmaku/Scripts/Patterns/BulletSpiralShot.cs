@@ -44,7 +44,7 @@ namespace Game.Danmaku.Patterns
             }
         }
 
-        public static float AimAtTarget(Vector3 originPosition, Vector3 targetPosition, float angleCorrection = 90)
+        private float AimAtTarget(Vector3 originPosition, Vector3 targetPosition, float angleCorrection = 90)
         {
             Vector2 vectorToTarget = targetPosition - originPosition;
             return Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - angleCorrection;

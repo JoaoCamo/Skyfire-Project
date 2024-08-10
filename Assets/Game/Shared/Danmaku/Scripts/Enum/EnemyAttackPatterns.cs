@@ -35,5 +35,9 @@ namespace Game.Danmaku
         ClosingCircle,
         RoundShotProgressiveBoss,
         DoubleCircleSlowdown,
+        ProgressiveRoundReturn,
+        RoseOfWindsAndBulletWall,
+        HomingAndBulletWall,
+        LastWord
     }
 }
