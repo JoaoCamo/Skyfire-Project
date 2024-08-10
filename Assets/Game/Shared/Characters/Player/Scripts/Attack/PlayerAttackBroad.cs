@@ -7,7 +7,7 @@ namespace Game.Player
     public class PlayerAttackBroad : PlayerAttackBase
     {
         private readonly WaitForSeconds _primaryShotDelay = new WaitForSeconds(0.075f);
-        private readonly WaitForSeconds _secondaryShotDelay = new WaitForSeconds(0.1f);
+        private readonly WaitForSeconds _secondaryShotDelay = new WaitForSeconds(0.15f);
         private readonly WaitForSeconds _bombDelay = new WaitForSeconds(0.5f);
 
         protected override IEnumerator PrimaryShot()

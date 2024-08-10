@@ -252,10 +252,10 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 5
-      timesToShoot: 6
+      timesToShoot: 8
       shotSpeed: 0.7
       shotSpeedReduction: 0
-      shotDelay: 0.15
+      shotDelay: 0.1
       shotStartDelay: 2
   - enemyType: 2
     initialPosition:
@@ -288,10 +288,10 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 5
-      timesToShoot: 6
+      timesToShoot: 8
       shotSpeed: 0.7
       shotSpeedReduction: 0
-      shotDelay: 0.15
+      shotDelay: 0.1
       shotStartDelay: 2
   - enemyType: 0
     initialPosition:

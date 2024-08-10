@@ -82,14 +82,15 @@ namespace Game.Gameplay.UI
 
         private void GetHighScore()
         {
-            highScoreText.text = GameDataManager.GetHighScore(GameInfo.PlayerType).ToString();
+
+            GameInfo.CurrentHighScore = GameDataManager.GetHighScore(GameInfo.PlayerType);
+            highScoreText.text = GameInfo.CurrentHighScore.ToString();
         }
 
         private void ResetScore()
         {
             _scoreTargetValue = 0;
             GameInfo.CurrentScore = 0;
-            GameInfo.CurrentHighScore = 0;
             currentScoreText.text = GameInfo.CurrentScore.ToString();
             GetHighScore();
         }

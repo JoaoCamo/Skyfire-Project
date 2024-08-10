@@ -63,9 +63,7 @@ namespace Game.Danmaku.Patterns
 
                 points.Add(new Vector2(x, y));
             }
-
-            int halfCount = numberOfPoints / 2;
-            for (int i = 0; i < halfCount; i++)
+            for (int i = 0; i < numberOfPoints; i++)
             {
                 points.Add(points[i]);
             }

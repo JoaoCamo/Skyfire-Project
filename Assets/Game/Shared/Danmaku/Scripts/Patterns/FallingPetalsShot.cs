@@ -21,7 +21,7 @@ namespace Game.Danmaku.Patterns
             for (int i = 0; i < timesToLoop; i++)
             {
                 speed = shotSpeed;
-                invertAngle = Random.value > 0.5f;
+                invertAngle = Random.value > 0.25f;
 
                 for (int j = 0; j < 9; j++)
                 {
