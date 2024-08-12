@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: BossPrefabReference
   m_EditorClassIdentifier: 
   bossPrefabs:
-  - {fileID: 3488167037898448478, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
+  - {fileID: 5036602083325498254, guid: 6f5159f3da735aa4db9624a4395d4283, type: 3}
+  - {fileID: 3616384982957940093, guid: 6a90fa5e0695be448b6d72e6c4bd6601, type: 3}
+  - {fileID: 3616384982957940093, guid: 6a90fa5e0695be448b6d72e6c4bd6601, type: 3}
+  - {fileID: 3616384982957940093, guid: 6a90fa5e0695be448b6d72e6c4bd6601, type: 3}
+  - {fileID: 3616384982957940093, guid: 6a90fa5e0695be448b6d72e6c4bd6601, type: 3}
+  - {fileID: 3616384982957940093, guid: 6a90fa5e0695be448b6d72e6c4bd6601, type: 3}
+  - {fileID: 3616384982957940093, guid: 6a90fa5e0695be448b6d72e6c4bd6601, type: 3}

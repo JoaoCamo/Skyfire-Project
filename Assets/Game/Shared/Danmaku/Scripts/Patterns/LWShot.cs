@@ -9,7 +9,7 @@ namespace Game.Danmaku.Patterns
     public class LWShot : DanmakuBase
     {
         private readonly WaitForSeconds _secondaryShotStartDelay = new WaitForSeconds(1.5f);
-        private readonly WaitForSeconds _bulletAimDelay = new WaitForSeconds(1.5f);
+        private readonly WaitForSeconds _bulletAimDelay = new WaitForSeconds(2.5f);
 
         public override IEnumerator Shoot()
         {

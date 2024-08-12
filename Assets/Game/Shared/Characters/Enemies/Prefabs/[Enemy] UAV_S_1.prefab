@@ -103,7 +103,7 @@ MonoBehaviour:
   - {fileID: 430304531, guid: fdc16ee65a29b96488f3d5489350a78c, type: 3}
   - {fileID: -1920407727, guid: fdc16ee65a29b96488f3d5489350a78c, type: 3}
   - {fileID: 835597230, guid: fdc16ee65a29b96488f3d5489350a78c, type: 3}
-  framesPerSecond: 40
+  framesPerSecond: 12
   playOnEnable: 1
 --- !u!1 &3612935112938650003
 GameObject:

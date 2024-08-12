@@ -354,7 +354,7 @@ MonoBehaviour:
       shotDelay: 0.35
       shotStartDelay: 1.25
   bossInfo:
-    type: 0
+    type: 2
     bossHealthInfo:
     - barHealth: 300
       possibleDrops:

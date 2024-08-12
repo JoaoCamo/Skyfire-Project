@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e342ddeef184fa348802fb988f5cd4a0
+guid: 7be20d0cecc780641ae5e236862288b0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,24 +93,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UAV_B_1_IDLE_0
+      name: BOSS_MID_STAGE-IDLE_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 329745b62c7a9f8489e31d48b6b72c9e
-      internalID: 784162798
+      spriteID: da5a9871e3016944381a1d8d87ce83d6
+      internalID: 1675956240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UAV_B_1_IDLE_1
+      name: BOSS_MID_STAGE-IDLE_1
       rect:
         serializedVersion: 2
         x: 65
@@ -145,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44ba2e220edbd904c90a20e329eac14c
-      internalID: -1826456150
+      spriteID: a37c957127bcd814cbae20114e8b0660
+      internalID: 1660480744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UAV_B_1_IDLE_2
+      name: BOSS_MID_STAGE-IDLE_2
       rect:
         serializedVersion: 2
         x: 130
@@ -166,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c709319f726123e45bf9de107384ed8e
-      internalID: -1977790555
+      spriteID: 6c6e9024088f94248aeb50b33a96f830
+      internalID: -132161115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UAV_B_1_IDLE_3
+      name: BOSS_MID_STAGE-IDLE_3
       rect:
         serializedVersion: 2
         x: 195
@@ -187,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd168a63a435acd4a9e8594898f35f7f
-      internalID: 848115629
+      spriteID: 83cab5a22ab9243448d5417c7c7877a1
+      internalID: -1361724679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UAV_B_1_IDLE_4
+      name: BOSS_MID_STAGE-IDLE_4
       rect:
         serializedVersion: 2
         x: 260
@@ -208,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66c894a385b540f4a82b13e6cd4dce68
-      internalID: 148751416
+      spriteID: 7d4672db47aaa6f41ad850f5ccc5463d
+      internalID: 1588298438
       vertices: []
       indices: 
       edges: []
@@ -225,11 +212,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UAV_B_1_IDLE_0: 784162798
-      UAV_B_1_IDLE_1: -1826456150
-      UAV_B_1_IDLE_2: -1977790555
-      UAV_B_1_IDLE_3: 848115629
-      UAV_B_1_IDLE_4: 148751416
+      BOSS_MID_STAGE-IDLE_0: 1675956240
+      BOSS_MID_STAGE-IDLE_1: 1660480744
+      BOSS_MID_STAGE-IDLE_2: -132161115
+      BOSS_MID_STAGE-IDLE_3: -1361724679
+      BOSS_MID_STAGE-IDLE_4: 1588298438
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
