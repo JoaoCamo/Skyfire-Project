@@ -62,7 +62,7 @@ namespace Game.Gameplay.StageEffects
             }
         }
 
-        public void StopBackgroundAnimation()
+        private void StopBackgroundAnimation()
         {
             if(_animationCoroutine != null)
             {

@@ -134,7 +134,7 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 5
-    - barHealth: 375
+    - barHealth: 450
       possibleDrops:
       - dropType: 0
         dropChance: 1
@@ -169,6 +169,25 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 5
+    - barHealth: 550
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 5
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 1
+        dropChance: 1
+        timesToDrop: 1
+    - barHealth: 375
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 5
     - barHealth: 400
       possibleDrops:
       - dropType: 0
@@ -180,7 +199,7 @@ MonoBehaviour:
       - dropType: 1
         dropChance: 1
         timesToDrop: 1
-    - barHealth: 325
+    - barHealth: 350
       possibleDrops:
       - dropType: 0
         dropChance: 1
@@ -188,26 +207,7 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 5
-    - barHealth: 400
-      possibleDrops:
-      - dropType: 0
-        dropChance: 1
-        timesToDrop: 5
-      - dropType: 3
-        dropChance: 1
-        timesToDrop: 10
-      - dropType: 1
-        dropChance: 1
-        timesToDrop: 1
-    - barHealth: 325
-      possibleDrops:
-      - dropType: 0
-        dropChance: 1
-        timesToDrop: 10
-      - dropType: 3
-        dropChance: 1
-        timesToDrop: 5
-    - barHealth: 500
+    - barHealth: 650
       possibleDrops:
       - dropType: 3
         dropChance: 1
@@ -340,6 +340,6 @@ MonoBehaviour:
         timesToLoop: 0
         timesToShoot: 8
         shotSpeed: 0.3
-        shotSpeedReduction: 0.25
+        shotSpeedReduction: 0.5
         shotDelay: 0.2
         shotStartDelay: 2
