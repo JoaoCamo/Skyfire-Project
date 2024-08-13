@@ -361,6 +361,7 @@ MonoBehaviour:
       shotStartDelay: 1
   bossInfo:
     type: 3
+    destroyWhenDefeat: 1
     bossHealthInfo:
     - barHealth: 350
       possibleDrops:

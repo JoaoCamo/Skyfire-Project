@@ -6,6 +6,7 @@ namespace Game.Enemy.Boss
     public struct BossInfo
     {
         public BossTypes type;
+        public bool destroyWhenDefeat;
         public BossHealthInfo[] bossHealthInfo;
         public BossAttackInfo[] bossAttackInfo;
     }

@@ -47,6 +47,12 @@ namespace Game.Enemy.Boss
             _randomMovementCoroutine = StartCoroutine(RandomMovement(movementDelay));
         }
 
+        public IEnumerator ReturnToInitialPosition()
+        {
+            transform.DOMove(_initialPosition, 1).SetEase(Ease.Linear);
+            yield return _returnToCentralPositionDelay;
+        }
+
         private IEnumerator RandomMovement(float movementDelay)
         {
             WaitForSeconds randomMovementDelay = new WaitForSeconds(movementDelay);

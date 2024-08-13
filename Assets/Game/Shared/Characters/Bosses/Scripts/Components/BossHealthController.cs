@@ -13,6 +13,7 @@ namespace Game.Enemy.Boss
         private BossHealthInfo[] _bossHealthInfo;
         
         private BossAttackController _attackController;
+        private BossMovementController _movementController;
 
         private BossHealthInfo _currentHealthInfo;
         private int _bossHealthBars = 0;
@@ -20,6 +21,7 @@ namespace Game.Enemy.Boss
         private int _currentHealth = 0;
         private bool _hasDroppedItems = false;
         private bool _canTakeDamage = false;
+        private bool _destroyWhenDefeat;
 
         private readonly WaitForSeconds _canTakeDamageDelay = new WaitForSeconds(1.25f);
         private const int PLAYER_PROJECTILE_LAYER = 7;
@@ -28,6 +30,7 @@ namespace Game.Enemy.Boss
         private void Awake()
         {
             _attackController = GetComponent<BossAttackController>();
+            _movementController = GetComponent<BossMovementController>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -63,7 +66,7 @@ namespace Game.Enemy.Boss
                 {
                     BossHealthUI.ToggleHealthBar(false);
                     StageController.CallNextStage();
-                    Destroy(gameObject);
+                    StartCoroutine(Defeat());
                 }
                 else
                     StartCoroutine(InitiliazeNextPhase());
@@ -111,13 +114,26 @@ namespace Game.Enemy.Boss
             _canTakeDamage = true;
         }
 
-        public void SetHealth(BossHealthInfo[] bossHealthInfo)
+        private IEnumerator Defeat()
+        {
+            if(_destroyWhenDefeat)
+                Destroy(gameObject);
+            else
+            {
+                yield return StartCoroutine(_movementController.ReturnToInitialPosition());
+                Destroy(gameObject);
+            }
+        }
+
+        public void SetHealth(BossHealthInfo[] bossHealthInfo, bool destroyWhenDefeat)
         {
             _bossHealthInfo = bossHealthInfo;
 
             _bossHealthBars = _bossHealthInfo.Length;
             _currentHealthInfo = _bossHealthInfo[_currentHealthBar];
             _currentHealth = _currentHealthInfo.barHealth;
+
+            _destroyWhenDefeat = destroyWhenDefeat;
         }
 
         public IEnumerator InitializeBoss()
