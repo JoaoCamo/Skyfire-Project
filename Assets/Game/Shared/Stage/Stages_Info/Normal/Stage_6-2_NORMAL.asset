@@ -48,7 +48,7 @@ MonoBehaviour:
       timesToShoot: 1
       shotSpeed: 0.3
       shotSpeedReduction: 0
-      shotDelay: 1.75
+      shotDelay: 1
       shotStartDelay: 0.5
   - enemyType: 1
     initialPosition:
@@ -81,7 +81,7 @@ MonoBehaviour:
       timesToShoot: 1
       shotSpeed: 0.3
       shotSpeedReduction: 0
-      shotDelay: 1.75
+      shotDelay: 1
       shotStartDelay: 0.5
   - enemyType: 2
     initialPosition:
@@ -116,11 +116,11 @@ MonoBehaviour:
       projectileType: 11
       isAimed: 0
       isInfiniteLoop: 0
-      timesToLoop: 20
-      timesToShoot: 10
-      shotSpeed: 0.8
+      timesToLoop: 30
+      timesToShoot: 20
+      shotSpeed: 2
       shotSpeedReduction: 0
-      shotDelay: 0.2
+      shotDelay: 0.05
       shotStartDelay: 1
   bossInfo:
     type: 6
@@ -236,7 +236,7 @@ MonoBehaviour:
         timesToShoot: 8
         shotSpeed: 0.6
         shotSpeedReduction: 0.35
-        shotDelay: 1.25
+        shotDelay: 0.5
         shotStartDelay: 1
     - hasMovement: 1
       movementDelay: 2.25

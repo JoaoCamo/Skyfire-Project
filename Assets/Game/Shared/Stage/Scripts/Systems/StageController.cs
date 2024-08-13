@@ -60,6 +60,7 @@ namespace Game.Stage
 
             EnemySpawner.RequestClearEnemies();
             EnemyProjectileManager.RequestClear();
+            stageEffectsController.StopBackgroundAnimation();
 
             _currentBoss = enemySpawner.SpawnBoss(_gameStages.stages[_currentStageInfoIndex].bossInfo.type);
             StartBoss();

@@ -43,7 +43,7 @@ namespace Game.Gameplay.StageEffects
 
         public void StartAnimation(int currentStage)
         {
-            StopAnimation();
+            StopBackgroundAnimation();
             background.sprite = stageBackgroundSprites[currentStage];
             continuationBackground.sprite = stageBackgroundSprites[currentStage];
             _animationCoroutine = StartCoroutine(Animate());
@@ -62,7 +62,7 @@ namespace Game.Gameplay.StageEffects
             }
         }
 
-        private void StopAnimation()
+        public void StopBackgroundAnimation()
         {
             if(_animationCoroutine != null)
             {

@@ -153,7 +153,7 @@ MonoBehaviour:
       - changeDelay: 0.5
         changeDuration: 0.5
         movementDirection: {x: 0, y: 0}
-      - changeDelay: 5
+      - changeDelay: 7
         changeDuration: 0.5
         movementDirection: {x: 0, y: 0.5}
     possibleDrops:
@@ -166,7 +166,7 @@ MonoBehaviour:
     - dropType: 1
       dropChance: 1
       timesToDrop: 1
-    enemyHealth: 60
+    enemyHealth: 150
     enemyAmount: 1
     enemySpawnDelay: 0
     waveInitialDelay: 4
@@ -176,9 +176,9 @@ MonoBehaviour:
       projectileType: 11
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 5
-      timesToShoot: 5
-      shotSpeed: 0.4
+      timesToLoop: 8
+      timesToShoot: 6
+      shotSpeed: 0.6
       shotSpeedReduction: 0
       shotDelay: 0.1
       shotStartDelay: 1
@@ -284,16 +284,16 @@ MonoBehaviour:
         shotSpeedReduction: 0
         shotDelay: 0
         shotStartDelay: 1
-    - hasMovement: 0
-      movementDelay: 0
+    - hasMovement: 1
+      movementDelay: 4
       attackInfo:
-        attackPattern: 27
-        projectileType: 10
+        attackPattern: 26
+        projectileType: 8
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 36
-        shotSpeed: 1
-        shotSpeedReduction: 0.15
-        shotDelay: 0.3
+        timesToShoot: 15
+        shotSpeed: 0.3
+        shotSpeedReduction: 0
+        shotDelay: 3
         shotStartDelay: 2
