@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3488167037898448478, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: m_Name
-      value: '[Boss] Stage 1 Variant'
+      value: '[Boss] Stage 1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382153321408785360, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
+      propertyPath: m_Radius
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 4858254848075806275, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: m_LocalPosition.x

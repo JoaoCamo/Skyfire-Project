@@ -17,11 +17,13 @@ namespace Game.Projectiles
 
         private void OnEnable()
         {
+            RequestClear += ClearBullets;
             RequestFullClear += FullClearBullets;
         }
 
         private void OnDisable()
         {
+            RequestClear -= ClearBullets;
             RequestFullClear -= FullClearBullets;
         }
 
@@ -67,13 +69,21 @@ namespace Game.Projectiles
             return newProjectile;
         }
 
+        private void ClearBullets()
+        {
+            foreach (ProjectileBase projectile in _projectiles)
+            {
+                if (projectile.gameObject.activeSelf)
+                    SpecialEffectsManager.RequestBulletHide(projectile.transform.position);
+
+                projectile.gameObject.SetActive(false);
+            }
+        }
+
         private void FullClearBullets()
         {
             foreach (ProjectileBase projectile in _projectiles)
             {
-                if(projectile.gameObject.activeSelf)
-                    SpecialEffectsManager.RequestBulletHide(projectile.transform.position);
-
                 projectile.gameObject.SetActive(false);
                 Destroy(projectile.gameObject);
             }

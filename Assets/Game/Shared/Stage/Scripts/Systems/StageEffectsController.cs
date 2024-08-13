@@ -17,10 +17,10 @@ namespace Game.Gameplay.StageEffects
 
         private readonly Vector2 _initialPosition = new Vector2(0, 0);
         private readonly Vector2 _finalPosition = new Vector2(0, -2);
-        private readonly WaitForSeconds _animationDelay = new WaitForSeconds(3);
+        private readonly WaitForSeconds _animationDelay = new WaitForSeconds(10);
         private readonly WaitForSeconds _audioFadeDelay = new WaitForSeconds(0.5f);
-        private const float ANIMATION_DURATION = 3;
-        private const float AUDIO_FADE_DURATION = 2;
+        private const float ANIMATION_DURATION = 10;
+        private const float AUDIO_FADE_DURATION = 0.5f;
 
         public static Action<bool> ToggleMusic { private set; get; }
 

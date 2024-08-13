@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8470689912292773328
+--- !u!1001 &6739340786588240246
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3488167037898448478, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: m_Name
-      value: '[Boss] Mid Stage'
+      value: '[Boss] Stage 6 Variant'
       objectReference: {fileID: 0}
     - target: {fileID: 4382153321408785360, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: m_Radius
-      value: 0.06
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 4858254848075806275, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,39 +71,27 @@ PrefabInstance:
     - target: {fileID: 5184633878304554678, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 1675956240, guid: 7be20d0cecc780641ae5e236862288b0, type: 3}
+      objectReference: {fileID: 766492815, guid: a8d657c0616a5984b8ea7615d19b41f3, type: 3}
     - target: {fileID: 5184633878304554678, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 1660480744, guid: 7be20d0cecc780641ae5e236862288b0, type: 3}
+      objectReference: {fileID: 1270167832, guid: a8d657c0616a5984b8ea7615d19b41f3, type: 3}
     - target: {fileID: 5184633878304554678, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: sprites.Array.data[2]
       value: 
-      objectReference: {fileID: -132161115, guid: 7be20d0cecc780641ae5e236862288b0, type: 3}
+      objectReference: {fileID: -548263681, guid: a8d657c0616a5984b8ea7615d19b41f3, type: 3}
     - target: {fileID: 5184633878304554678, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: sprites.Array.data[3]
       value: 
-      objectReference: {fileID: -1361724679, guid: 7be20d0cecc780641ae5e236862288b0, type: 3}
+      objectReference: {fileID: -744790483, guid: a8d657c0616a5984b8ea7615d19b41f3, type: 3}
     - target: {fileID: 5184633878304554678, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: sprites.Array.data[4]
       value: 
-      objectReference: {fileID: 1588298438, guid: 7be20d0cecc780641ae5e236862288b0, type: 3}
-    - target: {fileID: 7180381080864893075, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7180381080864893075, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7180381080864893075, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -1672881819, guid: a8d657c0616a5984b8ea7615d19b41f3, type: 3}
     - target: {fileID: 9020587089533400080, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e9dbf210504a23041a312644b621b071, type: 3}
+      objectReference: {fileID: 21300000, guid: 8e4a985f701d06944bcb6cc64d84c8f0, type: 3}
     - target: {fileID: 9020587089533400080, guid: ace2f80c6ecaf524bb91e05292dd9ac8, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

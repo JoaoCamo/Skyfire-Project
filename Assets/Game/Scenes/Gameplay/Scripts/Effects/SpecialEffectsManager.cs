@@ -11,8 +11,8 @@ namespace Game.Gameplay.Effects
         [SerializeField] private GameObject bulletHidePrefab;
         [SerializeField] private GameObject bulletClearShockwavePrefab;
 
-        private readonly List<ExplosionAnimation> _explosionList = new List<ExplosionAnimation>();
-        private readonly List<ExplosionAnimation> _bulletHideList = new List<ExplosionAnimation>();
+        private readonly List<SpriteAnimationOneWayDisable> _explosionList = new List<SpriteAnimationOneWayDisable>();
+        private readonly List<SpriteAnimationOneWayDisable> _bulletHideList = new List<SpriteAnimationOneWayDisable>();
 
         public static Action<Vector3> RequestExplosion { private set; get; }
         public static Action<Vector3> RequestBulletHide { private set; get; }
@@ -34,39 +34,39 @@ namespace Game.Gameplay.Effects
 
         private void SpawnExplosion(Vector3 position)
         {
-            ExplosionAnimation explosion = GetExplosion();
+            SpriteAnimationOneWayDisable explosion = GetExplosion();
             explosion.StartAnimation(position);
         }
 
         private void SpawnBulletHide(Vector3 position)
         {
-            ExplosionAnimation bulletHide = GetBulletHide();
+            SpriteAnimationOneWayDisable bulletHide = GetBulletHide();
             bulletHide.StartAnimation(position);
         }
 
-        private ExplosionAnimation GetExplosion()
+        private SpriteAnimationOneWayDisable GetExplosion()
         {
-            ExplosionAnimation explosion = _explosionList.Find(e => !e.gameObject.activeSelf) ?? CreateExplosion();
+            SpriteAnimationOneWayDisable explosion = _explosionList.Find(e => !e.gameObject.activeSelf) ?? CreateExplosion();
             return explosion;
         }
 
-        private ExplosionAnimation GetBulletHide()
+        private SpriteAnimationOneWayDisable GetBulletHide()
         {
-            ExplosionAnimation bulletHide = _bulletHideList.Find(b => !b.gameObject.activeSelf) ?? CreateBulletHide();
+            SpriteAnimationOneWayDisable bulletHide = _bulletHideList.Find(b => !b.gameObject.activeSelf) ?? CreateBulletHide();
             return bulletHide;
         }
 
-        private ExplosionAnimation CreateExplosion()
+        private SpriteAnimationOneWayDisable CreateExplosion()
         {
-            ExplosionAnimation explosion = Instantiate(explosionPrefab).GetComponent<ExplosionAnimation>();
+            SpriteAnimationOneWayDisable explosion = Instantiate(explosionPrefab).GetComponent<SpriteAnimationOneWayDisable>();
             _explosionList.Add(explosion);
             return explosion;
         }
 
-        private ExplosionAnimation CreateBulletHide()
+        private SpriteAnimationOneWayDisable CreateBulletHide()
         {
-            ExplosionAnimation bulletHide = Instantiate(bulletHidePrefab).GetComponent<ExplosionAnimation>();
-            _explosionList.Add(bulletHide);
+            SpriteAnimationOneWayDisable bulletHide = Instantiate(bulletHidePrefab).GetComponent<SpriteAnimationOneWayDisable>();
+            _bulletHideList.Add(bulletHide);
             return bulletHide;
         }
 
