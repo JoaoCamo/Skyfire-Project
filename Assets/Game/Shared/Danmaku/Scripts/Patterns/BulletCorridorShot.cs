@@ -24,7 +24,7 @@ namespace Game.Danmaku.Patterns
                 speed = shotSpeed;
                 invertAngle = false;
 
-                for (int j = 0; j < 36; j++)
+                for (int j = 1; j <= 35; j++)
                 {
                     innerAngle = angle;
                     speed += shotSpeedReduction;
