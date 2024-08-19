@@ -78,10 +78,9 @@ namespace Game.Danmaku.Patterns
 
         private IEnumerator SecondaryShot()
         {
-            WaitForSeconds delay = new WaitForSeconds(1.5f);
             WaitForSeconds innerDelay = new WaitForSeconds(0.075f);
             float angleStep = 360f / timesToShoot;
-            float angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, (90 - (angleStep / 2))) : Random.Range(0, 360);
+            float angle = 180 - (angleStep / 2);
             float innerAngle;
 
             for (int i = 0; i < timesToLoop; i++)
