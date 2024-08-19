@@ -109,7 +109,7 @@ MonoBehaviour:
     enemyHealth: 100
     enemyAmount: 1
     enemySpawnDelay: 0
-    waveInitialDelay: 4
+    waveInitialDelay: 6.5
     isAsyncWave: 0
     attackInfo:
       attackPattern: 15
@@ -277,7 +277,7 @@ MonoBehaviour:
         shotSpeed: 0.5
         shotSpeedReduction: 0
         shotDelay: 0.3
-        shotStartDelay: 1
+        shotStartDelay: 2
     - hasMovement: 0
       movementDelay: 0
       attackInfo:
@@ -329,7 +329,7 @@ MonoBehaviour:
         shotSpeed: 0.8
         shotSpeedReduction: 0
         shotDelay: 0.5
-        shotStartDelay: 1
+        shotStartDelay: 2
     - hasMovement: 0
       movementDelay: 0
       attackInfo:
@@ -340,6 +340,6 @@ MonoBehaviour:
         timesToLoop: 0
         timesToShoot: 8
         shotSpeed: 0.3
-        shotSpeedReduction: 0.5
+        shotSpeedReduction: 0.4
         shotDelay: 0.2
         shotStartDelay: 2

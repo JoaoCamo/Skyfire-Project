@@ -371,7 +371,7 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 5
-    - barHealth: 400
+    - barHealth: 450
       possibleDrops:
       - dropType: 3
         dropChance: 1
@@ -389,7 +389,7 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 10
-    - barHealth: 450
+    - barHealth: 500
       possibleDrops:
       - dropType: 0
         dropChance: 1
