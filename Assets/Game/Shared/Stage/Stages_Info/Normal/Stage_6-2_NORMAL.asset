@@ -229,16 +229,16 @@ MonoBehaviour:
     - hasMovement: 0
       movementDelay: 0
       attackInfo:
-        attackPattern: 34
-        projectileType: 11
+        attackPattern: 35
+        projectileType: 10
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 8
-        shotSpeed: 0.6
-        shotSpeedReduction: 0.35
-        shotDelay: 0.5
-        shotStartDelay: 1
+        timesToShoot: 9
+        shotSpeed: 1.5
+        shotSpeedReduction: 0.75
+        shotDelay: 0.15
+        shotStartDelay: 2
     - hasMovement: 1
       movementDelay: 2.25
       attackInfo:
@@ -320,16 +320,16 @@ MonoBehaviour:
     - hasMovement: 0
       movementDelay: 0
       attackInfo:
-        attackPattern: 35
-        projectileType: 10
+        attackPattern: 34
+        projectileType: 16
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 9
-        shotSpeed: 1.5
-        shotSpeedReduction: 0.75
-        shotDelay: 0.15
-        shotStartDelay: 2
+        timesToShoot: 1
+        shotSpeed: 0.8
+        shotSpeedReduction: 0
+        shotDelay: 0.5
+        shotStartDelay: 1
     - hasMovement: 0
       movementDelay: 0
       attackInfo:
