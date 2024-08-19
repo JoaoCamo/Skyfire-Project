@@ -118,7 +118,7 @@ MonoBehaviour:
       isInfiniteLoop: 0
       timesToLoop: 30
       timesToShoot: 20
-      shotSpeed: 2
+      shotSpeed: 1.25
       shotSpeedReduction: 0
       shotDelay: 0.05
       shotStartDelay: 1

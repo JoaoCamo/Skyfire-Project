@@ -421,15 +421,15 @@ MonoBehaviour:
         shotDelay: 1
         shotStartDelay: 2
     - hasMovement: 1
-      movementDelay: 7.5
+      movementDelay: 5
       attackInfo:
         attackPattern: 12
         projectileType: 6
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 20
+        timesToShoot: 25
         shotSpeed: 1
         shotSpeedReduction: 0
-        shotDelay: 5.5
+        shotDelay: 4
         shotStartDelay: 2

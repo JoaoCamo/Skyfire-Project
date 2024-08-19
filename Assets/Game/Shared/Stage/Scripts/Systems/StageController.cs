@@ -132,7 +132,6 @@ namespace Game.Stage
             }
 
             stageEffectsController.StartAnimation(_currentStage);
-            stageEffectsController.StartCloudAnimation();
             stageEffectsController.SetMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
 
             StartCoroutine(StartWave());

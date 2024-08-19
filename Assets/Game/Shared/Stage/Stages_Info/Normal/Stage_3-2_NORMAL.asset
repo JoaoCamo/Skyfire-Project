@@ -399,7 +399,7 @@ MonoBehaviour:
         timesToDrop: 15
     bossAttackInfo:
     - hasMovement: 1
-      movementDelay: 3
+      movementDelay: 2
       attackInfo:
         attackPattern: 5
         projectileType: 8

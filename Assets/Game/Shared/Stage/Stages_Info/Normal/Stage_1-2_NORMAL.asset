@@ -466,13 +466,13 @@ MonoBehaviour:
       movementDelay: 0
       attackInfo:
         attackPattern: 2
-        projectileType: 4
+        projectileType: 16
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 2
+        timesToShoot: 1
         shotSpeed: 0.75
-        shotSpeedReduction: -0.35
+        shotSpeedReduction: 0
         shotDelay: 1.25
         shotStartDelay: 1
     - hasMovement: 1

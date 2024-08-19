@@ -9,26 +9,28 @@ namespace Game.Gameplay.StageEffects
     {
         [SerializeField] private SpriteRenderer background;
         [SerializeField] private SpriteRenderer continuationBackground;
-        [SerializeField] private SpriteRenderer cloudBackground;
-        [SerializeField] private SpriteRenderer cloudContinuationBackground;
+        [SerializeField] private SpriteRenderer stageDecorationRenderer;
         [SerializeField] private Sprite[] stageBackgroundSprites;
-        [SerializeField] private Sprite[] cloudSprites;
+        [SerializeField] private StageClutter[] decorationSprites;
         [SerializeField] private AudioSource audioSource;
 
-        private bool _canAnimate = true;
-        private Coroutine _animationCoroutine;
-        private Coroutine _cloudAnimationCoroutine;
+        private bool _canAnimateBackground = false;
+        private bool _canAnimateDecoration = false;
+        private WaitForSeconds _decorationAnimationDelay;
+        private Coroutine _backgroundAnimationCoroutine = null;
+        private Coroutine _decorationAnimationCoroutine = null;
 
-        private readonly Vector2 _initialPosition = new Vector2(0, 0);
-        private readonly Vector2 _finalPosition = new Vector2(0, -2.25f);
-        private readonly Vector2 _cloudInitialPosition = new Vector2(0,2);
-        private readonly Vector2 _cloudFinalPosition = new Vector2(0, -5);
-        private readonly WaitForSeconds _animationDelay = new WaitForSeconds(10);
-        private readonly WaitForSeconds _cloudAnimationDelay = new WaitForSeconds(2.5f);
+        private readonly Vector2 _backgroundInitialPosition = new Vector2(0, 0);
+        private readonly Vector2 _backgroundFinalPosition = new Vector2(0, -2.25f);
         private readonly WaitForSeconds _audioFadeDelay = new WaitForSeconds(0.5f);
-        private const float ANIMATION_DURATION = 10;
-        private const float CLOUD_ANIMATION_DURATION = 2.5f;
+        private readonly WaitForSeconds _backgroundAnimationDelay = new WaitForSeconds(20);
         private const float AUDIO_FADE_DURATION = 0.5f;
+        private const float DECORATION_X_POSITION_MAX = 0.75f;
+        private const float DECORATION_X_POSITION_MIN = -0.75f;
+        private const float DECORATION_Y_POSITION_START = 2f;
+        private const float DECORATION_Y_POSITION_FINAL = -2f;
+        private const int BACKGROUND_ANIMATION_DURATION = 20;
+        private const string STAGE_CLUTTER_KEY = "STAGE_CLUTTER__ON";
 
         public static Action<bool> ToggleMusic { private set; get; }
 
@@ -54,65 +56,79 @@ namespace Game.Gameplay.StageEffects
             StopBackgroundAnimation();
             background.sprite = stageBackgroundSprites[currentStage];
             continuationBackground.sprite = stageBackgroundSprites[currentStage];
-            _animationCoroutine = StartCoroutine(Animate());
+            _backgroundAnimationCoroutine = StartCoroutine(Animate());
+            StartDecorationAnimation(currentStage);
         }
 
-        public void StartCloudAnimation()
+        private void StartDecorationAnimation(int currentStage)
         {
-            StopCloudAnimation();
-            _cloudAnimationCoroutine = StartCoroutine(CloudAnimation());
+            StopDecorationAnimation();
+            _decorationAnimationCoroutine = StartCoroutine(DecorationAnimation(currentStage));
         }
 
         private IEnumerator Animate()
         {
             Transform backgroundTransform = background.transform;
-            backgroundTransform.localPosition = _initialPosition;
+            backgroundTransform.position = _backgroundInitialPosition;
+            _canAnimateBackground = true;
 
-            while(_canAnimate)
+            while(_canAnimateBackground)
             {
-                backgroundTransform.DOLocalMove(_finalPosition, ANIMATION_DURATION).SetEase(Ease.Linear);
-                yield return _animationDelay;
-                backgroundTransform.localPosition = _initialPosition;
+                backgroundTransform.DOMove(_backgroundFinalPosition, BACKGROUND_ANIMATION_DURATION).SetEase(Ease.Linear);
+                yield return _backgroundAnimationDelay;
+                backgroundTransform.position = _backgroundInitialPosition;
+                backgroundTransform.transform.DOKill();
             }
         }
 
-        private IEnumerator CloudAnimation()
+        private IEnumerator DecorationAnimation(int currentStage)
         {
-            Transform cloudTransform = cloudBackground.transform;
-            cloudTransform.localPosition = _cloudInitialPosition;
+            StageClutter info = decorationSprites[currentStage];
 
-            while (_canAnimate)
+            Transform decorationTransform = stageDecorationRenderer.transform;
+
+            float xPosition = UnityEngine.Random.Range(DECORATION_X_POSITION_MIN, DECORATION_X_POSITION_MAX);
+            decorationTransform.position = new Vector3(xPosition, DECORATION_Y_POSITION_START);
+
+            _decorationAnimationDelay = new WaitForSeconds(info.clutterAnimationDuration);
+
+            _canAnimateDecoration = PlayerPrefs.GetInt(STAGE_CLUTTER_KEY, 1) == 1;
+
+            while (_canAnimateDecoration)
             {
-                cloudBackground.sprite = cloudSprites[UnityEngine.Random.Range(0, cloudSprites.Length)];
-                cloudContinuationBackground.sprite = cloudSprites[UnityEngine.Random.Range(0, cloudSprites.Length)];
+                stageDecorationRenderer.sprite = info.cluttlerSprites[UnityEngine.Random.Range(0, decorationSprites[currentStage].cluttlerSprites.Length)];
+                decorationTransform.DOMove(new Vector3(xPosition, DECORATION_Y_POSITION_FINAL), info.clutterAnimationDuration).SetEase(Ease.Linear);
 
-                cloudTransform.DOLocalMove(_cloudFinalPosition, CLOUD_ANIMATION_DURATION).SetEase(Ease.Linear);
-                yield return _cloudAnimationDelay;
-                cloudTransform.localPosition = _cloudInitialPosition;
+                yield return _decorationAnimationDelay;
+                
+                xPosition = UnityEngine.Random.Range(DECORATION_X_POSITION_MIN, DECORATION_X_POSITION_MAX);
+                decorationTransform.position = new Vector3(xPosition, DECORATION_Y_POSITION_START);
             }
         }
 
         private void StopBackgroundAnimation()
         {
-            if(_animationCoroutine != null)
+            if(_backgroundAnimationCoroutine != null)
             {
-                StopCoroutine( _animationCoroutine );
-                background.transform.DOKill();
-                _animationCoroutine = null;
+                StopCoroutine( _backgroundAnimationCoroutine );
+                _backgroundAnimationCoroutine = null;
             }
+            
+            background.transform.DOKill();
+            _canAnimateBackground = false;
         }
 
-        private void StopCloudAnimation()
+        private void StopDecorationAnimation()
         {
-            if(_cloudAnimationCoroutine != null)
+            if(_decorationAnimationCoroutine != null)
             {
-                StopCoroutine( _cloudAnimationCoroutine );
-                cloudBackground.transform.DOKill();
-                _cloudAnimationCoroutine = null;
+                StopCoroutine( _decorationAnimationCoroutine );
+                _decorationAnimationCoroutine = null;
             }
 
-            cloudBackground.sprite = null;
-            cloudContinuationBackground.sprite = null;
+            _canAnimateDecoration = false;
+            stageDecorationRenderer.transform.DOKill();
+            stageDecorationRenderer.sprite = null;
         }
 
         private IEnumerator StartStageMusic(AudioClip clip)

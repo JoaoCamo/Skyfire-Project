@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-using Game.Projectiles;
 using Game.Player;
 using Game.Audio;
 

@@ -19,5 +19,6 @@ MonoBehaviour:
   enemyWaves: []
   bossInfo:
     type: 0
+    destroyWhenDefeat: 0
     bossHealthInfo: []
     bossAttackInfo: []

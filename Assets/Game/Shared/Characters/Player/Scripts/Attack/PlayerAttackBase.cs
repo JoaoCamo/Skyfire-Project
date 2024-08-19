@@ -39,6 +39,7 @@ namespace Game.Player
         private bool _canBomb = true;
 
         public bool CanShoot { get => _canShoot; set => _canShoot = value; }
+        public bool CanBomb { get => _canBomb; set => _canBomb = value; }
 
         public static Action<int, bool> RequestNewBomb { private set; get; }
         public static Action<float> RequestPowerValueChange { private set; get; }
