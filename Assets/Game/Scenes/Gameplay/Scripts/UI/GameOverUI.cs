@@ -47,12 +47,14 @@ namespace Game.Gameplay.UI
 
             restartButton.onClick.AddListener(() =>
             {
+                _loseScreenOpen = false;
                 Time.timeScale = 1;
                 NavigationController.RequestSceneLoad(Scenes.Gameplay, LoadSceneMode.Single, true);
             });
 
             returnButton.onClick.AddListener(() =>
             {
+                _loseScreenOpen = false;
                 Time.timeScale = 1;
                 NavigationController.RequestSceneLoad(Scenes.AddScores, LoadSceneMode.Single, true);
             });

@@ -361,6 +361,7 @@ MonoBehaviour:
       shotStartDelay: 0.75
   bossInfo:
     type: 5
+    destroyWhenDefeat: 0
     bossHealthInfo:
     - barHealth: 300
       possibleDrops:
@@ -370,7 +371,7 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 5
-    - barHealth: 375
+    - barHealth: 300
       possibleDrops:
       - dropType: 3
         dropChance: 1

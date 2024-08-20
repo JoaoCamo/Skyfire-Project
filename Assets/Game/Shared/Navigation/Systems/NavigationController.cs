@@ -4,16 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Game.Loading;
-using Random = UnityEngine.Random;
 
 namespace Game.Navigation
 {
     public class NavigationController : MonoBehaviour
     {
         private LoadingController _loadingController;
-
-        private const float MIN_EXTRA_DELAY = 0.25f;
-        private const float MAX_EXTRA_DELAY = 1f;
         
         private readonly Stack<Scenes> _loadedScenes = new Stack<Scenes>();
         private readonly WaitForFixedUpdate _wait = new WaitForFixedUpdate();
@@ -68,10 +64,6 @@ namespace Game.Navigation
             {
                 yield return _wait;
             }
-
-            float extraDelay = Random.Range(MIN_EXTRA_DELAY, MAX_EXTRA_DELAY);
-            
-            yield return new WaitForSeconds(extraDelay);
             
             _loadingController.ToggleLoading(false);
         }
