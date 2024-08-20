@@ -17,7 +17,7 @@ MonoBehaviour:
   stageMusic: {fileID: 8300000, guid: b4a1d590eaf845a4a9fb8516cf2bc90d, type: 3}
   bossMusic: {fileID: 0}
   enemyWaves:
-  - enemyType: 0
+  - enemyType: 3
     initialPosition:
       enemyInitialPositionX: 7
       enemyInitialPositionY: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
       shotSpeedReduction: 0
       shotDelay: 0
       shotStartDelay: 0
-  - enemyType: 0
+  - enemyType: 3
     initialPosition:
       enemyInitialPositionX: 7
       enemyInitialPositionY: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     - dropType: 3
       dropChance: 1
       timesToDrop: 1
-    enemyHealth: 5
+    enemyHealth: 3
     enemyAmount: 8
     enemySpawnDelay: 0.5
     waveInitialDelay: 2.5
@@ -124,7 +124,7 @@ MonoBehaviour:
     - dropType: 0
       dropChance: 1
       timesToDrop: 1
-    enemyHealth: 5
+    enemyHealth: 3
     enemyAmount: 8
     enemySpawnDelay: 0.5
     waveInitialDelay: 2.75
@@ -160,7 +160,7 @@ MonoBehaviour:
     - dropType: 0
       dropChance: 1
       timesToDrop: 1
-    enemyHealth: 4
+    enemyHealth: 5
     enemyAmount: 12
     enemySpawnDelay: 0.75
     waveInitialDelay: 2
@@ -176,7 +176,7 @@ MonoBehaviour:
       shotSpeedReduction: 0
       shotDelay: 0
       shotStartDelay: 1.5
-  - enemyType: 0
+  - enemyType: 3
     initialPosition:
       enemyInitialPositionX: 7
       enemyInitialPositionY: 0
@@ -247,6 +247,7 @@ MonoBehaviour:
       shotStartDelay: 1.5
   bossInfo:
     type: 1
+    destroyWhenDefeat: 0
     bossHealthInfo:
     - barHealth: 225
       possibleDrops:

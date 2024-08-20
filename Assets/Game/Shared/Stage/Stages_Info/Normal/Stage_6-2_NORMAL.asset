@@ -17,7 +17,7 @@ MonoBehaviour:
   stageMusic: {fileID: 0}
   bossMusic: {fileID: 8300000, guid: 454fece5dc0b0134ebd364e8898e561a, type: 3}
   enemyWaves:
-  - enemyType: 1
+  - enemyType: 5
     initialPosition:
       enemyInitialPositionX: 0
       enemyInitialPositionY: 4
@@ -50,7 +50,7 @@ MonoBehaviour:
       shotSpeedReduction: 0
       shotDelay: 1
       shotStartDelay: 0.5
-  - enemyType: 1
+  - enemyType: 5
     initialPosition:
       enemyInitialPositionX: 6
       enemyInitialPositionY: 4
@@ -83,7 +83,7 @@ MonoBehaviour:
       shotSpeedReduction: 0
       shotDelay: 1
       shotStartDelay: 0.5
-  - enemyType: 2
+  - enemyType: 6
     initialPosition:
       enemyInitialPositionX: 3
       enemyInitialPositionY: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
     type: 6
     destroyWhenDefeat: 1
     bossHealthInfo:
-    - barHealth: 325
+    - barHealth: 400
       possibleDrops:
       - dropType: 0
         dropChance: 1
@@ -153,53 +153,15 @@ MonoBehaviour:
       - dropType: 3
         dropChance: 1
         timesToDrop: 10
+    - barHealth: 450
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
     - barHealth: 400
-      possibleDrops:
-      - dropType: 0
-        dropChance: 1
-        timesToDrop: 10
-      - dropType: 3
-        dropChance: 1
-        timesToDrop: 10
-    - barHealth: 325
-      possibleDrops:
-      - dropType: 0
-        dropChance: 1
-        timesToDrop: 10
-      - dropType: 3
-        dropChance: 1
-        timesToDrop: 5
-    - barHealth: 550
-      possibleDrops:
-      - dropType: 0
-        dropChance: 1
-        timesToDrop: 5
-      - dropType: 3
-        dropChance: 1
-        timesToDrop: 10
-      - dropType: 1
-        dropChance: 1
-        timesToDrop: 1
-    - barHealth: 375
-      possibleDrops:
-      - dropType: 0
-        dropChance: 1
-        timesToDrop: 10
-      - dropType: 3
-        dropChance: 1
-        timesToDrop: 5
-    - barHealth: 400
-      possibleDrops:
-      - dropType: 0
-        dropChance: 1
-        timesToDrop: 5
-      - dropType: 3
-        dropChance: 1
-        timesToDrop: 10
-      - dropType: 1
-        dropChance: 1
-        timesToDrop: 1
-    - barHealth: 350
       possibleDrops:
       - dropType: 0
         dropChance: 1
@@ -208,6 +170,44 @@ MonoBehaviour:
         dropChance: 1
         timesToDrop: 5
     - barHealth: 650
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 5
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 1
+        dropChance: 1
+        timesToDrop: 1
+    - barHealth: 425
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 5
+    - barHealth: 400
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 5
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 1
+        dropChance: 1
+        timesToDrop: 1
+    - barHealth: 450
+      possibleDrops:
+      - dropType: 0
+        dropChance: 1
+        timesToDrop: 10
+      - dropType: 3
+        dropChance: 1
+        timesToDrop: 5
+    - barHealth: 750
       possibleDrops:
       - dropType: 3
         dropChance: 1

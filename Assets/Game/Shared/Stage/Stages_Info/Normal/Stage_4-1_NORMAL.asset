@@ -89,7 +89,7 @@ MonoBehaviour:
       shotSpeedReduction: 0
       shotDelay: 0.4
       shotStartDelay: 1
-  - enemyType: 0
+  - enemyType: 4
     initialPosition:
       enemyInitialPositionX: 0
       enemyInitialPositionY: 2
@@ -122,7 +122,7 @@ MonoBehaviour:
       shotSpeedReduction: -0.3
       shotDelay: 1.25
       shotStartDelay: 0.75
-  - enemyType: 0
+  - enemyType: 4
     initialPosition:
       enemyInitialPositionX: 6
       enemyInitialPositionY: 2
@@ -155,7 +155,7 @@ MonoBehaviour:
       shotSpeedReduction: -0.3
       shotDelay: 1.25
       shotStartDelay: 0.75
-  - enemyType: 0
+  - enemyType: 4
     initialPosition:
       enemyInitialPositionX: 0
       enemyInitialPositionY: 2
@@ -188,7 +188,7 @@ MonoBehaviour:
       shotSpeedReduction: -0.3
       shotDelay: 1.25
       shotStartDelay: 0.75
-  - enemyType: 0
+  - enemyType: 4
     initialPosition:
       enemyInitialPositionX: 6
       enemyInitialPositionY: 2
@@ -293,7 +293,7 @@ MonoBehaviour:
       shotSpeedReduction: 0
       shotDelay: 0.1
       shotStartDelay: 2
-  - enemyType: 0
+  - enemyType: 4
     initialPosition:
       enemyInitialPositionX: 3
       enemyInitialPositionY: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
       shotSpeedReduction: 0
       shotDelay: 0
       shotStartDelay: 0
-  - enemyType: 0
+  - enemyType: 4
     initialPosition:
       enemyInitialPositionX: 3
       enemyInitialPositionY: 0
