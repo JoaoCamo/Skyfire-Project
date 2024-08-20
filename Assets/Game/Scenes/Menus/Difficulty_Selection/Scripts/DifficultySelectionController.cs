@@ -11,6 +11,7 @@ namespace Game.Menus
     {
         [SerializeField] private DifficultySelectionInfo[] difficultySelectionInfos;
         [SerializeField] private GameObject confirmSelection;
+        [SerializeField] private TextMeshProUGUI titleMesh;
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private Button returnButton;
 
@@ -46,6 +47,7 @@ namespace Game.Menus
             {
                 GameInfo.DifficultyType = difficultyType;
                 _difficultyType = difficultyType;
+                titleMesh.text = GetTitle(difficultyType);
                 description.text = descriptionText;
                 SetOutline(outline);
                 confirmSelection.SetActive(true);
@@ -59,6 +61,18 @@ namespace Game.Menus
 
             _selectedOutline = newOutline;
             _selectedOutline.color = _activatedColor;
+        }
+
+        private string GetTitle(DifficultyType difficultyType)
+        {
+            return difficultyType switch
+            {
+                DifficultyType.Easy => "EASY",
+                DifficultyType.Normal => "NORMAL",
+                DifficultyType.Hard => "HARD",
+                DifficultyType.Lunatic => "LUNATIC",
+                _ => ""
+            };
         }
     }
 

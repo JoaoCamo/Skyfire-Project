@@ -1517,6 +1517,7 @@ MonoBehaviour:
     description: Lieutenant Chen, daring and innovative, employs unconventional tactics
       in aerial combat. Inspired by speed and agility, she swiftly outmaneuvers opponents.
   confirmSelection: {fileID: 1999116760}
+  titleMesh: {fileID: 858918090}
   description: {fileID: 1028189850}
   returnButton: {fileID: 128112153}
 --- !u!4 &1423152142
@@ -2003,7 +2004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CLICK AGAIN TO CONFIRM SELECTION
+  m_text: CLICK AGAIN TO CONFIRM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}

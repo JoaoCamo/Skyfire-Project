@@ -11,6 +11,7 @@ namespace Game.Menus
     {
         [SerializeField] private CharacterSelectionInfo[] characterSelectionInfos;
         [SerializeField] private GameObject confirmSelection;
+        [SerializeField] private TextMeshProUGUI titleMesh;
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private Button returnButton;
 
@@ -46,6 +47,7 @@ namespace Game.Menus
             {
                 GameInfo.PlayerType = playerType;
                 _playerType = playerType;
+                titleMesh.text = GetTitle(playerType);
                 description.text = descriptionText;
                 SetOutline(outline);
                 confirmSelection.SetActive(true);
@@ -59,6 +61,16 @@ namespace Game.Menus
 
             _selectedOutline = newOutline;
             _selectedOutline.color = _activatedColor;
+        }
+
+        private string GetTitle(PlayerType playerType)
+        {
+            return playerType switch
+            {
+                PlayerType.Type1 => "CAPTAIN HIROSHI",
+                PlayerType.Type2 => "LIEUTENANT CHEN",
+                _ => ""
+            };
         }
     }
 
