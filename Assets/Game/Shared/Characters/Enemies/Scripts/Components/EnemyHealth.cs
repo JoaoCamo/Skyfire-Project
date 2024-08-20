@@ -35,10 +35,10 @@ namespace Game.Enemy
 
             _health -= damage;
             SoundEffectController.RequestSfx(SfxTypes.EnemyHit);
+            GameEvents.OnPointsValueChange(10);
 
             if (_health > 0) return;
 
-            GameEvents.OnPointsValueChange(10);
             DropItems();
             SoundEffectController.RequestSfx(SfxTypes.EnemyExplosion);
             SpecialEffectsManager.RequestExplosion(transform.position);

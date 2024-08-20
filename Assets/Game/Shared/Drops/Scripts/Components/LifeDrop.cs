@@ -25,7 +25,7 @@ namespace Game.Drop
             base.OnCollect();
             PlayerHealth.RequestNewLife();
             GameEvents.OnPointsValueChange(dropPointsValue);
-            PopUpTextManager.RequestPopUpText(transform.position, dropPointsValue.ToString(), Color.grey);
+            PopUpTextManager.RequestPopUpText(transform.position, dropPointsValue.ToString(), 15, Color.grey);
 
             gameObject.SetActive(false);
         }

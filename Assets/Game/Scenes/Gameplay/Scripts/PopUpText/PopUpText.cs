@@ -18,9 +18,10 @@ namespace Game.Gameplay.UI
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public void SetText(Vector3 position, string textToDisplay, Color color)
+        public void SetText(Vector3 position, string textToDisplay, float fontSize, Color color)
         {
             textMesh.text = textToDisplay;
+            textMesh.fontSize = fontSize;
             textMesh.color = color;
             transform.position = position;
 

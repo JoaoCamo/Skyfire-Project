@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 6de958ce8db751741b50200a552fc6d2
+guid: 3b0164f848e686244a3f42cf1f7fa9d1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -95,10 +95,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F-A-XX_IDLE_PURPLE_0
+      name: F-A-XX_SIDE_MOVEMENT_ORANGE_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c593d2859e54d343a0943b29f0b850e
-      internalID: 2046525493
+      spriteID: 82b90361fcc19924986e1ceb953aa553
+      internalID: 968668595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_PURPLE_1
+      name: F-A-XX_SIDE_MOVEMENT_ORANGE_1
       rect:
         serializedVersion: 2
         x: 65
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ade43126a900e7e498e25f301b40f19a
-      internalID: 982507228
+      spriteID: 72116116c95315a4a9f8e169abf68119
+      internalID: 127413527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_PURPLE_2
+      name: F-A-XX_SIDE_MOVEMENT_ORANGE_2
       rect:
         serializedVersion: 2
         x: 130
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b7bbf78ccf3d5b47b0a7c30b268e163
-      internalID: 977777614
+      spriteID: 103725f78d2158646a4e40b39d994d0c
+      internalID: -1835860910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_PURPLE_3
+      name: F-A-XX_SIDE_MOVEMENT_ORANGE_3
       rect:
         serializedVersion: 2
         x: 195
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d255f230b3117a4a85e0986d47a3666
-      internalID: 387403510
+      spriteID: 42a2bf306355c3b4484248df77f46ca5
+      internalID: 687767697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_PURPLE_4
+      name: F-A-XX_SIDE_MOVEMENT_ORANGE_4
       rect:
         serializedVersion: 2
         x: 260
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: def3b20ce141edc409bb7143596bebbd
-      internalID: 1235693162
+      spriteID: 71a3e92e0641ef84f9a57dcca0ff04d9
+      internalID: 2072381978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_PURPLE_5
+      name: F-A-XX_SIDE_MOVEMENT_ORANGE_5
       rect:
         serializedVersion: 2
         x: 325
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b01c5485c749a694394556890b2d7d7d
-      internalID: -2048615100
+      spriteID: 5d51f5ceff3580044a08d8986e9949ed
+      internalID: -1833650132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_PURPLE_6
+      name: F-A-XX_SIDE_MOVEMENT_ORANGE_6
       rect:
         serializedVersion: 2
         x: 390
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a2c9b3944a755049a4d86c8dce50cab
-      internalID: 418830184
+      spriteID: 4d332fbcca0f3cd48b27d93bdeacfcf6
+      internalID: 124762333
       vertices: []
       indices: 
       edges: []
@@ -267,13 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      F-A-XX_IDLE_PURPLE_0: 2046525493
-      F-A-XX_IDLE_PURPLE_1: 982507228
-      F-A-XX_IDLE_PURPLE_2: 977777614
-      F-A-XX_IDLE_PURPLE_3: 387403510
-      F-A-XX_IDLE_PURPLE_4: 1235693162
-      F-A-XX_IDLE_PURPLE_5: -2048615100
-      F-A-XX_IDLE_PURPLE_6: 418830184
+      F-A-XX_SIDE_MOVEMENT_ORANGE_0: 968668595
+      F-A-XX_SIDE_MOVEMENT_ORANGE_1: 127413527
+      F-A-XX_SIDE_MOVEMENT_ORANGE_2: -1835860910
+      F-A-XX_SIDE_MOVEMENT_ORANGE_3: 687767697
+      F-A-XX_SIDE_MOVEMENT_ORANGE_4: 2072381978
+      F-A-XX_SIDE_MOVEMENT_ORANGE_5: -1833650132
+      F-A-XX_SIDE_MOVEMENT_ORANGE_6: 124762333
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

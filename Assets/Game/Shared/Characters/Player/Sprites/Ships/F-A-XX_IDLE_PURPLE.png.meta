@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 2d58fab4d8ef2a844912ca3e93ddbd67
+guid: 6de958ce8db751741b50200a552fc6d2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: F-A-XX_IDLE_ORANGE_0
+      name: F-A-XX_IDLE_PURPLE_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6630a69c19e428c43862bd26564b554e
-      internalID: -508110443
+      spriteID: 6c593d2859e54d343a0943b29f0b850e
+      internalID: 2046525493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_ORANGE_1
+      name: F-A-XX_IDLE_PURPLE_1
       rect:
         serializedVersion: 2
         x: 65
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 531001330e34e4d4f88f34a43ff74fab
-      internalID: -1957923431
+      spriteID: ade43126a900e7e498e25f301b40f19a
+      internalID: 982507228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_ORANGE_2
+      name: F-A-XX_IDLE_PURPLE_2
       rect:
         serializedVersion: 2
         x: 130
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48a887588ad629549984cf14327ff358
-      internalID: -2089149742
+      spriteID: 2b7bbf78ccf3d5b47b0a7c30b268e163
+      internalID: 977777614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_ORANGE_3
+      name: F-A-XX_IDLE_PURPLE_3
       rect:
         serializedVersion: 2
         x: 195
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f53b35f247a564749a1625c276a44adf
-      internalID: 1070965965
+      spriteID: 5d255f230b3117a4a85e0986d47a3666
+      internalID: 387403510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_ORANGE_4
+      name: F-A-XX_IDLE_PURPLE_4
       rect:
         serializedVersion: 2
         x: 260
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02a27aa9ce9457e4da24929a4db96681
-      internalID: 1104440297
+      spriteID: def3b20ce141edc409bb7143596bebbd
+      internalID: 1235693162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_ORANGE_5
+      name: F-A-XX_IDLE_PURPLE_5
       rect:
         serializedVersion: 2
         x: 325
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 377be1b931013794bb8b45a052fde3b3
-      internalID: 261774374
+      spriteID: b01c5485c749a694394556890b2d7d7d
+      internalID: -2048615100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: F-A-XX_IDLE_ORANGE_6
+      name: F-A-XX_IDLE_PURPLE_6
       rect:
         serializedVersion: 2
         x: 390
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b47f699cd812ac04885afcf3362925f7
-      internalID: 507770953
+      spriteID: 4a2c9b3944a755049a4d86c8dce50cab
+      internalID: 418830184
       vertices: []
       indices: 
       edges: []
@@ -267,13 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      F-A-XX_IDLE_ORANGE_0: -508110443
-      F-A-XX_IDLE_ORANGE_1: -1957923431
-      F-A-XX_IDLE_ORANGE_2: -2089149742
-      F-A-XX_IDLE_ORANGE_3: 1070965965
-      F-A-XX_IDLE_ORANGE_4: 1104440297
-      F-A-XX_IDLE_ORANGE_5: 261774374
-      F-A-XX_IDLE_ORANGE_6: 507770953
+      F-A-XX_IDLE_PURPLE_0: 2046525493
+      F-A-XX_IDLE_PURPLE_1: 982507228
+      F-A-XX_IDLE_PURPLE_2: 977777614
+      F-A-XX_IDLE_PURPLE_3: 387403510
+      F-A-XX_IDLE_PURPLE_4: 1235693162
+      F-A-XX_IDLE_PURPLE_5: -2048615100
+      F-A-XX_IDLE_PURPLE_6: 418830184
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

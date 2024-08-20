@@ -1,6 +1,8 @@
 using UnityEngine;
 using Game.Gameplay.UI;
+using Game.Stage;
 using Game.Static.Events;
+using Game.Static;
 
 namespace Game.Drop
 {
@@ -26,9 +28,10 @@ namespace Game.Drop
         {
             base.OnCollect();
             float valueMultiplayer = GetDropValueMultiplayer();
-            int dropValue = (int)(dropPointsValue * valueMultiplayer);
+            float difficultyMultiplayer = GetDifficultyValueMultiplayer();
+            int dropValue = (int)((dropPointsValue * valueMultiplayer) * difficultyMultiplayer);
             GameEvents.OnPointsValueChange(dropValue);
-            PopUpTextManager.RequestPopUpText(transform.position, dropValue.ToString(), valueMultiplayer >= 1f ? Color.yellow : Color.grey);
+            PopUpTextManager.RequestPopUpText(transform.position, dropValue.ToString(), 15, valueMultiplayer >= 1f ? Color.yellow : Color.grey);
             gameObject.SetActive(false);
         }
 
@@ -46,6 +49,18 @@ namespace Game.Drop
             float valueMultiplayer = 0.3f + normalizedValue * 0.7f;
 
             return valueMultiplayer;
+        }
+
+        private float GetDifficultyValueMultiplayer()
+        {
+            return GameInfo.DifficultyType switch
+            {
+                DifficultyType.Easy => 0.5f,
+                DifficultyType.Normal => 1f,
+                DifficultyType.Hard => 1.5f,
+                DifficultyType.Lunatic => 2f,
+                _ => 1f
+            };
         }
     }
 }

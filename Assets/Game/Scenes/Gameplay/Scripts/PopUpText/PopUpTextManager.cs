@@ -12,7 +12,7 @@ namespace Game.Gameplay.UI
 
         private Camera _mainCamera;
         
-        public static Action<Vector3, string, Color> RequestPopUpText;
+        public static Action<Vector3, string, float, Color> RequestPopUpText;
 
         private void Awake()
         {
@@ -29,10 +29,10 @@ namespace Game.Gameplay.UI
             RequestPopUpText -= RequestPopUpText;
         }
 
-        private void RequestText(Vector3 position, string text, Color color)
+        private void RequestText(Vector3 position, string text, float fontSize, Color color)
         {
             PopUpText popUpText = GetPopUpText();
-            popUpText.SetText(_mainCamera.WorldToScreenPoint(position), text, color);
+            popUpText.SetText(_mainCamera.WorldToScreenPoint(position), text, fontSize, color);
         }
 
         private PopUpText GetPopUpText()

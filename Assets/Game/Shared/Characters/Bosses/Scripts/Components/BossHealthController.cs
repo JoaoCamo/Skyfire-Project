@@ -5,6 +5,7 @@ using Game.Stage;
 using Game.Gameplay.UI;
 using Game.Audio;
 using Game.Gameplay.Effects;
+using Game.Static.Events;
 
 namespace Game.Enemy.Boss
 {
@@ -49,6 +50,7 @@ namespace Game.Enemy.Boss
 
             _currentHealth = (_currentHealth - damage >= 0) ? _currentHealth - damage : 0;
             SoundEffectController.RequestSfx(SfxTypes.EnemyHit);
+            GameEvents.OnPointsValueChange(10);
 
             if (_currentHealth >= 0)
                 BossHealthUI.RequestHealthBarChange(_currentHealthInfo.barHealth, _currentHealth, 0.1f);
@@ -116,6 +118,8 @@ namespace Game.Enemy.Boss
 
         private IEnumerator Defeat()
         {
+            GameEvents.OnPointsValueChange(50000);
+
             if(_destroyWhenDefeat)
                 Destroy(gameObject);
             else

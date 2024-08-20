@@ -122,7 +122,7 @@ namespace Game.Player
             {
                 _health++;
                 GameEvents.OnHealthValueChange(_health);
-                PopUpTextManager.RequestPopUpText(new Vector2(0,0.4f), "EXTEND!", Color.grey);
+                PopUpTextManager.RequestPopUpText(new Vector2(0,0.4f), "EXTEND!", 25, Color.grey);
             }
         }
 
@@ -143,6 +143,7 @@ namespace Game.Player
             Vector3 dropPositon = transform.position + new Vector3(0, 0.25f, 0);
 
             _health = 2;
+            _extraLifeIndex = 0;
             GameEvents.OnHealthValueChange(_health);
             PlayerAttackBase.RequestNewBomb(3, true);
             PlayerAttackBase.RequestPowerValueChange(-4);

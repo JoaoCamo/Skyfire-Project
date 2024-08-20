@@ -18,8 +18,6 @@ namespace Game.Gameplay.UI
         [SerializeField] private Image[] bombImages;
         [SerializeField] private Sprite[] bombSprites;
 
-        private int _scoreTargetValue = 0;
-
         private void Awake()
         {
             ResetScore();
@@ -45,21 +43,16 @@ namespace Game.Gameplay.UI
 
         private void UpdateScore(int valueToAdd)
         {
-            _scoreTargetValue += valueToAdd;
-            PlayerHealth.RequestCheckForExtraLife(_scoreTargetValue);
+            GameInfo.CurrentScore += valueToAdd;
+            currentScoreText.text = GameInfo.CurrentScore.ToString();
 
-            DOTween.To(() => GameInfo.CurrentScore, x =>
+            if (GameInfo.CurrentScore > GameInfo.CurrentHighScore)
             {
-                GameInfo.CurrentScore = x;
-                currentScoreText.text = GameInfo.CurrentScore.ToString();
+                GameInfo.CurrentHighScore = GameInfo.CurrentScore;
+                highScoreText.text = GameInfo.CurrentHighScore.ToString();
+            }
 
-                if(GameInfo.CurrentScore > GameInfo.CurrentHighScore)
-                {
-                    GameInfo.CurrentHighScore = x;
-                    highScoreText.text = GameInfo.CurrentHighScore.ToString();
-                }
-
-            }, _scoreTargetValue, 1).SetEase(Ease.Linear);
+            PlayerHealth.RequestCheckForExtraLife(GameInfo.CurrentScore);
         }
 
         private void UpdatePowerText(float value)
@@ -89,7 +82,6 @@ namespace Game.Gameplay.UI
 
         private void ResetScore()
         {
-            _scoreTargetValue = 0;
             GameInfo.CurrentScore = 0;
             currentScoreText.text = GameInfo.CurrentScore.ToString();
             GetHighScore();

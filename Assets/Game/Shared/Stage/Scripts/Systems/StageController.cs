@@ -6,6 +6,7 @@ using DG.Tweening;
 using Game.Enemy;
 using Game.Enemy.Boss;
 using Game.Gameplay.StageEffects;
+using Game.Gameplay.UI;
 using Game.Static;
 using Game.Projectiles;
 using Game.Navigation;
@@ -109,7 +110,8 @@ namespace Game.Stage
             EnemyProjectileManager.RequestFullClear();
 
             yield return _sceneFadeDelay;
-            
+
+            PopUpTextManager.RequestPopUpText(new Vector2(0, 0.4f), ("STAGE " + (_currentStage + 1)), 25, Color.grey);
             fadeToBlack.DOColor(new Color(0, 0, 0, 0), 1);
             
             if (_stageCoroutine != null)

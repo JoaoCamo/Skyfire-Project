@@ -27,7 +27,7 @@ namespace Game.Drop
             base.OnCollect();
             PlayerAttackBase.RequestPowerValueChange(powerValue);
             GameEvents.OnPointsValueChange(dropPointsValue);
-            PopUpTextManager.RequestPopUpText(transform.position, dropPointsValue.ToString(), Color.grey);
+            PopUpTextManager.RequestPopUpText(transform.position, dropPointsValue.ToString(), 15, Color.grey);
 
             gameObject.SetActive(false);
         }
