@@ -36,6 +36,13 @@ namespace Game.Enemy.Boss
             transform.DOMove(_centralPosition, 1).SetEase(Ease.Linear);
         }
 
+        public IEnumerator ReturnToInitialPosition()
+        {
+            StopRandomMovement();
+            transform.DOMove(_initialPosition, 1).SetEase(Ease.Linear);
+            yield return _returnToCentralPositionDelay;
+        }
+
         public IEnumerator StartRandomMovement(float movementDelay)
         {
             StopRandomMovement();
@@ -45,12 +52,6 @@ namespace Game.Enemy.Boss
             
             _canMove = true;
             _randomMovementCoroutine = StartCoroutine(RandomMovement(movementDelay));
-        }
-
-        public IEnumerator ReturnToInitialPosition()
-        {
-            transform.DOMove(_initialPosition, 1).SetEase(Ease.Linear);
-            yield return _returnToCentralPositionDelay;
         }
 
         private IEnumerator RandomMovement(float movementDelay)
@@ -74,11 +75,11 @@ namespace Game.Enemy.Boss
         {
             if (_randomMovementCoroutine != null)
             {
-                _canMove = false;
                 StopCoroutine(_randomMovementCoroutine);
                 _randomMovementCoroutine = null;
             }
-            
+
+            _canMove = false;
             transform.DOKill();
         }
     }
