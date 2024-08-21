@@ -63,33 +63,25 @@ namespace Game.Danmaku.Patterns
 
         private IEnumerator SecondaryShot()
         {
-            WaitForSeconds delay = new WaitForSeconds(1.5f);
             WaitForSeconds innerDelay = new WaitForSeconds(0.1f);
             int timesToFire = timesToShoot / 2;
-            float angle;
-            float innerAngle;
             float angleStep = 360f / timesToFire;
+            float angle = (180 - (angleStep / 2));
+            float innerAngle;
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                yield return delay;
+                innerAngle = angle;
 
-                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position, (90 - (angleStep / 2))) : Random.Range(0, 360);
-
-                for (int j = 0; j < 90; j++)
+                for (int k = 0; k < timesToFire; k++)
                 {
-                    innerAngle = angle;
-
-                    for (int k = 0; k < timesToFire; k++)
-                    {
-                        enemyProjectileManager.GetFireProjectile(ProjectileType.EnemyBulletTwoBlue, transform.position, 1.25f, innerAngle);
-                        innerAngle += angleStep;
-                    }
-
-                    SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
-
-                    yield return innerDelay;
+                    enemyProjectileManager.GetFireProjectile(ProjectileType.EnemyBulletTwoBlue, transform.position, 1.25f, innerAngle);
+                    innerAngle += angleStep;
                 }
+
+                SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
+
+                yield return innerDelay;
             }
         }
     }

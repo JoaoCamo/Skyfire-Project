@@ -766,7 +766,7 @@ MonoBehaviour:
         timesToShoot: 0
         shotSpeed: 0.65
         shotSpeedReduction: 0
-        shotDelay: 0.1
+        shotDelay: 0.075
         shotStartDelay: 2
     - hasMovement: 0
       movementDelay: 0
