@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using Game.Drop;
 using Game.Static.Events;
@@ -10,12 +9,10 @@ namespace Game.Enemy
     public class EnemyHealth : MonoBehaviour
     {
         private int _health;
-        private bool _canTakeDamage = false;
         private bool _hasDroppedItems = false;
 
         private PossibleDrops[] _possibleDrops;
 
-        private readonly WaitForSeconds _timer = new WaitForSeconds(0.5f);
         private const int PLAYER_PROJECTILE_LAYER = 7;
         private const int PLAYER_BOMB_LAYER = 13;
 
@@ -31,8 +28,6 @@ namespace Game.Enemy
 
         private void ReceiveDamage(int damage)
         {
-            if (!_canTakeDamage) return;
-
             _health -= damage;
             SoundEffectController.RequestSfx(SfxTypes.EnemyHit);
             GameEvents.OnPointsValueChange(10);
@@ -66,19 +61,11 @@ namespace Game.Enemy
             }
         }
 
-        private IEnumerator InvincibilityTimer()
-        {
-            yield return _timer;
-            _canTakeDamage = true;
-        }
-
         public void SetHealth(int newHealthValue, PossibleDrops[] possibleDrops)
         {
             _health = newHealthValue;
             _possibleDrops = possibleDrops;
             _hasDroppedItems = false;
-
-            StartCoroutine(InvincibilityTimer());
         }
     }
 }

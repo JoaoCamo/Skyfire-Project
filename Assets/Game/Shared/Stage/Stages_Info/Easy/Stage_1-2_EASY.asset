@@ -489,7 +489,7 @@ MonoBehaviour:
         shotDelay: 0.6
         shotStartDelay: 2
     - hasMovement: 1
-      movementDelay: 4
+      movementDelay: 2.5
       attackInfo:
         attackPattern: 5
         projectileType: 7
