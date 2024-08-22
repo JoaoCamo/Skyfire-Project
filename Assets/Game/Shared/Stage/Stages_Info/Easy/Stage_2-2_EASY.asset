@@ -411,7 +411,7 @@ MonoBehaviour:
       movementDelay: 2
       attackInfo:
         attackPattern: 2
-        projectileType: 6
+        projectileType: 18
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0

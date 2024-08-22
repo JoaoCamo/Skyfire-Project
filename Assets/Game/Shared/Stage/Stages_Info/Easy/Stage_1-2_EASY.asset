@@ -497,9 +497,9 @@ MonoBehaviour:
         isInfiniteLoop: 1
         timesToLoop: 0
         timesToShoot: 3
-        shotSpeed: 0.5
+        shotSpeed: 0.65
         shotSpeedReduction: 0
-        shotDelay: 0.2
+        shotDelay: 0.15
         shotStartDelay: 2
     - hasMovement: 0
       movementDelay: 0
@@ -510,7 +510,7 @@ MonoBehaviour:
         isInfiniteLoop: 1
         timesToLoop: 0
         timesToShoot: 8
-        shotSpeed: 0.3
+        shotSpeed: 0.4
         shotSpeedReduction: 0.01
-        shotDelay: 3
+        shotDelay: 2.5
         shotStartDelay: 2
