@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d22f2a4b29eaf84e82e6fedb5ac42ee, type: 3}
-  m_Name: Stage_3-2_NORMAL
+  m_Name: Stage_3-2_EASY
   m_EditorClassIdentifier: 
   isContinuation: 1
   bossSpawnDelay: 10
@@ -43,7 +43,7 @@ MonoBehaviour:
     waveInitialDelay: 4
     isAsyncWave: 0
     attackInfo:
-      attackPattern: 1
+      attackPattern: 0
       projectileType: 8
       isAimed: 1
       isInfiniteLoop: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
       isAimed: 0
       isInfiniteLoop: 0
       timesToLoop: 2
-      timesToShoot: 10
+      timesToShoot: 5
       shotSpeed: 0.75
       shotSpeedReduction: 0
       shotDelay: 1.5
@@ -102,7 +102,7 @@ MonoBehaviour:
       isAimed: 0
       isInfiniteLoop: 0
       timesToLoop: 2
-      timesToShoot: 10
+      timesToShoot: 5
       shotSpeed: 0.75
       shotSpeedReduction: 0
       shotDelay: 1.5
@@ -133,7 +133,7 @@ MonoBehaviour:
     waveInitialDelay: 6
     isAsyncWave: 0
     attackInfo:
-      attackPattern: 1
+      attackPattern: 0
       projectileType: 8
       isAimed: 1
       isInfiniteLoop: 0
@@ -317,8 +317,8 @@ MonoBehaviour:
       projectileType: 13
       isAimed: 0
       isInfiniteLoop: 0
-      timesToLoop: 6
-      timesToShoot: 8
+      timesToLoop: 3
+      timesToShoot: 6
       shotSpeed: 0.65
       shotSpeedReduction: 0
       shotDelay: 0.5
@@ -349,7 +349,7 @@ MonoBehaviour:
     waveInitialDelay: 6
     isAsyncWave: 0
     attackInfo:
-      attackPattern: 1
+      attackPattern: 0
       projectileType: 7
       isAimed: 1
       isInfiniteLoop: 0
@@ -406,10 +406,10 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 6
-        shotSpeed: 0.3
-        shotSpeedReduction: 0.015
-        shotDelay: 0.075
+        timesToShoot: 4
+        shotSpeed: 0.2
+        shotSpeedReduction: 0.01
+        shotDelay: 0.1
         shotStartDelay: 1
     - hasMovement: 0
       movementDelay: 0
@@ -419,10 +419,10 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 6
+        timesToShoot: 3
         shotSpeed: 0.65
         shotSpeedReduction: 0.55
-        shotDelay: 0.5
+        shotDelay: 0.75
         shotStartDelay: 2
     - hasMovement: 1
       movementDelay: 3.5
@@ -432,8 +432,8 @@ MonoBehaviour:
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 30
-        shotSpeed: 0.7
+        timesToShoot: 20
+        shotSpeed: 0.6
         shotSpeedReduction: 0
         shotDelay: 0.5
         shotStartDelay: 2
@@ -445,10 +445,10 @@ MonoBehaviour:
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 9
-        shotSpeed: 0.8
+        timesToShoot: 5
+        shotSpeed: 0.6
         shotSpeedReduction: 0
-        shotDelay: 2.5
+        shotDelay: 3
         shotStartDelay: 2
     - hasMovement: 1
       movementDelay: 3.5
@@ -458,8 +458,8 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 5
-        shotSpeed: 0.6
+        timesToShoot: 3
+        shotSpeed: 0.5
         shotSpeedReduction: 0
-        shotDelay: 0.1
+        shotDelay: 0.125
         shotStartDelay: 2

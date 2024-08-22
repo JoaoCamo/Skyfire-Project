@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6affa72c6c18344a80ace542e26c47, type: 3}
   m_Name: EASY
   m_EditorClassIdentifier: 
-  stages: []
+  stages:
+  - {fileID: 11400000, guid: 6fa592c8f19b36447832ee04694113ff, type: 2}
+  - {fileID: 11400000, guid: 225a4249717911d45bce7b851239f785, type: 2}
+  - {fileID: 11400000, guid: dd2152bf6e620514ca6b5de3e7784caa, type: 2}
+  - {fileID: 11400000, guid: fda74642e54013640ba9649ff4106890, type: 2}
+  - {fileID: 11400000, guid: 182d28c98fd269f4489fae557cdc311d, type: 2}
+  - {fileID: 11400000, guid: c8d9acd00b74ec343ac71baddd01e063, type: 2}
+  - {fileID: 11400000, guid: 07abcfb08831d4e4db92999ebb664834, type: 2}
+  - {fileID: 11400000, guid: ba828b9a5693d2e42a967594f7745f63, type: 2}
+  - {fileID: 11400000, guid: 284187b9ced0e8241ac89374247b2a65, type: 2}
+  - {fileID: 11400000, guid: 939916de7fcf8224280df3f96f10171a, type: 2}
+  - {fileID: 11400000, guid: 2ad0cb6333072ac4193b66cab0073637, type: 2}
+  - {fileID: 11400000, guid: 974bfd45a400c8446b2fe36a3b5d860e, type: 2}

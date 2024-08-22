@@ -19,7 +19,7 @@ namespace Game.Danmaku.Patterns
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                for (int j = 0; j < 15; j++)
+                for (int j = 0; j < timesToShoot; j++)
                 {
                     angle = Random.Range(0, 360);
                     speed = Random.Range(0.1f, shotSpeed);

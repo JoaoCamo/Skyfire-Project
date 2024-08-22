@@ -14,7 +14,7 @@ namespace Game.Danmaku.Patterns
             float speed;
             float angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : 0;
             float innerAngle;
-            bool invertAngle = false;
+            bool invertAngle;
 
             timesToLoop = isInfiniteLoop ? 999999 : timesToLoop;
 
