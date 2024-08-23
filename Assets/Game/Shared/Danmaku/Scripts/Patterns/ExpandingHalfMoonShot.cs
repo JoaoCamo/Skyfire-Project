@@ -42,7 +42,7 @@ namespace Game.Danmaku.Patterns
                     angle = mainProjectiles[j].transform.rotation.z + 90f;
                     mainProjectiles[j].Speed = shotSpeed;
 
-                    for (int k = 0; k < 7; k++)
+                    for (int k = 0; k < 6; k++)
                     {
                         speed = shotSpeed + shotSpeedReduction;
 

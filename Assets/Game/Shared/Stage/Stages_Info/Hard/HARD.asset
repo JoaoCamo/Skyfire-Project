@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6affa72c6c18344a80ace542e26c47, type: 3}
   m_Name: HARD
   m_EditorClassIdentifier: 
-  stages: []
+  stages:
+  - {fileID: 11400000, guid: 34b78f65ce36ce64ba9472a5fa0fcf49, type: 2}
+  - {fileID: 11400000, guid: b65453398681d86428dfc64b42eceff0, type: 2}
+  - {fileID: 11400000, guid: 06777b6bfa177544db198fb82f5b19b3, type: 2}
+  - {fileID: 11400000, guid: 0a99606e55e2e4c4b9f55a64c445136a, type: 2}
+  - {fileID: 11400000, guid: 1dedade0f4ef5d9488b3bb3d0a937957, type: 2}
+  - {fileID: 11400000, guid: ae40d3235b2b23f4aa388673a9fd456e, type: 2}
+  - {fileID: 11400000, guid: db2c410456093ec479d0ae213e933e0f, type: 2}
+  - {fileID: 11400000, guid: 149238dae32050243b7a68d902a3c467, type: 2}
+  - {fileID: 11400000, guid: d2affb5824f75f340ae34fbdb4c21c8b, type: 2}
+  - {fileID: 11400000, guid: c2cf615e85ad99e44839f8a2c0e5bcbe, type: 2}
+  - {fileID: 11400000, guid: c53915c965316ff41beeb8c5db9142c4, type: 2}
+  - {fileID: 11400000, guid: 97c6135e6398dfb47a53529376a7c95d, type: 2}

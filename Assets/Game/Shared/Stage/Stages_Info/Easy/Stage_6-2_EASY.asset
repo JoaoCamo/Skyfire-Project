@@ -221,7 +221,7 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 24
+        timesToShoot: 16
         shotSpeed: 0.4
         shotSpeedReduction: 0
         shotDelay: 0.4
@@ -273,7 +273,7 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 24
+        timesToShoot: 16
         shotSpeed: 0.5
         shotSpeedReduction: 0
         shotDelay: 0.4

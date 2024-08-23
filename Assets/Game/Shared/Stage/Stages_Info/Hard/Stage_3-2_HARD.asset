@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d22f2a4b29eaf84e82e6fedb5ac42ee, type: 3}
-  m_Name: Stage_3-2_NORMAL
+  m_Name: Stage_3-2_HARD
   m_EditorClassIdentifier: 
   isContinuation: 1
   bossSpawnDelay: 10
@@ -74,8 +74,8 @@ MonoBehaviour:
       projectileType: 18
       isAimed: 0
       isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 10
+      timesToLoop: 3
+      timesToShoot: 15
       shotSpeed: 0.75
       shotSpeedReduction: 0
       shotDelay: 1.5
@@ -101,8 +101,8 @@ MonoBehaviour:
       projectileType: 18
       isAimed: 0
       isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 10
+      timesToLoop: 3
+      timesToShoot: 15
       shotSpeed: 0.75
       shotSpeedReduction: 0
       shotDelay: 1.5
@@ -170,15 +170,15 @@ MonoBehaviour:
     isAsyncWave: 1
     attackInfo:
       attackPattern: 0
-      projectileType: 0
-      isAimed: 0
+      projectileType: 8
+      isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 0
-      timesToShoot: 0
-      shotSpeed: 0
+      timesToLoop: 1
+      timesToShoot: 1
+      shotSpeed: 0.4
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 0
+      shotStartDelay: 1
   - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 6
@@ -206,15 +206,15 @@ MonoBehaviour:
     isAsyncWave: 1
     attackInfo:
       attackPattern: 0
-      projectileType: 0
-      isAimed: 0
+      projectileType: 8
+      isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 0
-      timesToShoot: 0
-      shotSpeed: 0
+      timesToLoop: 1
+      timesToShoot: 1
+      shotSpeed: 0.4
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 0
+      shotStartDelay: 1
   - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 0
@@ -242,15 +242,15 @@ MonoBehaviour:
     isAsyncWave: 1
     attackInfo:
       attackPattern: 0
-      projectileType: 0
-      isAimed: 0
+      projectileType: 8
+      isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 0
-      timesToShoot: 0
-      shotSpeed: 0
+      timesToLoop: 1
+      timesToShoot: 1
+      shotSpeed: 0.4
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 0
+      shotStartDelay: 1
   - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 6
@@ -278,15 +278,15 @@ MonoBehaviour:
     isAsyncWave: 0
     attackInfo:
       attackPattern: 0
-      projectileType: 0
-      isAimed: 0
+      projectileType: 8
+      isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 0
-      timesToShoot: 0
-      shotSpeed: 0
+      timesToLoop: 1
+      timesToShoot: 1
+      shotSpeed: 0.4
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 0
+      shotStartDelay: 1
   - enemyType: 2
     initialPosition:
       enemyInitialPositionX: 7
@@ -318,7 +318,7 @@ MonoBehaviour:
       isAimed: 0
       isInfiniteLoop: 0
       timesToLoop: 6
-      timesToShoot: 8
+      timesToShoot: 16
       shotSpeed: 0.65
       shotSpeedReduction: 0
       shotDelay: 0.5
@@ -406,7 +406,7 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 6
+        timesToShoot: 9
         shotSpeed: 0.3
         shotSpeedReduction: 0.015
         shotDelay: 0.075
@@ -419,7 +419,7 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 6
+        timesToShoot: 8
         shotSpeed: 0.65
         shotSpeedReduction: 0.45
         shotDelay: 0.5
@@ -432,7 +432,7 @@ MonoBehaviour:
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 30
+        timesToShoot: 40
         shotSpeed: 0.7
         shotSpeedReduction: 0
         shotDelay: 0.5
@@ -445,7 +445,7 @@ MonoBehaviour:
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 9
+        timesToShoot: 15
         shotSpeed: 0.8
         shotSpeedReduction: 0
         shotDelay: 2.5
@@ -458,7 +458,7 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 5
+        timesToShoot: 8
         shotSpeed: 0.6
         shotSpeedReduction: 0
         shotDelay: 0.1

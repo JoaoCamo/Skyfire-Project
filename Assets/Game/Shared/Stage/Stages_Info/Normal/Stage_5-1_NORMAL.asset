@@ -114,12 +114,12 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 12
-      timesToShoot: 36
+      timesToShoot: 24
       shotSpeed: 0.2
       shotSpeedReduction: 0.1
       shotDelay: 0.075
       shotStartDelay: 0.75
-  - enemyType: 5
+  - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 0
       enemyInitialPositionY: 4
@@ -180,7 +180,7 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 9
-      timesToShoot: 24
+      timesToShoot: 18
       shotSpeed: 0.2
       shotSpeedReduction: 0.15
       shotDelay: 0.075
@@ -306,7 +306,7 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 9
-      timesToShoot: 24
+      timesToShoot: 18
       shotSpeed: 0.2
       shotSpeedReduction: 0.15
       shotDelay: 0.075
@@ -342,7 +342,7 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 9
-      timesToShoot: 24
+      timesToShoot: 18
       shotSpeed: 0.2
       shotSpeedReduction: 0.15
       shotDelay: 0.075
@@ -444,7 +444,7 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 9
-      timesToShoot: 24
+      timesToShoot: 18
       shotSpeed: 0.2
       shotSpeedReduction: 0.15
       shotDelay: 0.075
@@ -480,7 +480,7 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 9
-      timesToShoot: 24
+      timesToShoot: 18
       shotSpeed: 0.2
       shotSpeedReduction: 0.15
       shotDelay: 0.075
@@ -516,7 +516,7 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 9
-      timesToShoot: 24
+      timesToShoot: 18
       shotSpeed: 0.2
       shotSpeedReduction: 0.15
       shotDelay: 0.075

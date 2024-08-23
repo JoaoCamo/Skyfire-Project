@@ -98,7 +98,7 @@ MonoBehaviour:
   - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 0
-      enemyInitialPositionY: 3
+      enemyInitialPositionY: 2
     movementInfo:
       movementDirection: {x: 0.75, y: 0.1}
       movementChangeInfo:
@@ -131,7 +131,7 @@ MonoBehaviour:
   - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 6
-      enemyInitialPositionY: 3
+      enemyInitialPositionY: 2
     movementInfo:
       movementDirection: {x: -0.75, y: 0.1}
       movementChangeInfo:

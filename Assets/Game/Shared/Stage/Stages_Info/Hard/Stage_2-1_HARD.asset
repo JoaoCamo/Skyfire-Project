@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d22f2a4b29eaf84e82e6fedb5ac42ee, type: 3}
-  m_Name: Stage_2-1_NORMAL
+  m_Name: Stage_2-1_HARD
   m_EditorClassIdentifier: 
   isContinuation: 0
   bossSpawnDelay: 7.5
@@ -55,7 +55,7 @@ MonoBehaviour:
       shotSpeed: 0.1
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 3
+      shotStartDelay: 1.5
   - enemyType: 3
     initialPosition:
       enemyInitialPositionX: 7
@@ -94,7 +94,7 @@ MonoBehaviour:
       shotSpeed: 0.1
       shotSpeedReduction: 0
       shotDelay: 0
-      shotStartDelay: 4.5
+      shotStartDelay: 1.5
   - enemyType: 0
     initialPosition:
       enemyInitialPositionX: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
-      timesToShoot: 2
-      shotSpeed: 0.4
+      timesToShoot: 3
+      shotSpeed: 0.5
       shotSpeedReduction: -0.2
       shotDelay: 0
       shotStartDelay: 1
@@ -151,12 +151,12 @@ MonoBehaviour:
     waveInitialDelay: 2.5
     isAsyncWave: 1
     attackInfo:
-      attackPattern: 13
+      attackPattern: 2
       projectileType: 15
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
-      timesToShoot: 9
+      timesToShoot: 1
       shotSpeed: 0.6
       shotSpeedReduction: 0
       shotDelay: 0
@@ -184,12 +184,12 @@ MonoBehaviour:
     waveInitialDelay: 6
     isAsyncWave: 1
     attackInfo:
-      attackPattern: 13
+      attackPattern: 2
       projectileType: 14
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
-      timesToShoot: 9
+      timesToShoot: 1
       shotSpeed: 0.6
       shotSpeedReduction: 0
       shotDelay: 0
@@ -222,8 +222,8 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
-      timesToShoot: 2
-      shotSpeed: 0.4
+      timesToShoot: 3
+      shotSpeed: 0.5
       shotSpeedReduction: -0.2
       shotDelay: 0
       shotStartDelay: 1
@@ -258,9 +258,9 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
-      timesToShoot: 1
+      timesToShoot: 2
       shotSpeed: 0.4
-      shotSpeedReduction: 0
+      shotSpeedReduction: -0.1
       shotDelay: 0
       shotStartDelay: 0.75
   - enemyType: 2
@@ -294,10 +294,10 @@ MonoBehaviour:
       isAimed: 0
       isInfiniteLoop: 0
       timesToLoop: 4
-      timesToShoot: 6
+      timesToShoot: 8
       shotSpeed: 0.7
-      shotSpeedReduction: -0.1
-      shotDelay: 0.8
+      shotSpeedReduction: -0.05
+      shotDelay: 0.6
       shotStartDelay: 1.25
   bossInfo:
     type: 0
@@ -331,9 +331,9 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 2
+        timesToShoot: 3
         shotSpeed: 0.75
-        shotSpeedReduction: -0.35
+        shotSpeedReduction: -0.25
         shotDelay: 1.15
         shotStartDelay: 1
     - hasMovement: 1
@@ -344,7 +344,7 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 5
+        timesToShoot: 7
         shotSpeed: 0.2
         shotSpeedReduction: 0.01
         shotDelay: 0.1

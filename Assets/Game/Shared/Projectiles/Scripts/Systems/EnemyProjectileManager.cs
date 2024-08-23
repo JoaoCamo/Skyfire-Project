@@ -13,7 +13,7 @@ namespace Game.Projectiles
         private readonly List<ProjectileBase> _projectiles = new List<ProjectileBase>();
 
         public static Action RequestClear { private set; get; }
-        public static Action RequestFullClear { private set; get; }
+        public static Action<bool> RequestFullClear { private set; get; }
 
         private void OnEnable()
         {
@@ -80,10 +80,13 @@ namespace Game.Projectiles
             }
         }
 
-        private void FullClearBullets()
+        private void FullClearBullets(bool showAnimation)
         {
             foreach (ProjectileBase projectile in _projectiles)
             {
+                if (projectile.gameObject.activeSelf && showAnimation)
+                    SpecialEffectsManager.RequestBulletHide(projectile.transform.position);
+
                 projectile.gameObject.SetActive(false);
                 Destroy(projectile.gameObject);
             }
