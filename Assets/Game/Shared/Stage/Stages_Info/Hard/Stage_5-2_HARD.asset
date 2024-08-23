@@ -100,7 +100,7 @@ MonoBehaviour:
     waveInitialDelay: 3
     isAsyncWave: 0
     attackInfo:
-      attackPattern: 1
+      attackPattern: 0
       projectileType: 8
       isAimed: 1
       isInfiniteLoop: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
     waveInitialDelay: 1
     isAsyncWave: 0
     attackInfo:
-      attackPattern: 1
+      attackPattern: 0
       projectileType: 8
       isAimed: 1
       isInfiniteLoop: 0
