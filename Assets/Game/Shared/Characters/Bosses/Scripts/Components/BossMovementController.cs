@@ -13,7 +13,7 @@ namespace Game.Enemy.Boss
             
         private const float X_MIN_POSITION = -0.25f;
         private const float X_MAX_POSITION = 0.25f;
-        private const float Y_MIN_POSITION = 0.3f;
+        private const float Y_MIN_POSITION = 0.4f;
         private const float Y_MAX_POSITION = 0.8f;
         
         private bool _canMove = false;

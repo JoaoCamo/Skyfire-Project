@@ -60,7 +60,6 @@ namespace Game.Stage
             yield return new WaitForSeconds(_gameStages.stages[_currentStageInfoIndex].bossSpawnDelay);
 
             EnemySpawner.RequestClearEnemies();
-            EnemyProjectileManager.RequestFullClear(true);
 
             _currentBoss = enemySpawner.SpawnBoss(_gameStages.stages[_currentStageInfoIndex].bossInfo.type);
             StartBoss();

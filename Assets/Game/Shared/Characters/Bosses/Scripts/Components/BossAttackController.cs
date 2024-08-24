@@ -38,6 +38,8 @@ namespace Game.Enemy.Boss
 
             yield return new WaitForSeconds(_bossAttackInfo[attackIndex].attackInfo.shotStartDelay);
 
+            EnemyProjectileManager.RequestFullClear(true);
+
             if (_bossAttackInfo[attackIndex].hasMovement)
                 StartCoroutine(_movementController.StartRandomMovement(_bossAttackInfo[attackIndex].movementDelay));
 
