@@ -427,8 +427,8 @@ MonoBehaviour:
       isInfiniteLoop: 0
       timesToLoop: 1
       timesToShoot: 3
-      shotSpeed: 0.75
-      shotSpeedReduction: -0.25
+      shotSpeed: 0.5
+      shotSpeedReduction: -0.1
       shotDelay: 0
       shotStartDelay: 1.25
   bossInfo:

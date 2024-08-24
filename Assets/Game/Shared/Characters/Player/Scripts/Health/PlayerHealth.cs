@@ -128,7 +128,7 @@ namespace Game.Player
 
         private void CheckForExtraLife(int points)
         {
-            if (_extraLifeIndex > _pointsNeededForExtraLife.Length)
+            if (_extraLifeIndex >= _pointsNeededForExtraLife.Length)
                 return;
 
             if(points >= _pointsNeededForExtraLife[_extraLifeIndex])

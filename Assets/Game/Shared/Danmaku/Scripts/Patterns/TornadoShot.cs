@@ -36,7 +36,7 @@ namespace Game.Danmaku.Patterns
 
         private IEnumerator InvertAngleStep()
         {
-            WaitForSeconds angleInvertDelay = new WaitForSeconds(5);
+            WaitForSeconds angleInvertDelay = new WaitForSeconds(2.5f);
 
             while(_canInvertAngle)
             {

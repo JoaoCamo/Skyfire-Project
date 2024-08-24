@@ -534,8 +534,8 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
-      timesToShoot: 3
-      shotSpeed: 0.6
+      timesToShoot: 2
+      shotSpeed: 0.5
       shotSpeedReduction: -0.2
       shotDelay: 0
       shotStartDelay: 1.25
@@ -760,7 +760,7 @@ MonoBehaviour:
       attackInfo:
         attackPattern: 22
         projectileType: 10
-        isAimed: 1
+        isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
         timesToShoot: 0
