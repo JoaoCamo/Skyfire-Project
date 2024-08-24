@@ -13,4 +13,15 @@ MonoBehaviour:
   m_Name: LUNATIC
   m_EditorClassIdentifier: 
   stages:
-  - {fileID: 11400000, guid: 8a8e457a5023359479a8fadc89397140, type: 2}
+  - {fileID: 11400000, guid: 4250233200f12e4439aedc082d8a7414, type: 2}
+  - {fileID: 11400000, guid: 72e9c5c5de15c6a45a2f9e1329f60ab0, type: 2}
+  - {fileID: 11400000, guid: 00b7669aa67c49f4f9fbd580f56ade55, type: 2}
+  - {fileID: 11400000, guid: 38609995a9136f34986517014833478c, type: 2}
+  - {fileID: 11400000, guid: e7a8f4c95bf5548489b1f5e15149c9f2, type: 2}
+  - {fileID: 11400000, guid: 219e080eef3101243bffda7293e34376, type: 2}
+  - {fileID: 11400000, guid: 59c7d5f8349171e4f8ed2fdfda8ccec1, type: 2}
+  - {fileID: 11400000, guid: 486549526d5e1e54aaad68f125eadeb7, type: 2}
+  - {fileID: 11400000, guid: 58abb07da88879f429bbc359820624ec, type: 2}
+  - {fileID: 11400000, guid: 33d225a87bbd1cb44a824e7f5dd2c088, type: 2}
+  - {fileID: 11400000, guid: 32fb92f963682cb4f97d94eee3780b4f, type: 2}
+  - {fileID: 11400000, guid: 53026c0c12e22be4aa8679c29c1f6c12, type: 2}

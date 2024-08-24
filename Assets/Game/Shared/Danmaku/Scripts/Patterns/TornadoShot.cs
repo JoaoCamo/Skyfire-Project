@@ -9,6 +9,8 @@ namespace Game.Danmaku.Patterns
     {
         private bool _canInvertAngle = false;
         private bool _invertAngle = false;
+        private const float INVERT_MIN_DELAY = 2.5f;
+        private const float INVERT_MAX_DELAY = 5f;
 
         public override IEnumerator Shoot()
         {
@@ -36,11 +38,13 @@ namespace Game.Danmaku.Patterns
 
         private IEnumerator InvertAngleStep()
         {
-            WaitForSeconds angleInvertDelay = new WaitForSeconds(2.5f);
+            float delay;
 
             while(_canInvertAngle)
             {
-                yield return angleInvertDelay;
+                delay = Random.Range(INVERT_MIN_DELAY, INVERT_MAX_DELAY);
+
+                yield return new WaitForSeconds(delay);
                 _invertAngle = !_invertAngle;
             }
         }

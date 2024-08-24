@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d22f2a4b29eaf84e82e6fedb5ac42ee, type: 3}
-  m_Name: Stage_6-2_NORMAL
+  m_Name: Stage_6-2_LUNATIC
   m_EditorClassIdentifier: 
   isContinuation: 1
   bossSpawnDelay: 10
@@ -44,7 +44,7 @@ MonoBehaviour:
       projectileType: 12
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
+      timesToLoop: 3
       timesToShoot: 1
       shotSpeed: 0.3
       shotSpeedReduction: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
       projectileType: 12
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
+      timesToLoop: 3
       timesToShoot: 1
       shotSpeed: 0.3
       shotSpeedReduction: 0
@@ -117,8 +117,8 @@ MonoBehaviour:
       isAimed: 0
       isInfiniteLoop: 0
       timesToLoop: 30
-      timesToShoot: 20
-      shotSpeed: 1.25
+      timesToShoot: 35
+      shotSpeed: 1.5
       shotSpeedReduction: 0
       shotDelay: 0.05
       shotStartDelay: 1
@@ -221,10 +221,10 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 24
+        timesToShoot: 36
         shotSpeed: 0.4
         shotSpeedReduction: 0
-        shotDelay: 0.3
+        shotDelay: 0.2
         shotStartDelay: 1
     - hasMovement: 0
       movementDelay: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 9
+        timesToShoot: 18
         shotSpeed: 1.5
         shotSpeedReduction: 0.75
         shotDelay: 0.15
@@ -247,7 +247,7 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 8
+        timesToShoot: 12
         shotSpeed: 0.4
         shotSpeedReduction: 0.5
         shotDelay: 3
@@ -263,7 +263,7 @@ MonoBehaviour:
         timesToShoot: 36
         shotSpeed: 1.25
         shotSpeedReduction: 0.1
-        shotDelay: 1
+        shotDelay: 0.5
         shotStartDelay: 2
     - hasMovement: 0
       movementDelay: 0
@@ -273,10 +273,10 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 24
+        timesToShoot: 36
         shotSpeed: 0.5
         shotSpeedReduction: 0
-        shotDelay: 0.3
+        shotDelay: 0.2
         shotStartDelay: 2
     - hasMovement: 0
       movementDelay: 0
@@ -286,10 +286,10 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 36
+        timesToShoot: 48
         shotSpeed: 0.3
         shotSpeedReduction: 0.2
-        shotDelay: 0.75
+        shotDelay: 0.5
         shotStartDelay: 2
     - hasMovement: 0
       movementDelay: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 8
+        timesToShoot: 18
         shotSpeed: 0.8
         shotSpeedReduction: 0.075
         shotDelay: 0.25
@@ -312,7 +312,7 @@ MonoBehaviour:
         isAimed: 0
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 5
+        timesToShoot: 7
         shotSpeed: 0.6
         shotSpeedReduction: 0.25
         shotDelay: 0.025
@@ -325,10 +325,10 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 1
+        timesToShoot: 2
         shotSpeed: 0.8
-        shotSpeedReduction: 0
-        shotDelay: 0.4
+        shotSpeedReduction: -0.3
+        shotDelay: 0.3
         shotStartDelay: 2
     - hasMovement: 0
       movementDelay: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
         isAimed: 1
         isInfiniteLoop: 1
         timesToLoop: 0
-        timesToShoot: 8
+        timesToShoot: 12
         shotSpeed: 0.3
         shotSpeedReduction: 0.4
         shotDelay: 0.25
