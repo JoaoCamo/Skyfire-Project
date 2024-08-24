@@ -117,7 +117,7 @@ MonoBehaviour:
       isAimed: 0
       isInfiniteLoop: 0
       timesToLoop: 30
-      timesToShoot: 35
+      timesToShoot: 30
       shotSpeed: 1.5
       shotSpeedReduction: 0
       shotDelay: 0.05

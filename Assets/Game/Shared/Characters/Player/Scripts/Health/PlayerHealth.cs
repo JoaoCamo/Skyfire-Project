@@ -14,7 +14,7 @@ namespace Game.Player
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
         
-        private int _health = 2;
+        private int _health = 8;
         private bool _canTakeDamage = true;
         private PlayerAttackBase _playerAttack;
         private PlayerMovement _playerMovement;
@@ -142,7 +142,7 @@ namespace Game.Player
         {
             Vector3 dropPositon = transform.position + new Vector3(0, 0.25f, 0);
 
-            _health = 2;
+            _health = 8;
             _extraLifeIndex = 0;
             GameEvents.OnHealthValueChange(_health);
             PlayerAttackBase.RequestNewBomb(3, true);
