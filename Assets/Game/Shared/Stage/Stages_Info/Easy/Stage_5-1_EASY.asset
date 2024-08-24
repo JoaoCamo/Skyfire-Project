@@ -143,8 +143,8 @@ MonoBehaviour:
       projectileType: 10
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 10
+      timesToLoop: 3
+      timesToShoot: 5
       shotSpeed: 0.5
       shotSpeedReduction: 0
       shotDelay: 0.5
@@ -239,8 +239,8 @@ MonoBehaviour:
       projectileType: 10
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 10
+      timesToLoop: 3
+      timesToShoot: 5
       shotSpeed: 0.5
       shotSpeedReduction: 0
       shotDelay: 0.5
@@ -269,8 +269,8 @@ MonoBehaviour:
       projectileType: 10
       isAimed: 1
       isInfiniteLoop: 0
-      timesToLoop: 2
-      timesToShoot: 10
+      timesToLoop: 3
+      timesToShoot: 5
       shotSpeed: 0.5
       shotSpeedReduction: 0
       shotDelay: 0.5
