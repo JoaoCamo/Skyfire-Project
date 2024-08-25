@@ -1,5 +1,5 @@
-using Game.Static;
 using UnityEngine;
+using Game.Static;
 
 namespace Game.Utils
 {

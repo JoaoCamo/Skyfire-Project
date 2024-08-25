@@ -9,9 +9,11 @@ namespace Game.Menus
     {
         [SerializeField] private TextMeshProUGUI titleMesh;
         [SerializeField] private Button gameplayButton;
+        [SerializeField] private Button videoButton;
         [SerializeField] private Button volumeButton;
         [SerializeField] private Button returnButton;
         [SerializeField] private CanvasGroup gameplayCanvas;
+        [SerializeField] private CanvasGroup videoCanvas;
         [SerializeField] private CanvasGroup volumeCanvas;
         [SerializeField] private CanvasGroup mainCanvas;
 
@@ -27,6 +29,7 @@ namespace Game.Menus
         private void LoadButtons()
         {
             gameplayButton.onClick.AddListener(GameplayButtonOnClick);
+            videoButton.onClick.AddListener(VideoButtonOnClick);
             volumeButton.onClick.AddListener(VolumeButtonOnClick);
             returnButton.onClick.AddListener(ReturnButtonOnClick);
         }
@@ -48,6 +51,13 @@ namespace Game.Menus
         {
             ChangeCanvas(_selectedCanvas, volumeCanvas, "VOLUME");
             _selectedCanvas = volumeCanvas;
+            _onMainPage = false;
+        }
+
+        private void VideoButtonOnClick()
+        {
+            ChangeCanvas(_selectedCanvas, videoCanvas, "VIDEO");
+            _selectedCanvas = videoCanvas;
             _onMainPage = false;
         }
 
