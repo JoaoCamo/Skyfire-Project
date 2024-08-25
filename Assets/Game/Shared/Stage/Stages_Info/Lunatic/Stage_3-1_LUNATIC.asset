@@ -444,9 +444,9 @@ MonoBehaviour:
       isAimed: 1
       isInfiniteLoop: 0
       timesToLoop: 1
-      timesToShoot: 15
-      shotSpeed: 0.05
-      shotSpeedReduction: 0.075
+      timesToShoot: 10
+      shotSpeed: 0.1
+      shotSpeedReduction: 0.125
       shotDelay: 0
       shotStartDelay: 1.25
   bossInfo:
