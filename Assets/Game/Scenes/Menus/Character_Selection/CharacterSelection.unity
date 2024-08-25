@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 128112155}
   - component: {fileID: 128112154}
   - component: {fileID: 128112153}
+  - component: {fileID: 128112156}
   m_Layer: 5
   m_Name: '[Button] Return'
   m_TagString: Untagged
@@ -294,7 +295,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -357,6 +358,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128112151}
   m_CullTransparentMesh: 1
+--- !u!114 &128112156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128112151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05870da5c5fd6594494d6f69c24604bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 357237387}
 --- !u!1 &223137744
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.70980394, g: 0.9058824, b: 0.5372549, a: 1}
+  m_Color: {r: 0.77254903, g: 0.98039216, b: 0.58431375, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1143,7 +1157,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4288018884
-  m_fontColor: {r: 0.7686275, g: 0.97647065, b: 0.58431375, a: 1}
+  m_fontColor: {r: 0.77254903, g: 0.98039216, b: 0.58431375, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

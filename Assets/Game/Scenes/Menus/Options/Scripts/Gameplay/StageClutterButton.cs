@@ -9,7 +9,7 @@ namespace Game.Menus
 
         private Image image;
 
-        private readonly Color32 _activatedColor = new Color32(181, 230, 137, 255);
+        private readonly Color32 _activatedColor = new Color32(197, 250, 149, 255);
         private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
 
         private const string STAGE_CLUTTER_KEY = "STAGE_CLUTTER__ON";

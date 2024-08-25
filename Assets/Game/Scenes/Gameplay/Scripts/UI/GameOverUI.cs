@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using TMPro;
 using Game.Navigation;
 using Game.Static;
 using Game.Static.Events;
@@ -12,9 +13,12 @@ namespace Game.Gameplay.UI
     public class GameOverUI : MonoBehaviour
     {
         [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private TextMeshProUGUI retryTextMesh;
         [SerializeField] private Button retryButton;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button returnButton;
+
+        private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
 
         private static bool _loseScreenOpen = false;
 
@@ -65,6 +69,7 @@ namespace Game.Gameplay.UI
             GameEvents.TogglePlayerInputs?.Invoke(_loseScreenOpen);
 
             retryButton.interactable = GameInfo.RetryCount > 0;
+            retryTextMesh.color = GameInfo.RetryCount > 0 ? retryTextMesh.color : _disabledColor;
 
             _loseScreenOpen = !_loseScreenOpen;
 

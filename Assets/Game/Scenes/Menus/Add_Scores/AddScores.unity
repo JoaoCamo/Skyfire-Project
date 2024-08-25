@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -735,6 +734,7 @@ GameObject:
   - component: {fileID: 777336715}
   - component: {fileID: 777336714}
   - component: {fileID: 777336716}
+  - component: {fileID: 777336717}
   m_Layer: 5
   m_Name: '[Button] Submit'
   m_TagString: Untagged
@@ -844,6 +844,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &777336717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777336712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05870da5c5fd6594494d6f69c24604bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 2049893933}
 --- !u!1 &787055011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1178,7 @@ GameObject:
   - component: {fileID: 1003698129}
   - component: {fileID: 1003698128}
   - component: {fileID: 1003698127}
+  - component: {fileID: 1003698130}
   m_Layer: 5
   m_Name: '[Button] Skip'
   m_TagString: Untagged
@@ -1274,6 +1288,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003698125}
   m_CullTransparentMesh: 1
+--- !u!114 &1003698130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003698125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05870da5c5fd6594494d6f69c24604bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1674713848}
 --- !u!1 &1154058199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2435,8 +2462,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288019141
-  m_fontColor: {r: 0.77254903, g: 0.98039216, b: 0.58431375, a: 1}
+    rgba: 4284391293
+  m_fontColor: {r: 0.48855782, g: 0.6226415, b: 0.36712354, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

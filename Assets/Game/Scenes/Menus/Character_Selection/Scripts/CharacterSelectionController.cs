@@ -18,7 +18,7 @@ namespace Game.Menus
         private PlayerType _playerType = PlayerType.None;
         private Image _selectedOutline = null;
 
-        private readonly Color32 _activatedColor = new Color32(181, 230, 137, 255);
+        private readonly Color32 _activatedColor = new Color32(197, 250, 149, 255);
         private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
 
         private void Awake()

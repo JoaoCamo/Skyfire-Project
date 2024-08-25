@@ -145,7 +145,7 @@ MonoBehaviour:
       - dropType: 1
         dropChance: 1
         timesToDrop: 1
-    - barHealth: 275
+    - barHealth: 325
       possibleDrops:
       - dropType: 0
         dropChance: 1

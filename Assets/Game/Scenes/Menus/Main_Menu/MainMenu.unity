@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -171,6 +170,7 @@ GameObject:
   - component: {fileID: 70971063}
   - component: {fileID: 70971065}
   - component: {fileID: 70971064}
+  - component: {fileID: 70971066}
   m_Layer: 5
   m_Name: '[Button] Game Start'
   m_TagString: Untagged
@@ -250,6 +250,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70971062}
   m_CullTransparentMesh: 1
+--- !u!114 &70971066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70971062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05870da5c5fd6594494d6f69c24604bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 381344787}
 --- !u!1 &136360431
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +743,7 @@ GameObject:
   - component: {fileID: 561121929}
   - component: {fileID: 561121928}
   - component: {fileID: 561121930}
+  - component: {fileID: 561121931}
   m_Layer: 5
   m_Name: '[Button] Quit'
   m_TagString: Untagged
@@ -821,6 +835,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58b130f5d2c2944cb43fe88368de401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &561121931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561121926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05870da5c5fd6594494d6f69c24604bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 329096983}
 --- !u!1 &1226044321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1301,7 @@ GameObject:
   - component: {fileID: 1725511365}
   - component: {fileID: 1725511367}
   - component: {fileID: 1725511366}
+  - component: {fileID: 1725511368}
   m_Layer: 5
   m_Name: '[Button] Mission Archive'
   m_TagString: Untagged
@@ -1353,6 +1381,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725511364}
   m_CullTransparentMesh: 1
+--- !u!114 &1725511368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725511364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05870da5c5fd6594494d6f69c24604bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1449455394}
 --- !u!1 &1754272010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,6 +1405,7 @@ GameObject:
   - component: {fileID: 1754272011}
   - component: {fileID: 1754272013}
   - component: {fileID: 1754272012}
+  - component: {fileID: 1754272014}
   m_Layer: 5
   m_Name: '[Button] Options'
   m_TagString: Untagged
@@ -1443,6 +1485,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754272010}
   m_CullTransparentMesh: 1
+--- !u!114 &1754272014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754272010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05870da5c5fd6594494d6f69c24604bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 136360433}
 --- !u!1 &1789618106
 GameObject:
   m_ObjectHideFlags: 0
