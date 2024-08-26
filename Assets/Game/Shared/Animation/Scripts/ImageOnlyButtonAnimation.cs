@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using TMPro;
 
 namespace Game.Animation
 {
-    public class TextOnlyButtonAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class ImageOnlyButtonAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] private TextMeshProUGUI textMesh;
+        [SerializeField] private Image image;
         private Button _button;
 
         private readonly Color32 _activatedColor = new Color32(197, 250, 149, 255);
@@ -18,7 +17,7 @@ namespace Game.Animation
             _button = GetComponent<Button>();
 
             if(_button.interactable)
-                textMesh.color = _disabledColor;
+                image.color = _disabledColor;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -33,14 +32,14 @@ namespace Game.Animation
 
         private void HoverEnter()
         {
-            if(_button.interactable)
-                textMesh.color = _activatedColor;
+            if (_button.interactable)
+                image.color = _activatedColor;
         }
 
         private void HoverExit()
         {
-            if(_button.interactable)
-                textMesh.color = _disabledColor;
+            if (_button.interactable)
+                image.color = _disabledColor;
         }
     }
 }

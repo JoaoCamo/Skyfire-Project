@@ -1,45 +1,70 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
 using Game.Static;
 
 namespace Game.Menus
 {
-    public class FPSCounterButton : MonoBehaviour
+    public class FPSCounterButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] private Button button;
+        [SerializeField] private Image image;
+        [SerializeField] private TextMeshProUGUI textMesh;
 
-        private Image image;
+        private Button _button;
+        private bool _isActive;
 
         private readonly Color32 _activatedColor = new Color32(197, 250, 149, 255);
+        private readonly Color32 _selectedColor = new Color32(125, 160, 95, 255);
         private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
 
         private const string SHOW_FPS_KEY = "SHOW_FPS";
 
         private void Awake()
         {
-            image = button.GetComponent<Image>();
-
-            button.onClick.AddListener(OnClick);
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(OnClick);
             Initialize();
         }
 
         private void Initialize()
         {
-            bool value = PlayerPrefs.GetInt(SHOW_FPS_KEY, 0) == 1;
-            GameInfo.ShowFps = value;
-
-            image.color = value ? _activatedColor : _disabledColor;
+            _isActive = PlayerPrefs.GetInt(SHOW_FPS_KEY, 0) == 1;
+            image.color = _isActive ? _activatedColor : _disabledColor;
+            textMesh.color = _isActive ? _activatedColor : _disabledColor;
         }
 
         private void OnClick()
         {
-            bool value = PlayerPrefs.GetInt(SHOW_FPS_KEY, 0) == 1;
-            value = !value;
+            _isActive = !_isActive;
 
-            GameInfo.ShowFps = value;
-            PlayerPrefs.SetInt(SHOW_FPS_KEY, value ? 1 : 0);
+            GameInfo.ShowFps = _isActive;
+            PlayerPrefs.SetInt(SHOW_FPS_KEY, _isActive ? 1 : 0);
 
-            image.color = value ? _activatedColor : _disabledColor;
+            image.color = _isActive ? _activatedColor : _disabledColor;
+            textMesh.color = _isActive ? _activatedColor : _disabledColor;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            HoverEnter();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            HoverExit();
+        }
+
+        private void HoverEnter()
+        {
+            image.color = _selectedColor;
+            textMesh.color = _selectedColor;
+        }
+
+        private void HoverExit()
+        {
+            image.color = _isActive ? _activatedColor : _disabledColor;
+            textMesh.color = _isActive ? _activatedColor : _disabledColor;
         }
     }
 }

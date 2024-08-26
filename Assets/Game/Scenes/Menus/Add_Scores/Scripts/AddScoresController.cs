@@ -13,8 +13,13 @@ namespace Game.Menus
         [SerializeField] private TMP_InputField inputField;
         [SerializeField] private TextMeshProUGUI playerTypeMesh;
         [SerializeField] private TextMeshProUGUI scoreMesh;
-        [SerializeField] private Button submitButton;
         [SerializeField] private Button skipButton;
+        [SerializeField] private Button submitButton;
+        [SerializeField] private Image submitButtonImage;
+        [SerializeField] private TextMeshProUGUI submitButtonTextMesh;
+
+        private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
+        private readonly Color32 _activatedColor = new Color32(125, 160, 95, 255);
 
         private void Awake()
         {
@@ -38,7 +43,11 @@ namespace Game.Menus
 
         private void CheckForName(string value)
         {
-            submitButton.interactable = value.Length == 3;
+            bool _isInteractable = value.Length == 3;
+
+            submitButton.interactable = _isInteractable;
+            submitButtonImage.color = _isInteractable ? _activatedColor : _disabledColor;
+            submitButtonTextMesh.color = _isInteractable ? _activatedColor : _disabledColor;
         }
 
         private void SubmitButtonAction()

@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 704342539}
   - component: {fileID: 704342538}
   - component: {fileID: 704342537}
+  - component: {fileID: 704342540}
   m_Layer: 5
   m_Name: '[Button] 1'
   m_TagString: Untagged
@@ -818,7 +819,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -881,6 +882,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704342535}
   m_CullTransparentMesh: 1
+--- !u!114 &704342540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704342535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d6cc9d073b02f4a9ac2a56554a7b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info:
+    playerType: 0
+    description: Captain Hiroshi is a calm and skilled pilot, known for his precise
+      maneuvers and sharp reflexes. He can deftly navigate through tight spaces,
+      evading enemy fire with ease.
+  image: {fileID: 704342538}
 --- !u!1 &730762138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1255,7 @@ GameObject:
   - component: {fileID: 1086182985}
   - component: {fileID: 1086182984}
   - component: {fileID: 1086182983}
+  - component: {fileID: 1086182986}
   m_Layer: 5
   m_Name: '[Button] 2'
   m_TagString: Untagged
@@ -1282,7 +1302,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1345,6 +1365,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086182981}
   m_CullTransparentMesh: 1
+--- !u!114 &1086182986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086182981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d6cc9d073b02f4a9ac2a56554a7b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info:
+    playerType: 1
+    description: Lieutenant Chen, daring and innovative, employs unconventional tactics
+      in aerial combat. Inspired by speed and agility, she swiftly outmaneuvers opponents.
+  image: {fileID: 1086182984}
 --- !u!1 &1423152140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,26 +1411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0603c0f0fd9278f469c61c9984be69f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSelectionInfos:
-  - navigationInfo:
-      scene: 4
-      loadSceneMode: 0
-      hasLoading: 1
-      button: {fileID: 704342537}
-    playerType: 0
-    outline: {fileID: 704342538}
-    description: Captain Hiroshi is a calm and skilled pilot, known for his precise
-      maneuvers and sharp reflexes. He can deftly navigate through tight spaces,
-      evading enemy fire with ease.
-  - navigationInfo:
-      scene: 4
-      loadSceneMode: 0
-      hasLoading: 1
-      button: {fileID: 1086182983}
-    playerType: 1
-    outline: {fileID: 1086182984}
-    description: Lieutenant Chen, daring and innovative, employs unconventional tactics
-      in aerial combat. Inspired by speed and agility, she swiftly outmaneuvers opponents.
+  characterSelectionButtons:
+  - {fileID: 704342540}
+  - {fileID: 1086182986}
   confirmSelection: {fileID: 1999116760}
   titleMesh: {fileID: 858918090}
   description: {fileID: 1028189850}
@@ -1748,7 +1768,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CLICK AGAIN TO CONFIRM
+  m_text: CLICK TO CONFIRM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}

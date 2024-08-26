@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Game.Navigation;
 using Game.Player;
@@ -9,17 +10,11 @@ namespace Game.Menus
 {
     public class CharacterSelectionController : MonoBehaviour
     {
-        [SerializeField] private CharacterSelectionInfo[] characterSelectionInfos;
+        [SerializeField] private CharacterSelectionButton[] characterSelectionButtons;
         [SerializeField] private GameObject confirmSelection;
         [SerializeField] private TextMeshProUGUI titleMesh;
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private Button returnButton;
-
-        private PlayerType _playerType = PlayerType.None;
-        private Image _selectedOutline = null;
-
-        private readonly Color32 _activatedColor = new Color32(197, 250, 149, 255);
-        private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
 
         private void Awake()
         {
@@ -28,39 +23,32 @@ namespace Game.Menus
 
         private void LoadButtons()
         {
-            foreach (CharacterSelectionInfo characterInfo in characterSelectionInfos)
+            foreach (CharacterSelectionButton button in characterSelectionButtons)
             {
-                characterInfo.navigationInfo.button.onClick.AddListener(() =>
-                {
-                    SelectCharacter(characterInfo.playerType, characterInfo.outline, characterInfo.description, characterInfo.navigationInfo);
-                });
+                button.Initialize(this);
             }
 
             returnButton.onClick.AddListener(() => NavigationController.RequestSceneUnload());
         }
 
-        private void SelectCharacter(PlayerType playerType, Image outline, string descriptionText ,SceneNavigationInfo navigationInfo)
+        public void SelectCharacter(PlayerType playerType)
         {
-            if(playerType == _playerType)
-                NavigationController.RequestSceneLoad(navigationInfo.scene, navigationInfo.loadSceneMode, navigationInfo.hasLoading);
-            else
-            {
-                GameInfo.PlayerType = playerType;
-                _playerType = playerType;
-                titleMesh.text = GetTitle(playerType);
-                description.text = descriptionText;
-                SetOutline(outline);
-                confirmSelection.SetActive(true);
-            }
+            NavigationController.RequestSceneLoad(Scenes.Gameplay, LoadSceneMode.Single, true);
+            GameInfo.PlayerType = playerType;
         }
 
-        private void SetOutline(Image newOutline)
+        public void SetInfo(PlayerType playerType, string descriptionText)
         {
-            if (_selectedOutline != null)
-                _selectedOutline.color = _disabledColor;
+            titleMesh.text = GetTitle(playerType);
+            description.text = descriptionText;
+            confirmSelection.SetActive(true);
+        }
 
-            _selectedOutline = newOutline;
-            _selectedOutline.color = _activatedColor;
+        public void ClearInfo()
+        {
+            titleMesh.text = "SELECT PILOT";
+            description.text = "";
+            confirmSelection.SetActive(false);
         }
 
         private string GetTitle(PlayerType playerType)
@@ -77,9 +65,7 @@ namespace Game.Menus
     [System.Serializable]
     public struct CharacterSelectionInfo
     {
-        public SceneNavigationInfo navigationInfo;
         public PlayerType playerType;
-        public Image outline;
         public string description;
     }
 }

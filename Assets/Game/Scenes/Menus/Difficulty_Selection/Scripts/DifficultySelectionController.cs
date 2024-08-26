@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Game.Navigation;
 using Game.Stage;
@@ -9,17 +10,11 @@ namespace Game.Menus
 {
     public class DifficultySelectionController : MonoBehaviour
     {
-        [SerializeField] private DifficultySelectionInfo[] difficultySelectionInfos;
+        [SerializeField] private DifficultySelectionButton[] difficultySelectionButtons;
         [SerializeField] private GameObject confirmSelection;
         [SerializeField] private TextMeshProUGUI titleMesh;
         [SerializeField] private TextMeshProUGUI description;
         [SerializeField] private Button returnButton;
-
-        private DifficultyType _difficultyType = DifficultyType.None;
-        private Image _selectedOutline = null;
-
-        private readonly Color32 _activatedColor = new Color32(197, 250, 149, 255);
-        private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
 
         private void Awake()
         {
@@ -28,39 +23,32 @@ namespace Game.Menus
 
         private void LoadButtons()
         {
-            foreach (DifficultySelectionInfo difficultyInfo in difficultySelectionInfos)
+            foreach (DifficultySelectionButton button in difficultySelectionButtons)
             {
-                difficultyInfo.navigationInfo.button.onClick.AddListener(() =>
-                {
-                    SelectDifficulty(difficultyInfo.difficultyType, difficultyInfo.outline, difficultyInfo.description, difficultyInfo.navigationInfo);
-                });
+                button.Initialize(this);
             }
 
             returnButton.onClick.AddListener(() => NavigationController.RequestSceneUnload());
         }
         
-        private void SelectDifficulty(DifficultyType difficultyType, Image outline, string descriptionText ,SceneNavigationInfo navigationInfo)
+        public void SelectDifficulty(DifficultyType difficultyType)
         {
-            if(difficultyType == _difficultyType)
-                NavigationController.RequestSceneLoad(navigationInfo.scene, navigationInfo.loadSceneMode, navigationInfo.hasLoading);
-            else
-            {
-                GameInfo.DifficultyType = difficultyType;
-                _difficultyType = difficultyType;
-                titleMesh.text = GetTitle(difficultyType);
-                description.text = descriptionText;
-                SetOutline(outline);
-                confirmSelection.SetActive(true);
-            }
+            GameInfo.DifficultyType = difficultyType;
+            NavigationController.RequestSceneLoad(Scenes.CharacterSelection, LoadSceneMode.Additive, false);
         }
 
-        private void SetOutline(Image newOutline)
+        public void SetInfo(DifficultyType difficultyType, string descriptionText)
         {
-            if (_selectedOutline != null)
-                _selectedOutline.color = _disabledColor;
+            titleMesh.text = GetTitle(difficultyType);
+            description.text = descriptionText;
+            confirmSelection.SetActive(true);
+        }
 
-            _selectedOutline = newOutline;
-            _selectedOutline.color = _activatedColor;
+        public void ClearInfo()
+        {
+            titleMesh.text = "SELECT MISSION DIFFICULTY";
+            description.text = "";
+            confirmSelection.SetActive(false);
         }
 
         private string GetTitle(DifficultyType difficultyType)
@@ -79,9 +67,7 @@ namespace Game.Menus
     [System.Serializable]
     public struct DifficultySelectionInfo
     {
-        public SceneNavigationInfo navigationInfo;
         public DifficultyType difficultyType;
-        public Image outline;
         public string description;
     }
 }

@@ -1,7 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using Game.Static;
-using System.Collections;
 
 namespace Game.Gameplay.UI
 {
