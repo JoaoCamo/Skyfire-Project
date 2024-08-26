@@ -13,6 +13,7 @@ namespace Game.Gameplay.Init
         {
             Instantiate(_playerPrefabs[(int)GameInfo.PlayerType], PLAYER_SPAWN_POSITION, Quaternion.identity);
             GameInfo.RetryCount = 3;
+            GameInfo.lastRunStatus = false;
             Destroy(gameObject);
         }
     }

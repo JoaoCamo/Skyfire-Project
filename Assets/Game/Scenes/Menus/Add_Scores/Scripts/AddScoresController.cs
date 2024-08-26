@@ -58,9 +58,11 @@ namespace Game.Menus
                 playerType = GameInfo.PlayerType,
                 score = GameInfo.CurrentScore,
                 date = System.DateTime.Now.ToString("dd/MM/yyyy"),
+                runStatus = GameInfo.lastRunStatus,
+                difficulty = GameInfo.DifficultyType
             };
 
-            GameDataManager.SaveGameScore(data, false);
+            GameDataManager.SaveGameScore(data, GameInfo.lastRunStatus);
 
             NavigationController.RequestSceneLoad(Scenes.MainMenu, LoadSceneMode.Single, true);
         }

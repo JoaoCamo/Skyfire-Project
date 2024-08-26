@@ -1,4 +1,5 @@
 using Game.Player;
+using Game.Stage;
 
 namespace Game.Saves
 {
@@ -9,5 +10,7 @@ namespace Game.Saves
         public PlayerType playerType;
         public int score;
         public string date;
+        public bool runStatus;
+        public DifficultyType difficulty;
     }
 }
