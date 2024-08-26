@@ -2471,9 +2471,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1278433249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05870da5c5fd6594494d6f69c24604bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a6df3023e4dd48418ee8e9ba3c451ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 1278433252}
   textMesh: {fileID: 1540049959}
 --- !u!1 &1372497181
 GameObject:
