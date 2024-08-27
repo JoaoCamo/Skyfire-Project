@@ -737,6 +737,7 @@ GameObject:
   - component: {fileID: 777336714}
   - component: {fileID: 777336716}
   - component: {fileID: 777336717}
+  - component: {fileID: 777336718}
   m_Layer: 5
   m_Name: '[Button] Submit'
   m_TagString: Untagged
@@ -860,6 +861,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 777336714}
   textMesh: {fileID: 2049893933}
+--- !u!114 &777336718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777336712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &787055011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,6 +1196,7 @@ GameObject:
   - component: {fileID: 1003698128}
   - component: {fileID: 1003698127}
   - component: {fileID: 1003698130}
+  - component: {fileID: 1003698131}
   m_Layer: 5
   m_Name: '[Button] Skip'
   m_TagString: Untagged
@@ -1305,6 +1320,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1003698128}
   textMesh: {fileID: 1674713848}
+--- !u!114 &1003698131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003698125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &1154058199
 GameObject:
   m_ObjectHideFlags: 0

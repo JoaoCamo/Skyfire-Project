@@ -62,7 +62,7 @@ namespace Game.Enemy.Boss
                 DropItems();
                 SpecialEffectsManager.RequestBulletClearShockwave(transform.position, 5);
                 SpecialEffectsManager.RequestExplosion(transform.position);
-                SoundEffectController.RequestSfx(SfxTypes.BossExplosion);
+                SoundEffectController.RequestSfx(SfxTypes.EnemyExplosion);
 
                 if (++_currentHealthBar >= _bossHealthBars)
                 {

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7788902022283353578}
   - component: {fileID: 5952419691380709883}
   - component: {fileID: 9052428943944259466}
+  - component: {fileID: 1395436922743710672}
   m_Layer: 5
   m_Name: '[Button] Up'
   m_TagString: Untagged
@@ -104,6 +105,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 7504421192265679495}
+--- !u!114 &1395436922743710672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312657821563926464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &2223060256167697587
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +130,7 @@ GameObject:
   - component: {fileID: 8456325093488239426}
   - component: {fileID: 5417309282420032306}
   - component: {fileID: 6193881080468020766}
+  - component: {fileID: 7669430418797977445}
   m_Layer: 5
   m_Name: '[Button] Down'
   m_TagString: Untagged
@@ -208,6 +223,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 982338504471648157}
+--- !u!114 &7669430418797977445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2223060256167697587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &3553922364912211743
 GameObject:
   m_ObjectHideFlags: 0

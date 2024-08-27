@@ -1013,6 +1013,7 @@ GameObject:
   - component: {fileID: 613666931}
   - component: {fileID: 613666930}
   - component: {fileID: 613666933}
+  - component: {fileID: 613666934}
   m_Layer: 5
   m_Name: '[Button] Return'
   m_TagString: Untagged
@@ -1135,6 +1136,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 2067254030}
+--- !u!114 &613666934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613666928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &655438587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,6 +1274,7 @@ GameObject:
   - component: {fileID: 957646598}
   - component: {fileID: 957646597}
   - component: {fileID: 957646600}
+  - component: {fileID: 957646601}
   m_Layer: 5
   m_Name: '[Button] Easy'
   m_TagString: Untagged
@@ -1388,6 +1403,19 @@ MonoBehaviour:
       to refine their techniques and build confidence with minimal pressure.
   image: {fileID: 957646598}
   textMesh: {fileID: 1153320185}
+--- !u!114 &957646601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957646595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &1010208109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,6 +1918,7 @@ GameObject:
   - component: {fileID: 1621082026}
   - component: {fileID: 1621082025}
   - component: {fileID: 1621082028}
+  - component: {fileID: 1621082029}
   m_Layer: 5
   m_Name: '[Button] Normal'
   m_TagString: Untagged
@@ -2018,6 +2047,19 @@ MonoBehaviour:
       to face typical combat scenarios.
   image: {fileID: 1621082026}
   textMesh: {fileID: 183969862}
+--- !u!114 &1621082029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621082023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &1722198236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,6 +2250,7 @@ GameObject:
   - component: {fileID: 1885555772}
   - component: {fileID: 1885555771}
   - component: {fileID: 1885555774}
+  - component: {fileID: 1885555775}
   m_Layer: 5
   m_Name: '[Button] Lunatic'
   m_TagString: Untagged
@@ -2336,6 +2379,19 @@ MonoBehaviour:
       can hope to survive the chaotic onslaught and endure this hell of bullets.
   image: {fileID: 1885555772}
   textMesh: {fileID: 2106698963}
+--- !u!114 &1885555775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885555769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &1958765537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,6 +2480,7 @@ GameObject:
   - component: {fileID: 2062611698}
   - component: {fileID: 2062611697}
   - component: {fileID: 2062611700}
+  - component: {fileID: 2062611701}
   m_Layer: 5
   m_Name: '[Button] Hard'
   m_TagString: Untagged
@@ -2552,6 +2609,19 @@ MonoBehaviour:
       pilots ready to confront a demanding challenge.
   image: {fileID: 2062611698}
   textMesh: {fileID: 592505507}
+--- !u!114 &2062611701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062611695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &2067254028
 GameObject:
   m_ObjectHideFlags: 0

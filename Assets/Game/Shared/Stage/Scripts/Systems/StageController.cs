@@ -17,6 +17,7 @@ namespace Game.Stage
     {
         [SerializeField] private GameStages[] stagesInfo;
         [SerializeField] private EnemySpawner enemySpawner;
+        [SerializeField] private BossIndicator bossIndicator;
         [SerializeField] private StageEffectsController stageEffectsController;
         [SerializeField] private SpriteRenderer fadeToBlack;
 
@@ -62,6 +63,7 @@ namespace Game.Stage
             EnemySpawner.RequestClearEnemies();
 
             _currentBoss = enemySpawner.SpawnBoss(_gameStages.stages[_currentStageInfoIndex].bossInfo.type);
+            bossIndicator.StartFollow(_currentBoss.transform);
             StartBoss();
         }
 
@@ -73,6 +75,8 @@ namespace Game.Stage
 
         private void StartNextStage()
         {
+            bossIndicator.StopFollow();
+
             _currentStageInfoIndex++;
             
             if (_currentStageInfoIndex >= _gameStages.stages.Length)

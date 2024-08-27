@@ -6,9 +6,10 @@ namespace Game.Audio
         Collect,
         EnemyExplosion,
         PlayerShoot,
-        BossExplosion,
         BombExplosion,
         PlayerHit,
-        EnemyShoot
+        EnemyShoot,
+        Extend,
+        MenuClick
     }
 }

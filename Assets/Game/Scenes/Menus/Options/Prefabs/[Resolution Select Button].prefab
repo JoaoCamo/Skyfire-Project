@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 3407687620194112116}
   - component: {fileID: 3221567073471723203}
   - component: {fileID: 4170604099180349999}
+  - component: {fileID: 433623347797125757}
   m_Layer: 5
   m_Name: '[Resolution Select Button]'
   m_TagString: Untagged
@@ -213,6 +214,19 @@ MonoBehaviour:
   image: {fileID: 3407687620194112116}
   button: {fileID: 3221567073471723203}
   textMesh: {fileID: 7188565384359036787}
+--- !u!114 &433623347797125757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992631697468138017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &8853757331017714343
 GameObject:
   m_ObjectHideFlags: 0

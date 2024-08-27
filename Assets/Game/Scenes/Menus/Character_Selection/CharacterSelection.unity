@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 128112154}
   - component: {fileID: 128112153}
   - component: {fileID: 128112156}
+  - component: {fileID: 128112157}
   m_Layer: 5
   m_Name: '[Button] Return'
   m_TagString: Untagged
@@ -371,6 +372,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 357237387}
+--- !u!114 &128112157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128112151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &223137744
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +787,7 @@ GameObject:
   - component: {fileID: 704342538}
   - component: {fileID: 704342537}
   - component: {fileID: 704342540}
+  - component: {fileID: 704342541}
   m_Layer: 5
   m_Name: '[Button] 1'
   m_TagString: Untagged
@@ -900,6 +915,19 @@ MonoBehaviour:
       spread shot are ideal for managing space. His bomb creates a large explosion,
       dealing heavy damage to enemies within its radius.
   image: {fileID: 704342538}
+--- !u!114 &704342541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704342535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &730762138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1284,7 @@ GameObject:
   - component: {fileID: 1086182984}
   - component: {fileID: 1086182983}
   - component: {fileID: 1086182986}
+  - component: {fileID: 1086182987}
   m_Layer: 5
   m_Name: '[Button] 2'
   m_TagString: Untagged
@@ -1383,6 +1412,19 @@ MonoBehaviour:
       larger hit area, her straight-shot weapon and speed allow precise targeting.
       Her bomb deploys a stationary shield that blocks incoming projectiles.
   image: {fileID: 1086182984}
+--- !u!114 &1086182987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086182981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a5be4641a7a63418f39304c11cd5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxType: 8
 --- !u!1 &1423152140
 GameObject:
   m_ObjectHideFlags: 0

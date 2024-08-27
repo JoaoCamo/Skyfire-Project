@@ -15,26 +15,29 @@ MonoBehaviour:
   soundEffects:
   - audioClips:
     - {fileID: 8300000, guid: 50f08f25ed09325419a02af5473cac42, type: 3}
-    volume: 0.025
+    volume: 0.5
   - audioClips:
     - {fileID: 8300000, guid: 8fb1967f5f650624b994633b9ed6adf4, type: 3}
-    volume: 0.05
+    volume: 0.75
   - audioClips:
-    - {fileID: 8300000, guid: 41d4400ae45155347806fa3d49736cb6, type: 3}
-    volume: 0.025
+    - {fileID: 8300000, guid: 8b47b86da2881e142a6d0c93fa7ede79, type: 3}
+    volume: 0.75
   - audioClips:
-    - {fileID: 8300000, guid: 80f57f4c505b1164da70fd9b708c7ae3, type: 3}
-    volume: 0.025
+    - {fileID: 8300000, guid: 5c4a1ba094a463241b7e70321bc75a02, type: 3}
+    volume: 0.25
   - audioClips:
-    - {fileID: 8300000, guid: 6f39ace4ec081014d9c349c379a6142a, type: 3}
-    volume: 0.025
+    - {fileID: 8300000, guid: 61184a30f15b49e40bbb607208aefdc9, type: 3}
+    volume: 1
   - audioClips:
-    - {fileID: 8300000, guid: d8c9d285241e87646bfc9a56aa5fb463, type: 3}
-    volume: 0.025
-  - audioClips:
-    - {fileID: 8300000, guid: d8c9d285241e87646bfc9a56aa5fb463, type: 3}
-    volume: 0.05
+    - {fileID: 8300000, guid: 030e54796440af441a06fb075cfc4d77, type: 3}
+    volume: 1
   - audioClips:
     - {fileID: 8300000, guid: 5a0f3b0b72e34b0459411ebb0526283e, type: 3}
     - {fileID: 8300000, guid: d82931b34413e304b83b3d9ef84144a9, type: 3}
+    volume: 0.8
+  - audioClips:
+    - {fileID: 8300000, guid: 54db09977476d2843bc27d3a17f8500f, type: 3}
+    volume: 1
+  - audioClips:
+    - {fileID: 8300000, guid: a9751fc7796871541add5d08d46e57a0, type: 3}
     volume: 0.5

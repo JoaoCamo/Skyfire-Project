@@ -122,6 +122,7 @@ namespace Game.Player
             {
                 _health++;
                 GameEvents.OnHealthValueChange(_health);
+                SoundEffectController.RequestSfx(SfxTypes.Extend);
                 PopUpTextManager.RequestPopUpText(new Vector2(0,0.4f), "EXTEND!", 25, Color.grey);
             }
         }
