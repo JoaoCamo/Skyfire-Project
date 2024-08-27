@@ -10,5 +10,6 @@ namespace Game.Navigation
         ViewScores,
         AddScores,
         Ending,
+        Credits
     }
 }

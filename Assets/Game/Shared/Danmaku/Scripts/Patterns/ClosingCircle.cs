@@ -16,7 +16,8 @@ namespace Game.Danmaku.Patterns
             List<ProjectileBase> projectiles = new List<ProjectileBase>();
             WaitForSeconds delay = new WaitForSeconds(shotDelay);
             ProjectileBase currentProjectile = null;
-            float angle;
+            float angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0, 360);
+            float innerAngle;
             float speed = shotSpeed;
 
             timesToLoop = isInfiniteLoop ? 999999 : timesToLoop;
@@ -25,20 +26,22 @@ namespace Game.Danmaku.Patterns
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0, 360);
+                innerAngle = angle;
 
                 for (int j = 0; j < timesToShoot; j++)
                 {
-                    currentProjectile = enemyProjectileManager.GetFireProjectile(projectileType, transform.position, speed, angle);
+                    currentProjectile = enemyProjectileManager.GetFireProjectile(projectileType, transform.position, speed, innerAngle);
                     currentProjectile.transform.DOKill();
                     projectiles.Add(currentProjectile);
-                    angle += 360f / timesToShoot;
+                    innerAngle += 360f / timesToShoot;
                 }
 
                 SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
 
                 StartCoroutine(ClosingBullets(new List<ProjectileBase>(projectiles)));
                 projectiles.Clear();
+
+                angle += 2;
 
                 yield return delay;
             }
