@@ -896,9 +896,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
     playerType: 0
-    description: Captain Hiroshi is a calm and skilled pilot, known for his precise
-      maneuvers and sharp reflexes. He can deftly navigate through tight spaces,
-      evading enemy fire with ease.
+    description: Captain Hiroshi moves with precision. His smaller hit area and broad
+      spread shot are ideal for managing space. His bomb creates a large explosion,
+      dealing heavy damage to enemies within its radius.
   image: {fileID: 704342538}
 --- !u!1 &730762138
 GameObject:
@@ -1379,8 +1379,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
     playerType: 1
-    description: Lieutenant Chen, daring and innovative, employs unconventional tactics
-      in aerial combat. Inspired by speed and agility, she swiftly outmaneuvers opponents.
+    description: Lieutenant Chen zips through the stars with agility. Despite her
+      larger hit area, her straight-shot weapon and speed allow precise targeting.
+      Her bomb deploys a stationary shield that blocks incoming projectiles.
   image: {fileID: 1086182984}
 --- !u!1 &1423152140
 GameObject:

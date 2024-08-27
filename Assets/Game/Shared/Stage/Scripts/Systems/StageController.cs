@@ -144,16 +144,8 @@ namespace Game.Stage
 
             yield return _gameEndDelay;
 
-            if (GameInfo.DifficultyType != DifficultyType.Easy && !GameInfo.usedRetry)
-            {
-                GameInfo.lastRunStatus = true;
-                NavigationController.RequestSceneLoad(Scenes.Ending, LoadSceneMode.Single, true);
-            }
-            else
-            {
-                GameInfo.lastRunStatus = false;
-                NavigationController.RequestSceneLoad(Scenes.AddScores, LoadSceneMode.Single, true);
-            }
+            GameInfo.lastRunStatus = GameInfo.DifficultyType != DifficultyType.Easy && !GameInfo.usedRetry;
+            NavigationController.RequestSceneLoad(Scenes.Ending, LoadSceneMode.Single, true);
         }
     }
 }

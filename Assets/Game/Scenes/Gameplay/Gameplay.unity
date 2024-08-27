@@ -698,7 +698,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: RESTART
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
@@ -1631,7 +1631,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &448496286
 MonoBehaviour:
@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Severely Damaged
+  m_text: SEVERELY DAMAGED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
@@ -3035,7 +3035,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Over
+  m_text: GAME OVER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
@@ -3847,7 +3847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: RESTART
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
@@ -4770,7 +4770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return To Main Menu
+  m_text: ABORT MISSION
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
@@ -5545,9 +5545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Resume
-
-'
+  m_text: RESUME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
@@ -5927,7 +5925,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retry
+  m_text: RETRY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
@@ -6203,7 +6201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pause
+  m_text: PAUSE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
@@ -7919,7 +7917,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2058069772
 MonoBehaviour:
@@ -8225,7 +8223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return To Main Menu
+  m_text: ABORT MISSION
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}
   m_sharedMaterial: {fileID: -684055625166314029, guid: b0435d15c19e0394a89928ca3b9c4821, type: 2}

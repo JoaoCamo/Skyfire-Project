@@ -1384,8 +1384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
     difficultyType: 0
-    description: Smooth skies and basic maneuvers. Ideal for novice pilots looking
-      to hone their skills without too much pressure.
+    description: Gentle surroundings and simple patterns. Ideal for rookie pilots
+      to refine their techniques and build confidence with minimal pressure.
   image: {fileID: 957646598}
   textMesh: {fileID: 1153320185}
 --- !u!1 &1010208109
@@ -2014,8 +2014,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
     difficultyType: 1
-    description: Moderate aerial danger. Suitable for skilled pilots ready to face
-      typical combat scenarios.
+    description: Moderate challenges and intricate patterns. Ready for skilled pilots
+      to face typical combat scenarios.
   image: {fileID: 1621082026}
   textMesh: {fileID: 183969862}
 --- !u!1 &1722198236
@@ -2332,8 +2332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
     difficultyType: 3
-    description: Ruthless enemies and relentless barrages. Only the most elite pilots
-      can hope to survive the chaotic onslaught on this hell of bullets.
+    description: Brutal enemies and unending barrages. Only the most elite pilots
+      can hope to survive the chaotic onslaught and endure this hell of bullets.
   image: {fileID: 1885555772}
   textMesh: {fileID: 2106698963}
 --- !u!1 &1958765537
@@ -2548,8 +2548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info:
     difficultyType: 2
-    description: Intense dogfights and complex enemy formations. Recommended for
-      experienced pilots seeking a formidable challenge in the skies.
+    description: Fierce battles and elaborate enemy patterns. Perfect for seasoned
+      pilots ready to confront a demanding challenge.
   image: {fileID: 2062611698}
   textMesh: {fileID: 592505507}
 --- !u!1 &2067254028
