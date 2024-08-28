@@ -17,7 +17,7 @@ namespace Game.Menus
         [SerializeField] private Image creditsButtonImage;
         [SerializeField] private TextMeshProUGUI creditsButtonText;
 
-        private string[] _endingDescriptions = { "The cosmos is safe once more, thanks to you!\nThe fleet celebrates your remarkable achievements, and your legend will continue to inspire those who rise to confront the enemies of humanity", "Yet, this defeat is not the end.\nThe war is far from over. Gather your strength, for the fight continues.\nTo achieve victory, complete the game in Normal mode or higher without using a retry." };
+        private string[] _endingDescriptions = { "The cosmos is safe once more, thanks to you!\nThe fleet celebrates your remarkable achievements, and your legend will continue to inspire those who rise to confront our enemies", "Yet, this defeat is not the end.\nThe war is far from over. Gather your strength, for the fight continues.\nTo achieve victory, complete the game in Normal mode or higher without using a retry." };
 
         private void Awake()
         {
