@@ -6,7 +6,7 @@ using DG.Tweening;
 using Game.Navigation;
 using Game.Player.Controls;
 using Game.Static.Events;
-using Game.Gameplay.StageEffects;
+using Game.Audio;
 
 namespace Game.Gameplay.UI
 {
@@ -64,7 +64,7 @@ namespace Game.Gameplay.UI
 
             _isPaused = !_isPaused;
 
-            StageEffectsController.ToggleMusic(_isPaused);
+            MusicController.ToggleMusic(_isPaused);
 
             canvasGroup.DOFade(_isPaused ? 1 : 0, 0.25f).SetUpdate(isIndependentUpdate: true);
             canvasGroup.interactable = _isPaused;

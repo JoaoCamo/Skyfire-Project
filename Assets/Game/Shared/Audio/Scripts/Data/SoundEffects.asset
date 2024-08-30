@@ -24,10 +24,10 @@ MonoBehaviour:
     volume: 0.75
   - audioClips:
     - {fileID: 8300000, guid: 5c4a1ba094a463241b7e70321bc75a02, type: 3}
-    volume: 0.25
+    volume: 0.15
   - audioClips:
     - {fileID: 8300000, guid: 61184a30f15b49e40bbb607208aefdc9, type: 3}
-    volume: 1
+    volume: 0.75
   - audioClips:
     - {fileID: 8300000, guid: 030e54796440af441a06fb075cfc4d77, type: 3}
     volume: 1

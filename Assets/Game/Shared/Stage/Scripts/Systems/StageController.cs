@@ -10,6 +10,7 @@ using Game.Gameplay.UI;
 using Game.Static;
 using Game.Projectiles;
 using Game.Navigation;
+using Game.Audio;
 
 namespace Game.Stage
 {
@@ -69,7 +70,7 @@ namespace Game.Stage
 
         private void StartBoss()
         {
-            stageEffectsController.SetMusic(_gameStages.stages[_currentStageInfoIndex].bossMusic);
+            MusicController.RequestNewMusic(_gameStages.stages[_currentStageInfoIndex].bossMusic);
             _currentBoss.StartBossBattle(_gameStages.stages[_currentStageInfoIndex].bossInfo);
         }
 
@@ -108,7 +109,7 @@ namespace Game.Stage
             yield return _sceneFadeDelay;
 
             stageEffectsController.StartAnimation(_currentStage);
-            stageEffectsController.SetMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
+            MusicController.RequestNewMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
 
             EnemyProjectileManager.RequestFullClear(false);
 
@@ -137,7 +138,7 @@ namespace Game.Stage
             }
 
             stageEffectsController.StartAnimation(_currentStage);
-            stageEffectsController.SetMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
+            MusicController.RequestNewMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
 
             StartCoroutine(StartWave());
         }

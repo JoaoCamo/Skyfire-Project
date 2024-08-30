@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using Game.Navigation;
+using Game.Audio;
 
 namespace Game.Menus
 {
@@ -9,6 +10,7 @@ namespace Game.Menus
     {
         [SerializeField] private SceneNavigationInfo[] sceneNavigationInfos;
         [SerializeField] private RectTransform backgroundTransform;
+        [SerializeField] private AudioClip menuClip;
 
         private Coroutine _animationCoroutine = null;
         private bool _canAnimate = false;
@@ -23,6 +25,7 @@ namespace Game.Menus
         {
             LoadNavigation();
             StartAnimation();
+            MusicController.RequestNewMusic(menuClip);
         }
 
         private void LoadNavigation()

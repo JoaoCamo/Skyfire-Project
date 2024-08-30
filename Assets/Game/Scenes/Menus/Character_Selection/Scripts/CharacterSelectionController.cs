@@ -5,6 +5,7 @@ using TMPro;
 using Game.Navigation;
 using Game.Player;
 using Game.Static;
+using Game.Audio;
 
 namespace Game.Menus
 {
@@ -33,8 +34,9 @@ namespace Game.Menus
 
         public void SelectCharacter(PlayerType playerType)
         {
-            NavigationController.RequestSceneLoad(Scenes.Gameplay, LoadSceneMode.Single, true);
             GameInfo.PlayerType = playerType;
+            MusicController.RequestStopMusic();
+            NavigationController.RequestSceneLoad(Scenes.Gameplay, LoadSceneMode.Single, true);
         }
 
         public void SetInfo(PlayerType playerType, string descriptionText)

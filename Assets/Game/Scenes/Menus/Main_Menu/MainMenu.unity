@@ -1967,6 +1967,7 @@ MonoBehaviour:
     hasLoading: 0
     button: {fileID: 1754272012}
   backgroundTransform: {fileID: 1999306955}
+  menuClip: {fileID: 0}
 --- !u!4 &2144625228
 Transform:
   m_ObjectHideFlags: 0

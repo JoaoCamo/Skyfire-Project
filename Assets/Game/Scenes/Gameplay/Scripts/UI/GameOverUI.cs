@@ -6,7 +6,7 @@ using TMPro;
 using Game.Navigation;
 using Game.Static;
 using Game.Static.Events;
-using Game.Gameplay.StageEffects;
+using Game.Audio;
 
 namespace Game.Gameplay.UI
 {
@@ -73,7 +73,7 @@ namespace Game.Gameplay.UI
 
             _loseScreenOpen = !_loseScreenOpen;
 
-            StageEffectsController.ToggleMusic(_loseScreenOpen);
+            MusicController.ToggleMusic(_loseScreenOpen);
 
             canvasGroup.DOFade(_loseScreenOpen ? 1 : 0, 0.25f).SetUpdate(isIndependentUpdate: true);
             canvasGroup.interactable = _loseScreenOpen;
