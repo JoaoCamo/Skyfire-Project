@@ -5,6 +5,7 @@ using TMPro;
 using Game.Static;
 using Game.Navigation;
 using Game.Saves;
+using Game.Audio;
 
 namespace Game.Menus
 {
@@ -17,6 +18,7 @@ namespace Game.Menus
         [SerializeField] private Button submitButton;
         [SerializeField] private Image submitButtonImage;
         [SerializeField] private TextMeshProUGUI submitButtonTextMesh;
+        [SerializeField] private AudioClip menuClip;
 
         private readonly Color32 _disabledColor = new Color32(13, 22, 13, 255);
         private readonly Color32 _activatedColor = new Color32(125, 160, 95, 255);
@@ -26,6 +28,7 @@ namespace Game.Menus
             FillInfo();
             LoadButtons();
             inputField.onValueChanged.AddListener(CheckForName);
+            MusicController.RequestNewMusic(menuClip);
         }
 
         private void FillInfo()

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isContinuation: 0
   bossSpawnDelay: 7.5
-  stageMusic: {fileID: 8300000, guid: b8862c98a9714c44abd81b462f307f65, type: 3}
+  stageMusic: {fileID: 8300000, guid: affb4b88764169d46850b43d8998ec80, type: 3}
   bossMusic: {fileID: 0}
   enemyWaves:
   - enemyType: 3

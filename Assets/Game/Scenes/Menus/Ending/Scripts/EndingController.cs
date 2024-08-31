@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using Game.Navigation;
 using Game.Static;
+using Game.Audio;
 
 namespace Game.Menus
 {
@@ -16,6 +17,7 @@ namespace Game.Menus
         [SerializeField] private Button creditsButton;
         [SerializeField] private Image creditsButtonImage;
         [SerializeField] private TextMeshProUGUI creditsButtonText;
+        [SerializeField] private AudioClip menuClip;
 
         private string[] _endingDescriptions = { "The cosmos is safe once more, thanks to you!\nThe fleet celebrates your remarkable achievements, and your legend will continue to inspire those who rise to confront our enemies", "Yet, this defeat is not the end.\nThe war is far from over. Gather your strength, for the fight continues.\nTo achieve victory, complete the game in Normal mode or higher without using a retry." };
 
@@ -23,6 +25,7 @@ namespace Game.Menus
         {
             LoadButtons();
             Initialize();
+            MusicController.RequestNewMusic(menuClip);
         }
 
         private void Initialize()
@@ -55,7 +58,7 @@ namespace Game.Menus
 
         private void CreditsButtonOnClick()
         {
-            NavigationController.RequestSceneLoad(Scenes.Credits, UnityEngine.SceneManagement.LoadSceneMode.Single, true);
+            NavigationController.RequestSceneLoad(Scenes.Credits, UnityEngine.SceneManagement.LoadSceneMode.Additive, false);
         }
     }
 }

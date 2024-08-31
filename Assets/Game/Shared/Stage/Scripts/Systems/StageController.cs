@@ -105,11 +105,11 @@ namespace Game.Stage
             yield return _sceneFadeDelay;
             
             fadeToBlack.DOColor(new Color(0, 0, 0, 1), 1);
+            MusicController.RequestStopMusic();
             
             yield return _sceneFadeDelay;
 
             stageEffectsController.StartAnimation(_currentStage);
-            MusicController.RequestNewMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
 
             EnemyProjectileManager.RequestFullClear(false);
 
@@ -117,7 +117,9 @@ namespace Game.Stage
 
             PopUpTextManager.RequestPopUpText(new Vector2(0, 0.4f), ("STAGE " + (_currentStage + 1)), 25, Color.grey);
             fadeToBlack.DOColor(new Color(0, 0, 0, 0), 1);
-            
+
+            MusicController.RequestNewMusic(_gameStages.stages[_currentStageInfoIndex].stageMusic);
+
             if (_stageCoroutine != null)
             {
                 StopCoroutine(_stageCoroutine);
@@ -145,6 +147,8 @@ namespace Game.Stage
 
         private IEnumerator EndStages()
         {
+            MusicController.RequestStopMusic();
+
             fadeToBlack.DOColor(new Color(0, 0, 0, 1), 2.5f);
 
             yield return _gameEndDelay;

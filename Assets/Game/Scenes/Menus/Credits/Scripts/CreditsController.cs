@@ -10,7 +10,7 @@ namespace Game.Menus
         [SerializeField] private RectTransform moveTransform;
         [SerializeField] private Button continueButton;
 
-        private readonly Vector3 FINAL_POSITION = new Vector3(0, 200);
+        private readonly Vector3 FINAL_POSITION = new Vector3(0, 225);
 
         private void Awake()
         {

@@ -15,7 +15,7 @@ MonoBehaviour:
   isContinuation: 1
   bossSpawnDelay: 10
   stageMusic: {fileID: 0}
-  bossMusic: {fileID: 8300000, guid: 77923fbcecc0c2246b0db1e2f5b5ff6c, type: 3}
+  bossMusic: {fileID: 0}
   enemyWaves:
   - enemyType: 1
     initialPosition:

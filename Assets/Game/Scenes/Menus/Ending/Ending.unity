@@ -1624,6 +1624,7 @@ MonoBehaviour:
   creditsButton: {fileID: 1079006469}
   creditsButtonImage: {fileID: 1079006470}
   creditsButtonText: {fileID: 836834430}
+  menuClip: {fileID: 8300000, guid: 0ef8e326a7ae96b4eadbc301415b81cc, type: 3}
 --- !u!4 &1752245996
 Transform:
   m_ObjectHideFlags: 0

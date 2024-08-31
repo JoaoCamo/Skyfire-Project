@@ -360,6 +360,7 @@ MonoBehaviour:
   submitButton: {fileID: 777336716}
   submitButtonImage: {fileID: 777336714}
   submitButtonTextMesh: {fileID: 2049893933}
+  menuClip: {fileID: 8300000, guid: 0ef8e326a7ae96b4eadbc301415b81cc, type: 3}
 --- !u!4 &409172544
 Transform:
   m_ObjectHideFlags: 0

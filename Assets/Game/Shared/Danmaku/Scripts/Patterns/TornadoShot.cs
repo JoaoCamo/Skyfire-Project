@@ -9,6 +9,7 @@ namespace Game.Danmaku.Patterns
     {
         private bool _canInvertAngle = false;
         private bool _invertAngle = false;
+        private float _angle;
         private const float INVERT_MIN_DELAY = 2.5f;
         private const float INVERT_MAX_DELAY = 5f;
 
@@ -16,7 +17,7 @@ namespace Game.Danmaku.Patterns
         {
             WaitForSeconds delay = new WaitForSeconds(shotDelay);
             _canInvertAngle = true;
-            float angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0, 360);
+            _angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0, 360);
 
             timesToLoop = isInfiniteLoop ? 999999 : timesToLoop;
 
@@ -24,13 +25,13 @@ namespace Game.Danmaku.Patterns
 
             for (int i = 0; i < timesToLoop; i++)
             {
-                ShotOne(angle);
-                ShotTwo(angle);
-                ShotThree(angle);
+                ShotOne(_angle);
+                ShotTwo(_angle);
+                ShotThree(_angle);
 
                 SoundEffectController.RequestSfx(SfxTypes.EnemyShoot);
 
-                angle += _invertAngle ? 10 : -10;
+                _angle += _invertAngle ? 10 : -10;
 
                 yield return delay;
             }
@@ -45,6 +46,7 @@ namespace Game.Danmaku.Patterns
                 delay = Random.Range(INVERT_MIN_DELAY, INVERT_MAX_DELAY);
 
                 yield return new WaitForSeconds(delay);
+                _angle = isAimed ? EnemyProjectileManager.AimAtPlayer(transform.position) : Random.Range(0, 360);
                 _invertAngle = !_invertAngle;
             }
         }

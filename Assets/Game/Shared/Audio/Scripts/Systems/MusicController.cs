@@ -11,8 +11,8 @@ namespace Game.Audio
 
         private bool _isPlaying = false;
 
-        private readonly WaitForSeconds _audioFadeDelay = new WaitForSeconds(0.5f);
-        private const float AUDIO_FADE_DURATION = 0.5f;
+        private readonly WaitForSeconds _audioFadeDelay = new WaitForSeconds(1);
+        private const float AUDIO_FADE_DURATION = 1;
 
         public static Action<AudioClip> RequestNewMusic { private set; get; }
         public static Action RequestStopMusic { private set; get; }
@@ -55,7 +55,7 @@ namespace Game.Audio
             audioSource.clip = audioClip;
             audioSource.Play();
 
-            audioSource.DOFade(1, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
+            audioSource.DOFade(0.75f, AUDIO_FADE_DURATION).SetEase(Ease.Linear);
 
             _isPlaying = true;
         }
