@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using Game.Player.Controls;
 using Game.Projectiles;
 using Game.Static.Events;
+using Game.Static;
 
 namespace Game.Player
 {
@@ -81,7 +82,8 @@ namespace Game.Player
         private void UseBomb(InputAction.CallbackContext callbackContext)
         {
             if (_currentBombs == 0 || !_canBomb) return;
-            
+
+            GameInfo.hasUsedBomb = true;
             _currentBombs--;
 
             _health.RequestInvincibility();

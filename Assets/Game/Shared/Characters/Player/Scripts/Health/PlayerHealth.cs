@@ -7,6 +7,7 @@ using Game.Gameplay.Effects;
 using Game.Gameplay.UI;
 using Game.Audio;
 using Game.Drop;
+using Game.Static;
 
 namespace Game.Player
 {
@@ -64,6 +65,7 @@ namespace Game.Player
             
             if (other.gameObject.layer != ENEMY_BULLET_LAYER && other.gameObject.layer != ENEMY_LAYER) return;
 
+            GameInfo.hasMissed = true;
             StartInvincibility();
             StartCoroutine(StopMovement());
             SpecialEffectsManager.RequestBulletClearShockwave(transform.position, 1.5f);
@@ -123,7 +125,7 @@ namespace Game.Player
                 _health++;
                 GameEvents.OnHealthValueChange(_health);
                 SoundEffectController.RequestSfx(SfxTypes.Extend);
-                PopUpTextManager.RequestPopUpText(new Vector2(0,0.4f), "EXTEND!", 25, Color.grey);
+                PopUpTextManager.RequestPopUpText(new Vector2(0,0.5f), "EXTEND!", 25, Color.grey);
             }
         }
 

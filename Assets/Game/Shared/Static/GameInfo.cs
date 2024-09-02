@@ -9,6 +9,8 @@ namespace Game.Static
         public static int CurrentScore = 0;
         public static bool ShowFps = false;
         public static bool usedRetry = false;
+        public static bool hasMissed = false;
+        public static bool hasUsedBomb = false;
         public static bool lastRunStatus = false;
     }
 }

@@ -11,6 +11,7 @@ using Game.Static;
 using Game.Projectiles;
 using Game.Navigation;
 using Game.Audio;
+using Game.Static.Events;
 
 namespace Game.Stage
 {
@@ -113,6 +114,8 @@ namespace Game.Stage
 
             EnemyProjectileManager.RequestFullClear(false);
 
+            GetStageBonus();
+
             yield return _sceneFadeDelay;
 
             PopUpTextManager.RequestPopUpText(new Vector2(0, 0.4f), ("STAGE " + (_currentStage + 1)), 25, Color.grey);
@@ -155,6 +158,30 @@ namespace Game.Stage
 
             GameInfo.lastRunStatus = GameInfo.DifficultyType != DifficultyType.Easy && !GameInfo.usedRetry;
             NavigationController.RequestSceneLoad(Scenes.Ending, LoadSceneMode.Single, true);
+        }
+
+        private void GetStageBonus()
+        {
+            string bonusText = "";
+            int stageBonus = 0;
+
+            if(!GameInfo.hasMissed)
+            {
+                bonusText += "NO MISS BONUS: 75000\n\n";
+                stageBonus += 75000;
+            }
+
+            if(!GameInfo.hasUsedBomb)
+            {
+                bonusText += "NO BOMBS BONUS: 50000";
+                stageBonus += 50000;
+            }
+
+            PopUpTextManager.RequestPopUpText(new Vector2(0,0), bonusText, 25, Color.grey);
+            GameEvents.OnPointsValueChange(stageBonus);
+
+            GameInfo.hasMissed = false;
+            GameInfo.hasUsedBomb = false;
         }
     }
 }
