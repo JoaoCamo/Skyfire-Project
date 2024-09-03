@@ -35,7 +35,7 @@ namespace Game.Menus
         public void SelectCharacter(PlayerType playerType)
         {
             GameInfo.PlayerType = playerType;
-            MusicController.RequestStopMusic();
+            MusicController.ToggleMusic(true);
             NavigationController.RequestSceneLoad(Scenes.Gameplay, LoadSceneMode.Single, true);
         }
 

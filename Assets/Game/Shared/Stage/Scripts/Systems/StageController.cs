@@ -167,9 +167,11 @@ namespace Game.Stage
 
             if(!GameInfo.hasMissed)
             {
-                bonusText += "NO MISS BONUS: 75000\n\n";
+                bonusText += "NO MISS BONUS: 75000";
                 stageBonus += 75000;
             }
+
+            bonusText += "\n\n";
 
             if(!GameInfo.hasUsedBomb)
             {

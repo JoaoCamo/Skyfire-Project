@@ -22,7 +22,7 @@ namespace Game.Player
         private readonly WaitForSeconds _invincibilityDelay = new WaitForSeconds(0.25f);
         private readonly WaitForSeconds _stopActionDelay = new WaitForSeconds(0.5f);
 
-        private readonly int[] _pointsNeededForExtraLife = new int[] { 1000000, 2000000, 4000000, 600000, 10000000 };
+        private readonly int[] _pointsNeededForExtraLife = new int[] { 1000000, 2000000, 4000000, 6000000, 10000000 };
         private int _extraLifeIndex = 0;
 
         private const int MAX_HEALTH_VALUE = 8;
