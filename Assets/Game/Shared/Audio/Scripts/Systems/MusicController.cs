@@ -34,8 +34,16 @@ namespace Game.Audio
 
         private void StartMusicChange(AudioClip audioClip)
         {
-            if (audioClip == audioSource.clip || audioClip == null)
+            if (audioClip == null)
                 return;
+
+            if(audioClip == audioSource.clip)
+            {
+                if(!_isPlaying)
+                    audioSource.Play();
+                else
+                    return;
+            }
 
             StartCoroutine(StartMusic(audioClip));
         }
@@ -70,6 +78,8 @@ namespace Game.Audio
 
         private void PauseMusic(bool state)
         {
+            _isPlaying = !state;
+
             if (state)
                 audioSource.Pause();
             else
